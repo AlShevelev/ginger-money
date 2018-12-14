@@ -1,0 +1,94 @@
+<resources>
+    <string name="appName">Ginger money</string>
+
+    <string name="currencyEurShort" translatable="false">EUR</string>
+    <string name="currencyUsdShort" translatable="false">USD</string>
+    <string name="currencyRubShort">RUB</string>
+
+    <string name="dayMonday">Monday</string>
+    <string name="dayTuesday">Tuesday</string>
+    <string name="dayWednesday">Wednesday</string>
+    <string name="dayThursday">Thursday</string>
+    <string name="dayFriday">Friday</string>
+    <string name="daySaturday">Saturday</string>
+    <string name="daySunday">Sunday</string>
+
+    <string name="commonPrevious">Previous</string>
+    <string name="commonNext">Next</string>
+    <string name="commonOk">OK</string>
+    <string name="commonCancel">Cancel</string>
+    <string name="commonSave">Save</string>
+    <string name="commonDone">Done</string>
+    <string name="commonAmount">Amount</string>
+    <string name="commonMemo">Memo</string>
+    <plurals name="commonAccount">
+        <item quantity="one">Account</item>
+        <item quantity="many">Accounts</item>
+    </plurals>
+    <plurals name="commonCategory">
+        <item quantity="one">Category</item>
+        <item quantity="many">Categories</item>
+    </plurals>
+    <string name="commonDateTime">Date&amp;Time</string>
+    <string name="commonCamera">Camera</string>
+    <string name="commonGallery">Gallery</string>
+    <string name="commonGroup">Group</string>
+    <string name="commonName">Name</string>
+    <string name="commonCurrency">Currency</string>
+
+    <string name="paymentCash">Cash</string>
+    <string name="paymentCards">Cards</string>
+    <string name="paymentCreditCards">Credit cards</string>
+    <string name="paymentDebitCards">Debit cards</string>
+    <string name="paymentAccounts">Accounts</string>
+    <string name="paymentDeposits">Deposits</string>
+    <string name="paymentSavings">Savings</string>
+    <string name="paymentInvestments">Investments</string>
+    <string name="paymentShares">Shares</string>
+    <string name="paymentBonds">Bonds</string>
+
+    <string name="passEnter">Enter master password</string>
+    <string name="passMethod1">without protection</string>
+    <string name="passMethod2">fingerprint</string>
+    <string name="passMethod3">master password</string>
+
+    <string name="welcome">Welcome to Ginger Money!</string>
+
+    <string name="setupMasterPassExplanation">Master-password is used for two purposes: 1) it\'s used for your data encryption; 2) you can use it to protect an entrance to the application.\n\nChoose the master-password wisely - it shouldn\'t be short or simple. And don't forget to write it down!</string>
+    <string name="setupBaseCurrency">Choose base currency</string>
+    <string name="setupBaseCurrencyExplanation">The base currency is the one you use most often to record your incomes and expenses.</string>
+    <string name="setupProtectionMethod">Select the application protection method</string>
+    <string name="setupProtectionExplanation">This method will only be used when starting the application. This is a simple but effective way to protect your data.</string>
+
+    <string name="enterLogin">Login</string>
+    <string name="enterUseFingerprint">Use fingerprint</string>
+    <string name="enterProtectedFingerprint">Protected by fingerprint</string>
+    <string name="enterTouchSensor">Touch sensor to continue</string>
+    <string name="enterUseMaster">Use master password</string>
+
+    <string name="mainCosts">Expenses</string>
+    <string name="mainCostsAdd">Add expenses</string>
+    <string name="mainCostsCategoriesList">Expenses categories</string>
+    <string name="mainCostsCategoryEdit">Edit category</string>
+
+    <string name="mainStatistics">Statistics</string>
+    <string name="mainStatisticsPeriodically">Periodically</string>
+    <string name="mainStatisticsWeekly">Weekly</string>
+    <string name="mainStatisticsMonthly">Monthly</string>
+    <string name="mainStatisticsYearly">Yearly</string>
+
+    <string name="mainAccountsTotal">Total</string>
+    <string name="mainAccountsShowSumIn">Show sum in…</string>
+    <string name="mainAccountsShowAmount">show an amount of all accounts</string>
+    <string name="mainAccountsSelectColors">Select colors</string>
+    <string name="mainAccountsTextColor">Text color</string>
+    <string name="mainAccountsBackgroundColor">Background color</string>
+    <string name="mainAccountsAdd">Add account</string>
+    <string name="mainAccountsSelectGroup">Select group</string>
+
+    <string name="mainSettings">Settings</string>
+    <string name="mainSettingsApplicationProtection">Application protection</string>
+    <string name="mainSettingsDefaultCurrency">Default currency</string>
+    <string name="mainSettingsStartDay">Start day of a week</string>
+    <string name="setupProtectionDialog">Select protection method</string>
+</resources>

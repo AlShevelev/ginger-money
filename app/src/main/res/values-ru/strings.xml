@@ -1,0 +1,94 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="appName">Рыжие деньги</string>
+
+    <string name="currencyRubShort">РУБ</string>
+
+    <string name="dayMonday">Понедельник</string>
+    <string name="dayTuesday">Вторник</string>
+    <string name="dayWednesday">Средаy</string>
+    <string name="dayThursday">Четверг</string>
+    <string name="dayFriday">Пятница</string>
+    <string name="daySaturday">Суббота</string>
+    <string name="daySunday">Воскресенье</string>
+
+    <string name="commonPrevious">Предыдущий</string>
+    <string name="commonNext">Следующий</string>
+    <string name="commonOk">OK</string>
+    <string name="commonCancel">Отмена</string>
+    <string name="commonSave">Сохранить</string>
+    <string name="commonDone">Готово</string>
+    <string name="commonAmount">Сумма</string>
+    <string name="commonMemo">Заметка</string>
+    <plurals name="commonAccount">
+        <item quantity="one" tools:ignore="ImpliedQuantity">Счет</item>
+        <item quantity="few">Счета</item>
+        <item quantity="many">Счета</item>
+    </plurals>
+    <plurals name="commonCategory">
+        <item quantity="one" tools:ignore="ImpliedQuantity">Категория</item>
+        <item quantity="few">Категории</item>
+        <item quantity="many">Категории</item>
+    </plurals>
+    <string name="commonDateTime">Дата&amp;Время</string>
+    <string name="commonCamera">Камера</string>
+    <string name="commonGallery">Галерея</string>
+    <string name="commonGroup">Группа</string>
+    <string name="commonName">Название</string>
+    <string name="commonCurrency">Валюта</string>
+
+    <string name="paymentCash">Наличные</string>
+    <string name="paymentCards">Карты</string>
+    <string name="paymentCreditCards">Кредитные карты</string>
+    <string name="paymentDebitCards">Дебетовые карты</string>
+    <string name="paymentAccounts">Счета</string>
+    <string name="paymentDeposits">Депозиты</string>
+    <string name="paymentSavings">Накопления</string>
+    <string name="paymentInvestments">Инвестиции</string>
+    <string name="paymentShares">Акции</string>
+    <string name="paymentBonds">Облигации</string>
+
+    <string name="passEnter">Введите основной пароль</string>
+    <string name="passMethod1">без защиты</string>
+    <string name="passMethod2">отпечаток пальца</string>
+    <string name="passMethod3">основной пароль</string>
+
+    <string name="welcome">Добро пожаловать в рыжие деньги!</string>
+
+    <string name="setupMasterPassExplanation">Основной пароль используется для двух целей: 1) для шифрования ваших данных; 2) вы можете использовать его для защиты входа в приложение.\n\nВыбирайте основной пароль разумно - он не должен быть очень простым или коротким. И не забудьте записать его!</string>
+    <string name="setupBaseCurrency">Выберите основную валюту</string>
+    <string name="setupBaseCurrencyExplanation">Основная валюта - это та, в которой вы наиболее часто записываете доходы и расходы.</string>
+    <string name="setupProtectionMethod">Выберите метод защиты входа в приложение</string>
+    <string name="setupProtectionExplanation">Этот метод будет использоваться только при старте приложения. Это простой, но эффективный способ защитить ваши данные.</string>
+
+    <string name="enterLogin">Войти</string>
+    <string name="enterUseFingerprint">Вход по отпечатку пальца</string>
+    <string name="enterProtectedFingerprint">Защищено отпечатком пальца</string>
+    <string name="enterTouchSensor">Коснитесь сенсора</string>
+    <string name="enterUseMaster">Вход по основному паролю</string>
+
+    <string name="mainCosts">Расходы</string>
+    <string name="mainCostsAdd">Добавить расход</string>
+    <string name="mainCostsCategoriesList">Категории расходов</string>
+    <string name="mainCostsCategoryEdit">Редактировать категорию</string>
+
+    <string name="mainStatistics">Статистика</string>
+    <string name="mainStatisticsPeriodically">Период</string>
+    <string name="mainStatisticsWeekly">Неделя</string>
+    <string name="mainStatisticsMonthly">Месяц</string>
+    <string name="mainStatisticsYearly">Год</string>
+
+    <string name="mainAccountsTotal">Итого</string>
+    <string name="mainAccountsShowSumIn">Показывать сумму в…</string>
+    <string name="mainAccountsShowAmount">показывать сумму по всем счетам</string>
+    <string name="mainAccountsSelectColors">Выбор цветов</string>
+    <string name="mainAccountsTextColor">Цвет текста</string>
+    <string name="mainAccountsBackgroundColor">Цвет фона</string>
+    <string name="mainAccountsAdd">Добавить счет</string>
+    <string name="mainAccountsSelectGroup">Выберите группу</string>
+
+    <string name="mainSettings">Настройки</string>
+    <string name="mainSettingsApplicationProtection">Защита приложения</string>
+    <string name="mainSettingsDefaultCurrency">Основная валюта</string>
+    <string name="mainSettingsStartDay">Первый день недели</string>
+    <string name="setupProtectionDialog">Выберите метод защиты</string>
+</resources>
