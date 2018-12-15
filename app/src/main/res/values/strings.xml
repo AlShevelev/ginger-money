@@ -54,7 +54,7 @@
 
     <string name="welcome">Welcome to Ginger Money!</string>
 
-    <string name="setupMasterPassExplanation">Master-password is used for two purposes: 1) it\'s used for your data encryption; 2) you can use it to protect an entrance to the application.\n\nChoose the master-password wisely - it shouldn\'t be short or simple. And don't forget to write it down!</string>
+    <string name="setupMasterPassExplanation">Master-password is used for two purposes: 1) it\'s used for your data encryption; 2) you can use it to protect an entrance to the application.\n\nChoose the master-password wisely - it shouldn\'t be short or simple. And don\'t forget to write it down!</string>
     <string name="setupBaseCurrency">Choose base currency</string>
     <string name="setupBaseCurrencyExplanation">The base currency is the one you use most often to record your incomes and expenses.</string>
     <string name="setupProtectionMethod">Select the application protection method</string>
