@@ -1,7 +1,8 @@
-package com.gingermoney.syleiman.ginger_money
+package com.gingermoney.syleiman.gingermoney.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.gingermoney.syleiman.gingermoney.R
 
 class RootActivity : AppCompatActivity() {
 

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.gingermoney.syleiman.ginger_money">
+          package="com.gingermoney.syleiman.gingermoney">
 
     <application
-            android:allowBackup="true"
+            android:name=".application.App"
+            android:allowBackup="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/appName"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".RootActivity">
+        <activity android:name="com.gingermoney.syleiman.gingermoney.presentation.RootActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
