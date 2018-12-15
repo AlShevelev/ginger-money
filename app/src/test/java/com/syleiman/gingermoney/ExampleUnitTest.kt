@@ -1,4 +1,4 @@
-package com.gingermoney.syleiman.gingermoney
+package com.syleiman.gingermoney
 
 import org.junit.Test
 

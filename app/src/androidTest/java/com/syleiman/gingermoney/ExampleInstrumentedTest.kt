@@ -1,4 +1,4 @@
-package com.gingermoney.syleiman.gingermoney
+package com.syleiman.gingermoney
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

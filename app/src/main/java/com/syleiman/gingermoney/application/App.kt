@@ -1,4 +1,4 @@
-package com.gingermoney.syleiman.gingermoney.application
+package com.syleiman.gingermoney.application
 
 import android.app.Application
 
