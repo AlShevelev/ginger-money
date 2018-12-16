@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.syleiman.gingermoney">
+          xmlns:tools="http://schemas.android.com/tools" package="com.syleiman.gingermoney">
 
     <application
             android:name=".application.App"
@@ -8,14 +8,19 @@
             android:icon="@mipmap/ic_launcher"
             android:label="@string/appName"
             android:supportsRtl="true"
-            android:theme="@style/AppTheme">
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".presentation.RootActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- To enable/disable Fb Crashlytics -->
+        <meta-data
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="${crashlyticsEnabled}" />
     </application>
 
 </manifest>

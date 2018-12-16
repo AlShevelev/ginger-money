@@ -1,5 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="appName">Рыжие деньги</string>
+    <string name="locale">ru</string>
 
     <string name="currencyRubShort">РУБ</string>
 
