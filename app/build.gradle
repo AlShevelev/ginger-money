@@ -48,10 +48,12 @@ dependencies {
 
     // Support
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.annotation:annotation:$androidx_annotation_version"
+    implementation "androidx.lifecycle:lifecycle-common:$androidx_lifecycle_common"
 
     // UT
     testImplementation "junit:junit:$junit_version"
-    androidTestImplementation "androidx.test:runner:$test_runner_version"
+    androidTestImplementation "androidx.test.ext:junit:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_runner_version"
 
     // Firebase

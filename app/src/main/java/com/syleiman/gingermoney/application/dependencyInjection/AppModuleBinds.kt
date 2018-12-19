@@ -14,10 +14,15 @@ import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtils
 import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
 import com.syleiman.gingermoney.core.utils.deviceInfo.DeviceInfoProvider
 import com.syleiman.gingermoney.core.utils.deviceInfo.DeviceInfoProviderInterface
+import com.syleiman.gingermoney.core.utils.encryption.Encryptor
+import com.syleiman.gingermoney.core.utils.encryption.rsa.EncryptorRSA
+import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverter
+import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
 import dagger.Binds
 import dagger.Module
 import javax.inject.Named
 
+@Suppress("unused")
 @Module
 abstract class AppModuleBinds {
     @Binds
@@ -50,4 +55,10 @@ abstract class AppModuleBinds {
     abstract fun providePersistentStorage(storage: SharedPreferencesStorage): StorageOperationsInstanceInterface
     //endregion
 
+    @Binds
+    abstract fun provideStringsConverter(converter: StringsConverter): StringsConverterInterface
+
+    @Binds
+    @Named("RSA")
+    abstract fun provideEncryptor(encryptor: EncryptorRSA): Encryptor
 }

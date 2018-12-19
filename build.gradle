@@ -28,11 +28,13 @@ buildscript {
 
         // UT
         junit_version = '4.12'
-        test_runner_version = '1.1.1'
+        test_runner_version = '1.1.0'
         espresso_runner_version = '3.1.1'
 
         // AndroidX
         constraint_layout_version = '2.0.0-alpha2'
+        androidx_annotation_version = '1.0.1'
+        androidx_lifecycle_common = '2.0.0'
 
         // Dagger
         dagger_version = '2.19'
