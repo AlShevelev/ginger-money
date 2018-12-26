@@ -63,6 +63,9 @@ dependencies {
     /* Dagger */
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    /** Date & time */
+    implementation "com.jakewharton.threetenabp:threetenabp:$three_ten_abp_version"
 }
 
 apply plugin: 'com.google.gms.google-services'
