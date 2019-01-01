@@ -31,8 +31,7 @@ class EncryptorAESTest: EncryptorTestBase() {
                 EncryptorAES()
             }
             else {                                                          // Old encryptor
-                val encryptor =
-                    EncryptorRSA(InstrumentationRegistry.getInstrumentation().targetContext.applicationContext)
+                val encryptor = EncryptorRSA(InstrumentationRegistry.getInstrumentation().targetContext.applicationContext)
 
                 val storage = InMemoryStorage()
                 val storageFacade = KeyValueStorageFacade(storage, converterInstance)

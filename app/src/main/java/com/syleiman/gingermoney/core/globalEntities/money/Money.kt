@@ -10,7 +10,7 @@ class Money {
     /**
      * Quantity of cents in the value
      */
-    private val totalCents: Long
+    val totalCents: Long
 
     /**
      * How many cents in a one unit of money

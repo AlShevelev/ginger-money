@@ -20,7 +20,7 @@ buildscript {
         google_services_version = '4.2.0'
         fabric_version = '1.27.0'
         firebase_core_version = '16.0.6'
-        crashlytics_version = '2.9.7'
+        crashlytics_version = '2.9.8'
 
         // Kotlin
         kotlin_version = '1.3.10'
@@ -32,7 +32,7 @@ buildscript {
         espresso_runner_version = '3.1.1'
 
         // AndroidX
-        constraint_layout_version = '2.0.0-alpha2'
+        constraint_layout_version = '2.0.0-alpha3'
         androidx_annotation_version = '1.0.1'
         androidx_lifecycle_common = '2.0.0'
 
@@ -41,6 +41,9 @@ buildscript {
 
         // Date & time
         three_ten_abp_version = '1.1.1'
+
+        // Room Db
+        room_version = '1.1.1'
     }
 
     dependencies {

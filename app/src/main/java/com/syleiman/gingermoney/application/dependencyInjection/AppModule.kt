@@ -2,7 +2,10 @@ package com.syleiman.gingermoney.application.dependencyInjection
 
 import android.content.Context
 import android.os.Build
+import androidx.room.Room
 import com.syleiman.gingermoney.application.dependencyInjection.scopes.ApplicationScope
+import com.syleiman.gingermoney.core.storages.db.core.DbCore
+import com.syleiman.gingermoney.core.storages.db.core.DbCoreRunInterface
 import com.syleiman.gingermoney.core.storages.keyValue.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import com.syleiman.gingermoney.core.utils.encryption.aes.EncryptorAES
@@ -32,4 +35,11 @@ class AppModule(private val appContext: Context) {
             EncryptorAESOldApi(keyValueStorageFacade, encryptor)
         }
     }
+
+    @Provides
+    @ApplicationScope
+    internal fun provideRoomDbCore(appContext: Context): DbCoreRunInterface =
+        Room
+            .databaseBuilder(appContext, DbCore::class.java, "ginger_money.db")
+            .build()
 }

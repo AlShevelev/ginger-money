@@ -1,6 +1,8 @@
 package com.syleiman.gingermoney.application.dependencyInjection
 
 import com.syleiman.gingermoney.application.dependencyInjection.scopes.ApplicationScope
+import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacade
+import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacadeInterface
 import com.syleiman.gingermoney.core.storages.keyValue.KeyValueStorageFacade
 import com.syleiman.gingermoney.core.storages.keyValue.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.core.storages.keyValue.storages.StorageInterface
@@ -61,4 +63,7 @@ abstract class AppModuleBinds {
     @Binds
     @Named("RSA")
     abstract fun provideEncryptor(encryptor: EncryptorRSA): Encryptor
+
+    @Binds
+    abstract fun provideDbStorageFacade(facade: DbStorageFacade): DbStorageFacadeInterface
 }

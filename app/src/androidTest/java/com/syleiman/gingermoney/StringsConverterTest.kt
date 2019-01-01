@@ -23,7 +23,7 @@ class StringsConverterTest {
 
     /** */
     @Test
-    fun toBytes_notEmpty() {
+    fun toBytes() {
         // Arrange
         val source = "In a hole in the ground there lived a hobbit."
 
@@ -50,7 +50,7 @@ class StringsConverterTest {
 
     /** */
     @Test
-    fun toBase64_notEmpty() {
+    fun toBase64() {
         // Arrange
         val source = "In a hole in the ground there lived a hobbit."
 

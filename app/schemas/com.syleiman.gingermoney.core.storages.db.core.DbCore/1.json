@@ -1,0 +1,193 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "8b43099f97cdb6391fd0934ef9f5f7c9",
+    "entities": [
+      {
+        "tableName": "account",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_id` INTEGER NOT NULL, `group` INTEGER NOT NULL, `name` TEXT NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, PRIMARY KEY(`account_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "account_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accountGroup",
+            "columnName": "group",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "memo",
+            "columnName": "memo",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "account_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "expense_category",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`expense_category_id` INTEGER NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`expense_category_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "expense_category_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "expense_category_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "expense",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`expense_id` INTEGER NOT NULL, `account_id` INTEGER NOT NULL, `expense_category_id` INTEGER NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `memo_image_file_name` TEXT, `create_at` BLOB NOT NULL, `create_at_estimate` INTEGER NOT NULL, PRIMARY KEY(`expense_id`), FOREIGN KEY(`account_id`) REFERENCES `account`(`account_id`) ON UPDATE NO ACTION ON DELETE RESTRICT , FOREIGN KEY(`expense_category_id`) REFERENCES `expense_category`(`expense_category_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "expense_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accountId",
+            "columnName": "account_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "expenseCategoryId",
+            "columnName": "expense_category_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "memo",
+            "columnName": "memo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "memoImageFileName",
+            "columnName": "memo_image_file_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "create_at",
+            "affinity": "BLOB",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createAtEstimate",
+            "columnName": "create_at_estimate",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "expense_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [
+          {
+            "name": "index_expense_account_id",
+            "unique": false,
+            "columnNames": [
+              "account_id"
+            ],
+            "createSql": "CREATE  INDEX `index_expense_account_id` ON `${TABLE_NAME}` (`account_id`)"
+          },
+          {
+            "name": "index_expense_expense_category_id",
+            "unique": false,
+            "columnNames": [
+              "expense_category_id"
+            ],
+            "createSql": "CREATE  INDEX `index_expense_expense_category_id` ON `${TABLE_NAME}` (`expense_category_id`)"
+          },
+          {
+            "name": "index_expense_create_at_estimate",
+            "unique": false,
+            "columnNames": [
+              "create_at_estimate"
+            ],
+            "createSql": "CREATE  INDEX `index_expense_create_at_estimate` ON `${TABLE_NAME}` (`create_at_estimate`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "account",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "account_id"
+            ],
+            "referencedColumns": [
+              "account_id"
+            ]
+          },
+          {
+            "table": "expense_category",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "expense_category_id"
+            ],
+            "referencedColumns": [
+              "expense_category_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8b43099f97cdb6391fd0934ef9f5f7c9\")"
+    ]
+  }
+}

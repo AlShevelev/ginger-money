@@ -11,7 +11,7 @@ abstract class EncryptorTestBase {
 
     /** */
     @Test
-    fun encryptDecrypt_notEmpty() {
+    fun encryptDecrypt() {
         // Arrange
         val source = "In a hole in the ground there lived a hobbit."
 
