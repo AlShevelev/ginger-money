@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<editor-fold desc="Global settings for text size">-->
+    <dimen name="text_size_small_less">10sp</dimen>
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_normal_less">16sp</dimen>
+    <dimen name="text_size_normal">18sp</dimen>
+    <dimen name="text_size_large_less">19sp</dimen>
+    <dimen name="text_size_large">22sp</dimen>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Toasts">-->
+    <dimen name="toast_margin">16dp</dimen>
+    <!--</editor-fold>-->
+</resources>

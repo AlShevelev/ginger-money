@@ -48,7 +48,7 @@ constructor(
         secureRandom.nextBytes(generatedKey)
 
         val encryptedKey = encryptor.encrypt(generatedKey)
-        keyValueStorage.putAESCryptoKey(encryptedKey!!)
+        keyValueStorage.setAESCryptoKey(encryptedKey!!)
 
         key = SecretKeySpec(generatedKey, "AES")
     }

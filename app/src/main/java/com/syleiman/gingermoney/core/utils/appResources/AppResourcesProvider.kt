@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.core.utils.appResources
 
 import android.content.Context
 import android.content.pm.PackageManager
+import androidx.annotation.IntegerRes
 import com.syleiman.gingermoney.R
 import javax.inject.Inject
 
@@ -11,13 +12,24 @@ constructor(
     private val appContext: Context
 ) : AppResourcesProviderInterface {
 
-    /** */
+    /**
+     *
+     */
     override fun getLocale(): String = getString(R.string.locale)
 
-    /** */
+    /**
+     *
+     */
     override fun getString(resId: Int): String = appContext.getString(resId)
 
-    /** Get metadata value as string */
+    /**
+     *
+     */
+    override fun getInt(@IntegerRes resId: Int): Int = appContext.resources.getInteger(resId)
+
+    /**
+     * Get metadata value as string
+     */
     override fun getMetadataValue(key: String): Any? {
         try {
             return appContext

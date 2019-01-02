@@ -1,5 +1,4 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -8,4 +7,16 @@
         <item name="colorAccent">@color/textOnPrimary</item>
     </style>
 
+    <!-- Splash background -->
+    <style name="RootActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/activity_root_bcg</item>
+    </style>
+
+    <!-- Custom text message -->
+    <style name="App.Toast.Text" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/text_size_normal_less</item>
+        <item name="android:textColor">@color/textOnPrimary</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

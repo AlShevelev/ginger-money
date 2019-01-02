@@ -37,6 +37,8 @@
     <string name="commonName">Название</string>
     <string name="commonCurrency">Валюта</string>
 
+    <string name="commonGeneralError">К сожалению, в процессе выполнения операции произошла ошибка.</string>
+
     <string name="paymentCash">Наличные</string>
     <string name="paymentCards">Карты</string>
     <string name="paymentCreditCards">Кредитные карты</string>

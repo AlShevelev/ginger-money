@@ -1,6 +1,8 @@
 package com.syleiman.gingermoney.core.helpers
 
-/** Returns an index of the first element yielding the smallest value of the given function or `null` if there are no elements. */
+/**
+ * Returns an index of the first element yielding the smallest value of the given function or `null` if there are no elements.
+ */
 inline fun <T, R : Comparable<R>> Iterable<T>.minIndexBy(selector: (T, Int) -> R): Int? {
     val iterator = iterator()
 

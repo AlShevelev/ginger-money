@@ -1,13 +1,12 @@
-package com.syleiman.gingermoney.presentation
+package com.syleiman.gingermoney.ui.screens.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.syleiman.gingermoney.R
 
-class RootActivity : AppCompatActivity() {
-
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_root)
+        setContentView(R.layout.activity_main)
     }
 }
