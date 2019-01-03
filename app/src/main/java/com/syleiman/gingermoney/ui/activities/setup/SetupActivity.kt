@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.screens.setup
+package com.syleiman.gingermoney.ui.activities.setup
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

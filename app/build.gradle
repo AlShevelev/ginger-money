@@ -52,14 +52,16 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlin_coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_coroutines_version"
 
-    // Support
+    // Android X
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "androidx.annotation:annotation:$androidx_annotation_version"
-    implementation "androidx.lifecycle:lifecycle-common:$androidx_lifecycle_common"
+    implementation "androidx.lifecycle:lifecycle-common:$androidx_lifecycle_common_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
 
     // UT
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_runner_version"

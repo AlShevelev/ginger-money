@@ -2,7 +2,7 @@ package com.syleiman.gingermoney.application.dependencyInjection
 
 import android.content.Context
 import com.syleiman.gingermoney.ui.dependencyInjection.UIComponent
-import com.syleiman.gingermoney.ui.screens.root.dependencyInjection.RootScreenComponent
+import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootScreenComponent
 import kotlin.reflect.KClass
 
 /** Storage for Dagger components on application level  */
