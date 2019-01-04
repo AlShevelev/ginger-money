@@ -2,7 +2,8 @@ package com.syleiman.gingermoney.application.dependencyInjection
 
 import android.content.Context
 import com.syleiman.gingermoney.ui.dependencyInjection.UIComponent
-import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootScreenComponent
+import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootActivityComponent
+import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
 import kotlin.reflect.KClass
 
 /** Storage for Dagger components on application level  */
@@ -30,7 +31,8 @@ class DependencyInjectionStorage(private val appContext: Context) {
         return when(type) {
             AppComponent::class -> DaggerAppComponent.builder().appModule(AppModule(appContext)).build()
             UIComponent::class -> get<AppComponent>().ui.build()
-            RootScreenComponent::class -> get<UIComponent>().rootScreen.build()
+            RootActivityComponent::class -> get<UIComponent>().rootActivity.build()
+            SetupActivityComponent::class -> get<UIComponent>().setupActivity.build()
 
             else -> throw UnsupportedOperationException("This component is not supported: ${type.simpleName}")
         } as T

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_setup"
+            app:startDestination="@id/masterPasswordFragment">
+
+    <fragment android:id="@+id/masterPasswordFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.MasterPasswordFragment"
+              android:label="fragment_setup_master_password"
+              tools:layout="@layout/fragment_setup_master_password">
+        <action android:id="@+id/action_masterPasswordFragment_to_baseCurrencyFragment"
+                app:destination="@id/baseCurrencyFragment"
+                app:exitAnim="@anim/nav_slide_out_left"
+                app:popEnterAnim="@anim/nav_slide_in_left"
+                app:popExitAnim="@anim/nav_slide_out_right"
+                app:enterAnim="@anim/nav_slide_in_right"/>
+    </fragment>
+    <fragment android:id="@+id/baseCurrencyFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.BaseCurrencyFragment"
+              android:label="fragment_setup_base_currency"
+              tools:layout="@layout/fragment_setup_base_currency">
+        <action android:id="@+id/action_baseCurrencyFragment_to_protectionMethodFragment"
+                app:destination="@id/protectionMethodFragment"
+                app:enterAnim="@anim/nav_slide_in_right"
+                app:exitAnim="@anim/nav_slide_out_left"
+                app:popEnterAnim="@anim/nav_slide_in_left"
+                app:popExitAnim="@anim/nav_slide_out_right"/>
+    </fragment>
+    <fragment android:id="@+id/protectionMethodFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.ProtectionMethodFragment"
+              android:label="fragment_setup_protection_method"
+              tools:layout="@layout/fragment_setup_protection_method">
+        <action android:id="@+id/action_protectionMethodFragment_to_mainActivity"
+                app:destination="@id/mainActivity"
+                app:enterAnim="@anim/nav_slide_in_right"
+                app:exitAnim="@anim/nav_slide_out_left"
+                app:popEnterAnim="@anim/nav_slide_in_left"
+                app:popExitAnim="@anim/nav_slide_out_right"
+        />
+    </fragment>
+    <activity android:id="@+id/mainActivity"
+              android:name="com.syleiman.gingermoney.ui.activities.main.MainActivity"
+              android:label="activity_main"
+              tools:layout="@layout/activity_main"/>
+</navigation>

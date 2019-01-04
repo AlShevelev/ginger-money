@@ -8,7 +8,7 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
 import com.syleiman.gingermoney.core.storages.keyValue.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.ui.activities.main.MainActivity
-import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootScreenComponent
+import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.SetupActivity
 import com.syleiman.gingermoney.ui.common.uiUtils.UIUtilsInterface
 import javax.inject.Inject
@@ -33,7 +33,7 @@ class RootScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        App.injections.get<RootScreenComponent>().inject(this)
+        App.injections.get<RootActivityComponent>().inject(this)
     }
 
     /**
@@ -79,7 +79,7 @@ class RootScreenActivity : AppCompatActivity() {
         super.onDestroy()
 
         if(isFinishing) {
-            App.injections.release<RootScreenComponent>()
+            App.injections.release<RootActivityComponent>()
         }
     }
 
@@ -87,9 +87,9 @@ class RootScreenActivity : AppCompatActivity() {
      *
      */
     private fun moveTo(targetActivity: Class<*>) {
-        // We don't need some complex navigation logic for this activity
+        // We don't need some complex navigation logic for this activity, so we should not use Navigation Component
         val intent = Intent(this, targetActivity)
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
         this.startActivity(intent)
+        finish()
     }
 }

@@ -1,12 +1,14 @@
 package com.syleiman.gingermoney.ui.dependencyInjection
 
-import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootScreenComponent
+import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootActivityComponent
+import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
 import dagger.Module
 
 /**
  *
  */
 @Module(subcomponents = [
-    RootScreenComponent::class
+    RootActivityComponent::class,
+    SetupActivityComponent::class
 ])
 class UIModuleChilds
