@@ -38,6 +38,7 @@
     <string name="commonCurrency">Валюта</string>
 
     <string name="commonGeneralError">К сожалению, в процессе выполнения операции произошла ошибка.</string>
+    <string name="passwordLenError">Длина пароля должна быть от {0} до {1} символов</string>
 
     <string name="paymentCash">Наличные</string>
     <string name="paymentCards">Карты</string>

@@ -21,6 +21,8 @@ constructor(
         const val CRYPTO_KEY_AES = "cryptoKey"
 
         const val IS_APP_SETUP_COMPLETE = "isAppSetupComplete"
+
+        const val MASTER_PASSWORD = "masterPassword"
     }
 
     /**
@@ -54,5 +56,21 @@ constructor(
     override fun isAppSetupComplete(): Boolean =
         keyValueStorage.read {
             it.readBoolean(Keys.IS_APP_SETUP_COMPLETE) ?: false
+        }
+
+    /**
+     *
+     */
+    override fun setMasterPassword(masterPassword: ByteArray) =
+        keyValueStorage.update {
+            it.putBytes(Keys.MASTER_PASSWORD, masterPassword)
+        }
+
+    /**
+     *
+     */
+    override fun getMasterPassword(): ByteArray? =
+        keyValueStorage.read {
+            it.readBytes(Keys.MASTER_PASSWORD)
         }
 }

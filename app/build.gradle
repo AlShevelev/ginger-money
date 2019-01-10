@@ -41,6 +41,10 @@ android {
             manifestPlaceholders = [crashlyticsEnabled: "true"]
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -55,13 +59,14 @@ dependencies {
     // Android X
     implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
     implementation "androidx.annotation:annotation:$androidx_annotation_version"
-    implementation "androidx.lifecycle:lifecycle-common:$androidx_lifecycle_common_version"
+    implementation "androidx.lifecycle:lifecycle-common:$lifecycle_common_version"
+    implementation "android.arch.lifecycle:extensions:$lifecycle_extensions_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.legacy:legacy-support-v4:$legacy_version"
 
     // UT
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_runner_version"

@@ -23,4 +23,14 @@ interface KeyValueStorageFacadeInterface {
      *
      */
     fun isAppSetupComplete(): Boolean
+
+    /**
+     *
+     */
+    fun setMasterPassword(masterPassword: ByteArray)
+
+    /**
+     *
+     */
+    fun getMasterPassword(): ByteArray?
 }

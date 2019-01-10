@@ -11,4 +11,9 @@ interface UIUtilsInterface {
      * Show non-blocking UI error message
      */
     fun showError(context: Context, @StringRes messageResId: Int)
+
+    /**
+     * Show non-blocking UI error message
+     */
+    fun showError(context: Context, message: String)
 }

@@ -24,13 +24,20 @@ constructor(
      * Show non-blocking UI error message
      */
     @SuppressLint("InflateParams")
-    override fun showError(context: Context, @StringRes messageResId: Int) {
+    override fun showError(context: Context, @StringRes messageResId: Int) =
+        showError(context, appResourcesProvider.getString(messageResId))
+
+    /**
+     * Show non-blocking UI error message
+     */
+    @SuppressLint("InflateParams")
+    override fun showError(context: Context, message: String) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         val customView = inflater.inflate(R.layout.toast_error, null)
 
         val textView = customView.findViewById<TextView>(R.id.message_text)
-        textView.text = appResourcesProvider.getString(messageResId)
+        textView.text = message
 
         with(Toast(context)) {
             setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)

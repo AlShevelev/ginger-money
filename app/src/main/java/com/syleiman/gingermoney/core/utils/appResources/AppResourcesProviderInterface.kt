@@ -15,6 +15,11 @@ interface AppResourcesProviderInterface {
     fun getString(@StringRes resId: Int): String
 
     /**
+     * Get string and format it
+     */
+    fun getFormattedString(@StringRes resId: Int, vararg args: Any): String
+
+    /**
      *
      */
     fun getInt(@IntegerRes resId: Int): Int

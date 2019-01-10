@@ -4,7 +4,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activities.setup.fragments.ProtectionMethodFragment">
+        tools:context=".ui.activities.setup.fragments.protectionMethod.view.ProtectionMethodFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
@@ -13,12 +13,6 @@
             android:text="Protection method" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
-    <Button
-            android:text="Previous"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/previousButton" android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"/>
     <Button
             android:text="Finish"
             android:layout_width="wrap_content"

@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.setup.fragments
+package com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.view
 
 
 import android.os.Bundle
@@ -10,13 +10,13 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperInterface
-import kotlinx.android.synthetic.main.fragment_setup_base_currency.*
+import kotlinx.android.synthetic.main.fragment_setup_protection_method.*
 import javax.inject.Inject
 
 /**
- * Fragment for setup base currency
+ * Fragment for setup protection method for the app
  */
-class BaseCurrencyFragment : Fragment() {
+class ProtectionMethodFragment : Fragment() {
 
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
@@ -27,7 +27,7 @@ class BaseCurrencyFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         App.injections.get<SetupActivityComponent>().inject(this)
 
-        return inflater.inflate(R.layout.fragment_setup_base_currency, container, false)
+        return inflater.inflate(R.layout.fragment_setup_protection_method, container, false)
     }
 
     /**
@@ -36,12 +36,8 @@ class BaseCurrencyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        nextButton.setOnClickListener {
-            navigation.moveToProtectionMethod(this)
-        }
-
-        previousButton.setOnClickListener {
-            navigation.moveBack(this)
+        finishButton.setOnClickListener {
+            navigation.moveToNext(this)
         }
     }
 }

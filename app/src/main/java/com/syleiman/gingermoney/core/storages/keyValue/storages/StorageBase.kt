@@ -7,10 +7,8 @@ abstract class StorageBase: StorageInterface, StorageOperationsInstanceInterface
 
     /** Update data in storage */
     override fun update(updateAction: (StorageWriteOperationsInterface) -> Unit) {
-        var operationsInstance: StorageCommitOperationsInterface? = null
-
         try{
-            operationsInstance = createWriteOperationsInstance()
+            val operationsInstance = createWriteOperationsInstance()
             updateAction(operationsInstance)
             operationsInstance.commit()
         }
