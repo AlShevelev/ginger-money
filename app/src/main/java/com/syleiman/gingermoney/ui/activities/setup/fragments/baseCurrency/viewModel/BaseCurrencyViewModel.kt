@@ -1,9 +1,10 @@
-package com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.viewModel
+package com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.viewModel
 
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
+import com.syleiman.gingermoney.core.globalEntities.money.Currency
 import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
-import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.model.MasterPasswordModelInterface
+import com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.model.BaseCurrencyModelInterface
 import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.MoveToNextCommand
 import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.ShowError
 import com.syleiman.gingermoney.ui.common.ViewCommand
@@ -12,16 +13,12 @@ import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 /**
  *
  */
-class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
-    /**
-     * Our master-password
-     */
-    val password: MutableLiveData<String> = MutableLiveData()
+class BaseCurrencyViewModel : ViewModelBase<BaseCurrencyModelInterface>() {
 
     /**
-     *
+     * Selected currency
      */
-    val passwordMaxLen: MutableLiveData<Int> = MutableLiveData()
+    val currency: MutableLiveData<Currency> = MutableLiveData()
 
     /**
      * Direct command for view
@@ -39,7 +36,7 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
     init {
         App.injections.get<SetupActivityComponent>().inject(this)
 
-        passwordMaxLen.value = model.passwordMaxLen
+        currency.value = model.startCurrencyValue
         nextButtonEnabled.value = true
     }
 
@@ -49,7 +46,7 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
     fun onNextButtonClick() {
         nextButtonEnabled.value = false
 
-        model.savePassword(password.value) { saveResult ->
+        model.saveCurrency(currency.value!!) { saveResult ->
             nextButtonEnabled.value = true
 
             command.value = if(saveResult == null) {

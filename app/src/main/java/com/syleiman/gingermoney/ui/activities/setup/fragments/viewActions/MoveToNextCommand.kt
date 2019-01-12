@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.viewActions
+package com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions
 
 import com.syleiman.gingermoney.ui.common.ViewCommand
 

@@ -1,5 +1,7 @@
 package com.syleiman.gingermoney.core.storages.keyValue
 
+import com.syleiman.gingermoney.core.globalEntities.money.Currency
+
 /**
  *
  */
@@ -33,4 +35,14 @@ interface KeyValueStorageFacadeInterface {
      *
      */
     fun getMasterPassword(): ByteArray?
+
+    /**
+     *
+     */
+    fun setDefaultCurrency(currency: Currency)
+
+    /**
+     *
+     */
+    fun getDefaultCurrency(): Currency?
 }

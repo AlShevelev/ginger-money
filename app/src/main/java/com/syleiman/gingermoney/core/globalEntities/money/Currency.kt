@@ -10,6 +10,7 @@ enum class Currency(val value: Byte) {
 
     companion object Create {
         fun from(sourceValue: Byte): Currency = values().first { it.value == sourceValue }
+        fun from(sourceValue: String): Currency = values().first { it.toString() == sourceValue }
     }
 }
 

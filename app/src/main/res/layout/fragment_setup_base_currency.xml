@@ -1,24 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.activities.setup.fragments.baseCurrency.view.BaseCurrencyFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Base currency" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent"/>
-    <Button
+    <data>
+        <variable
+            name="viewModel"
+            type="com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.viewModel.BaseCurrencyViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:background="#d2d2d2"
+        tools:context=".ui.activities.setup.fragments.baseCurrency.view.BaseCurrencyFragment">
+
+        <Button
+            android:id="@+id/nextButton"
+
             android:text="Next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/nextButton" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:onClick="@{() -> viewModel.onNextButtonClick()}"
+            android:enabled="@{viewModel.nextButtonEnabled}"
+
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <RadioGroup
+            android:id="@+id/currencySwitchers"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:selectedCurrency = "@{viewModel.currency}"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <RadioButton
+                android:id="@+id/usdSwitcher"
+
+                android:text="USD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:tag="USD"
+            />
+
+            <RadioButton
+                android:id="@+id/eurSwitcher"
+
+                android:text="EUR"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:tag="EUR"
+            />
+
+            <RadioButton
+                android:id="@+id/rubSwitcher"
+
+                android:text="RUB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:tag="RUB"
+            />
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,5 +1,6 @@
 package com.syleiman.gingermoney.core.storages.keyValue
 
+import com.syleiman.gingermoney.core.globalEntities.money.Currency
 import com.syleiman.gingermoney.core.storages.keyValue.storages.StorageInterface
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
 import javax.inject.Inject
@@ -18,11 +19,13 @@ constructor(
         /**
          * AES-encryption key (for API < 23)
          */
-        const val CRYPTO_KEY_AES = "cryptoKey"
+        const val CRYPTO_KEY_AES = "CRYPTO_KEY_AES"
 
-        const val IS_APP_SETUP_COMPLETE = "isAppSetupComplete"
+        const val IS_APP_SETUP_COMPLETE = "IS_APP_SETUP_COMPLETE"
 
-        const val MASTER_PASSWORD = "masterPassword"
+        const val MASTER_PASSWORD = "MASTER_PASSWORD"
+
+        const val DEFAULT_CURRENCY = "DEFAULT_CURRENCY"
     }
 
     /**
@@ -73,4 +76,21 @@ constructor(
         keyValueStorage.read {
             it.readBytes(Keys.MASTER_PASSWORD)
         }
+
+    /**
+     *
+     */
+    override fun setDefaultCurrency(currency: Currency) =
+        keyValueStorage.update {
+            it.putString(Keys.DEFAULT_CURRENCY, currency.toString())
+        }
+
+    /**
+     *
+     */
+    override fun getDefaultCurrency(): Currency? =
+        keyValueStorage.read { currencyStr ->
+            currencyStr.readString(Keys.DEFAULT_CURRENCY)?.let { Currency.from(it) }
+        }
+
 }

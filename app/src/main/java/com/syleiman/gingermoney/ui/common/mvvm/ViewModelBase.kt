@@ -6,10 +6,11 @@ import javax.inject.Inject
 /**
  *
  */
-abstract class ViewModelBase<TM : ModelBaseInterface> : ViewModel() {
+@Suppress("LeakingThis")
+abstract class ViewModelBase<TModel : ModelBaseInterface> : ViewModel() {
 
     @Inject
-    internal lateinit var model: TM
+    internal lateinit var model: TModel
 
     /**
      *
