@@ -20,7 +20,6 @@ import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperI
 import com.syleiman.gingermoney.ui.common.ViewCommand
 import com.syleiman.gingermoney.ui.common.displayingErrors.GeneralError
 import com.syleiman.gingermoney.ui.common.uiUtils.UIUtilsInterface
-import kotlinx.android.synthetic.main.fragment_setup_base_currency.*
 import javax.inject.Inject
 
 /**

@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.common.bindingAdapters
+package com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.bindingAdapters
 
 import android.view.View
 import android.widget.RadioButton
@@ -6,11 +6,11 @@ import android.widget.RadioGroup
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.syleiman.gingermoney.core.globalEntities.money.Currency
+import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.extension.getParentActivity
 
-@BindingAdapter("selectedCurrency")
-fun setSelectedCurrency(view: View, value: MutableLiveData<Currency>?) {
+@BindingAdapter("selectedProtectionMethod")
+fun setSelectedCurrency(view: View, value: MutableLiveData<AppProtectionMethod>?) {
     view.getParentActivity()?.let { parentActivity ->
         value?.observe(parentActivity, Observer { value ->
             view.findViewWithTag<RadioButton>(value.toString())
@@ -19,11 +19,11 @@ fun setSelectedCurrency(view: View, value: MutableLiveData<Currency>?) {
                         it.isChecked = true
                     }
                 }
-            }
+        }
         )
 
         (view as RadioGroup).setOnCheckedChangeListener { radioGroup, checkedId ->
-            val currency = Currency.from(radioGroup.findViewById<RadioButton>(checkedId).tag as String)
+            val currency = AppProtectionMethod.from(radioGroup.findViewById<RadioButton>(checkedId).tag as String)
             if(value != null && value.value != currency) {
                 value.value = currency
             }

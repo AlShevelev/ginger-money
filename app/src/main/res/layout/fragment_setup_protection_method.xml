@@ -1,23 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.viewModel.ProtectionMethodViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
+        android:background="#d2d2d2"
         tools:context=".ui.activities.setup.fragments.protectionMethod.view.ProtectionMethodFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Protection method" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
-    <Button
+        <Button
+            android:id="@+id/finishButton"
+
             android:text="Finish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/finishButton" android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            android:onClick="@{() -> viewModel.onFinishButtonClick()}"
+            android:enabled="@{viewModel.finishButtonEnabled}"
+
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <RadioGroup
+            android:id="@+id/protectionMethodSwitchers"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:selectedProtectionMethod = "@{viewModel.appProtectionMethod}"
+
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <RadioButton
+                android:id="@+id/withoutProtectionSwitcher"
+
+                android:text="Without protection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:tag="WITHOUT_PROTECTION"
+            />
+
+            <RadioButton
+                android:id="@+id/fingerprintSwitcher"
+
+                android:text="Fingerprint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:tag="FINGERPRINT"
+
+                android:visibility="@{viewModel.fingerprintMethodVisibility}"
+                tools:visibility="visible"
+            />
+
+            <RadioButton
+                android:id="@+id/masterPasswordSwitcher"
+
+                android:text="Master password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:tag="MASTER_PASSWORD"
+            />
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

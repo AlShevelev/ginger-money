@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.core.storages.keyValue
 
 import com.syleiman.gingermoney.core.globalEntities.money.Currency
+import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 
 /**
  *
@@ -45,4 +46,14 @@ interface KeyValueStorageFacadeInterface {
      *
      */
     fun getDefaultCurrency(): Currency?
+
+    /**
+     *
+     */
+    fun setAppProtectionMethod(appProtectionMethod: AppProtectionMethod)
+
+    /**
+     *
+     */
+    fun getAppProtectionMethod(): AppProtectionMethod?
 }

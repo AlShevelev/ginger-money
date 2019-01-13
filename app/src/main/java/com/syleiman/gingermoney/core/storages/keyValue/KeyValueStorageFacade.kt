@@ -3,6 +3,7 @@ package com.syleiman.gingermoney.core.storages.keyValue
 import com.syleiman.gingermoney.core.globalEntities.money.Currency
 import com.syleiman.gingermoney.core.storages.keyValue.storages.StorageInterface
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
+import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import javax.inject.Inject
 
 /**
@@ -26,6 +27,8 @@ constructor(
         const val MASTER_PASSWORD = "MASTER_PASSWORD"
 
         const val DEFAULT_CURRENCY = "DEFAULT_CURRENCY"
+
+        const val APP_PROTECTION_METHOD = "APP_PROTECTION_METHOD"
     }
 
     /**
@@ -93,4 +96,19 @@ constructor(
             currencyStr.readString(Keys.DEFAULT_CURRENCY)?.let { Currency.from(it) }
         }
 
+    /**
+     *
+     */
+    override fun setAppProtectionMethod(appProtectionMethod: AppProtectionMethod) =
+        keyValueStorage.update {
+            it.putString(Keys.APP_PROTECTION_METHOD, appProtectionMethod.toString())
+        }
+
+    /**
+     *
+     */
+    override fun getAppProtectionMethod(): AppProtectionMethod? =
+        keyValueStorage.read { currencyStr ->
+            currencyStr.readString(Keys.APP_PROTECTION_METHOD)?.let { AppProtectionMethod.from(it) }
+        }
 }

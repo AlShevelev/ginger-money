@@ -20,6 +20,8 @@ import com.syleiman.gingermoney.core.utils.deviceInfo.DeviceInfoProvider
 import com.syleiman.gingermoney.core.utils.deviceInfo.DeviceInfoProviderInterface
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import com.syleiman.gingermoney.core.utils.encryption.rsa.EncryptorRSA
+import com.syleiman.gingermoney.core.utils.fingerprintAuthentication.FingerprintAuthenticationFacade
+import com.syleiman.gingermoney.core.utils.fingerprintAuthentication.FingerprintAuthenticationFacadeInterface
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverter
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
 import dagger.Binds
@@ -71,4 +73,7 @@ abstract class AppModuleBinds {
 
     @Binds
     abstract fun provideMainLaunchManager(manager: MainLaunchManager): MainLaunchManagerInterface
+
+    @Binds
+    abstract fun provideFingerprintAuthenticationFacade(facade: FingerprintAuthenticationFacade): FingerprintAuthenticationFacadeInterface
 }

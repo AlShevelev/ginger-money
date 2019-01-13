@@ -5,6 +5,8 @@ import com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.model
 import com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.model.BaseCurrencyModelInterface
 import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.model.MasterPasswordModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.model.MasterPasswordModelInterface
+import com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.model.ProtectionMethodModel
+import com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.model.ProtectionMethodModelInterface
 import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperInterface
 import dagger.Binds
@@ -33,4 +35,10 @@ abstract class SetupActivityModuleBinds {
      */
     @Binds
     abstract fun provideBaseCurrencyModel(model: BaseCurrencyModel): BaseCurrencyModelInterface
+
+    /**
+     *
+     */
+    @Binds
+    abstract fun provideProtectionMethodModel(model: ProtectionMethodModel): ProtectionMethodModelInterface
 }

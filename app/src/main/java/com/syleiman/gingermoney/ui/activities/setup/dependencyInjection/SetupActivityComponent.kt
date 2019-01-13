@@ -6,6 +6,7 @@ import com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.viewM
 import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.view.MasterPasswordFragment
 import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.viewModel.MasterPasswordViewModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.view.ProtectionMethodFragment
+import com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.viewModel.ProtectionMethodViewModel
 import dagger.Subcomponent
 
 /**
@@ -28,4 +29,6 @@ interface SetupActivityComponent {
     fun inject(viewModel: MasterPasswordViewModel)
 
     fun inject(viewModel: BaseCurrencyViewModel)
+
+    fun inject(viewModel: ProtectionMethodViewModel)
 }
