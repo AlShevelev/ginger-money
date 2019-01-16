@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.syleiman.gingermoney.core.globalEntities.money.Currency
 import com.syleiman.gingermoney.ui.common.extension.getParentActivity
 
-@BindingAdapter("selectedCurrency")
+@BindingAdapter("selected_currency")
 fun setSelectedCurrency(view: View, value: MutableLiveData<Currency>?) {
     view.getParentActivity()?.let { parentActivity ->
         value?.observe(parentActivity, Observer { value ->

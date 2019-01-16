@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<editor-fold desc="Global settings for text size">-->
-    <dimen name="text_size_small_less">10sp</dimen>
-    <dimen name="text_size_small">14sp</dimen>
-    <dimen name="text_size_normal_less">16sp</dimen>
-    <dimen name="text_size_normal">18sp</dimen>
-    <dimen name="text_size_large_less">19sp</dimen>
-    <dimen name="text_size_large">22sp</dimen>
+    <dimen name="textSizeSmallLess">10sp</dimen>
+    <dimen name="textSizeSmall">14sp</dimen>
+    <dimen name="textSizeNormalLess">16sp</dimen>
+    <dimen name="textSizeNormal">18sp</dimen>
+    <dimen name="textSizeLargeLess">19sp</dimen>
+    <dimen name="textSizeLarge">20sp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Toasts">-->
-    <dimen name="toast_margin">16dp</dimen>
+    <dimen name="toastMargin">8dp</dimen>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Toasts">-->
+    <dimen name="setupInner">10dp</dimen>
+    <dimen name="setupIconSize">100dp</dimen>
+    <dimen name="setupIconTop">31dp</dimen>
+    <dimen name="setupWelcomeTop">8dp</dimen>
+    <dimen name="setupTitleTop">27dp</dimen>
+    <dimen name="setupExplanationTop">18dp</dimen>
+    <dimen name="setupCurrentPageWidth">50dp</dimen>
+    <dimen name="setupCurrentPageHeight">10dp</dimen>
+    <dimen name="setupButtonMargin">4dp</dimen>
+    <dimen name="setupPasswordFieldTop">4dp</dimen>
+    <dimen name="setupPasswordFieldPadding">8dp</dimen>
     <!--</editor-fold>-->
 </resources>

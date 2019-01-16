@@ -29,7 +29,8 @@
 
         <activity
                 android:name=".ui.activities.setup.SetupActivity"
-                android:screenOrientation="portrait">
+                android:screenOrientation="portrait"
+                android:theme="@style/SetupActivityTheme">
         </activity>
 
         <!-- To enable/disable Fb Crashlytics -->

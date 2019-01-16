@@ -9,7 +9,7 @@ import androidx.lifecycle.Observer
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.extension.getParentActivity
 
-@BindingAdapter("selectedProtectionMethod")
+@BindingAdapter("selected_protection_method")
 fun setSelectedCurrency(view: View, value: MutableLiveData<AppProtectionMethod>?) {
     view.getParentActivity()?.let { parentActivity ->
         value?.observe(parentActivity, Observer { value ->

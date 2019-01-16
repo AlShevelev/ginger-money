@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CurrentPage">
+        <attr name="currentPage_width" format="dimension"/>
+        <attr name="currentPage_height" format="dimension"/>
+        <attr name="currentPage_color" format="color" />
+        <attr name="currentPage_index" format="integer" />
+        <attr name="currentPage_total_pages" format="integer" />
+    </declare-styleable>
+</resources>
