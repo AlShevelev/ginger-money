@@ -13,17 +13,26 @@
     <dimen name="toastMargin">8dp</dimen>
     <!--</editor-fold>-->
 
-    <!--<editor-fold desc="Toasts">-->
+    <!--<editor-fold desc="Setups">-->
     <dimen name="setupInner">10dp</dimen>
+
     <dimen name="setupIconSize">100dp</dimen>
     <dimen name="setupIconTop">31dp</dimen>
+
     <dimen name="setupWelcomeTop">8dp</dimen>
     <dimen name="setupTitleTop">27dp</dimen>
     <dimen name="setupExplanationTop">18dp</dimen>
+
     <dimen name="setupCurrentPageWidth">50dp</dimen>
     <dimen name="setupCurrentPageHeight">10dp</dimen>
+
     <dimen name="setupButtonMargin">4dp</dimen>
+
     <dimen name="setupPasswordFieldTop">4dp</dimen>
     <dimen name="setupPasswordFieldPadding">8dp</dimen>
+
+    <dimen name="setupBaseCurrencyGroupTop">8dp</dimen>
+    <dimen name="setupBaseCurrencyRadioButtonIcon">16dp</dimen>
+    <dimen name="setupBaseCurrencyRadioButtonIconMargin">4dp</dimen>
     <!--</editor-fold>-->
 </resources>

@@ -13,24 +13,61 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
-        android:background="#d2d2d2"
+        android:background="@color/primary"
+        android:padding="@dimen/setupInner"
         tools:context=".ui.activities.setup.fragments.baseCurrency.view.BaseCurrencyFragment">
 
-        <Button
-            android:id="@+id/nextButton"
+        <ImageView
+            android:id="@+id/logoImage"
 
-            android:text="Next"
+            android:layout_width="@dimen/setupIconSize"
+            android:layout_height="@dimen/setupIconSize"
+
+            app:srcCompat="@drawable/ic_splash_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:layout_marginTop="@dimen/setupIconTop"
+
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"/>
+
+        <TextView
+            android:id="@+id/welcomeText"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+
+            android:text="@string/welcome"
+
+            android:layout_marginTop="@dimen/setupWelcomeTop"
+
+            style="@style/App.Setup.Welcome.Text"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/logoImage"/>
 
-            android:onClick="@{() -> viewModel.onNextButtonClick()}"
-            android:enabled="@{viewModel.nextButtonEnabled}"
+        <TextView
+            android:id="@+id/chooseBaseCurrencyText"
 
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:text="@string/setupBaseCurrency"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="@dimen/setupTitleTop"
+            android:layout_marginStart="@dimen/setupInner"
+            android:layout_marginEnd="@dimen/setupInner"
+
+            style="@style/App.Setup.Title.Text"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+            app:layout_constraintStart_toStartOf="parent"
+        />
 
         <RadioGroup
             android:id="@+id/currencySwitchers"
@@ -38,46 +75,131 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            app:selected_currency = "@{viewModel.currency}"
+            app:selected_currency="@{viewModel.currency}"
 
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="horizontal"
+
+            android:layout_marginStart="@dimen/setupInner"
+            android:layout_marginEnd="@dimen/setupInner"
+            android:layout_marginTop="@dimen/setupBaseCurrencyGroupTop"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chooseBaseCurrencyText">
 
-            <RadioButton
+            <com.syleiman.gingermoney.ui.activities.setup.sharedControls.DrawableRadioButton
                 android:id="@+id/usdSwitcher"
 
-                android:text="USD"
+                android:text="@string/currencyUsdShort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+
+                style="@style/App.Start.RadioButton"
+
+                app:drawableRadioButton_icon = "@drawable/ic_usd"
+                app:drawableRadioButton_iconTint = "@color/textOnPrimary"
+                app:drawableRadioButton_iconSize="@dimen/setupBaseCurrencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/setupBaseCurrencyRadioButtonIconMargin"
 
                 android:tag="USD"
             />
 
-            <RadioButton
+            <com.syleiman.gingermoney.ui.activities.setup.sharedControls.DrawableRadioButton
                 android:id="@+id/eurSwitcher"
 
-                android:text="EUR"
+                android:text="@string/currencyEurShort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+
+                style="@style/App.Start.RadioButton"
+
+                app:drawableRadioButton_icon = "@drawable/ic_eur"
+                app:drawableRadioButton_iconTint = "@color/textOnPrimary"
+                app:drawableRadioButton_iconSize="@dimen/setupBaseCurrencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/setupBaseCurrencyRadioButtonIconMargin"
 
                 android:tag="EUR"
             />
 
-            <RadioButton
+            <com.syleiman.gingermoney.ui.activities.setup.sharedControls.DrawableRadioButton
                 android:id="@+id/rubSwitcher"
 
-                android:text="RUB"
+                android:text="@string/currencyRubShort"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
+                style="@style/App.Start.RadioButton"
+
+                app:drawableRadioButton_icon = "@drawable/ic_rub"
+                app:drawableRadioButton_iconTint = "@color/textOnPrimary"
+                app:drawableRadioButton_iconSize="@dimen/setupBaseCurrencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/setupBaseCurrencyRadioButtonIconMargin"
+
                 android:tag="RUB"
             />
+
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/explanationText"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            style="@style/App.Setup.Explanation.Text"
+
+            android:text="@string/setupBaseCurrencyExplanation"
+
+            android:layout_marginTop="@dimen/setupExplanationTop"
+            android:layout_marginStart="@dimen/setupInner"
+            android:layout_marginEnd="@dimen/setupInner"
+
+            app:layout_constraintTop_toBottomOf="@+id/currencySwitchers"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+        />
+
+        <com.syleiman.gingermoney.ui.activities.setup.sharedControls.CurrentPage
+            android:id="@+id/currentPage"
+
+            android:layout_width="@dimen/setupCurrentPageWidth"
+            android:layout_height="@dimen/setupCurrentPageHeight"
+
+            app:layout_constraintBottom_toTopOf="@+id/nextButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:currentPage_color="@color/textOnPrimary"
+            app:currentPage_index="1"
+            app:currentPage_totalPages="3"
+        />
+
+        <TextView
+            android:id="@+id/nextButton"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="@string/commonNext"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            android:layout_marginBottom="@dimen/setupButtonMargin"
+            android:layout_marginEnd="@dimen/setupButtonMargin"
+
+            android:onClick="@{() -> viewModel.onNextButtonClick()}"
+            android:enabled="@{viewModel.nextButtonEnabled}"
+
+            style="@style/App.Start.Buttons"
+        />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

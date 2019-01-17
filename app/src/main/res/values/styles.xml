@@ -42,7 +42,14 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <!-- Setup -->
+    <!-- RadioButton on Setup and Login screens -->
+    <style name="App.Start.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:buttonTint">@color/textOnPrimary</item>
+        <item name="android:textColor">@color/textOnPrimary</item>
+        <item name="android:textSize">@dimen/textSizeNormalLess</item>
+    </style>
+
+    <!-- Setup screen -->
     <style name="SetupActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>

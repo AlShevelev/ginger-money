@@ -5,6 +5,13 @@
         <attr name="currentPage_height" format="dimension"/>
         <attr name="currentPage_color" format="color" />
         <attr name="currentPage_index" format="integer" />
-        <attr name="currentPage_total_pages" format="integer" />
+        <attr name="currentPage_totalPages" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="DrawableRadioButton">
+        <attr name="drawableRadioButton_icon" format="reference" />
+        <attr name="drawableRadioButton_iconTint" format="reference" />
+        <attr name="drawableRadioButton_iconMargin" format="dimension" />
+        <attr name="drawableRadioButton_iconSize" format="dimension" />
     </declare-styleable>
 </resources>

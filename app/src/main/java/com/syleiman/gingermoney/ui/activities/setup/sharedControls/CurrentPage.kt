@@ -9,7 +9,9 @@ import android.view.View
 import com.syleiman.gingermoney.R
 
 /** Show current page as a set of dots */
-class CurrentPage @JvmOverloads constructor(
+class CurrentPage
+@JvmOverloads
+constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
@@ -40,7 +42,7 @@ class CurrentPage @JvmOverloads constructor(
 
         drawingPaint.color = typedArray.getColor(R.styleable.CurrentPage_currentPage_color, 0)
         currentPageIndex = typedArray.getInteger(R.styleable.CurrentPage_currentPage_index, 0)
-        totalPages = typedArray.getInteger(R.styleable.CurrentPage_currentPage_total_pages, 0)
+        totalPages = typedArray.getInteger(R.styleable.CurrentPage_currentPage_totalPages, 0)
 
         defWidth = typedArray.getDimensionPixelOffset(R.styleable.CurrentPage_currentPage_width, 0)
         defHeight = typedArray.getDimensionPixelOffset(R.styleable.CurrentPage_currentPage_height, 0)
