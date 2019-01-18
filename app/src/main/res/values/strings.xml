@@ -16,6 +16,7 @@
 
     <string name="commonPrevious">Previous</string>
     <string name="commonNext">Next</string>
+    <string name="commonFinish">Finish</string>
     <string name="commonOk">OK</string>
     <string name="commonCancel">Cancel</string>
     <string name="commonSave">Save</string>

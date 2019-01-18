@@ -12,8 +12,9 @@
     <string name="daySaturday">Суббота</string>
     <string name="daySunday">Воскресенье</string>
 
-    <string name="commonPrevious">Предыдущий</string>
-    <string name="commonNext">Следующий</string>
+    <string name="commonPrevious">Назад</string>
+    <string name="commonNext">Далее</string>
+    <string name="commonFinish">Готово</string>
     <string name="commonOk">OK</string>
     <string name="commonCancel">Отмена</string>
     <string name="commonSave">Сохранить</string>
