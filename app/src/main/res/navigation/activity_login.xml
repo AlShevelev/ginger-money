@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_login"
+            app:startDestination="@id/loginMasterPasswordFragment">
+
+    <activity android:id="@+id/loginMainActivity"
+              android:name="com.syleiman.gingermoney.ui.activities.main.MainActivity"
+              android:label="activity_main"
+              tools:layout="@layout/activity_main"/>
+    <fragment android:id="@+id/fingerprintFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.view.FingerprintFragment"
+              android:label="fragment_login_fingerprint"
+              tools:layout="@layout/fragment_login_fingerprint">
+        <action android:id="@+id/action_fingerprintFragment_to_mainActivity2"
+                app:destination="@id/loginMainActivity"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_fingerprintFragment_to_masterPasswordFragment2"
+                app:destination="@id/loginMasterPasswordFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment android:id="@+id/loginMasterPasswordFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.login.fragments.masterPassword.view.MasterPasswordFragment"
+              android:label="fragment_login_master_password"
+              tools:layout="@layout/fragment_login_master_password">
+        <action android:id="@+id/action_masterPasswordFragment2_to_mainActivity2"
+                app:destination="@id/loginMainActivity"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action android:id="@+id/action_masterPasswordFragment2_to_fingerprintFragment"
+                app:destination="@id/fingerprintFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+</navigation>

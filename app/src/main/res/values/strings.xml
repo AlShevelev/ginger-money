@@ -2,8 +2,12 @@
     <string name="appName">Ginger money</string>
     <string name="locale">en</string>
 
-    <string name="currencyEurShort" translatable="false">EUR</string>
-    <string name="currencyUsdShort" translatable="false">USD</string>
+    <string name="currencyEurShort"
+            translatable="false">EUR
+    </string>
+    <string name="currencyUsdShort"
+            translatable="false">USD
+    </string>
     <string name="currencyRubShort">RUB</string>
 
     <string name="dayMonday">Monday</string>

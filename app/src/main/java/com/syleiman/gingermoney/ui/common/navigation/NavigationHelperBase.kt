@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.ui.common.navigation
 
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.navigation.Navigation
 
 /**
@@ -30,6 +31,11 @@ abstract class NavigationHelperBase(@IdRes private val navHostId: Int) : Navigat
     /**
      *
      */
-    private fun getNavigationController(currentFragment: Fragment) =
-        Navigation.findNavController(currentFragment.requireActivity(), navHostId)
+    protected fun getNavigationController(activity: FragmentActivity) =
+        Navigation.findNavController(activity, navHostId)
+
+    /**
+     *
+     */
+    private fun getNavigationController(currentFragment: Fragment) = getNavigationController(currentFragment.requireActivity())
 }

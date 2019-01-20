@@ -13,7 +13,7 @@ import javax.inject.Inject
  */
 class NavigationHelper
 @Inject
-constructor() : NavigationHelperBase(R.id.navHostFragment), NavigationHelperInterface {
+constructor() : NavigationHelperBase(R.id.setupNavHostFragment), NavigationHelperInterface {
     /**
      *
      */

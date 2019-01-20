@@ -1,7 +1,7 @@
 package com.syleiman.gingermoney.ui.activities.root.dependencyInjection
 
 import com.syleiman.gingermoney.application.dependencyInjection.scopes.ActivityScope
-import com.syleiman.gingermoney.ui.activities.root.RootScreenActivity
+import com.syleiman.gingermoney.ui.activities.root.RootActivity
 import dagger.Subcomponent
 
 /**
@@ -17,5 +17,5 @@ interface RootActivityComponent {
     }
 
     /** */
-    fun inject(activity : RootScreenActivity)
+    fun inject(activity : RootActivity)
 }

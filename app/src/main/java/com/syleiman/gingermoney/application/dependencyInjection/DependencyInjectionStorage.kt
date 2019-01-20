@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.application.dependencyInjection
 
 import android.content.Context
+import com.syleiman.gingermoney.ui.activities.login.dependencyInjection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.dependencyInjection.UIComponent
 import com.syleiman.gingermoney.ui.activities.root.dependencyInjection.RootActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
@@ -33,6 +34,7 @@ class DependencyInjectionStorage(private val appContext: Context) {
             UIComponent::class -> get<AppComponent>().ui.build()
             RootActivityComponent::class -> get<UIComponent>().rootActivity.build()
             SetupActivityComponent::class -> get<UIComponent>().setupActivity.build()
+            LoginActivityComponent::class -> get<UIComponent>().loginActivity.build()
 
             else -> throw UnsupportedOperationException("This component is not supported: ${type.simpleName}")
         } as T

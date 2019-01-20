@@ -4,38 +4,42 @@
           package="com.syleiman.gingermoney">
 
     <application
-            android:name=".application.App"
-            android:allowBackup="false"
-            android:icon="@mipmap/ic_launcher"
-            android:label="@string/appName"
-            android:supportsRtl="true"
-            android:theme="@style/AppTheme"
-            tools:ignore="GoogleAppIndexingWarning">
+        android:name=".application.App"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/appName"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
-                android:name=".ui.activities.root.RootScreenActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/RootActivityTheme">
+            android:name=".ui.activities.root.RootActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/RootActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
-                android:name=".ui.activities.main.MainActivity"
-                android:screenOrientation="portrait">
+            android:name=".ui.activities.main.MainActivity"
+            android:screenOrientation="portrait">
         </activity>
-
         <activity
-                android:name=".ui.activities.setup.SetupActivity"
-                android:screenOrientation="portrait"
-                android:theme="@style/SetupActivityTheme">
+            android:name=".ui.activities.setup.SetupActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/StartActivityTheme">
+        </activity>
+        <activity
+            android:name=".ui.activities.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/StartActivityTheme">
         </activity>
 
         <!-- To enable/disable Fb Crashlytics -->
         <meta-data
-                android:name="firebase_crashlytics_collection_enabled"
-                android:value="${crashlyticsEnabled}"/>
+            android:name="firebase_crashlytics_collection_enabled"
+            android:value="${crashlyticsEnabled}"/>
     </application>
+
 </manifest>

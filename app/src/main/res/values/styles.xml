@@ -49,13 +49,14 @@
         <item name="android:textSize">@dimen/textSizeNormalLess</item>
     </style>
 
-    <!-- Setup screen -->
-    <style name="SetupActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <!-- Theme for Setup & Login screen -->
+    <style name="StartActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
         <item name="colorAccent">@color/textOnPrimary</item>
     </style>
 
+    <!-- Setup screen -->
     <style name="App.Setup.Welcome.Text" parent="App.Text.OnPrimary">
         <item name="android:textSize">@dimen/textSizeLarge</item>
         <item name="android:textAlignment">center</item>
