@@ -3,6 +3,7 @@ package com.syleiman.gingermoney.ui.activities.login.dependencyInjection
 import com.syleiman.gingermoney.application.dependencyInjection.scopes.ActivityScope
 import com.syleiman.gingermoney.ui.activities.login.LoginActivity
 import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.view.FingerprintFragment
+import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.viewModel.FingerprintViewModel
 import com.syleiman.gingermoney.ui.activities.login.fragments.masterPassword.view.MasterPasswordFragment
 import com.syleiman.gingermoney.ui.activities.login.fragments.masterPassword.viewModel.MasterPasswordViewModel
 import dagger.Subcomponent
@@ -27,5 +28,5 @@ interface LoginActivityComponent {
 
     fun inject(viewModel: MasterPasswordViewModel)
 
-//    fun inject(viewModel: FingerprintViewModel)
+    fun inject(viewModel: FingerprintViewModel)
 }
