@@ -14,11 +14,11 @@ import com.syleiman.gingermoney.core.utils.appResources.AppResourcesProviderInte
 import com.syleiman.gingermoney.databinding.FragmentSetupMasterPasswordBinding
 import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.dto.InvalidPasswordLenError
-import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.MoveToNextCommand
-import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.ShowError
+import com.syleiman.gingermoney.ui.activities.setup.fragments.viewCommands.MoveToNextCommand
+import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.viewModel.MasterPasswordViewModel
 import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperInterface
-import com.syleiman.gingermoney.ui.common.ViewCommand
+import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
 import com.syleiman.gingermoney.ui.common.displayingErrors.GeneralError
 import com.syleiman.gingermoney.ui.common.uiUtils.UIUtilsInterface
 import javax.inject.Inject
@@ -70,7 +70,7 @@ class MasterPasswordFragment : Fragment() {
         when(command) {
             is MoveToNextCommand -> navigation.moveToNext(this)
 
-            is ShowError -> {
+            is ShowErrorCommand -> {
                 when(command.error) {
                     is InvalidPasswordLenError -> {
                         uiUtils.showError(

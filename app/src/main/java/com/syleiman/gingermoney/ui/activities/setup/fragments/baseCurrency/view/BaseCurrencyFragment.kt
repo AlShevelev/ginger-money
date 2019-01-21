@@ -14,10 +14,10 @@ import com.syleiman.gingermoney.core.utils.appResources.AppResourcesProviderInte
 import com.syleiman.gingermoney.databinding.FragmentSetupBaseCurrencyBinding
 import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.viewModel.BaseCurrencyViewModel
-import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.MoveToNextCommand
-import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.ShowError
+import com.syleiman.gingermoney.ui.activities.setup.fragments.viewCommands.MoveToNextCommand
+import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperInterface
-import com.syleiman.gingermoney.ui.common.ViewCommand
+import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
 import com.syleiman.gingermoney.ui.common.displayingErrors.GeneralError
 import com.syleiman.gingermoney.ui.common.uiUtils.UIUtilsInterface
 import javax.inject.Inject
@@ -69,7 +69,7 @@ class BaseCurrencyFragment : Fragment() {
         when(command) {
             is MoveToNextCommand -> navigation.moveToNext(this)
 
-            is ShowError -> {
+            is ShowErrorCommand -> {
                 when(command.error) {
                     is GeneralError -> uiUtils.showError(requireContext(), resourcesProvider.getString(R.string.commonGeneralError))
                 }

@@ -6,9 +6,9 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.model.ProtectionMethodModelInterface
-import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.MoveToNextCommand
-import com.syleiman.gingermoney.ui.activities.setup.fragments.viewActions.ShowError
-import com.syleiman.gingermoney.ui.common.ViewCommand
+import com.syleiman.gingermoney.ui.activities.setup.fragments.viewCommands.MoveToNextCommand
+import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 
 /**
@@ -60,7 +60,7 @@ class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModelInterface>(
                 MoveToNextCommand()     // Ok, move to the next page
             }
             else {
-                ShowError(saveResult)
+                ShowErrorCommand(saveResult)
             }
         }
     }
