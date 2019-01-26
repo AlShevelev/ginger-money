@@ -11,7 +11,7 @@ import dagger.Subcomponent
 /**
  *
  */
-@Subcomponent(modules = [LoginActivityModuleBinds::class])
+@Subcomponent(modules = [LoginActivityModuleBinds::class, LoginActivityModule::class])
 @ActivityScope
 interface LoginActivityComponent {
 

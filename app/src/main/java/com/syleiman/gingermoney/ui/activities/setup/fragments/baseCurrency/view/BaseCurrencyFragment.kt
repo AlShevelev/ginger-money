@@ -57,6 +57,7 @@ class BaseCurrencyFragment : Fragment() {
         App.injections.get<SetupActivityComponent>().inject(this)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_setup_base_currency, container, false)
+        binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
         return binding.root

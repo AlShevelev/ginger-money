@@ -3,6 +3,11 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.syleiman.gingermoney">
 
+    <uses-feature android:name="android.hardware.fingerprint" android:required="false"/>
+    
+    <!--suppress DeprecatedClassUsageInspection -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
     <application
         android:name=".application.App"
         android:allowBackup="false"

@@ -2,7 +2,7 @@ package com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.
 
 import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
 import com.syleiman.gingermoney.core.storages.keyValue.KeyValueStorageFacadeInterface
-import com.syleiman.gingermoney.core.utils.fingerprintAuthentication.FingerprintAuthenticationFacadeInterface
+import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.displayingErrors.DisplayingError
 import com.syleiman.gingermoney.ui.common.displayingErrors.GeneralError
@@ -17,13 +17,13 @@ class ProtectionMethodModel
 constructor(
     launchManager: MainLaunchManagerInterface,
     private val keyValueStorage: KeyValueStorageFacadeInterface,
-    fingerprintAuthenticationFacade: FingerprintAuthenticationFacadeInterface
+    fingerprintAuthManager: FingerprintAuthManagerInterface
 ) : ModelBase(launchManager),
     ProtectionMethodModelInterface {
     /**
      *
      */
-    override val isFingerprintAuthenticationPossible: Boolean = fingerprintAuthenticationFacade.isAuthenticationPossible
+    override val isFingerprintAuthenticationPossible: Boolean = fingerprintAuthManager.isAuthenticationPossible
 
     /**
      *

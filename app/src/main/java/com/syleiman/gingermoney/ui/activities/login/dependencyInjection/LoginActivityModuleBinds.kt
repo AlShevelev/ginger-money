@@ -27,10 +27,4 @@ abstract class LoginActivityModuleBinds {
      */
     @Binds
     abstract fun provideMasterPasswordModel(model: MasterPasswordModel): MasterPasswordModelInterface
-
-    /**
-     *
-     */
-    @Binds
-    abstract fun provideFingerprintModel(model: FingerprintModel): FingerprintModelInterface
 }

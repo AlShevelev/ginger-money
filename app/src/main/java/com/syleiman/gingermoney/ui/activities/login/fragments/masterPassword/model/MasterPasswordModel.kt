@@ -5,7 +5,7 @@ import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManag
 import com.syleiman.gingermoney.core.storages.keyValue.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.core.utils.appResources.AppResourcesProviderInterface
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
-import com.syleiman.gingermoney.core.utils.fingerprintAuthentication.FingerprintAuthenticationFacadeInterface
+import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
 import com.syleiman.gingermoney.ui.activities.login.fragments.masterPassword.dto.InvalidPassword
 import com.syleiman.gingermoney.ui.common.displayingErrors.DisplayingError
@@ -24,14 +24,14 @@ constructor(
     private val keyValueStorage: KeyValueStorageFacadeInterface,
     private val stringsConverter: StringsConverterInterface,
     launchManager: MainLaunchManagerInterface,
-    fingerprintAuthenticationFacade: FingerprintAuthenticationFacadeInterface,
+    fingerprintAuthManager: FingerprintAuthManagerInterface,
     resourcesProvider: AppResourcesProviderInterface
 ) : ModelBase(launchManager),
     MasterPasswordModelInterface {
     /**
      *
      */
-    override val isFingerprintAuthenticationPossible: Boolean = fingerprintAuthenticationFacade.isAuthenticationPossible
+    override val isFingerprintAuthenticationPossible: Boolean = fingerprintAuthManager.isAuthenticationPossible
 
     /**
      *

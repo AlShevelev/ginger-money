@@ -1,5 +1,7 @@
 package com.syleiman.gingermoney.core.utils.appResources
 
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
 
@@ -23,6 +25,12 @@ interface AppResourcesProviderInterface {
      *
      */
     fun getInt(@IntegerRes resId: Int): Int
+
+    /**
+     *
+     */
+    @ColorInt
+    fun getColor(@ColorRes resId: Int): Int
 
     /**
      * Get metadata value as string

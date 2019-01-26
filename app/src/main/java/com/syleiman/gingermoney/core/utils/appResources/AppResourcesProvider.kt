@@ -2,6 +2,9 @@ package com.syleiman.gingermoney.core.utils.appResources
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.os.Build
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
 import com.syleiman.gingermoney.R
@@ -41,6 +44,19 @@ constructor(
      *
      */
     override fun getInt(@IntegerRes resId: Int): Int = appContext.resources.getInteger(resId)
+
+    /**
+     *
+     */
+    @Suppress("DEPRECATION")
+    @ColorInt
+    override fun getColor(@ColorRes resId: Int): Int =
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            appContext.resources.getColor(resId, null)
+        }
+        else {
+            appContext.resources.getColor(resId)
+        }
 
     /**
      * Get metadata value as string

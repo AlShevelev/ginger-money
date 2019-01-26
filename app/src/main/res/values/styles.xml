@@ -71,4 +71,9 @@
         <item name="android:textSize">@dimen/textSizeSmall</item>
         <item name="android:textAlignment">textStart</item>
     </style>
+
+    <!-- Login screen -->
+    <style name="App.Login.Fingerprint.Explanation" parent="App.Setup.Title.Text">
+        <item name="android:textAlignment">center</item>
+    </style>
 </resources>

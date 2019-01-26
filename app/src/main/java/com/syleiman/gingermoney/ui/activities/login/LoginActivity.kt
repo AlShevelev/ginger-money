@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.navigation.Navigation
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
+import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.login.dependencyInjection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.activities.login.navigation.NavigationHelperInterface
@@ -27,6 +28,9 @@ class LoginActivity : AppCompatActivity() {
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
 
+    @Inject
+    internal lateinit var fingerprintAuthManager: FingerprintAuthManagerInterface
+
     /**
      *
      */
@@ -39,8 +43,18 @@ class LoginActivity : AppCompatActivity() {
 
         val defaultProtectionMethod = AppProtectionMethod.from(intent.extras!!.getString(APP_PROTECTION_METHOD)!!)
         when(defaultProtectionMethod) {
-            AppProtectionMethod.FINGERPRINT -> navigation.setFingerprintAsHome(this)
+
+            AppProtectionMethod.FINGERPRINT -> {
+                if(fingerprintAuthManager.isAuthenticationPossible) {
+                    navigation.setFingerprintAsHome(this)
+                }
+                else {
+                    navigation.setMasterPasswordAsHome(this)
+                }
+            }
+
             AppProtectionMethod.MASTER_PASSWORD -> navigation.setMasterPasswordAsHome(this)
+
             else -> throw UnsupportedOperationException("This protection method is not supported: $defaultProtectionMethod")
         }
     }

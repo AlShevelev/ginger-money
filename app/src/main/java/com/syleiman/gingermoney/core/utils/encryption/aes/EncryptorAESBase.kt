@@ -13,7 +13,8 @@ import javax.crypto.spec.GCMParameterSpec
 /** Base class for AES encryption */
 abstract class EncryptorAESBase : Encryptor {
     protected companion object {
-        private const val CRYPTO_ALG = "AES/GCM/NoPadding"
+        @JvmStatic
+        protected val CRYPTO_ALG = "AES/GCM/NoPadding"
 
         const val KEY_SIZE = 128                      // in bits
         private const val IV_SIZE = 12                          // in bytes

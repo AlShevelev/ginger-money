@@ -19,9 +19,11 @@ import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
 import com.syleiman.gingermoney.core.utils.deviceInfo.DeviceInfoProvider
 import com.syleiman.gingermoney.core.utils.deviceInfo.DeviceInfoProviderInterface
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
+import com.syleiman.gingermoney.core.utils.encryption.aes.EncryptorAES
+import com.syleiman.gingermoney.core.utils.encryption.aes.EncryptorFingerprint
 import com.syleiman.gingermoney.core.utils.encryption.rsa.EncryptorRSA
-import com.syleiman.gingermoney.core.utils.fingerprintAuthentication.FingerprintAuthenticationFacade
-import com.syleiman.gingermoney.core.utils.fingerprintAuthentication.FingerprintAuthenticationFacadeInterface
+import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManager
+import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverter
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
 import dagger.Binds
@@ -69,11 +71,11 @@ abstract class AppModuleBinds {
     abstract fun provideEncryptor(encryptor: EncryptorRSA): Encryptor
 
     @Binds
+    abstract fun provideEncryptorForFingerprint(encryptor: EncryptorAES): EncryptorFingerprint
+
+    @Binds
     abstract fun provideDbStorageFacade(facade: DbStorageFacade): DbStorageFacadeInterface
 
     @Binds
     abstract fun provideMainLaunchManager(manager: MainLaunchManager): MainLaunchManagerInterface
-
-    @Binds
-    abstract fun provideFingerprintAuthenticationFacade(facade: FingerprintAuthenticationFacade): FingerprintAuthenticationFacadeInterface
 }

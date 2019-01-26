@@ -13,13 +13,31 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#a1a1a1"
         tools:context=".ui.activities.login.fragments.fingerprint.view.FingerprintFragment">
+
+        <TextView
+            android:id="@+id/explanationText"
+
+            android:text="@{viewModel.explanationText}"
+            style="@style/App.Login.Fingerprint.Explanation"
+            app:textStyle="@{viewModel.explanationTextStyle}"
+
+            tools:text="Some explanation text"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <Button
             android:id="@+id/useMasterPasswordButton"
 
             android:onClick="@{() -> viewModel.onUseMasterPasswordButtonClick()}"
-            android:enabled="@{viewModel.buttonsEnabled}"
 
             android:text="Use master password"
             android:layout_width="wrap_content"

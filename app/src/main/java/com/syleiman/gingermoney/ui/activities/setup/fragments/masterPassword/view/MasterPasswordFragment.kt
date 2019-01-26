@@ -58,6 +58,7 @@ class MasterPasswordFragment : Fragment() {
         App.injections.get<SetupActivityComponent>().inject(this)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_setup_master_password, container, false)
+        binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
         return binding.root

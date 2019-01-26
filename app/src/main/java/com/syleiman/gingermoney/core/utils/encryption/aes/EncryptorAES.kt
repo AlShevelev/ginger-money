@@ -7,6 +7,7 @@ import androidx.annotation.RequiresApi
 import com.syleiman.gingermoney.application.dependencyInjection.scopes.ApplicationScope
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import java.security.*
+import javax.crypto.Cipher
 import javax.crypto.KeyGenerator
 import javax.inject.Inject
 
@@ -15,7 +16,7 @@ import javax.inject.Inject
 @ApplicationScope
 class EncryptorAES
 @Inject
-constructor() : EncryptorAESBase(), Encryptor {
+constructor() : EncryptorAESBase(), Encryptor, EncryptorFingerprint {
 
     companion object {
         private const val KEYSTORE_PROVIDER = "AndroidKeyStore"
@@ -36,6 +37,19 @@ constructor() : EncryptorAESBase(), Encryptor {
     override fun getKey(): Key {
         val keyEntry = keyStore.getEntry(KEY_ALIAS, null) as KeyStore.SecretKeyEntry
         return keyEntry.secretKey
+    }
+
+    /**
+     * Get Cipher for ForFingerprintAuthentication
+     */
+    override fun getCipher(): Cipher {
+        // Get key
+        val secretKey = getKey()
+
+        val cipher = Cipher.getInstance(EncryptorAESBase.CRYPTO_ALG)
+        cipher.init(Cipher.ENCRYPT_MODE, secretKey)
+
+        return cipher
     }
 
     /** */

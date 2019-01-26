@@ -56,6 +56,7 @@ class ProtectionMethodFragment : Fragment() {
         App.injections.get<SetupActivityComponent>().inject(this)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_setup_protection_method, container, false)
+        binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
         return binding.root

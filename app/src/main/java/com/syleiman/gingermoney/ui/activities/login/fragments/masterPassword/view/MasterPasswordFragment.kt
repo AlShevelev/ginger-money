@@ -58,9 +58,18 @@ class MasterPasswordFragment : Fragment() {
         App.injections.get<LoginActivityComponent>().inject(this)
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login_master_password, container, false)
+        binding.setLifecycleOwner(this)
 
         binding.viewModel = viewModel
         return binding.root
+    }
+
+    /**
+     *
+     */
+    override fun onResume() {
+        super.onResume()
+        viewModel.onActive()
     }
 
     /**

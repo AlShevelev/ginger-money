@@ -80,7 +80,7 @@
     <string name="enterLogin">Login</string>
     <string name="enterUseFingerprint">Use fingerprint</string>
     <string name="enterProtectedFingerprint">Protected by fingerprint</string>
-    <string name="enterTouchSensor">Touch sensor to continue</string>
+    <string name="enterTouchSensor">Touch the sensor to continue</string>
     <string name="enterUseMaster">Use master password</string>
 
     <string name="mainCosts">Expenses</string>
