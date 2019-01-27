@@ -35,4 +35,13 @@
     <dimen name="setupBaseCurrencyRadioButtonIcon">16dp</dimen>
     <dimen name="setupBaseCurrencyRadioButtonIconMargin">4dp</dimen>
     <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Setups">-->
+    <dimen name="loginButtonTop">20dp</dimen>
+    <dimen name="loginButtonWidth">146dp</dimen>
+    <dimen name="loginButtonHeight">39dp</dimen>
+    <dimen name="setupFingerprintImageWidth">80dp</dimen>
+    <dimen name="setupFingerprintImagePadding">15dp</dimen>
+    <dimen name="setupFingerprintImageTop">38dp</dimen>
+    <!--</editor-fold>-->
 </resources>

@@ -82,6 +82,7 @@
     <string name="enterProtectedFingerprint">Protected by fingerprint</string>
     <string name="enterTouchSensor">Touch the sensor to continue</string>
     <string name="enterUseMaster">Use master password</string>
+    <string name="enterFingerprintAuthFail">A fingerprint has not been recognized</string>
 
     <string name="mainCosts">Expenses</string>
     <string name="mainCostsAdd">Add expenses</string>

@@ -19,8 +19,10 @@ import com.syleiman.gingermoney.ui.activities.login.fragments.viewCommands.Logge
 import com.syleiman.gingermoney.ui.activities.login.fragments.viewCommands.SwitchCommand
 import com.syleiman.gingermoney.ui.activities.login.navigation.NavigationHelperInterface
 import com.syleiman.gingermoney.ui.common.displayingErrors.GeneralError
+import com.syleiman.gingermoney.ui.common.displayingErrors.TextError
 import com.syleiman.gingermoney.ui.common.uiUtils.UIUtilsInterface
 import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.viewCommands.ShowWarningCommand
 import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
 import javax.inject.Inject
 
@@ -86,6 +88,14 @@ class MasterPasswordFragment : Fragment() {
                     }
 
                     is GeneralError -> uiUtils.showError(requireContext(), resourcesProvider.getString(R.string.commonGeneralError))
+
+                    is TextError -> uiUtils.showError(requireContext(), command.error.textMessage)
+                }
+            }
+
+            is ShowWarningCommand -> {
+                when(command.warning) {
+                    is TextError -> uiUtils.showWarning(requireContext(), command.warning.textMessage)
                 }
             }
 

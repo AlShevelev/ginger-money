@@ -19,6 +19,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Toast (warning) -->
+    <style name="App.Toast.Text.Warning" parent="App.Toast.Text">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <!-- Root screen -->
     <style name="RootActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/activity_root_bcg</item>
@@ -30,6 +35,12 @@
         <item name="android:textSize">@dimen/textSizeNormal</item>
         <item name="android:textColor">@color/setup_buttons</item>
         <item name="android:focusable">false</item>
+    </style>
+
+    <!-- Login buttons on Login screens -->
+    <style name="App.Login.Login.Button" parent="App.Start.Buttons">
+        <item name="android:textSize">@dimen/textSizeNormalLess</item>
+        <item name="android:background">@drawable/login_login_button_bcg</item>
     </style>
 
     <!-- Password on Setup and Login screens -->

@@ -3,6 +3,6 @@ package com.syleiman.gingermoney.ui.common.viewCommands
 import com.syleiman.gingermoney.ui.common.displayingErrors.DisplayingError
 
 /**
- * Show some error
+ * Show some warning
  */
-data class ShowErrorCommand(val error: DisplayingError) : ViewCommand
+data class ShowWarningCommand(val warning: DisplayingError) : ViewCommand

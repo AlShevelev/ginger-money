@@ -71,6 +71,7 @@
     <string name="enterProtectedFingerprint">Защищено отпечатком пальца</string>
     <string name="enterTouchSensor">Коснитесь сенсора</string>
     <string name="enterUseMaster">Вход по основному паролю</string>
+    <string name="enterFingerprintAuthFail">Отпечаток не распознан</string>
 
     <string name="mainCosts">Расходы</string>
     <string name="mainCostsAdd">Добавить расход</string>
