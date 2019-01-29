@@ -1,6 +1,5 @@
 package com.syleiman.gingermoney.ui.activities.login.navigation
 
-import android.util.Log
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

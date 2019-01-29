@@ -5,5 +5,4 @@ import java.lang.RuntimeException
 /**
  *
  */
-class IncorrectMoneyOperationException(message: String): RuntimeException(message) {
-}
+class IncorrectMoneyOperationException(message: String): RuntimeException(message)

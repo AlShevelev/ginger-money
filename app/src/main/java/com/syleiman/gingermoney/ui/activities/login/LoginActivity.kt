@@ -2,16 +2,14 @@ package com.syleiman.gingermoney.ui.activities.login
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.Navigation
+import androidx.appcompat.app.AppCompatActivity
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.login.dependencyInjection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.activities.login.navigation.NavigationHelperInterface
-import java.lang.UnsupportedOperationException
 import javax.inject.Inject
 
 class LoginActivity : AppCompatActivity() {

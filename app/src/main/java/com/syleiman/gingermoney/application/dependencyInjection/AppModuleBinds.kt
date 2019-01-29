@@ -22,8 +22,6 @@ import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import com.syleiman.gingermoney.core.utils.encryption.aes.EncryptorAES
 import com.syleiman.gingermoney.core.utils.encryption.aes.EncryptorFingerprint
 import com.syleiman.gingermoney.core.utils.encryption.rsa.EncryptorRSA
-import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManager
-import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverter
 import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
 import dagger.Binds

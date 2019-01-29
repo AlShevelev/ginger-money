@@ -1,8 +1,6 @@
 package com.syleiman.gingermoney.ui.activities.login.dependencyInjection
 
 import com.syleiman.gingermoney.application.dependencyInjection.scopes.ActivityScope
-import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model.FingerprintModel
-import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model.FingerprintModelInterface
 import com.syleiman.gingermoney.ui.activities.login.fragments.masterPassword.model.MasterPasswordModel
 import com.syleiman.gingermoney.ui.activities.login.fragments.masterPassword.model.MasterPasswordModelInterface
 import com.syleiman.gingermoney.ui.activities.login.navigation.NavigationHelper

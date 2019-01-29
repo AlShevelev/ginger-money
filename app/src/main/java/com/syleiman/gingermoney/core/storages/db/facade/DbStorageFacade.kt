@@ -7,5 +7,4 @@ import javax.inject.Inject
  */
 class DbStorageFacade
 @Inject
-constructor(): DbStorageFacadeInterface {
-}
+constructor(): DbStorageFacadeInterface

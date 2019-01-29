@@ -10,6 +10,7 @@ import dagger.Module
 /**
  *
  */
+@Suppress("unused")
 @Module
 abstract class UIModuleBinds {
     @Binds

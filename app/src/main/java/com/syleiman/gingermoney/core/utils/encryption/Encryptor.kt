@@ -1,7 +1,5 @@
 package com.syleiman.gingermoney.core.utils.encryption
 
-import javax.crypto.Cipher
-
 interface Encryptor {
     /**
      *
