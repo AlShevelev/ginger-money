@@ -1,6 +1,5 @@
 package com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.viewModel
 
-import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.utils.appResources.AppResourcesProviderInterface
@@ -13,7 +12,6 @@ import com.syleiman.gingermoney.ui.common.displayingErrors.TextError
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.viewCommands.ShowWarningCommand
-import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
 import javax.inject.Inject
 
 /**
@@ -25,11 +23,6 @@ class FingerprintViewModel : ViewModelBase<FingerprintModelInterface>() {
 
     @Inject
     internal lateinit var resourcesProvider: AppResourcesProviderInterface
-
-    /**
-     * Direct command for view
-     */
-    val command: MutableLiveData<ViewCommand> = MutableLiveData()
 
     /**
      *

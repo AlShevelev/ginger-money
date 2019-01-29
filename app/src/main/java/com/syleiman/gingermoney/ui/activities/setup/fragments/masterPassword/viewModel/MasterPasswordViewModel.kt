@@ -5,9 +5,8 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.model.MasterPasswordModelInterface
 import com.syleiman.gingermoney.ui.activities.setup.fragments.viewCommands.MoveToNextCommand
-import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
-import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
+import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
 
 /**
  *
@@ -22,11 +21,6 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
      *
      */
     val passwordMaxLen: MutableLiveData<Int> = MutableLiveData()
-
-    /**
-     * Direct command for view
-     */
-    val command: MutableLiveData<ViewCommand> = MutableLiveData()
 
     /**
      *

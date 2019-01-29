@@ -15,7 +15,6 @@ import com.syleiman.gingermoney.ui.common.displayingErrors.TextError
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.viewCommands.ShowWarningCommand
-import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
 import javax.inject.Inject
 
 /**
@@ -35,11 +34,6 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
      * Our master-password
      */
     val password: MutableLiveData<String> = MutableLiveData()
-
-    /**
-     * Direct command for view
-     */
-    val command: MutableLiveData<ViewCommand> = MutableLiveData()
 
     /**
      *
