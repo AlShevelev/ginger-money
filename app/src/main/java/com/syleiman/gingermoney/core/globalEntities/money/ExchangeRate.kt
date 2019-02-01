@@ -15,4 +15,5 @@ class ExchangeRate(
     /**
      * How many units of currency [from] you can buy for one unit of currency [to]
      */
-    val quoteFactor: Double)
+    val quoteFactor: Double
+)

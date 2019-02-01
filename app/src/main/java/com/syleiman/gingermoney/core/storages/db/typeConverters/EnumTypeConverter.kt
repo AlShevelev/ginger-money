@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.core.storages.db.typeConverters
 
 import androidx.room.TypeConverter
+import com.syleiman.gingermoney.core.globalEntities.money.Currency
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
 
@@ -31,4 +32,16 @@ class EnumTypeConverter {
      */
     @TypeConverter
     fun fromDbToColor(sourceData: Byte?): Color? = sourceData?.let { Color.from(it) }
+
+    /**
+     *
+     */
+    @TypeConverter
+    fun fromCurrencyToDb(sourceData: Currency?): Byte? = sourceData?.value
+
+    /**
+     *
+     */
+    @TypeConverter
+    fun fromDbToCurrency(sourceData: Byte?): Currency? = sourceData?.let { Currency.from(it) }
 }

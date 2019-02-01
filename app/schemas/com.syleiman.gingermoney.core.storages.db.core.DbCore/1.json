@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8b43099f97cdb6391fd0934ef9f5f7c9",
+    "identityHash": "0be85d11a6b870ce21ad37c78c16cec4",
     "entities": [
       {
         "tableName": "account",
@@ -183,11 +183,49 @@
             ]
           }
         ]
+      },
+      {
+        "tableName": "source_exchange_rate",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`source_exchange_rate_id` INTEGER NOT NULL, `from` INTEGER NOT NULL, `to` INTEGER NOT NULL, `quote_factor` REAL NOT NULL, PRIMARY KEY(`source_exchange_rate_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "source_exchange_rate_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "from",
+            "columnName": "from",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "to",
+            "columnName": "to",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "quoteFactor",
+            "columnName": "quote_factor",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "source_exchange_rate_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8b43099f97cdb6391fd0934ef9f5f7c9\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0be85d11a6b870ce21ad37c78c16cec4\")"
     ]
   }
 }

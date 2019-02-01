@@ -3,10 +3,11 @@ package com.syleiman.gingermoney.core.storages.db.core
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.syleiman.gingermoney.core.storages.db.dao.CommonDao
+import com.syleiman.gingermoney.core.storages.db.dao.SourceExchangeRateDao
 import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
 import com.syleiman.gingermoney.core.storages.db.entities.ExpenseCategoryDb
 import com.syleiman.gingermoney.core.storages.db.entities.ExpenseDb
+import com.syleiman.gingermoney.core.storages.db.entities.SourceExchangeRateDb
 import com.syleiman.gingermoney.core.storages.db.typeConverters.DateTimeTypeConverter
 import com.syleiman.gingermoney.core.storages.db.typeConverters.EnumTypeConverter
 import com.syleiman.gingermoney.core.storages.db.typeConverters.MoneyTypeConverter
@@ -18,7 +19,8 @@ import com.syleiman.gingermoney.core.storages.db.typeConverters.MoneyTypeConvert
     entities = [
         AccountDb::class,
         ExpenseCategoryDb::class,
-        ExpenseDb::class
+        ExpenseDb::class,
+        SourceExchangeRateDb::class
     ],
     version = 1)
 @TypeConverters(
@@ -27,7 +29,7 @@ import com.syleiman.gingermoney.core.storages.db.typeConverters.MoneyTypeConvert
     EnumTypeConverter::class)
 abstract class DbCore: RoomDatabase(), DbCoreDaoInterface, DbCoreRunInterface {
 
-    abstract override val commonDao: CommonDao
+    abstract override val sourceExchangeRate: SourceExchangeRateDao
 
     /**
      * Run some code without transaction
