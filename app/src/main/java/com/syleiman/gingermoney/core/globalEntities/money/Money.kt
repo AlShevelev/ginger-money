@@ -115,7 +115,7 @@ class Money {
      */
     fun convertTo(rate: ExchangeRate): Money {
         checkExchangePossibility(rate)
-        return Money(value / rate.quoteRate, rate.to)
+        return Money(value / rate.quoteFactor, rate.to)
     }
 
     /**
@@ -171,7 +171,7 @@ class Money {
             throw IncorrectMoneyOperationException("Invalid exchange rate - you can't convert the currency to the same currency")
         }
 
-        if(rate.quoteRate < 0) {
+        if(rate.quoteFactor < 0) {
             throw IncorrectMoneyOperationException("Invalid exchange rate - quote rate can't be negative")
         }
     }

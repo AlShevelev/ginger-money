@@ -147,11 +147,11 @@ class MoneyTest {
     @Test
     fun add() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
-        val m2 = Currency.USD.toMoney(1.291)
+        val money1 = Currency.USD.toMoney(1.316)
+        val money2 = Currency.USD.toMoney(1.291)
 
         // Act
-        val result = m1 + m2
+        val result = money1 + money2
 
         // Assert
         assertEquals(Currency.USD.toMoney(2.61), result)
@@ -163,11 +163,11 @@ class MoneyTest {
     @Test(expected = IncorrectMoneyOperationException::class)
     fun addFail() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
-        val m2 = Currency.EUR.toMoney(1.291)
+        val money1 = Currency.USD.toMoney(1.316)
+        val money2 = Currency.EUR.toMoney(1.291)
 
         // Act
-        m1 + m2
+        money1 + money2
     }
 
     /**
@@ -176,11 +176,11 @@ class MoneyTest {
     @Test
     fun subtract() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
-        val m2 = Currency.USD.toMoney(1.291)
+        val money1 = Currency.USD.toMoney(1.316)
+        val money2 = Currency.USD.toMoney(1.291)
 
         // Act
-        val result = m1 - m2
+        val result = money1 - money2
 
         // Assert
         assertEquals(Currency.USD.toMoney(0.03), result)
@@ -192,11 +192,11 @@ class MoneyTest {
     @Test(expected = IncorrectMoneyOperationException::class)
     fun subtractFail() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
-        val m2 = Currency.EUR.toMoney(1.291)
+        val money1 = Currency.USD.toMoney(1.316)
+        val money2 = Currency.EUR.toMoney(1.291)
 
         // Act
-        m1 - m2
+        money1 - money2
     }
 
     /**
@@ -205,11 +205,11 @@ class MoneyTest {
     @Test
     fun compareToEquals() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.31)
-        val m2 = Currency.USD.toMoney(1.31)
+        val money1 = Currency.USD.toMoney(1.31)
+        val money2 = Currency.USD.toMoney(1.31)
 
         // Act
-        val result = m1 == m2
+        val result = money1 == money2
 
         // Assert
         assertEquals(true, result)
@@ -221,11 +221,11 @@ class MoneyTest {
     @Test
     fun compareToGreater() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.5)
-        val m2 = Currency.USD.toMoney(1.31)
+        val money1 = Currency.USD.toMoney(1.5)
+        val money2 = Currency.USD.toMoney(1.31)
 
         // Act
-        val result = m1 > m2
+        val result = money1 > money2
 
         // Assert
         assertEquals(true, result)
@@ -237,11 +237,11 @@ class MoneyTest {
     @Test
     fun compareToLess() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.31)
-        val m2 = Currency.USD.toMoney(1.5)
+        val money1 = Currency.USD.toMoney(1.31)
+        val money2 = Currency.USD.toMoney(1.5)
 
         // Act
-        val result = m1 < m2
+        val result = money1 < money2
 
         // Assert
         assertEquals(true, result)
@@ -253,11 +253,11 @@ class MoneyTest {
     @Test(expected = IncorrectMoneyOperationException::class)
     fun compareToFail() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
-        val m2 = Currency.EUR.toMoney(1.313)
+        val money1 = Currency.USD.toMoney(1.316)
+        val money2 = Currency.EUR.toMoney(1.313)
 
         // Act
-        m1.compareTo(m2)
+        money1.compareTo(money2)
     }
 
     /**
@@ -266,11 +266,11 @@ class MoneyTest {
     @Test(expected = IncorrectMoneyOperationException::class)
     fun convertToFailInvalidSourceCurrencies() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
+        val money1 = Currency.USD.toMoney(1.316)
         val rate = Currency.EUR.toExchangeRate(Currency.USD, 5.0)
 
         // Act
-        m1.convertTo(rate)
+        money1.convertTo(rate)
     }
 
     /**
@@ -279,11 +279,11 @@ class MoneyTest {
     @Test(expected = IncorrectMoneyOperationException::class)
     fun convertToFailInvalidExchangeRateSameCurrency() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
+        val money1 = Currency.USD.toMoney(1.316)
         val rate = Currency.USD.toExchangeRate(Currency.USD, 5.0)
 
         // Act
-        m1.convertTo(rate)
+        money1.convertTo(rate)
     }
 
     /**
@@ -292,11 +292,11 @@ class MoneyTest {
     @Test(expected = IncorrectMoneyOperationException::class)
     fun convertToFailInvalidExchangeRateNegative() {
         // Arrange
-        val m1 = Currency.USD.toMoney(1.316)
+        val money1 = Currency.USD.toMoney(1.316)
         val rate = Currency.USD.toExchangeRate(Currency.EUR, -5.0)
 
         // Act
-        m1.convertTo(rate)
+        money1.convertTo(rate)
     }
 
     /**
@@ -305,11 +305,11 @@ class MoneyTest {
     @Test
     fun convertTo() {
         // Arrange
-        val m1 = Currency.USD.toMoney(5.0)
+        val money1 = Currency.USD.toMoney(5.0)
         val rate = Currency.USD.toExchangeRate(Currency.EUR, 5.0)
 
         // Act
-        val result = m1.convertTo(rate)
+        val result = money1.convertTo(rate)
 
         // Assert
         assertEquals(Currency.EUR, result.currency)
