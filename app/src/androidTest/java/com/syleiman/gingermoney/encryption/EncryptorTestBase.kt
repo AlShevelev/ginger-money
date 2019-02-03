@@ -1,7 +1,7 @@
 package com.syleiman.gingermoney.encryption
 
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
-import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
+import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverterInterface
 import org.junit.Assert
 import org.junit.Test
 

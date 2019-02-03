@@ -1,8 +1,8 @@
 package com.syleiman.gingermoney
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverter
-import com.syleiman.gingermoney.core.utils.stringsConvertation.StringsConverterInterface
+import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
+import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverterInterface
 import org.junit.Assert.assertEquals
 import org.junit.BeforeClass
 import org.junit.Test

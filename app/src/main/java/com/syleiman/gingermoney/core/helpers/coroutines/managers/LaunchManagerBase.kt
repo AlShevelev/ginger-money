@@ -4,7 +4,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancelChildren
-import com.syleiman.gingermoney.core.helpers.coroutines.dispatcherSource.DispatcherSource
+import com.syleiman.gingermoney.core.helpers.coroutines.dispatcher_source.DispatcherSource
 import kotlin.coroutines.CoroutineContext
 
 /**

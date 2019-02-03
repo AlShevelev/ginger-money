@@ -2,7 +2,7 @@ package com.syleiman.gingermoney.ui.common.mvvm
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
+import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import javax.inject.Inject
 
 /**

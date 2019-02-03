@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.viewModel.FingerprintViewModel"/>
+            type="com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.view_model.FingerprintViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

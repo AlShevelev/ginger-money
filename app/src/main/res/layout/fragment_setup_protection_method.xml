@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.viewModel.ProtectionMethodViewModel"/>
+            type="com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.view_model.ProtectionMethodViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="@color/primary"
         android:padding="@dimen/setupInner"
-        tools:context=".ui.activities.setup.fragments.protectionMethod.view.ProtectionMethodFragment">
+        tools:context=".ui.activities.setup.fragments.protection_method.view.ProtectionMethodFragment">
 
         <ImageView
             android:id="@+id/logoImage"
@@ -148,7 +148,7 @@
             app:layout_constraintEnd_toEndOf="parent"
         />
 
-        <com.syleiman.gingermoney.ui.activities.setup.sharedControls.CurrentPage
+        <com.syleiman.gingermoney.ui.activities.setup.shared_controls.CurrentPage
             android:id="@+id/currentPage"
 
             android:layout_width="@dimen/setupCurrentPageWidth"

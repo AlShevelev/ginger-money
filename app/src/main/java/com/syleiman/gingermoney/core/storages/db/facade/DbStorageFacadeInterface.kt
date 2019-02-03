@@ -1,6 +1,6 @@
 package com.syleiman.gingermoney.core.storages.db.facade
 
-import com.syleiman.gingermoney.core.globalEntities.money.ExchangeRate
+import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 
 /**
  *

@@ -1,6 +1,6 @@
 package com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model
 
-import com.syleiman.gingermoney.core.utils.fingerprintAuth.eventsHandler.events.FingerprintAuthEventHandler
+import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.FingerprintAuthEventHandler
 
 /**
  * An empty stub  model in case when fingerprint authentication is impossible

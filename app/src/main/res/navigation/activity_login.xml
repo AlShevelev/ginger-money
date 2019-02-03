@@ -27,7 +27,7 @@
                 app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
     <fragment android:id="@+id/loginMasterPasswordFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.login.fragments.masterPassword.view.MasterPasswordFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.login.fragments.master_password.view.MasterPasswordFragment"
               android:label="fragment_login_master_password"
               tools:layout="@layout/fragment_login_master_password">
         <action android:id="@+id/action_masterPasswordFragment2_to_mainActivity2"

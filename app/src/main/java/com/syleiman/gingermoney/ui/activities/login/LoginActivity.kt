@@ -6,9 +6,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
+import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
-import com.syleiman.gingermoney.ui.activities.login.dependencyInjection.LoginActivityComponent
+import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.activities.login.navigation.NavigationHelperInterface
 import javax.inject.Inject
 

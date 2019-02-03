@@ -3,8 +3,8 @@ package com.syleiman.gingermoney
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.syleiman.gingermoney.core.globalEntities.dateTime.toSplit
-import com.syleiman.gingermoney.core.globalEntities.dateTime.toZoneDateTime
+import com.syleiman.gingermoney.core.global_entities.date_time.toSplit
+import com.syleiman.gingermoney.core.global_entities.date_time.toZoneDateTime
 import org.junit.Assert
 import org.junit.BeforeClass
 import org.junit.Test

@@ -1,6 +1,6 @@
 package com.syleiman.gingermoney
 
-import com.syleiman.gingermoney.core.globalEntities.money.*
+import com.syleiman.gingermoney.core.global_entities.money.*
 import org.junit.Assert
 import org.junit.Test
 

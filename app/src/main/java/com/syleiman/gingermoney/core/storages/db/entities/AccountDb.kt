@@ -3,7 +3,7 @@ package com.syleiman.gingermoney.core.storages.db.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.syleiman.gingermoney.core.globalEntities.money.Money
+import com.syleiman.gingermoney.core.global_entities.money.Money
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 
 /**

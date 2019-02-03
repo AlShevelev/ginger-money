@@ -4,8 +4,8 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.syleiman.gingermoney.core.globalEntities.dateTime.ZonedDateTimeSplit
-import com.syleiman.gingermoney.core.globalEntities.money.Money
+import com.syleiman.gingermoney.core.global_entities.date_time.ZonedDateTimeSplit
+import com.syleiman.gingermoney.core.global_entities.money.Money
 
 /**
  *

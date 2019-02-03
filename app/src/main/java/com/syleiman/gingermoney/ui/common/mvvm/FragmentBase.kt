@@ -10,11 +10,11 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.core.utils.appResources.AppResourcesProviderInterface
-import com.syleiman.gingermoney.ui.common.displayingErrors.GeneralError
-import com.syleiman.gingermoney.ui.common.uiUtils.UIUtilsInterface
-import com.syleiman.gingermoney.ui.common.viewCommands.ShowErrorCommand
-import com.syleiman.gingermoney.ui.common.viewCommands.ViewCommand
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
+import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
+import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import javax.inject.Inject
 
 /**

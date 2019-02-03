@@ -6,7 +6,7 @@
             app:startDestination="@id/masterPasswordFragment">
 
     <fragment android:id="@+id/masterPasswordFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.view.MasterPasswordFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.view.MasterPasswordFragment"
               android:label="fragment_setup_master_password"
               tools:layout="@layout/fragment_setup_master_password">
         <action android:id="@+id/action_masterPasswordFragment_to_baseCurrencyFragment"
@@ -17,7 +17,7 @@
                 app:enterAnim="@anim/nav_slide_in_right"/>
     </fragment>
     <fragment android:id="@+id/baseCurrencyFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.view.BaseCurrencyFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.base_currency.view.BaseCurrencyFragment"
               android:label="fragment_setup_base_currency"
               tools:layout="@layout/fragment_setup_base_currency">
         <action android:id="@+id/action_baseCurrencyFragment_to_protectionMethodFragment"
@@ -28,7 +28,7 @@
                 app:popExitAnim="@anim/nav_slide_out_right"/>
     </fragment>
     <fragment android:id="@+id/protectionMethodFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.view.ProtectionMethodFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.view.ProtectionMethodFragment"
               android:label="fragment_setup_protection_method"
               tools:layout="@layout/fragment_setup_protection_method">
         <action android:id="@+id/action_protectionMethodFragment_to_mainActivity"

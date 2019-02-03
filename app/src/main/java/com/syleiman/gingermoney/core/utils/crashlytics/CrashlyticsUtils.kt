@@ -1,8 +1,8 @@
 package com.syleiman.gingermoney.core.utils.crashlytics
 
 import com.crashlytics.android.Crashlytics
-import com.syleiman.gingermoney.core.utils.appResources.AppResourcesProviderInterface
-import com.syleiman.gingermoney.core.utils.deviceInfo.DeviceInfoProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.device_info.DeviceInfoProviderInterface
 import javax.inject.Inject
 import dagger.Lazy
 

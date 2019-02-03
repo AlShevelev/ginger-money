@@ -1,6 +1,6 @@
 package com.syleiman.gingermoney.core.storages.db.mapping
 
-import com.syleiman.gingermoney.core.globalEntities.money.ExchangeRate
+import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.core.helpers.id.IdUtil
 import com.syleiman.gingermoney.core.storages.db.entities.SourceExchangeRateDb
 

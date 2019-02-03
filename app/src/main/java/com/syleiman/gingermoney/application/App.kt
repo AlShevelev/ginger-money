@@ -3,8 +3,8 @@ package com.syleiman.gingermoney.application
 import android.annotation.SuppressLint
 import android.app.Application
 import com.jakewharton.threetenabp.AndroidThreeTen
-import com.syleiman.gingermoney.application.dependencyInjection.AppComponent
-import com.syleiman.gingermoney.application.dependencyInjection.DependencyInjectionStorage
+import com.syleiman.gingermoney.application.dependency_injection.AppComponent
+import com.syleiman.gingermoney.application.dependency_injection.DependencyInjectionStorage
 import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
 import javax.inject.Inject
 

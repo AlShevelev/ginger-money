@@ -8,9 +8,9 @@ import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
 import com.syleiman.gingermoney.core.storages.db.entities.ExpenseCategoryDb
 import com.syleiman.gingermoney.core.storages.db.entities.ExpenseDb
 import com.syleiman.gingermoney.core.storages.db.entities.SourceExchangeRateDb
-import com.syleiman.gingermoney.core.storages.db.typeConverters.DateTimeTypeConverter
-import com.syleiman.gingermoney.core.storages.db.typeConverters.EnumTypeConverter
-import com.syleiman.gingermoney.core.storages.db.typeConverters.MoneyTypeConverter
+import com.syleiman.gingermoney.core.storages.db.type_converters.DateTimeTypeConverter
+import com.syleiman.gingermoney.core.storages.db.type_converters.EnumTypeConverter
+import com.syleiman.gingermoney.core.storages.db.type_converters.MoneyTypeConverter
 
 /**
  *

@@ -65,11 +65,9 @@ dependencies {
     implementation "android.arch.navigation:navigation-fragment-ktx:$nav_version"
     implementation "android.arch.navigation:navigation-ui-ktx:$nav_version"
     implementation "androidx.legacy:legacy-support-v4:$legacy_version"
+    implementation "android.arch.work:work-runtime-ktx:$work_version"
 
     // UT
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$test_runner_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_runner_version"

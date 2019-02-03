@@ -1,9 +1,9 @@
 package com.syleiman.gingermoney.db
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.syleiman.gingermoney.core.globalEntities.money.Currency
-import com.syleiman.gingermoney.core.globalEntities.money.Money
-import com.syleiman.gingermoney.core.storages.db.typeConverters.MoneyTypeConverter
+import com.syleiman.gingermoney.core.global_entities.money.Currency
+import com.syleiman.gingermoney.core.global_entities.money.Money
+import com.syleiman.gingermoney.core.storages.db.type_converters.MoneyTypeConverter
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.Assert.*

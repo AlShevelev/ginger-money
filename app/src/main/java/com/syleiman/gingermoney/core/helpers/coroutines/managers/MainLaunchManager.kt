@@ -4,7 +4,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import com.syleiman.gingermoney.core.helpers.coroutines.dispatcherSource.MainDispatcherSource
+import com.syleiman.gingermoney.core.helpers.coroutines.dispatcher_source.MainDispatcherSource
 import javax.inject.Inject
 
 /**

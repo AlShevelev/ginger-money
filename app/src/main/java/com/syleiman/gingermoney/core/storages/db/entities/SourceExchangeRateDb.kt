@@ -3,7 +3,7 @@ package com.syleiman.gingermoney.core.storages.db.entities
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.syleiman.gingermoney.core.globalEntities.money.Currency
+import com.syleiman.gingermoney.core.global_entities.money.Currency
 
 @Entity(tableName = "source_exchange_rate")
 data class SourceExchangeRateDb (

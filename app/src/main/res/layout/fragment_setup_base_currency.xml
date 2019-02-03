@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.viewModel.BaseCurrencyViewModel"/>
+            type="com.syleiman.gingermoney.ui.activities.setup.fragments.base_currency.view_model.BaseCurrencyViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="@color/primary"
         android:padding="@dimen/setupInner"
-        tools:context=".ui.activities.setup.fragments.baseCurrency.view.BaseCurrencyFragment">
+        tools:context=".ui.activities.setup.fragments.base_currency.view.BaseCurrencyFragment">
 
         <ImageView
             android:id="@+id/logoImage"
@@ -88,7 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chooseBaseCurrencyText">
 
-            <com.syleiman.gingermoney.ui.activities.setup.sharedControls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.activities.setup.shared_controls.DrawableRadioButton
                 android:id="@+id/usdSwitcher"
 
                 android:text="@string/currencyUsdShort"
@@ -106,7 +106,7 @@
                 android:tag="USD"
             />
 
-            <com.syleiman.gingermoney.ui.activities.setup.sharedControls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.activities.setup.shared_controls.DrawableRadioButton
                 android:id="@+id/eurSwitcher"
 
                 android:text="@string/currencyEurShort"
@@ -127,7 +127,7 @@
                 android:tag="EUR"
             />
 
-            <com.syleiman.gingermoney.ui.activities.setup.sharedControls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.activities.setup.shared_controls.DrawableRadioButton
                 android:id="@+id/rubSwitcher"
 
                 android:text="@string/currencyRubShort"
@@ -166,7 +166,7 @@
             app:layout_constraintEnd_toEndOf="parent"
         />
 
-        <com.syleiman.gingermoney.ui.activities.setup.sharedControls.CurrentPage
+        <com.syleiman.gingermoney.ui.activities.setup.shared_controls.CurrentPage
             android:id="@+id/currentPage"
 
             android:layout_width="@dimen/setupCurrentPageWidth"

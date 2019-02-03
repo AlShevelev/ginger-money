@@ -2,9 +2,9 @@ package com.syleiman.gingermoney.ui.activities.setup.navigation
 
 import androidx.fragment.app.Fragment
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.ui.activities.setup.fragments.baseCurrency.view.BaseCurrencyFragment
-import com.syleiman.gingermoney.ui.activities.setup.fragments.masterPassword.view.MasterPasswordFragment
-import com.syleiman.gingermoney.ui.activities.setup.fragments.protectionMethod.view.ProtectionMethodFragment
+import com.syleiman.gingermoney.ui.activities.setup.fragments.base_currency.view.BaseCurrencyFragment
+import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.view.MasterPasswordFragment
+import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.view.ProtectionMethodFragment
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 import javax.inject.Inject
 

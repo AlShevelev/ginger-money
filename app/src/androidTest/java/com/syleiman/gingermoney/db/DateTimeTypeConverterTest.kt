@@ -1,9 +1,9 @@
 package com.syleiman.gingermoney.db
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.syleiman.gingermoney.core.globalEntities.dateTime.ZonedDateTimeSplit
-import com.syleiman.gingermoney.core.globalEntities.dateTime.toSplit
-import com.syleiman.gingermoney.core.storages.db.typeConverters.DateTimeTypeConverter
+import com.syleiman.gingermoney.core.global_entities.date_time.ZonedDateTimeSplit
+import com.syleiman.gingermoney.core.global_entities.date_time.toSplit
+import com.syleiman.gingermoney.core.storages.db.type_converters.DateTimeTypeConverter
 import org.junit.Assert.*
 import org.junit.Test
 import org.junit.runner.RunWith

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.ui.activities.setup.dependencyInjection.SetupActivityComponent
+import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
 
 /**
  *

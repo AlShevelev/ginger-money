@@ -1,6 +1,6 @@
 package com.syleiman.gingermoney
 
-import com.syleiman.gingermoney.core.globalEntities.collections.DoubleRectArray
+import com.syleiman.gingermoney.core.global_entities.collections.DoubleRectArray
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

@@ -3,9 +3,9 @@ package com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
-import com.syleiman.gingermoney.core.utils.fingerprintAuth.FingerprintAuthManagerInterface
-import com.syleiman.gingermoney.core.utils.fingerprintAuth.eventsHandler.FingerprintAuthEventsHandlerInterface
-import com.syleiman.gingermoney.core.utils.fingerprintAuth.eventsHandler.events.*
+import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManagerInterface
+import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.FingerprintAuthEventsHandlerInterface
+import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.*
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import javax.inject.Inject
 
