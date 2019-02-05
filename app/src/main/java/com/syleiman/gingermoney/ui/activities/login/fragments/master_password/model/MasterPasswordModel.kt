@@ -1,7 +1,6 @@
 package com.syleiman.gingermoney.ui.activities.login.fragments.master_password.model
 
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
 import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
@@ -11,6 +10,10 @@ import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.dt
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -23,10 +26,9 @@ constructor(
     @Named("AES") private val encryptor: Encryptor,
     private val keyValueStorage: KeyValueStorageFacadeInterface,
     private val stringsConverter: StringsConverterInterface,
-    launchManager: MainLaunchManagerInterface,
     fingerprintAuthManager: FingerprintAuthManagerInterface,
     resourcesProvider: AppResourcesProviderInterface
-) : ModelBase(launchManager),
+) : ModelBase(),
     MasterPasswordModelInterface {
     /**
      *
@@ -39,31 +41,34 @@ constructor(
     override val passwordMaxLen: Int = resourcesProvider.getInt(R.integer.masterPasswordMaxLen)
 
     /**
-     * @param result - the argument is null in case of success, otherwise it contains an error to display
+     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
      */
-    override fun login(password: String?, result: (DisplayingError?) -> Unit) {
+    override fun login(password: String?, resultCall: (DisplayingError?) -> Unit) {
         if(password.isNullOrEmpty()) {
-            result(InvalidPassword())
+            resultCall(InvalidPassword())
         }
         else {
-            launchManager.launchFromUIWithException(
-                action =  {
-                    val storedPassword = stringsConverter.fromBytes(encryptor.decrypt(keyValueStorage.getMasterPassword())!!)
-                    return@launchFromUIWithException if(password != storedPassword) {
-                        InvalidPassword()
+            launch {
+                val loginResult = try {
+                    withContext(Dispatchers.IO) {
+                        val storedPassword = stringsConverter.fromBytes(encryptor.decrypt(keyValueStorage.getMasterPassword())!!)
+                        if(password != storedPassword) {
+                            InvalidPassword()
+                        }
+                        else {
+                            null
+                        }
                     }
-                    else {
-                        null
-                    }
-                },
-                resultCallback = { loginResult, ex ->
-                    if(ex != null) {
-                        result(GeneralError())
-                    }
-                    else {
-                        result(loginResult)
-                    }
-                })
+                }
+                catch(ex: Exception) {
+                    ex.printStackTrace()
+                    GeneralError()
+                }
+
+                if(isActive) {
+                    resultCall(loginResult)
+                }
+            }
         }
     }
 }

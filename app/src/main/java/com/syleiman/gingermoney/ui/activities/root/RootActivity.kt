@@ -3,9 +3,7 @@ package com.syleiman.gingermoney.ui.activities.root
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
 import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.login.LoginActivity
@@ -13,21 +11,28 @@ import com.syleiman.gingermoney.ui.activities.main.MainActivity
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.SetupActivity
 import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
+import kotlinx.coroutines.*
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
 /**
  *
  */
-class RootActivity : AppCompatActivity() {
-
-    @Inject
-    internal lateinit var mainLaunchManager: MainLaunchManagerInterface
+class RootActivity : CoroutineScope, AppCompatActivity() {
 
     @Inject
     lateinit var keyValueStorage: KeyValueStorageFacadeInterface
 
     @Inject
     lateinit var uiUtils: UIUtilsInterface
+
+    private lateinit var scopeJob: Job
+
+    /**
+     * Context of this scope.
+     */
+    override val coroutineContext: CoroutineContext
+        get() = scopeJob + Dispatchers.Main
 
     /**
      *
@@ -44,33 +49,31 @@ class RootActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        mainLaunchManager.restart()
-        mainLaunchManager.launchFromUI (
-            action = {
-                Pair(keyValueStorage.isAppSetupComplete(), keyValueStorage.getAppProtectionMethod())
-            },
-            resultCallback = { appState ->
-                if(appState == null) {
-                    uiUtils.showError(this, R.string.commonGeneralError)
-                    finishAndRemoveTask()
-                }
-                else {
-                    val isAppSetupComplete = appState.first
-                    val appProtectionMethod = appState.second
+        scopeJob = SupervisorJob()
 
-                    if(isAppSetupComplete) {
-                        if(appProtectionMethod!! == AppProtectionMethod.WITHOUT_PROTECTION) {
-                            moveTo(MainActivity::class.java)
-                        }
-                        else {
-                            moveToLogin(appProtectionMethod)
-                        }
-                    }
-                    else {
-                        moveTo(SetupActivity::class.java)
-                    }
+        launch {
+            try {
+                val appState = withContext(Dispatchers.IO) {
+                    Pair(keyValueStorage.isAppSetupComplete(), keyValueStorage.getAppProtectionMethod())
                 }
-            })
+
+                val isAppSetupComplete = appState.first
+                val appProtectionMethod = appState.second
+
+                if (isAppSetupComplete) {
+                    if (appProtectionMethod!! == AppProtectionMethod.WITHOUT_PROTECTION) {
+                        moveTo(MainActivity::class.java)
+                    } else {
+                        moveToLogin(appProtectionMethod)
+                    }
+                } else {
+                    moveTo(SetupActivity::class.java)
+                }
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+                finishAndRemoveTask()
+            }
+        }
     }
 
     /**
@@ -79,7 +82,8 @@ class RootActivity : AppCompatActivity() {
     override fun onStop() {
         super.onStop()
 
-        mainLaunchManager.cancel()
+        scopeJob.cancelChildren()
+        scopeJob.cancel()
     }
 
     /**

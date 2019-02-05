@@ -18,7 +18,7 @@ interface MasterPasswordModelInterface : ModelBaseInterface {
     val passwordMaxLen: Int
 
     /**
-     * @param result - the argument is null in case of success, otherwise it contains an error to display
+     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
      */
-    fun login(password: String?, result: (DisplayingError?) -> Unit)
+    fun login(password: String?, resultCall: (DisplayingError?) -> Unit)
 }

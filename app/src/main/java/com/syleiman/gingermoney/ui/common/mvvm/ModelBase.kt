@@ -1,15 +1,28 @@
 package com.syleiman.gingermoney.ui.common.mvvm
 
 import androidx.annotation.CallSuper
-import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 /**
  *
  */
-abstract class ModelBase (protected val launchManager: MainLaunchManagerInterface) : ModelBaseInterface {
+abstract class ModelBase : CoroutineScope, ModelBaseInterface {
+
+    private val scopeJob: Job = SupervisorJob()
+
+    /**
+     * Context of this scope.
+     */
+    override val coroutineContext: CoroutineContext
+        get() = scopeJob + Dispatchers.Main
+
     /**
      *
      */
     @CallSuper
-    override fun cancelBackgroundOperations() = launchManager.cancel()
+    override fun cancelBackgroundOperations() {
+        scopeJob.cancelChildren()
+        scopeJob.cancel()
+    }
 }

@@ -2,10 +2,9 @@ package com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.FingerprintAuthEventsHandlerInterface
-import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.*
+import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.FingerprintAuthEventHandler
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import javax.inject.Inject
 
@@ -16,9 +15,8 @@ import javax.inject.Inject
 class FingerprintModel
 @Inject
 constructor(
-    launchManager: MainLaunchManagerInterface,
     private val fingerprintAuthManager: FingerprintAuthManagerInterface
-) : ModelBase(launchManager),
+) : ModelBase(),
     FingerprintModelInterface {
 
     private lateinit var fingerprintAuthEventsHandler: FingerprintAuthEventsHandlerInterface

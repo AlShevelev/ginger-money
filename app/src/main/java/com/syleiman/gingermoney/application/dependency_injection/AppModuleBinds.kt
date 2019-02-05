@@ -1,8 +1,6 @@
 package com.syleiman.gingermoney.application.dependency_injection
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.ApplicationScope
-import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManager
-import com.syleiman.gingermoney.core.helpers.coroutines.managers.MainLaunchManagerInterface
 import com.syleiman.gingermoney.core.works.WorksManager
 import com.syleiman.gingermoney.core.works.WorksManagerInterface
 import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacade
@@ -76,9 +74,6 @@ abstract class AppModuleBinds {
 
     @Binds
     abstract fun provideDbStorageFacade(facade: DbStorageFacade): DbStorageFacadeInterface
-
-    @Binds
-    abstract fun provideMainLaunchManager(manager: MainLaunchManager): MainLaunchManagerInterface
 
     @Binds
     abstract fun provideJobsManager(manager: WorksManager): WorksManagerInterface
