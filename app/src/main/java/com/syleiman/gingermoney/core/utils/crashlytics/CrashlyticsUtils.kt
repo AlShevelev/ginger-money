@@ -56,4 +56,26 @@ constructor(
 
         Crashlytics.setString(LOCALE_KEY, resourcesService.getLocale())
     }
+
+    /**
+     *
+     */
+    override fun log(tag: String, message: String) {
+        if(!isCrashlyticsEnabled) {
+            return
+        }
+
+        Crashlytics.log(0, tag, message)
+    }
+
+    /**
+     *
+     */
+    override fun log(ex: Throwable) {
+        if(!isCrashlyticsEnabled) {
+            return
+        }
+
+        Crashlytics.logException(ex)
+    }
 }

@@ -4,7 +4,6 @@ import android.os.Build
 import android.security.keystore.KeyGenParameterSpec
 import android.security.keystore.KeyProperties
 import androidx.annotation.RequiresApi
-import com.syleiman.gingermoney.application.dependency_injection.scopes.ApplicationScope
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import java.security.*
 import javax.crypto.Cipher
@@ -13,7 +12,6 @@ import javax.inject.Inject
 
 /** Encryption/Decryption via AES */
 @RequiresApi(Build.VERSION_CODES.M)
-@ApplicationScope
 class EncryptorAES
 @Inject
 constructor() : EncryptorAESBase(), Encryptor, EncryptorFingerprint {

@@ -1,6 +1,5 @@
 package com.syleiman.gingermoney.core.utils.encryption.aes
 
-import com.syleiman.gingermoney.application.dependency_injection.scopes.ApplicationScope
 import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import java.security.Key
@@ -8,7 +7,6 @@ import javax.crypto.spec.SecretKeySpec
 import javax.inject.Inject
 
 /** Encryption/Decryption via AES for an old API*/
-@ApplicationScope
 class EncryptorAESOldApi
 @Inject
 constructor(

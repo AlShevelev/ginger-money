@@ -11,7 +11,6 @@ import javax.inject.Inject
 class WorksManager
 @Inject
 constructor() : WorksManagerInterface {
-
     /**
      *
      */
@@ -20,7 +19,7 @@ constructor() : WorksManagerInterface {
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        val updateWork = PeriodicWorkRequestBuilder<UpdateCurrencyRatesWorker>(1, TimeUnit.MINUTES)
+        val updateWork = PeriodicWorkRequestBuilder<UpdateCurrencyRatesWorker>(3, TimeUnit.HOURS)
             .setConstraints(updateConstraints)
             .build()
 

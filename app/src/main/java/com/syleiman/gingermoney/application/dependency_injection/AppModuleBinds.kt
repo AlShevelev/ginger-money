@@ -40,6 +40,7 @@ abstract class AppModuleBinds {
     abstract fun provideAppResourcesProvider(instance: AppResourcesProvider): AppResourcesProviderInterface
 
     @Binds
+    @ApplicationScope
     abstract fun provideCrashlyticsUtils(instance: CrashlyticsUtils): CrashlyticsUtilsInterface
 
     //region Key-value storage
