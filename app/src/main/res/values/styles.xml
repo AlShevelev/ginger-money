@@ -87,4 +87,11 @@
     <style name="App.Login.Fingerprint.Explanation" parent="App.Setup.Title.Text">
         <item name="android:textAlignment">center</item>
     </style>
+
+    <!-- Theme for Main screen -->
+    <style name="MainActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/textOnPrimary</item>
+    </style>
 </resources>

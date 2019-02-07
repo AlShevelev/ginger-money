@@ -3,7 +3,8 @@
     <item
         android:id="@+id/expensesFragment"
         android:title="@string/mainCosts"
-        android:icon="@drawable/ic_money" />
+        android:icon="@drawable/ic_money"
+    />
 
     <item
         android:id="@+id/statisticsFragment"
