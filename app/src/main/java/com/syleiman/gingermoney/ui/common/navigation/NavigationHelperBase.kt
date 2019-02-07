@@ -31,8 +31,7 @@ abstract class NavigationHelperBase(@IdRes private val navHostId: Int) : Navigat
     /**
      *
      */
-    protected fun getNavigationController(activity: FragmentActivity) =
-        Navigation.findNavController(activity, navHostId)
+    protected fun getNavigationController(activity: FragmentActivity) = Navigation.findNavController(activity, navHostId)
 
     /**
      *

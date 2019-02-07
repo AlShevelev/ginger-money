@@ -95,6 +95,7 @@
     <string name="mainStatisticsMonthly">Monthly</string>
     <string name="mainStatisticsYearly">Yearly</string>
 
+    <string name="mainAccounts">Accounts</string>
     <string name="mainAccountsTotal">Total</string>
     <string name="mainAccountsShowSumIn">Show sum in…</string>
     <string name="mainAccountsShowAmount">show an amount of all accounts</string>

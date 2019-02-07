@@ -84,6 +84,7 @@
     <string name="mainStatisticsMonthly">Месяц</string>
     <string name="mainStatisticsYearly">Год</string>
 
+    <string name="mainAccounts">Счета</string>
     <string name="mainAccountsTotal">Итого</string>
     <string name="mainAccountsShowSumIn">Показывать сумму в…</string>
     <string name="mainAccountsShowAmount">показывать сумму по всем счетам</string>

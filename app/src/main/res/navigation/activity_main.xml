@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_main"
+            app:startDestination="@id/expensesFragment">
+
+    <fragment android:id="@+id/accountsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.AccountsFragment"
+              android:label="@string/mainAccounts"
+              tools:layout="@layout/fragment_main_accounts"/>
+    <fragment android:id="@+id/expensesFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.ExpensesFragment"
+              android:label="@string/mainCosts"
+              tools:layout="@layout/fragment_main_expenses"/>
+    <fragment android:id="@+id/settingsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.SettingsFragment"
+              android:label="@string/mainSettings"
+              tools:layout="@layout/fragment_main_settings"/>
+    <fragment android:id="@+id/statisticsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.StatisticsFragment"
+              android:label="@string/mainStatistics"
+              tools:layout="@layout/fragment_main_statistics"/>
+</navigation>
