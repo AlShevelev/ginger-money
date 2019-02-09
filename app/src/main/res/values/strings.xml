@@ -1,6 +1,7 @@
 <resources>
     <string name="appName">Ginger money</string>
     <string name="locale">en</string>
+    <string name="appVersion" translatable="false">{0} ({1})</string>
 
     <string name="currencyEurShort"
             translatable="false">EUR

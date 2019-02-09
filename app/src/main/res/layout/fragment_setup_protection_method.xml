@@ -43,7 +43,7 @@
 
             android:layout_marginTop="@dimen/setupWelcomeTop"
 
-            style="@style/App.Setup.Welcome.Text"
+            style="@style/App.Activity.Setup.Welcome.Text"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -62,7 +62,7 @@
             android:layout_marginStart="@dimen/setupInner"
             android:layout_marginEnd="@dimen/setupInner"
 
-            style="@style/App.Setup.Title.Text"
+            style="@style/App.Activity.Setup.Title.Text"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcomeText"
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Start.RadioButton"
+                style="@style/App.Activity.Start.RadioButton"
 
                 android:tag="WITHOUT_PROTECTION"
             />
@@ -107,7 +107,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Start.RadioButton"
+                style="@style/App.Activity.Start.RadioButton"
 
                 android:tag="FINGERPRINT"
 
@@ -123,7 +123,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Start.RadioButton"
+                style="@style/App.Activity.Start.RadioButton"
 
                 android:tag="MASTER_PASSWORD"
             />
@@ -135,7 +135,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            style="@style/App.Setup.Explanation.Text"
+            style="@style/App.Activity.Setup.Explanation.Text"
 
             android:text="@string/setupProtectionExplanation"
 
@@ -181,7 +181,7 @@
             android:onClick="@{() -> viewModel.onFinishButtonClick()}"
             android:enabled="@{viewModel.finishButtonEnabled}"
 
-            style="@style/App.Start.Buttons"
+            style="@style/App.Activity.Start.Buttons"
         />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

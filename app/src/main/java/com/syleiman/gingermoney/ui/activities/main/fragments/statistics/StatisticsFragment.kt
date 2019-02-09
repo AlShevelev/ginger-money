@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.main.fragments
+package com.syleiman.gingermoney.ui.activities.main.fragments.statistics
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,11 +9,11 @@ import android.view.ViewGroup
 import com.syleiman.gingermoney.R
 
 /**
- * Expenses (Costs) page
+ * Statistics page
  */
-class ExpensesFragment : Fragment() {
+class StatisticsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_main_expenses, container, false)
+        return inflater.inflate(R.layout.fragment_main_statistics, container, false)
     }
 }

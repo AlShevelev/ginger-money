@@ -13,6 +13,10 @@
     <dimen name="toastMargin">8dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Headers">-->
+    <dimen name="header_margin">11dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Setups">-->
     <dimen name="setupInner">10dp</dimen>
 

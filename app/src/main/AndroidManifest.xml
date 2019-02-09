@@ -20,7 +20,7 @@
         <activity
             android:name=".ui.activities.root.RootActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/RootActivityTheme">
+            android:theme="@style/App.Activity.Root.Theme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -30,17 +30,17 @@
         <activity
             android:name=".ui.activities.main.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/MainActivityTheme">
+            android:theme="@style/App.Activity.Main.Theme">
         </activity>
         <activity
             android:name=".ui.activities.setup.SetupActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/StartActivityTheme">
+            android:theme="@style/App.Activity.Start.Theme">
         </activity>
         <activity
             android:name=".ui.activities.login.LoginActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/StartActivityTheme">
+            android:theme="@style/App.Activity.Start.Theme">
         </activity>
 
         <!-- To enable/disable Fb Crashlytics -->

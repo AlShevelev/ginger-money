@@ -6,19 +6,23 @@
             app:startDestination="@id/expensesFragment">
 
     <fragment android:id="@+id/accountsFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.AccountsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.accounts.AccountsFragment"
               android:label="@string/mainAccounts"
-              tools:layout="@layout/fragment_main_accounts"/>
+              tools:layout="@layout/fragment_main_accounts">
+    </fragment>
     <fragment android:id="@+id/expensesFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.ExpensesFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.expenses.ExpensesFragment"
               android:label="@string/mainCosts"
-              tools:layout="@layout/fragment_main_expenses"/>
+              tools:layout="@layout/fragment_main_expenses">
+    </fragment>
     <fragment android:id="@+id/settingsFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.SettingsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.settings.SettingsFragment"
               android:label="@string/mainSettings"
-              tools:layout="@layout/fragment_main_settings"/>
+              tools:layout="@layout/fragment_main_settings">
+    </fragment>
     <fragment android:id="@+id/statisticsFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.StatisticsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.statistics.StatisticsFragment"
               android:label="@string/mainStatistics"
-              tools:layout="@layout/fragment_main_statistics"/>
+              tools:layout="@layout/fragment_main_statistics">
+    </fragment>
 </navigation>

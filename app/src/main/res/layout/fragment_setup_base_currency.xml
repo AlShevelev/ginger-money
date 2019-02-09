@@ -43,7 +43,7 @@
 
             android:layout_marginTop="@dimen/setupWelcomeTop"
 
-            style="@style/App.Setup.Welcome.Text"
+            style="@style/App.Activity.Setup.Welcome.Text"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -62,7 +62,7 @@
             android:layout_marginStart="@dimen/setupInner"
             android:layout_marginEnd="@dimen/setupInner"
 
-            style="@style/App.Setup.Title.Text"
+            style="@style/App.Activity.Setup.Title.Text"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/welcomeText"
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Start.RadioButton"
+                style="@style/App.Activity.Start.RadioButton"
 
                 app:drawableRadioButton_icon = "@drawable/ic_usd"
                 app:drawableRadioButton_iconTint = "@color/textOnPrimary"
@@ -117,7 +117,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
 
-                style="@style/App.Start.RadioButton"
+                style="@style/App.Activity.Start.RadioButton"
 
                 app:drawableRadioButton_icon = "@drawable/ic_eur"
                 app:drawableRadioButton_iconTint = "@color/textOnPrimary"
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Start.RadioButton"
+                style="@style/App.Activity.Start.RadioButton"
 
                 app:drawableRadioButton_icon = "@drawable/ic_rub"
                 app:drawableRadioButton_iconTint = "@color/textOnPrimary"
@@ -153,7 +153,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
 
-            style="@style/App.Setup.Explanation.Text"
+            style="@style/App.Activity.Setup.Explanation.Text"
 
             android:text="@string/setupBaseCurrencyExplanation"
 
@@ -199,7 +199,7 @@
             android:onClick="@{() -> viewModel.onNextButtonClick()}"
             android:enabled="@{viewModel.nextButtonEnabled}"
 
-            style="@style/App.Start.Buttons"
+            style="@style/App.Activity.Start.Buttons"
         />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
