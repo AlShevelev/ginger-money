@@ -48,4 +48,9 @@
     <dimen name="setupFingerprintImagePadding">15dp</dimen>
     <dimen name="setupFingerprintImageTop">38dp</dimen>
     <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Settings">-->
+    <dimen name="settingsButtonHeight">44dp</dimen>
+    <dimen name="settingsButtonIconSize">20dp</dimen>
+    <!--</editor-fold>-->
 </resources>

@@ -30,7 +30,7 @@
             android:layout_marginTop="@dimen/setupFingerprintImageTop"
 
             app:tint = "@color/textOnPrimary"
-            android:background="@drawable/login_fingerprint_image_bcg"
+            android:background="@drawable/bcg_login_fingerprint_image"
 
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +75,7 @@
 
             android:id="@+id/useMasterPasswordButton"
 
-            style="@style/App.Activity.Start.Buttons"
+            style="@style/App.Activity.Start.Button"
 
             android:onClick="@{() -> viewModel.onUseMasterPasswordButtonClick()}"
 

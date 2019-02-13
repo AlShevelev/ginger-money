@@ -1,13 +1,13 @@
 package com.syleiman.gingermoney.ui.activities.setup.shared_controls
 
 import android.content.Context
-import android.graphics.Rect
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.RadioButton
 import androidx.annotation.ColorInt
 import androidx.annotation.Px
 import com.syleiman.gingermoney.R
+import com.syleiman.gingermoney.ui.common.extension.inscribe
 
 /**
  * RadioButton with an icon on the right
@@ -17,7 +17,7 @@ class DrawableRadioButton
 constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
+    defStyleAttr: Int = android.R.attr.radioButtonStyle
 ) : RadioButton(context, attrs, defStyleAttr) {
 
     private lateinit var icon: Drawable
@@ -56,30 +56,10 @@ constructor(
      *
      */
     private fun drawIcon() {
-        icon.bounds = calculateBounds()
+        icon.bounds = icon.inscribe(iconSize)
         icon.setTint(color)
 
         compoundDrawablePadding = iconMargin
         setCompoundDrawables(null, null, icon, null)
-    }
-
-    private fun calculateBounds(): Rect {
-        val iconWidth = icon.intrinsicWidth
-        val iconHeight = icon.intrinsicHeight
-
-        // Square icon
-        if(iconWidth == iconHeight) {
-            return Rect(0, 0, iconSize, iconSize)
-        }
-
-        // Vertical-oriented icon
-        if(iconWidth < iconHeight) {
-            return Rect(0, 0, (iconSize * (iconWidth.toFloat()/iconHeight)).toInt(), iconSize)
-        }
-
-        // Horizontal-oriented icon
-        val rectHeight = (iconSize * (iconHeight.toFloat()/iconWidth)).toInt()
-        val top = (iconSize - rectHeight)/2
-        return Rect(0, top, iconSize, top + rectHeight)
     }
 }

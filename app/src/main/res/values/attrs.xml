@@ -14,4 +14,11 @@
         <attr name="drawableRadioButton_iconMargin" format="dimension" />
         <attr name="drawableRadioButton_iconSize" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="IconButton">
+        <attr name="iconButton_icon" format="reference" />
+        <attr name="iconButton_iconTint" format="reference" />
+        <attr name="iconButton_iconMargin" format="dimension" />
+        <attr name="iconButton_iconSize" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -36,21 +36,21 @@
 
     <!-- Root screen -->
     <style name="App.Activity.Root.Theme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:windowBackground">@drawable/activity_root_bcg</item>
+        <item name="android:windowBackground">@drawable/bcg_activity_root</item>
     </style>
 
     <!-- Buttons on Setup and Login screens -->
-    <style name="App.Activity.Start.Buttons" parent="TextAppearance.AppCompat">
+    <style name="App.Activity.Start.Button" parent="TextAppearance.AppCompat">
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">@dimen/textSizeNormal</item>
-        <item name="android:textColor">@color/setup_buttons</item>
+        <item name="android:textColor">@color/setup_button</item>
         <item name="android:focusable">false</item>
     </style>
 
     <!-- Login buttons on Login screens -->
-    <style name="App.Activity.Login.Login.Button" parent="App.Activity.Start.Buttons">
+    <style name="App.Activity.Login.Login.Button" parent="App.Activity.Start.Button">
         <item name="android:textSize">@dimen/textSizeNormalLess</item>
-        <item name="android:background">@drawable/login_login_button_bcg</item>
+        <item name="android:background">@drawable/bcg_login_login_button</item>
     </style>
 
     <!-- Password on Setup and Login screens -->
@@ -58,7 +58,7 @@
         <item name="android:inputType">textPassword</item>
         <item name="android:ems">10</item>
         <item name="android:maxLines">1</item>
-        <item name="android:background">@drawable/setup_edit_text_bcg</item>
+        <item name="android:background">@drawable/bcg_setup_edit_text</item>
         <item name="android:textCursorDrawable">@null</item>
         <item name="android:textColor">@color/black</item>
     </style>
@@ -103,5 +103,13 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
         <item name="colorAccent">@color/textOnPrimary</item>
+    </style>
+
+    <!-- Buttons on the Settings page -->
+    <style name="App.Activity.Main.Settings.Button" parent="TextAppearance.AppCompat">
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/textSizeNormalLess</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/main_settings_button</item>
     </style>
 </resources>
