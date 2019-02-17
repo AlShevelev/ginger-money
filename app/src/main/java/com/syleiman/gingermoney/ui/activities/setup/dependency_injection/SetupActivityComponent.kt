@@ -21,14 +21,11 @@ interface SetupActivityComponent {
     }
 
     fun inject(fragment : MasterPasswordFragment)
-
-    fun inject(fragment : BaseCurrencyFragment)
-
-    fun inject(fragment : ProtectionMethodFragment)
-
     fun inject(viewModel: MasterPasswordViewModel)
 
+    fun inject(fragment : BaseCurrencyFragment)
     fun inject(viewModel: BaseCurrencyViewModel)
 
+    fun inject(fragment : ProtectionMethodFragment)
     fun inject(viewModel: ProtectionMethodViewModel)
 }

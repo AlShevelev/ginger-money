@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:id="@+id/currencySwitchers"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:paddingTop="@dimen/settingsCurrencyDialogPaddingTop"
+    android:paddingStart="@dimen/settingsCurrencyDialogPaddingStart"
+    android:paddingEnd="@dimen/settingsCurrencyDialogPaddingEnd"
+    android:paddingBottom="@dimen/settingsCurrencyDialogPaddingBottom"
+
+    android:orientation="vertical">
+
+    <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+        android:id="@+id/usdSwitcher"
+
+        android:text="@string/currencyUsdShort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        style="@style/App.CurrencyRadioButton.SettingsDialog"
+
+        app:drawableRadioButton_icon = "@drawable/ic_usd"
+        app:drawableRadioButton_iconTint = "@color/black"
+        app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+        app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+
+        android:tag="USD"
+    />
+
+    <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+        android:id="@+id/eurSwitcher"
+
+        android:text="@string/currencyEurShort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        style="@style/App.CurrencyRadioButton.SettingsDialog"
+
+        android:paddingTop="@dimen/settingsCurrencyDialogLinesGap"
+        android:paddingBottom="@dimen/settingsCurrencyDialogLinesGap"
+
+        app:drawableRadioButton_icon = "@drawable/ic_eur"
+        app:drawableRadioButton_iconTint = "@color/black"
+        app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+        app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+
+        android:tag="EUR"
+    />
+
+    <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+        android:id="@+id/rubSwitcher"
+
+        android:text="@string/currencyRubShort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        style="@style/App.CurrencyRadioButton.SettingsDialog"
+
+        app:drawableRadioButton_icon = "@drawable/ic_rub"
+        app:drawableRadioButton_iconTint = "@color/black"
+        app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+        app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+
+        android:tag="RUB"
+    />
+</RadioGroup>

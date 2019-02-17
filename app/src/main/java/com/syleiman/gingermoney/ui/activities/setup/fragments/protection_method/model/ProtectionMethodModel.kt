@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
 
 /**
@@ -43,8 +44,10 @@ constructor(
             val operationResult = try {
                 withContext(Dispatchers.IO) {
                     keyValueStorage.setAppProtectionMethod(protectionMethod)
+                    keyValueStorage.setStartDayOfWeek(DayOfWeek.MONDAY)
                     keyValueStorage.setAppSetupComplete(true)
-                    worksManager.startCurrencyRatesUpdates()       // Start to load currency rates periodically
+
+                    worksManager.startCurrencyRatesUpdates()      // Started to load selecedCurrency rates periodically
                     null
                 }
             }

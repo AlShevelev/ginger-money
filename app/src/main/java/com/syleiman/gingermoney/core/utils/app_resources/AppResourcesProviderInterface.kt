@@ -4,6 +4,8 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
+import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
+import org.threeten.bp.DayOfWeek
 
 interface AppResourcesProviderInterface {
     /**
@@ -17,7 +19,7 @@ interface AppResourcesProviderInterface {
     fun getString(@StringRes resId: Int): String
 
     /**
-     * Get string and format it
+     * Gets string and formats it
      */
     fun getFormattedString(@StringRes resId: Int, vararg args: Any): String
 
@@ -33,7 +35,17 @@ interface AppResourcesProviderInterface {
     fun getColor(@ColorRes resId: Int): Int
 
     /**
-     * Get metadata value as string
+     * Gets metadata value as string
      */
     fun getMetadataValue(key: String): Any?
+
+    /**
+     * Returns string value for an app protection method
+     */
+    fun getAppProtectionMethodString(protectionMethod: AppProtectionMethod): String
+
+    /**
+     * Returns string value for a day of week
+     */
+    fun getDayOfWeekString(dayOfWeek: DayOfWeek): String
 }

@@ -63,11 +63,23 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <!-- RadioButton on Setup and Login screens -->
-    <style name="App.Activity.Start.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+    <!-- RadioButton with currency (light) -->
+    <style name="App.CurrencyRadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
         <item name="android:buttonTint">@color/textOnPrimary</item>
         <item name="android:textColor">@color/textOnPrimary</item>
         <item name="android:textSize">@dimen/textSizeNormalLess</item>
+    </style>
+
+    <!-- RadioButton with currency (dark) -->
+    <style name="App.CurrencyRadioButton.Dark" parent="App.CurrencyRadioButton">
+        <item name="android:buttonTint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- RadioButton with currency (for a dialog on the Settings screen) -->
+    <style name="App.CurrencyRadioButton.SettingsDialog" parent="App.CurrencyRadioButton.Dark">
+        <item name="android:buttonTint">@null</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Theme for Setup & Login screen -->
@@ -103,6 +115,13 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primaryDark</item>
         <item name="colorAccent">@color/textOnPrimary</item>
+    </style>
+
+    <!-- Theme for dialogs on Main screen -->
+    <style name="App.Activity.Main.Dialog.Theme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/primary</item>  <!--Buttons-->
+        <item name="android:textColorPrimary">@color/black</item> <!--Text-->
+        Color of the buttons
     </style>
 
     <!-- Buttons on the Settings page -->

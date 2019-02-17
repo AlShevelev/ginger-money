@@ -274,7 +274,7 @@ class MoneyTest {
     }
 
     /**
-     * Invalid exchange rate - "from" currency as same as "to"
+     * Invalid exchange rate - "from" selecedCurrency as same as "to"
      */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun convertToFailInvalidExchangeRateSameCurrency() {

@@ -2,7 +2,9 @@ package com.syleiman.gingermoney.ui.activities.main.dependency_injection
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.ActivityScope
 import com.syleiman.gingermoney.ui.activities.main.MainActivity
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.header.SettingsHeader
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view.SettingsFragment
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel
+import com.syleiman.gingermoney.ui.activities.main.headers.SettingsHeader
 import dagger.Subcomponent
 
 /**
@@ -19,4 +21,6 @@ interface MainActivityComponent {
     fun inject(activity : MainActivity)
 
     fun inject(header : SettingsHeader)
+    fun inject(fragment : SettingsFragment)
+    fun inject(viewModel: SettingsViewModel)
 }

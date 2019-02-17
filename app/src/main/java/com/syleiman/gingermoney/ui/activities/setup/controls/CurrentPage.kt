@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.setup.shared_controls
+package com.syleiman.gingermoney.ui.activities.setup.controls
 
 import android.content.Context
 import android.graphics.Canvas

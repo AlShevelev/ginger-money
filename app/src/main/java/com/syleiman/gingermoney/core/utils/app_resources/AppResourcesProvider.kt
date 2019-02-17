@@ -8,6 +8,8 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
 import com.syleiman.gingermoney.R
+import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
+import org.threeten.bp.DayOfWeek
 import java.lang.UnsupportedOperationException
 import java.text.MessageFormat
 import javax.inject.Inject
@@ -29,7 +31,7 @@ constructor(
     override fun getString(resId: Int): String = appContext.getString(resId)
 
     /**
-     * Get string and format it
+     * Gets string and formats it
      */
     override fun getFormattedString(@StringRes resId: Int, vararg args: Any): String =
         when(args.size) {
@@ -75,4 +77,28 @@ constructor(
 
         return null
     }
+
+    /**
+     * Returns string value for an app protection method
+     */
+    override fun getAppProtectionMethodString(protectionMethod: AppProtectionMethod): String =
+        when(protectionMethod) {
+            AppProtectionMethod.MASTER_PASSWORD -> getString(R.string.passMethodMasterPassword)
+            AppProtectionMethod.FINGERPRINT -> getString(R.string.passMethodFingerprint)
+            AppProtectionMethod.WITHOUT_PROTECTION -> getString(R.string.passMethodWithoutProtection)
+        }
+
+    /**
+     * Returns string value for a day of week
+     */
+    override fun getDayOfWeekString(dayOfWeek: DayOfWeek): String =
+        when(dayOfWeek) {
+            DayOfWeek.MONDAY -> getString(R.string.dayMonday)
+            DayOfWeek.TUESDAY -> getString(R.string.dayTuesday)
+            DayOfWeek.WEDNESDAY -> getString(R.string.dayWednesday)
+            DayOfWeek.THURSDAY -> getString(R.string.dayThursday)
+            DayOfWeek.FRIDAY -> getString(R.string.dayFriday)
+            DayOfWeek.SATURDAY -> getString(R.string.daySaturday)
+            DayOfWeek.SUNDAY -> getString(R.string.daySunday)
+        }
 }

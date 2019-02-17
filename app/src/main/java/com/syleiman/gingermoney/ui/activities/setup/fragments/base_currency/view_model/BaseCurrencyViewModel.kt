@@ -15,7 +15,7 @@ import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 class BaseCurrencyViewModel : ViewModelBase<BaseCurrencyModelInterface>() {
 
     /**
-     * Selected currency
+     * Selected selecedCurrency
      */
     val currency: MutableLiveData<Currency> = MutableLiveData()
 

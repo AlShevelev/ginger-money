@@ -5,7 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.header.HeaderTags
+import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 import javax.inject.Inject
 

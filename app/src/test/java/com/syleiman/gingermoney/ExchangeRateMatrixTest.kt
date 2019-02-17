@@ -15,7 +15,7 @@ class ExchangeRateMatrixTest {
     }
 
     /**
-     * The set must contains all rates except a rate for a base currency
+     * The set must contains all rates except a rate for a base selecedCurrency
      */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun create_exchangeRateIsNotFull() {
@@ -37,7 +37,7 @@ class ExchangeRateMatrixTest {
     }
 
     /**
-     * Field "to" in [ExchangeRate] must be as same as a base currency
+     * Field "to" in [ExchangeRate] must be as same as a base selecedCurrency
      */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun validation_invalidToValue() {
@@ -50,7 +50,7 @@ class ExchangeRateMatrixTest {
     }
 
     /**
-     * Field "from" in [ExchangeRate] mustn't be as same as a base currency
+     * Field "from" in [ExchangeRate] mustn't be as same as a base selecedCurrency
      */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun validation_invalidFromValue() {
@@ -76,7 +76,7 @@ class ExchangeRateMatrixTest {
     }
 
     /**
-     * Check quotes for the same currency
+     * Check quotes for the same selecedCurrency
      */
     @Test
     fun checkMatrix_diagonal() {

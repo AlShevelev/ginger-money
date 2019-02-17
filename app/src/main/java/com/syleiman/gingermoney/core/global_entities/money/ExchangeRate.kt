@@ -3,17 +3,17 @@ package com.syleiman.gingermoney.core.global_entities.money
 /** Exchange rate for [Money] */
 class ExchangeRate(
     /**
-     * Source currency
+     * Source selecedCurrency
      */
     val from: Currency,
 
     /**
-     * Target currency
+     * Target selecedCurrency
      */
     val to: Currency,
 
     /**
-     * How many units of currency [from] you can buy for one unit of currency [to]
+     * How many units of selecedCurrency [from] you can buy for one unit of selecedCurrency [to]
      */
     val quoteFactor: Double
 )

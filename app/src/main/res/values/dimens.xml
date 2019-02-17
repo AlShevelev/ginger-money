@@ -17,6 +17,11 @@
     <dimen name="header_margin">11dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Currency radio button">-->
+    <dimen name="currencyRadioButtonIcon">16dp</dimen>
+    <dimen name="currencyRadioButtonIconMargin">4dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Setups">-->
     <dimen name="setupInner">10dp</dimen>
 
@@ -36,8 +41,6 @@
     <dimen name="setupPasswordFieldPadding">8dp</dimen>
 
     <dimen name="setupBaseCurrencyGroupTop">8dp</dimen>
-    <dimen name="setupBaseCurrencyRadioButtonIcon">16dp</dimen>
-    <dimen name="setupBaseCurrencyRadioButtonIconMargin">4dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Setups">-->
@@ -52,5 +55,11 @@
     <!--<editor-fold desc="Settings">-->
     <dimen name="settingsButtonHeight">44dp</dimen>
     <dimen name="settingsButtonIconSize">20dp</dimen>
+
+    <dimen name="settingsCurrencyDialogPaddingTop">15dp</dimen>
+    <dimen name="settingsCurrencyDialogPaddingStart">20dp</dimen>
+    <dimen name="settingsCurrencyDialogPaddingEnd">20dp</dimen>
+    <dimen name="settingsCurrencyDialogPaddingBottom">0dp</dimen>
+    <dimen name="settingsCurrencyDialogLinesGap">20dp</dimen>
     <!--</editor-fold>-->
 </resources>

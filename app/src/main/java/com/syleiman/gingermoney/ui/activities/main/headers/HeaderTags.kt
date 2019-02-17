@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.main.fragments.settings.header
+package com.syleiman.gingermoney.ui.activities.main.headers
 
 /**
  *

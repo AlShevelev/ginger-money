@@ -59,9 +59,9 @@
     <string name="paymentBonds">Bonds</string>
 
     <string name="passEnter">Enter master password</string>
-    <string name="passMethod1">without protection</string>
-    <string name="passMethod2">fingerprint</string>
-    <string name="passMethod3">master password</string>
+    <string name="passMethodWithoutProtection">without protection</string>
+    <string name="passMethodFingerprint">fingerprint</string>
+    <string name="passMethodMasterPassword">master password</string>
 
     <string name="welcome">Welcome to Ginger Money!</string>
 
@@ -110,5 +110,7 @@
     <string name="mainSettingsApplicationProtection">Application protection</string>
     <string name="mainSettingsDefaultCurrency">Default currency</string>
     <string name="mainSettingsStartDay">Start day of a week</string>
-    <string name="setupProtectionDialog">Select protection method</string>
+    <string name="mainProtectionDialogTitle">Select protection method</string>
+    <string name="mainCurrencyDialogTitle">Select default currency</string>
+    <string name="mainStartDayDialogTitle">Select start day of a week</string>
 </resources>

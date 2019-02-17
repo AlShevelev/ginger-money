@@ -1,71 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bcg_activity_main_page"
-    tools:context=".ui.activities.main.fragments.settings.SettingsFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <com.syleiman.gingermoney.ui.activities.main.fragments.settings.shared_controls.IconButton
-        android:text="@string/mainSettingsApplicationProtection"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel"/>
+    </data>
 
-        android:layout_width="0dp"
-        android:layout_height="@dimen/settingsButtonHeight"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bcg_activity_main_page"
+        tools:context=".ui.activities.main.fragments.settings.view.SettingsFragment">
 
-        android:id="@+id/applicationProtectionMethodButton"
-        android:background="@drawable/bcg_main_settings_button"
+        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls.IconButton
+            android:text="@string/mainSettingsApplicationProtection"
 
-        style="@style/App.Activity.Main.Settings.Button"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/settingsButtonHeight"
 
-        app:iconButton_icon = "@drawable/ic_lock"
-        app:iconButton_iconTint = "@color/main_settings_button"
-        app:iconButton_iconSize = "@dimen/settingsButtonIconSize"
-        app:iconButton_iconMargin = "12dp"
+            android:id="@+id/applicationProtectionMethodButton"
+            android:background="@drawable/bcg_main_settings_button"
 
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-    />
+            style="@style/App.Activity.Main.Settings.Button"
 
-    <com.syleiman.gingermoney.ui.activities.main.fragments.settings.shared_controls.IconButton
-        android:text="@string/mainSettingsDefaultCurrency"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/settingsButtonHeight"
+            app:iconButton_icon = "@drawable/ic_lock"
+            app:iconButton_iconTint = "@color/main_settings_button"
+            app:iconButton_iconSize = "@dimen/settingsButtonIconSize"
+            app:iconButton_iconMargin = "12dp"
 
-        android:id="@+id/defaultCurrencyButton"
-        android:background="@drawable/bcg_main_settings_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
 
-        style="@style/App.Activity.Main.Settings.Button"
+            android:enabled="@{viewModel.buttonsEnabled}"
+            android:onClick="@{() -> viewModel.onAppProtectionButtonClick()}"
+        />
 
-        app:iconButton_icon = "@drawable/ic_usd"
-        app:iconButton_iconTint = "@color/main_settings_button"
-        app:iconButton_iconSize = "@dimen/settingsButtonIconSize"
-        app:iconButton_iconMargin = "15dp"
+        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls.IconButton
+            android:text="@string/mainSettingsDefaultCurrency"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/settingsButtonHeight"
 
-        app:layout_constraintTop_toBottomOf="@+id/applicationProtectionMethodButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-    />
+            android:id="@+id/defaultCurrencyButton"
+            android:background="@drawable/bcg_main_settings_button"
 
-    <com.syleiman.gingermoney.ui.activities.main.fragments.settings.shared_controls.IconButton
-        android:text="@string/mainSettingsStartDay"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/settingsButtonHeight"
+            style="@style/App.Activity.Main.Settings.Button"
 
-        android:id="@+id/startDayButton"
-        android:background="@drawable/bcg_main_settings_button"
+            app:iconButton_icon = "@drawable/ic_usd"
+            app:iconButton_iconTint = "@color/main_settings_button"
+            app:iconButton_iconSize = "@dimen/settingsButtonIconSize"
+            app:iconButton_iconMargin = "15dp"
 
-        style="@style/App.Activity.Main.Settings.Button"
+            app:layout_constraintTop_toBottomOf="@+id/applicationProtectionMethodButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
 
-        app:iconButton_icon = "@drawable/ic_calendar"
-        app:iconButton_iconTint = "@color/main_settings_button"
-        app:iconButton_iconSize = "@dimen/settingsButtonIconSize"
-        app:iconButton_iconMargin = "9dp"
+            android:enabled="@{viewModel.buttonsEnabled}"
+            android:onClick="@{() -> viewModel.onDefaultCurrencyButtonClick()}"
+        />
 
-        app:layout_constraintTop_toBottomOf="@+id/defaultCurrencyButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-    />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls.IconButton
+            android:text="@string/mainSettingsStartDay"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/settingsButtonHeight"
+
+            android:id="@+id/startDayButton"
+            android:background="@drawable/bcg_main_settings_button"
+
+            style="@style/App.Activity.Main.Settings.Button"
+
+            app:iconButton_icon = "@drawable/ic_calendar"
+            app:iconButton_iconTint = "@color/main_settings_button"
+            app:iconButton_iconSize = "@dimen/settingsButtonIconSize"
+            app:iconButton_iconMargin = "9dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/defaultCurrencyButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            android:enabled="@{viewModel.buttonsEnabled}"
+            android:onClick="@{() -> viewModel.onStartDayOfWeekButtonClick()}"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

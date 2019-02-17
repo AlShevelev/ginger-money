@@ -6,8 +6,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.header.HeaderTags
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.header.SettingsHeader
+import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
+import com.syleiman.gingermoney.ui.activities.main.headers.SettingsHeader
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject

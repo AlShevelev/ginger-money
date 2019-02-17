@@ -4,7 +4,7 @@ import java.util.Currency
 import com.syleiman.gingermoney.core.global_entities.money.Currency as CurrencyCode
 
 /**
- * Money totalCents with a currency
+ * Money totalCents with a selecedCurrency
  */
 class Money {
     /**
@@ -89,7 +89,7 @@ class Money {
     }
 
     /**
-     * Add one [Money] instance to other [Money] instance. The currency must be same.
+     * Add one [Money] instance to other [Money] instance. The selecedCurrency must be same.
      */
     operator fun plus(otherMoney: Money): Money {
         checkOperationPossibility(otherMoney)
@@ -100,7 +100,7 @@ class Money {
     }
 
     /**
-     * Subtract one [Money] instance from other [Money] instance. The currency must be same.
+     * Subtract one [Money] instance from other [Money] instance. The selecedCurrency must be same.
      */
     operator fun minus(otherMoney: Money): Money {
         checkOperationPossibility(otherMoney)
@@ -111,7 +111,7 @@ class Money {
     }
 
     /**
-     * Convert a [Money] value to another value with a different currency
+     * Convert a [Money] value to another value with a different selecedCurrency
      */
     fun convertTo(rate: ExchangeRate): Money {
         checkExchangePossibility(rate)
@@ -168,7 +168,7 @@ class Money {
         }
 
         if(rate.from == rate.to) {
-            throw IncorrectMoneyOperationException("Invalid exchange rate - you can't convert the currency to the same currency")
+            throw IncorrectMoneyOperationException("Invalid exchange rate - you can't convert the selecedCurrency to the same selecedCurrency")
         }
 
         if(rate.quoteFactor < 0) {

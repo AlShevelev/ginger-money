@@ -16,7 +16,7 @@
               tools:layout="@layout/fragment_main_expenses">
     </fragment>
     <fragment android:id="@+id/settingsFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.settings.SettingsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.settings.view.SettingsFragment"
               android:label="@string/mainSettings"
               tools:layout="@layout/fragment_main_settings">
     </fragment>

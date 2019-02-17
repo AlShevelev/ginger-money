@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.ui.common.controls.dialogs.OneOptionRadioDialog
 import javax.inject.Inject
 
 /**
@@ -61,5 +62,29 @@ constructor(
             view = customView
             show()
         }
+    }
+
+    /** Shows dialog with a list of options
+     * @param [resultCallback] index of selected item (null if user canceled dialog) */
+    override fun showOneOptionRadioDialog(
+        context: Context,
+        items: List<String>,
+        selectedIndex: Int,
+        title: String?,
+        resultCallback: (Int?) -> Unit) {
+
+        val okButtonText = appResourcesProvider.getString(R.string.commonOk)
+        val cancelButtonText = appResourcesProvider.getString(R.string.commonCancel)
+
+        OneOptionRadioDialog(
+            context,
+            items,
+            title,
+            okButtonText,
+            cancelButtonText,
+            resultCallback,
+            {it},
+            selectedIndex)
+        .show()
     }
 }

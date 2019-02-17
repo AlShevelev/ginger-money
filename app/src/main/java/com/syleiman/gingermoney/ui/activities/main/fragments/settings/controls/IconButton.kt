@@ -1,11 +1,10 @@
-package com.syleiman.gingermoney.ui.activities.main.fragments.settings.shared_controls
+package com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls
 
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.widget.Button
-import androidx.annotation.ColorInt
 import androidx.annotation.Px
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.ui.common.extension.inscribe

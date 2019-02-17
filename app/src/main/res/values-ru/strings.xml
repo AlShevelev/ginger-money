@@ -54,9 +54,9 @@
     <string name="paymentBonds">Облигации</string>
 
     <string name="passEnter">Введите основной пароль</string>
-    <string name="passMethod1">без защиты</string>
-    <string name="passMethod2">отпечаток пальца</string>
-    <string name="passMethod3">основной пароль</string>
+    <string name="passMethodWithoutProtection">без защиты</string>
+    <string name="passMethodFingerprint">отпечаток пальца</string>
+    <string name="passMethodMasterPassword">основной пароль</string>
 
     <string name="welcome">Добро пожаловать в рыжие деньги!</string>
 
@@ -98,5 +98,7 @@
     <string name="mainSettingsApplicationProtection">Защита приложения</string>
     <string name="mainSettingsDefaultCurrency">Основная валюта</string>
     <string name="mainSettingsStartDay">Первый день недели</string>
-    <string name="setupProtectionDialog">Выберите метод защиты</string>
+    <string name="mainProtectionDialogTitle">Выберите метод защиты</string>
+    <string name="mainCurrencyDialogTitle">Выберите основную валюту</string>
+    <string name="mainStartDayDialogTitle">Выберите первый день недели</string>
 </resources>

@@ -88,7 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chooseBaseCurrencyText">
 
-            <com.syleiman.gingermoney.ui.activities.setup.shared_controls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
                 android:id="@+id/usdSwitcher"
 
                 android:text="@string/currencyUsdShort"
@@ -96,17 +96,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Activity.Start.RadioButton"
+                style="@style/App.CurrencyRadioButton"
 
                 app:drawableRadioButton_icon = "@drawable/ic_usd"
                 app:drawableRadioButton_iconTint = "@color/textOnPrimary"
-                app:drawableRadioButton_iconSize="@dimen/setupBaseCurrencyRadioButtonIcon"
-                app:drawableRadioButton_iconMargin="@dimen/setupBaseCurrencyRadioButtonIconMargin"
+                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
 
                 android:tag="USD"
             />
 
-            <com.syleiman.gingermoney.ui.activities.setup.shared_controls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
                 android:id="@+id/eurSwitcher"
 
                 android:text="@string/currencyEurShort"
@@ -117,17 +117,17 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
 
-                style="@style/App.Activity.Start.RadioButton"
+                style="@style/App.CurrencyRadioButton"
 
                 app:drawableRadioButton_icon = "@drawable/ic_eur"
                 app:drawableRadioButton_iconTint = "@color/textOnPrimary"
-                app:drawableRadioButton_iconSize="@dimen/setupBaseCurrencyRadioButtonIcon"
-                app:drawableRadioButton_iconMargin="@dimen/setupBaseCurrencyRadioButtonIconMargin"
+                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
 
                 android:tag="EUR"
             />
 
-            <com.syleiman.gingermoney.ui.activities.setup.shared_controls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
                 android:id="@+id/rubSwitcher"
 
                 android:text="@string/currencyRubShort"
@@ -135,12 +135,12 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Activity.Start.RadioButton"
+                style="@style/App.CurrencyRadioButton"
 
                 app:drawableRadioButton_icon = "@drawable/ic_rub"
                 app:drawableRadioButton_iconTint = "@color/textOnPrimary"
-                app:drawableRadioButton_iconSize="@dimen/setupBaseCurrencyRadioButtonIcon"
-                app:drawableRadioButton_iconMargin="@dimen/setupBaseCurrencyRadioButtonIconMargin"
+                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
 
                 android:tag="RUB"
             />
@@ -166,7 +166,7 @@
             app:layout_constraintEnd_toEndOf="parent"
         />
 
-        <com.syleiman.gingermoney.ui.activities.setup.shared_controls.CurrentPage
+        <com.syleiman.gingermoney.ui.activities.setup.controls.CurrentPage
             android:id="@+id/currentPage"
 
             android:layout_width="@dimen/setupCurrentPageWidth"

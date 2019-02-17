@@ -4,6 +4,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageInterface
 import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverterInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
+import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
 
 /**
@@ -29,6 +30,8 @@ constructor(
         const val DEFAULT_CURRENCY = "DEFAULT_CURRENCY"
 
         const val APP_PROTECTION_METHOD = "APP_PROTECTION_METHOD"
+
+        const val START_DAY_OF_WEEK = "START_DAY_OF_WEEK"
     }
 
     /**
@@ -44,8 +47,7 @@ constructor(
      */
     override fun getAESCryptoKey(): ByteArray? =
         keyValueStorage.read {
-            it.readString(Keys.CRYPTO_KEY_AES)
-                ?.let { keyAsString -> stringsConverter.fromBase64(keyAsString) }
+            it.readString(Keys.CRYPTO_KEY_AES)?.let { keyAsString -> stringsConverter.fromBase64(keyAsString) }
         }
 
     /**
@@ -92,8 +94,8 @@ constructor(
      *
      */
     override fun getDefaultCurrency(): Currency? =
-        keyValueStorage.read { currencyStr ->
-            currencyStr.readString(Keys.DEFAULT_CURRENCY)?.let { Currency.from(it) }
+        keyValueStorage.read {
+            it.readString(Keys.DEFAULT_CURRENCY)?.let { currencyStr -> Currency.from(currencyStr) }
         }
 
     /**
@@ -108,7 +110,23 @@ constructor(
      *
      */
     override fun getAppProtectionMethod(): AppProtectionMethod? =
-        keyValueStorage.read { currencyStr ->
-            currencyStr.readString(Keys.APP_PROTECTION_METHOD)?.let { AppProtectionMethod.from(it) }
+        keyValueStorage.read {
+            it.readString(Keys.APP_PROTECTION_METHOD)?.let { protectionMethodStr -> AppProtectionMethod.from(protectionMethodStr) }
+        }
+
+    /**
+     *
+     */
+    override fun setStartDayOfWeek(startDayOfWeek: DayOfWeek) =
+        keyValueStorage.update {
+            it.putInt(Keys.START_DAY_OF_WEEK, startDayOfWeek.value)
+        }
+
+    /**
+     *
+     */
+    override fun getStartDayOfWeek(): DayOfWeek? =
+        keyValueStorage.read {
+            it.readInt(Keys.START_DAY_OF_WEEK)?.let { dayOfWeekCode -> DayOfWeek.of(dayOfWeekCode) }
         }
 }

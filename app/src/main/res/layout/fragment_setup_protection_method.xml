@@ -89,12 +89,12 @@
             <RadioButton
                 android:id="@+id/withoutProtectionSwitcher"
 
-                android:text="@string/passMethod1"
+                android:text="@string/passMethodWithoutProtection"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Activity.Start.RadioButton"
+                style="@style/App.CurrencyRadioButton"
 
                 android:tag="WITHOUT_PROTECTION"
             />
@@ -102,12 +102,12 @@
             <RadioButton
                 android:id="@+id/fingerprintSwitcher"
 
-                android:text="@string/passMethod2"
+                android:text="@string/passMethodFingerprint"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Activity.Start.RadioButton"
+                style="@style/App.CurrencyRadioButton"
 
                 android:tag="FINGERPRINT"
 
@@ -118,12 +118,12 @@
             <RadioButton
                 android:id="@+id/masterPasswordSwitcher"
 
-                android:text="@string/passMethod3"
+                android:text="@string/passMethodMasterPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
 
-                style="@style/App.Activity.Start.RadioButton"
+                style="@style/App.CurrencyRadioButton"
 
                 android:tag="MASTER_PASSWORD"
             />
@@ -148,7 +148,7 @@
             app:layout_constraintEnd_toEndOf="parent"
         />
 
-        <com.syleiman.gingermoney.ui.activities.setup.shared_controls.CurrentPage
+        <com.syleiman.gingermoney.ui.activities.setup.controls.CurrentPage
             android:id="@+id/currentPage"
 
             android:layout_width="@dimen/setupCurrentPageWidth"
