@@ -21,19 +21,23 @@
         app:layout_constraintStart_toStartOf="parent"
     />
 
-    <TextView
-        android:id="@+id/appVersion"
+    <ImageButton
+        android:id="@+id/addButton"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/buttonIconSize"
+        android:layout_height="@dimen/buttonIconSize"
 
-        tools:text="App version"
-        style="@style/App.Activity.Header.Text"
+        app:srcCompat="@drawable/ic_add"
+        app:tint="@color/header_button"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
+
+        android:layout_marginEnd="@dimen/accountsHeaderButtonMargin"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
-        android:layout_marginEnd="@dimen/headerMargin"
-    />
+        tools:ignore="ContentDescription"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

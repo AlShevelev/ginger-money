@@ -6,6 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
+import com.syleiman.gingermoney.ui.activities.main.headers.AccountsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
 import com.syleiman.gingermoney.ui.activities.main.headers.SettingsHeader
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
@@ -60,7 +61,7 @@ class MainActivity : AppCompatActivity() {
         when(tag) {
             HeaderTags.EXPENSES_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
             HeaderTags.STATISTICS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
-            HeaderTags.ACCOUNTS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
+            HeaderTags.ACCOUNTS_FRAGMENT -> AccountsHeader.create(this, title, mainToolbar)
             HeaderTags.SETTINGS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
         }
     }

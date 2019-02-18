@@ -13,8 +13,12 @@
     <dimen name="toastMargin">8dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="General button">-->
+    <dimen name="buttonIconSize">40dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Headers">-->
-    <dimen name="header_margin">11dp</dimen>
+    <dimen name="headerMargin">11dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Currency radio button">-->
@@ -62,4 +66,7 @@
     <dimen name="settingsCurrencyDialogPaddingBottom">0dp</dimen>
     <dimen name="settingsCurrencyDialogLinesGap">20dp</dimen>
     <!--</editor-fold>-->
+
+
+    <dimen name="accountsHeaderButtonMargin">2dp</dimen>
 </resources>
