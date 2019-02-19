@@ -19,7 +19,7 @@ class OneOptionRadioDialog<T>(
     private var selectedIndex: Int) {
 
     //Select dialog's style - colorAccent for options and ? for buttons
-    fun show() {
+    fun show() : AlertDialog =
         AlertDialog
             .Builder(context, R.style.App_Activity_Main_Dialog_Theme)
             .apply {
@@ -37,7 +37,6 @@ class OneOptionRadioDialog<T>(
             }
             .setOnCancelListener { resultCallback(null) }
             .show()
-    }
 
     /** Create text items for dialog  */
     private fun createItems(): Array<CharSequence> = items.map { itemToStringMapper(it) }.toTypedArray()

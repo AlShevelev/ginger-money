@@ -1,5 +1,6 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.settings.view
 
+import androidx.appcompat.app.AlertDialog
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
@@ -20,6 +21,8 @@ import org.threeten.bp.DayOfWeek
  * Fragment for settings
  */
 class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModelInterface, SettingsViewModel>() {
+
+    private var activeDialog: AlertDialog? = null
 
     /**
      *
@@ -46,6 +49,17 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
     /**
      *
      */
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // Close a dialog to avoid leak of view
+        activeDialog?.takeIf { it.isShowing }?.dismiss()
+        activeDialog = null
+    }
+
+    /**
+     *
+     */
     override fun processViewCommand(command: ViewCommand) {
         when(command) {
             is StartSelectAppProtectionMethodCommand ->
@@ -60,8 +74,8 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
     /**
      *
      */
-    private fun startSelectAppProtectionMethod(selectedIndex: Int, protectionMethods: List<AppProtectionMethod>) =
-        uiUtils.showOneOptionRadioDialog(
+    private fun startSelectAppProtectionMethod(selectedIndex: Int, protectionMethods: List<AppProtectionMethod>) {
+        activeDialog = uiUtils.showOneOptionRadioDialog(
             requireContext(),
             protectionMethods.map { resourcesProvider.getAppProtectionMethodString(it) },
             selectedIndex,
@@ -69,12 +83,13 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
         ) { resultIndex ->
             resultIndex?.also { viewModel.onAppProtectionSelected(it) }
         }
+    }
 
     /**
      *
      */
-    private fun startSelectStartDayOfWeek(selectedIndex: Int, days: List<DayOfWeek>) =
-        uiUtils.showOneOptionRadioDialog(
+    private fun startSelectStartDayOfWeek(selectedIndex: Int, days: List<DayOfWeek>) {
+        activeDialog = uiUtils.showOneOptionRadioDialog(
             requireContext(),
             days.map { resourcesProvider.getDayOfWeekString(it) },
             selectedIndex,
@@ -82,12 +97,13 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
         ) { resultIndex ->
             resultIndex?.also { viewModel.onStartDayOfWeekSelected(it) }
         }
+    }
 
     /**
      *
      */
     private fun startSelectDefaultCurrency(selectedCurrency: Currency) {
-        SelectCurrencyDialog(
+        activeDialog = SelectCurrencyDialog(
             requireContext(),
             selectedCurrency,
             resourcesProvider.getString(R.string.mainCurrencyDialogTitle),

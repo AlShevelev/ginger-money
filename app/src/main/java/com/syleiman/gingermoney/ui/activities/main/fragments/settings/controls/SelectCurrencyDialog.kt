@@ -22,8 +22,8 @@ class SelectCurrencyDialog(
 
     //Select dialog's style - colorAccent for options and ? for buttons
     @SuppressLint("InflateParams")
-    fun show() {
-        AlertDialog
+    fun show() : AlertDialog {
+        return AlertDialog
             .Builder(context, R.style.App_Activity_Main_Dialog_Theme)
             .setTitle(title)
             .setCancelable(true)

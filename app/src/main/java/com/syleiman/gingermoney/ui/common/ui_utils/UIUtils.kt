@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
 import com.syleiman.gingermoney.ui.common.controls.dialogs.OneOptionRadioDialog
@@ -71,12 +72,12 @@ constructor(
         items: List<String>,
         selectedIndex: Int,
         title: String?,
-        resultCallback: (Int?) -> Unit) {
+        resultCallback: (Int?) -> Unit) : AlertDialog {
 
         val okButtonText = appResourcesProvider.getString(R.string.commonOk)
         val cancelButtonText = appResourcesProvider.getString(R.string.commonCancel)
 
-        OneOptionRadioDialog(
+        return OneOptionRadioDialog(
             context,
             items,
             title,

@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.ui.common.ui_utils
 
 import android.content.Context
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 
 /**
  * Common UI helper
@@ -34,5 +35,5 @@ interface UIUtilsInterface {
         items: List<String>,
         selectedIndex: Int,
         title: String?,
-        resultCallback: (Int?) -> Unit)
+        resultCallback: (Int?) -> Unit) : AlertDialog
 }
