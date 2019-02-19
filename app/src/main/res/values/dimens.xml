@@ -21,6 +21,11 @@
     <dimen name="headerMargin">11dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Main activity">-->
+    <dimen name="noDataIcon">60dp</dimen>
+    <dimen name="noDataTextMargin">8dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Currency radio button">-->
     <dimen name="currencyRadioButtonIcon">16dp</dimen>
     <dimen name="currencyRadioButtonIconMargin">4dp</dimen>
@@ -67,6 +72,7 @@
     <dimen name="settingsCurrencyDialogLinesGap">20dp</dimen>
     <!--</editor-fold>-->
 
-
+    <!--<editor-fold desc="Accounts">-->
     <dimen name="accountsHeaderButtonMargin">2dp</dimen>
+    <!--</editor-fold>-->
 </resources>

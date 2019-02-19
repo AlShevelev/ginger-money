@@ -93,6 +93,7 @@
     <string name="mainAccountsBackgroundColor">Цвет фона</string>
     <string name="mainAccountsAdd">Добавить счет</string>
     <string name="mainAccountsSelectGroup">Выберите группу</string>
+    <string name="mainAccountsNoData">У вас еще нет ни одного счета</string>
 
     <string name="mainSettings">Настройки</string>
     <string name="mainSettingsApplicationProtection">Защита приложения</string>

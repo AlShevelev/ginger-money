@@ -12,6 +12,14 @@
         <item name="android:textColor">@color/textOnPrimary</item>
     </style>
 
+    <!-- No data stub - text -->
+    <style name="App.Activity.NoData.Text" parent="App.Text.OnPrimary">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/textSizeLargeLess</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
     <!-- Screen header - title -->
     <style name="App.Activity.Header.Title" parent="App.Text.OnPrimary">
         <item name="android:textSize">@dimen/textSizeLarge</item>

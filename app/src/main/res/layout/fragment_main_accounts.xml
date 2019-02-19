@@ -5,16 +5,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bcg_activity_main_page"
     tools:context=".ui.activities.main.fragments.accounts.AccountsFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accounts"
+    <!--<editor-fold desc="No data stub">-->
+    <ImageView
+        android:id="@+id/noDataStubIcon"
+
+        android:layout_width="@dimen/noDataIcon"
+        android:layout_height="@dimen/noDataIcon"
+
+        android:src="@drawable/ic_accounts"
+        app:tint="@color/gray"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toTopOf="@+id/noDataStubText"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/noDataStubText"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/mainAccountsNoData"
+
+        style="@style/App.Activity.NoData.Text"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noDataStubIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/noDataTextMargin"/>
+
+    <androidx.constraintlayout.widget.Group
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/noDataStub"
+        app:constraint_referenced_ids="noDataStubIcon,noDataStubText"/>
+    <!--</editor-fold>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

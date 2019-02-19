@@ -105,6 +105,7 @@
     <string name="mainAccountsBackgroundColor">Background color</string>
     <string name="mainAccountsAdd">Add account</string>
     <string name="mainAccountsSelectGroup">Select group</string>
+    <string name="mainAccountsNoData">You have no account yet</string>
 
     <string name="mainSettings">Settings</string>
     <string name="mainSettingsApplicationProtection">Application protection</string>
