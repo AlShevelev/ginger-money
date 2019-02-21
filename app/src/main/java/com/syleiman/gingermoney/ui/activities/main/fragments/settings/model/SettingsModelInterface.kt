@@ -11,7 +11,7 @@ import org.threeten.bp.DayOfWeek
  */
 interface SettingsModelInterface : ModelBaseInterface {
     /**
-     * Returns current value of default selecedCurrency
+     * Returns current value of default Currency
      */
     fun getDefaultCurrency(resultCall: (Currency?, DisplayingError?) -> Unit)
 

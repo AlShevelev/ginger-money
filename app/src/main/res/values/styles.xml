@@ -21,6 +21,11 @@
     </style>
 
     <!-- Screen header - title -->
+    <style name="App.Activity.ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateTint">@color/primary</item>
+    </style>
+
+    <!-- Screen header - title -->
     <style name="App.Activity.Header.Title" parent="App.Text.OnPrimary">
         <item name="android:textSize">@dimen/textSizeLarge</item>
     </style>

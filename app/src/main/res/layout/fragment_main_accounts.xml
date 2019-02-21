@@ -1,53 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bcg_activity_main_page"
-    tools:context=".ui.activities.main.fragments.accounts.AccountsFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!--<editor-fold desc="No data stub">-->
-    <ImageView
-        android:id="@+id/noDataStubIcon"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel"/>
+    </data>
 
-        android:layout_width="@dimen/noDataIcon"
-        android:layout_height="@dimen/noDataIcon"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bcg_activity_main_page"
+        tools:context=".ui.activities.main.fragments.accounts.view.AccountsFragment">
 
-        android:src="@drawable/ic_accounts"
-        app:tint="@color/gray"
+        <!--<editor-fold desc="No data stub">-->
+        <ImageView
+            android:id="@+id/noDataStubIcon"
 
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/noDataStubText"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:ignore="ContentDescription"/>
+            android:layout_width="@dimen/noDataIcon"
+            android:layout_height="@dimen/noDataIcon"
 
-    <TextView
-        android:id="@+id/noDataStubText"
+            android:src="@drawable/ic_accounts"
+            app:tint="@color/gray"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/noDataStubText"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="ContentDescription"/>
 
-        android:text="@string/mainAccountsNoData"
+        <TextView
+            android:id="@+id/noDataStubText"
 
-        style="@style/App.Activity.NoData.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noDataStubIcon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="@dimen/noDataTextMargin"/>
+            android:text="@string/mainAccountsNoData"
 
-    <androidx.constraintlayout.widget.Group
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/noDataStub"
-        app:constraint_referenced_ids="noDataStubIcon,noDataStubText"/>
-    <!--</editor-fold>-->
+            style="@style/App.Activity.NoData.Text"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noDataStubIcon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/noDataTextMargin"/>
+
+        <androidx.constraintlayout.widget.Group
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/noDataStub"
+            android:visibility="@{viewModel.stubVisibility}"
+            app:constraint_referenced_ids="noDataStubIcon,noDataStubText"/>
+        <!--</editor-fold>-->
+
+        <!--<editor-fold desc="Loading stub">-->
+        <FrameLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+
+            android:id="@+id/loadingStub"
+            android:visibility="@{viewModel.loadingVisibility}"
+            android:background="@color/lightGrayHalfTransparent">
+
+            <ProgressBar
+                style="@style/App.Activity.ProgressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/progressBar"/>
+        </FrameLayout>
+        <!--</editor-fold>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -4,6 +4,7 @@ import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.core.storages.db.core.DbCoreRunInterface
 import com.syleiman.gingermoney.core.storages.db.mapping.map
 import com.syleiman.gingermoney.core.storages.db.mapping.mapToDb
+import com.syleiman.gingermoney.dto.entities.Account
 import javax.inject.Inject
 
 /**
@@ -31,5 +32,13 @@ constructor(
     override fun getSourceExchangeRates(): List<ExchangeRate> =
         db.run { dbCore ->
             dbCore.sourceExchangeRate.getAll().map { it.map() }
+        }
+
+    /**
+     *
+     */
+    override fun getAccounts(): List<Account> =
+        db.run { dbCore ->
+            dbCore.accounts.getAll().map { it.map() }
         }
 }

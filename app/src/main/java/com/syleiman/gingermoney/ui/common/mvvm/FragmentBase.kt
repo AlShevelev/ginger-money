@@ -86,7 +86,7 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
     /**
      *
      */
-    abstract fun processViewCommand(command: ViewCommand)
+    protected open fun processViewCommand(command: ViewCommand) {}
 
     /**
      * Process input command

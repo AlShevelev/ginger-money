@@ -2,6 +2,8 @@ package com.syleiman.gingermoney.ui.activities.main.dependency_injection
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.ActivityScope
 import com.syleiman.gingermoney.ui.activities.main.MainActivity
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view.SettingsFragment
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel
 import com.syleiman.gingermoney.ui.activities.main.headers.AccountsHeader
@@ -26,4 +28,6 @@ interface MainActivityComponent {
     fun inject(viewModel: SettingsViewModel)
 
     fun inject(header : AccountsHeader)
+    fun inject(fragment : AccountsFragment)
+    fun inject(viewModel: AccountsViewModel)
 }

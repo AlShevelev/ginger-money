@@ -11,6 +11,8 @@
     <color name="lightGray">#ebebeb</color>
     <color name="darkGray">#828282</color>
 
+    <color name="lightGrayHalfTransparent">#80EBEBEB</color>
+
     <color name="black">@android:color/black</color>
     <color name="white">@android:color/white</color>
     <color name="red">#d50000</color>

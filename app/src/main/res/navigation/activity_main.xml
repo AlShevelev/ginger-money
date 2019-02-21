@@ -6,7 +6,7 @@
             app:startDestination="@id/expensesFragment">
 
     <fragment android:id="@+id/accountsFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.accounts.AccountsFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment"
               android:label="@string/mainAccounts"
               tools:layout="@layout/fragment_main_accounts">
     </fragment>
