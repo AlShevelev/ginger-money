@@ -5,6 +5,8 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.Acco
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
+import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLink
+import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLinkInterface
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
 import dagger.Binds
@@ -30,4 +32,11 @@ abstract class MainActivityModuleBinds {
      */
     @Binds
     abstract fun provideAccountsModel(model: AccountsModel): AccountsModelInterface
+
+    /**
+     *
+     */
+    @Binds
+    @ActivityScope
+    abstract fun provideAccountsHeaderLink(bridge: AccountsHeaderLink): AccountsHeaderLinkInterface
 }

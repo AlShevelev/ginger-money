@@ -6,8 +6,8 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.Accou
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view.SettingsFragment
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel
-import com.syleiman.gingermoney.ui.activities.main.headers.AccountsHeader
-import com.syleiman.gingermoney.ui.activities.main.headers.SettingsHeader
+import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeader
+import com.syleiman.gingermoney.ui.activities.main.headers.settings.SettingsHeader
 import dagger.Subcomponent
 
 /**

@@ -29,6 +29,11 @@ constructor(
     /**
      *
      */
+    open fun detachFromFragment() {}
+
+    /**
+     *
+     */
     protected fun setup(title: CharSequence?, toolbar: Toolbar) {
         val params = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
