@@ -1,7 +1,9 @@
 <resources>
     <string name="appName">Ginger money</string>
     <string name="locale">en</string>
-    <string name="appVersion" translatable="false">{0} ({1})</string>
+    <string name="appVersion"
+            translatable="false">{0} ({1})
+    </string>
 
     <string name="currencyEurShort"
             translatable="false">EUR
@@ -114,4 +116,7 @@
     <string name="mainProtectionDialogTitle">Select protection method</string>
     <string name="mainCurrencyDialogTitle">Select default currency</string>
     <string name="mainStartDayDialogTitle">Select start day of a week</string>
+
+    <string name="addEditAccountAddTitle">Add account</string>
+    <string name="addEditAccountEditTitle">Edit account</string>
 </resources>

@@ -8,6 +8,7 @@ import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActi
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLinkInterface
+import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import javax.inject.Inject
 
@@ -20,6 +21,9 @@ class AccountsFragment :
 
     @Inject
     internal lateinit var headerLink: AccountsHeaderLinkInterface
+
+    @Inject
+    internal lateinit var navigation: NavigationHelperInterface
 
     /**
      *
@@ -62,7 +66,5 @@ class AccountsFragment :
     /**
      *
      */
-    override fun onAddButtonClick() {
-        Log.d("", "")
-    }
+    override fun onAddButtonClick() = navigation.moveToAddEdiAccount(this)
 }

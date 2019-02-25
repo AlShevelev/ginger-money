@@ -6,7 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
-import com.syleiman.gingermoney.ui.activities.main.headers.FragmentHeaderBase
+import com.syleiman.gingermoney.ui.common.controls.HeaderBase
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
 import com.syleiman.gingermoney.ui.activities.main.headers.settings.SettingsHeader
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         // Remove an old header
         mainToolbar.findViewWithTag<ConstraintLayout>(HeaderTags.CURRENT_HEADER)
             ?.let {
-                (it as FragmentHeaderBase).detachFromFragment()
+                (it as HeaderBase).detachFromFragment()
                 mainToolbar.removeView(it)
             }
 

@@ -6,18 +6,18 @@ import androidx.appcompat.widget.Toolbar
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
-import com.syleiman.gingermoney.ui.activities.main.headers.FragmentHeaderBase
+import com.syleiman.gingermoney.ui.common.controls.HeaderBase
 import kotlinx.android.synthetic.main.fragment_main_accounts_header.view.*
 import javax.inject.Inject
 
-/** Show current page as a set of dots */
+/** */
 class AccountsHeader
 @JvmOverloads
 constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : FragmentHeaderBase(context, attrs, defStyleAttr, R.layout.fragment_main_accounts_header),
+) : HeaderBase(context, attrs, defStyleAttr, R.layout.fragment_main_accounts_header),
     AccountsHeaderFragmentInterface {
 
     companion object {

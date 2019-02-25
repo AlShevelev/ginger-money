@@ -102,4 +102,7 @@
     <string name="mainProtectionDialogTitle">Выберите метод защиты</string>
     <string name="mainCurrencyDialogTitle">Выберите основную валюту</string>
     <string name="mainStartDayDialogTitle">Выберите первый день недели</string>
+
+    <string name="addEditAccountAddTitle">Добавить счет</string>
+    <string name="addEditAccountEditTitle">Отредактировать счет</string>
 </resources>

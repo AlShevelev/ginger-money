@@ -1,5 +1,6 @@
 package com.syleiman.gingermoney.ui.common.navigation
 
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -20,8 +21,8 @@ abstract class NavigationHelperBase(@IdRes private val navHostId: Int) : Navigat
     /**
      * Move to some destination
      */
-    protected fun moveTo(currentFragment: Fragment, destinationId: Int, finishCurrentActivity: Boolean = false) {
-        getNavigationController(currentFragment).navigate(destinationId)
+    protected fun moveTo(currentFragment: Fragment, destinationId: Int, finishCurrentActivity: Boolean = false, args: Bundle? = null) {
+        getNavigationController(currentFragment).navigate(destinationId, args)
 
         if(finishCurrentActivity) {
             currentFragment.requireActivity().finish()

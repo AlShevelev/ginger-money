@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/activity_add_edit_account"
+            app:startDestination="@id/addAccountFragment">
+
+    <fragment android:id="@+id/addAccountFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.AddAccountFragment"
+              android:label="@string/addEditAccountAddTitle"
+              tools:layout="@layout/fragment_add_edit_account_add"/>
+    <fragment android:id="@+id/editAccountFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.EditAccountFragment"
+              android:label="@string/addEditAccountEditTitle"
+              tools:layout="@layout/fragment_add_edit_account_edit"/>
+</navigation>

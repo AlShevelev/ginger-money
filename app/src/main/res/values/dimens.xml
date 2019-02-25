@@ -19,6 +19,7 @@
 
     <!--<editor-fold desc="Headers">-->
     <dimen name="headerMargin">11dp</dimen>
+    <dimen name="headerButtonMargin">2dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Main activity">-->
@@ -70,9 +71,5 @@
     <dimen name="settingsCurrencyDialogPaddingEnd">20dp</dimen>
     <dimen name="settingsCurrencyDialogPaddingBottom">0dp</dimen>
     <dimen name="settingsCurrencyDialogLinesGap">20dp</dimen>
-    <!--</editor-fold>-->
-
-    <!--<editor-fold desc="Accounts">-->
-    <dimen name="accountsHeaderButtonMargin">2dp</dimen>
     <!--</editor-fold>-->
 </resources>

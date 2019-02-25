@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.addEditAccount.AddEditAccountActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/addEditAccountToolbar"
+
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+
+        android:elevation="4dp"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@color/textOnPrimary"
+
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:contentInsetRight="0dp"
+        android:contentInsetEnd="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetEnd="0dp"
+    />
+
+    <!-- Host for all fragments (all fragments'll be displayed here) -->
+    <fragment
+        android:id="@+id/addEditAccountNavHostFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

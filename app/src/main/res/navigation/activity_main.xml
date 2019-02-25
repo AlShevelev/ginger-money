@@ -9,6 +9,13 @@
               android:name="com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment"
               android:label="@string/mainAccounts"
               tools:layout="@layout/fragment_main_accounts">
+        <action android:id="@+id/action_accountsFragment_to_addEditAccountActivity"
+                app:destination="@id/addEditAccountActivity"
+                app:enterAnim="@anim/nav_slide_in_right"
+                app:exitAnim="@anim/nav_slide_out_left"
+                app:popEnterAnim="@anim/nav_slide_in_left"
+                app:popExitAnim="@anim/nav_slide_out_right"
+        />
     </fragment>
     <fragment android:id="@+id/expensesFragment"
               android:name="com.syleiman.gingermoney.ui.activities.main.fragments.expenses.ExpensesFragment"
@@ -25,4 +32,11 @@
               android:label="@string/mainStatistics"
               tools:layout="@layout/fragment_main_statistics">
     </fragment>
+    <activity android:id="@+id/addEditAccountActivity"
+              android:name="com.syleiman.gingermoney.ui.activities.addEditAccount.AddEditAccountActivity"
+              android:label="activity_add_edit_account"
+              tools:layout="@layout/activity_add_edit_account">
+        <argument android:name="ACCOUNT_ACTION"
+                  app:argType="string"/>
+    </activity>
 </navigation>

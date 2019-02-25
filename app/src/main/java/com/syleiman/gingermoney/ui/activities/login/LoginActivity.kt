@@ -41,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
 
         val defaultProtectionMethod = AppProtectionMethod.from(intent.extras!!.getString(APP_PROTECTION_METHOD)!!)
         when(defaultProtectionMethod) {
-
             AppProtectionMethod.FINGERPRINT -> {
                 if(fingerprintAuthManager.isAuthenticationPossible) {
                     navigation.setFingerprintAsHome(this)

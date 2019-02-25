@@ -1,10 +1,13 @@
 package com.syleiman.gingermoney.ui.activities.main.navigation
 
+import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syleiman.gingermoney.R
+import com.syleiman.gingermoney.ui.activities.addEditAccount.AddEditAccountActivity
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 import javax.inject.Inject
@@ -49,5 +52,13 @@ constructor() : NavigationHelperBase(R.id.mainNavHostFragment), NavigationHelper
      */
     override fun linkToBottomNavigation(activity: FragmentActivity, bottomNavigationView: BottomNavigationView) {
         NavigationUI.setupWithNavController(bottomNavigationView, getNavigationController(activity))
+    }
+
+    /**
+     * Move to add/edit account screen
+     */
+    override fun moveToAddEdiAccount(currentFragment: AccountsFragment) {
+        val args = Bundle().also { it.putString(AddEditAccountActivity.ACCOUNT_ACTION, AddEditAccountActivity.ADD) }
+        moveTo(currentFragment, R.id.action_accountsFragment_to_addEditAccountActivity, args = args)
     }
 }

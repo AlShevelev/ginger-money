@@ -3,11 +3,12 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.syleiman.gingermoney">
 
-    <uses-feature android:name="android.hardware.fingerprint" android:required="false"/>
-    
+    <uses-feature
+        android:name="android.hardware.fingerprint"
+        android:required="false"/>
     <!--suppress DeprecatedClassUsageInspection -->
-    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".application.App"
@@ -33,6 +34,11 @@
             android:theme="@style/App.Activity.Main.Theme">
         </activity>
         <activity
+            android:name=".ui.activities.addEditAccount.AddEditAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Activity.Main.Theme">
+        </activity>
+        <activity
             android:name=".ui.activities.setup.SetupActivity"
             android:screenOrientation="portrait"
             android:theme="@style/App.Activity.Start.Theme">
@@ -41,9 +47,7 @@
             android:name=".ui.activities.login.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/App.Activity.Start.Theme">
-        </activity>
-
-        <!-- To enable/disable Fb Crashlytics -->
+        </activity> <!-- To enable/disable Fb Crashlytics -->
         <meta-data
             android:name="firebase_crashlytics_collection_enabled"
             android:value="${crashlyticsEnabled}"/>
