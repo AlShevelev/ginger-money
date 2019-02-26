@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.addEditAccount.fragments
+package com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.edit
 
 
 import android.os.Bundle

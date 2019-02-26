@@ -52,6 +52,15 @@ class AddEditAccountActivity : AppCompatActivity() {
         super.onBackPressed()
         navigation.processBackAnimation(this)
     }
-}
 
-//Left margin of the Back button is too large
+    /**
+     *
+     */
+    override fun onDestroy() {
+        super.onDestroy()
+
+        if(isFinishing) {
+            App.injections.release<AddEditAccountActivityComponent>()
+        }
+    }
+}

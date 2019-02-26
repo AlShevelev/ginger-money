@@ -1,6 +1,5 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view
 
-import android.util.Log
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentMainAccountsBinding

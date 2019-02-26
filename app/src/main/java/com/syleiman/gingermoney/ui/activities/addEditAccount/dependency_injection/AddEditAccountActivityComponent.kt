@@ -2,6 +2,8 @@ package com.syleiman.gingermoney.ui.activities.addEditAccount.dependency_injecti
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.ActivityScope
 import com.syleiman.gingermoney.ui.activities.addEditAccount.AddEditAccountActivity
+import com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.add.view.AddAccountFragment
+import com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.add.view_model.AddAccountViewModel
 import dagger.Subcomponent
 
 /**
@@ -17,4 +19,7 @@ interface AddEditAccountActivityComponent {
     }
 
     fun inject(activity: AddEditAccountActivity)
+
+    fun inject(activity: AddAccountFragment)
+    fun inject(activity: AddAccountViewModel)
 }
