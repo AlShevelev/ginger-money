@@ -20,6 +20,24 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <!-- Setup screen -->
+    <style name="App.TextField.Label" parent="App.Text.OnPrimary">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="App.TextField.Text" parent="TextAppearance.AppCompat">
+        <item name="android:inputType">text</item>
+        <item name="android:ems">10</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:lines">1</item>
+        <item name="android:background">@drawable/bcg_setup_edit_text</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">@dimen/textFieldPadding</item>
+    </style>
+
     <!-- Screen header - title -->
     <style name="App.Activity.ProgressBar" parent="Widget.AppCompat.ProgressBar">
         <item name="android:indeterminateTint">@color/primary</item>
@@ -67,13 +85,9 @@
     </style>
 
     <!-- Password on Setup and Login screens -->
-    <style name="App.Activity.Start.EditText.Password" parent="TextAppearance.AppCompat">
+    <style name="App.Activity.Start.EditText.Password" parent="App.TextField.Text">
         <item name="android:inputType">textPassword</item>
-        <item name="android:ems">10</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:background">@drawable/bcg_setup_edit_text</item>
-        <item name="android:textCursorDrawable">@null</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">@dimen/setupPasswordFieldPadding</item>
     </style>
 
     <!-- RadioButton with currency (light) -->
@@ -87,6 +101,11 @@
     <style name="App.CurrencyRadioButton.Dark" parent="App.CurrencyRadioButton">
         <item name="android:buttonTint">@color/black</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- RadioButton with currency (dark) -->
+    <style name="App.CurrencyRadioButton.Dark.Small" parent="App.CurrencyRadioButton.Dark">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
     </style>
 
     <!-- RadioButton with currency (for a dialog on the Settings screen) -->

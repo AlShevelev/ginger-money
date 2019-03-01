@@ -13,18 +13,202 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bcg_activity_main_page"
+        android:background="@drawable/bcg_activity_page"
         tools:context=".ui.activities.addEditAccount.fragments.add.view.AddAccountFragment">
 
-        <TextView
+
+        <androidx.constraintlayout.widget.Guideline
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add account"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintGuide_begin="@dimen/addEditAccountFieldsBarrier"
+            android:id="@+id/guideline"/>
 
+        <TextView
+            android:text="@string/commonGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/groupLabel"
+            android:layout_marginTop="@dimen/addEditAccountFieldsMarginTop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+
+            style="@style/App.TextField.Label"
+        />
+
+        <TextView
+            android:text="@string/commonName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameLabel"
+            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
+            app:layout_constraintTop_toBottomOf="@+id/groupLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+
+            style="@style/App.TextField.Label"
+        />
+
+        <TextView
+            android:text="@string/commonAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/amountLabel"
+            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
+            app:layout_constraintTop_toBottomOf="@+id/nameLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+
+            style="@style/App.TextField.Label"
+        />
+
+        <TextView
+            android:text="@string/commonMemo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/memoLabel"
+            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
+            app:layout_constraintTop_toBottomOf="@+id/amountLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+
+            style="@style/App.TextField.Label"
+        />
+
+        <TextView
+            android:text="@string/commonCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currencyLabel"
+            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
+            app:layout_constraintTop_toBottomOf="@+id/memoLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+
+            style="@style/App.TextField.Label"
+        />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/groupText"
+
+            style="@style/App.TextField.Text"
+
+            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/groupLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/groupLabel"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameText"
+
+            style="@style/App.TextField.Text"
+
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nameLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/nameLabel"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/amountText"
+
+            style="@style/App.TextField.Text"
+
+            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/amountLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/amountLabel"/>
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/memoText"
+
+            style="@style/App.TextField.Text"
+
+            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/memoLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/memoLabel"/>
+
+        <RadioGroup
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/currencyGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintBottom_toBottomOf="@+id/currencyLabel"
+            app:layout_constraintTop_toTopOf="@+id/currencyLabel">
+
+            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+                android:id="@+id/usdSwitcher"
+
+                android:text="@string/currencyUsdShort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                style="@style/App.CurrencyRadioButton.Dark.Small"
+
+                app:drawableRadioButton_icon = "@drawable/ic_usd"
+                app:drawableRadioButton_iconTint = "@color/black"
+                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+
+                android:tag="USD"
+            />
+
+            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+                android:id="@+id/eurSwitcher"
+
+                android:text="@string/currencyEurShort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:layout_marginStart="@dimen/currencyRadioButtonGap"
+                android:layout_marginEnd="@dimen/currencyRadioButtonGap"
+
+                style="@style/App.CurrencyRadioButton.Dark.Small"
+
+                app:drawableRadioButton_icon = "@drawable/ic_eur"
+                app:drawableRadioButton_iconTint = "@color/black"
+                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+
+                android:tag="EUR"
+            />
+
+            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+                android:id="@+id/rubSwitcher"
+
+                android:text="@string/currencyRubShort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                style="@style/App.CurrencyRadioButton.Dark.Small"
+
+                app:drawableRadioButton_icon = "@drawable/ic_rub"
+                app:drawableRadioButton_iconTint = "@color/black"
+                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
+                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+
+                android:tag="RUB"
+            />
+
+        </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

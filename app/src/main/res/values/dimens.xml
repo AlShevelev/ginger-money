@@ -17,6 +17,10 @@
     <dimen name="buttonIconSize">40dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="General text field">-->
+    <dimen name="textFieldPadding">6dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Headers">-->
     <dimen name="headerMargin">11dp</dimen>
     <dimen name="headerButtonMargin">2dp</dimen>
@@ -30,6 +34,7 @@
     <!--<editor-fold desc="Currency radio button">-->
     <dimen name="currencyRadioButtonIcon">16dp</dimen>
     <dimen name="currencyRadioButtonIconMargin">4dp</dimen>
+    <dimen name="currencyRadioButtonGap">20dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Setups">-->
@@ -72,4 +77,9 @@
     <dimen name="settingsCurrencyDialogPaddingBottom">0dp</dimen>
     <dimen name="settingsCurrencyDialogLinesGap">20dp</dimen>
     <!--</editor-fold>-->
+
+    <dimen name="addEditAccountFieldsBarrier">85dp</dimen>
+    <dimen name="addEditAccountFieldsMarginTop">14dp</dimen>
+    <dimen name="addEditAccountFieldsMarginSide">12dp</dimen>
+    <dimen name="addEditAccountFieldsLabelsGap">27dp</dimen>
 </resources>

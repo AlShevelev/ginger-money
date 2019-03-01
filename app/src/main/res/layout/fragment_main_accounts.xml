@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bcg_activity_main_page"
+        android:background="@drawable/bcg_activity_page"
         tools:context=".ui.activities.main.fragments.accounts.view.AccountsFragment">
 
         <!--<editor-fold desc="No data stub">-->
