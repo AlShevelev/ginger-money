@@ -56,7 +56,7 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
         inject()
 
         binding = DataBindingUtil.inflate(inflater, provideLayout(), container, false)
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         linkViewModel(binding, _viewModel)
         return binding.root

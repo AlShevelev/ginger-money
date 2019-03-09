@@ -9,10 +9,7 @@ import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
 import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.dto.InvalidPassword
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
-import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Named
@@ -28,8 +25,7 @@ constructor(
     private val stringsConverter: StringsConverterInterface,
     fingerprintAuthManager: FingerprintAuthManagerInterface,
     resourcesProvider: AppResourcesProviderInterface
-) : ModelBase(),
-    MasterPasswordModelInterface {
+) : MasterPasswordModelInterface {
     /**
      *
      */
@@ -41,34 +37,25 @@ constructor(
     override val passwordMaxLen: Int = resourcesProvider.getInt(R.integer.masterPasswordMaxLen)
 
     /**
-     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
+     * @return - the argument is null in case of success, otherwise it contains an error to display
      */
-    override fun login(password: String?, resultCall: (DisplayingError?) -> Unit) {
-        if(password.isNullOrEmpty()) {
-            resultCall(InvalidPassword())
+    override suspend fun login(password: String?): DisplayingError? =
+        if (password.isNullOrEmpty()) {
+            InvalidPassword()
         }
         else {
-            launch {
-                val loginResult = try {
-                    withContext(Dispatchers.IO) {
-                        val storedPassword = stringsConverter.fromBytes(encryptor.decrypt(keyValueStorage.getMasterPassword())!!)
-                        if(password != storedPassword) {
-                            InvalidPassword()
-                        }
-                        else {
-                            null
-                        }
+            withContext(Dispatchers.IO) {
+                try {
+                    val storedPassword = stringsConverter.fromBytes(encryptor.decrypt(keyValueStorage.getMasterPassword())!!)
+                    if (password != storedPassword) {
+                        InvalidPassword()
+                    } else {
+                        null
                     }
-                }
-                catch(ex: Exception) {
+                } catch (ex: Exception) {
                     ex.printStackTrace()
                     GeneralError()
                 }
-
-                if(isActive) {
-                    resultCall(loginResult)
-                }
             }
         }
-    }
 }

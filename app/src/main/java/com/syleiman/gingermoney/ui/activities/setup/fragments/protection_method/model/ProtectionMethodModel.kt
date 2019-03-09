@@ -6,10 +6,7 @@ import com.syleiman.gingermoney.core.works.WorksManagerInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
-import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.isActive
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
@@ -23,8 +20,7 @@ constructor(
     private val keyValueStorage: KeyValueStorageFacadeInterface,
     fingerprintAuthManager: FingerprintAuthManagerInterface,
     private val worksManager: WorksManagerInterface
-) : ModelBase(),
-    ProtectionMethodModelInterface {
+) : ProtectionMethodModelInterface {
     /**
      *
      */
@@ -37,28 +33,21 @@ constructor(
         get() = AppProtectionMethod.WITHOUT_PROTECTION
 
     /**
-     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
+     * @return - the argument is null in case of success, otherwise it contains an error to display
      */
-    override fun saveProtectionMethod(protectionMethod: AppProtectionMethod, resultCall: (DisplayingError?) -> Unit) {
-        launch {
-            val operationResult = try {
-                withContext(Dispatchers.IO) {
-                    keyValueStorage.setAppProtectionMethod(protectionMethod)
-                    keyValueStorage.setStartDayOfWeek(DayOfWeek.MONDAY)
-                    keyValueStorage.setAppSetupComplete(true)
+    override suspend fun saveProtectionMethod(protectionMethod: AppProtectionMethod): DisplayingError? =
+        withContext(Dispatchers.IO) {
+            try {
+                keyValueStorage.setAppProtectionMethod(protectionMethod)
+                keyValueStorage.setStartDayOfWeek(DayOfWeek.MONDAY)
+                keyValueStorage.setAppSetupComplete(true)
 
-                    worksManager.startCurrencyRatesUpdates()      // Started to load selecedCurrency rates periodically
-                    null
-                }
+                worksManager.startCurrencyRatesUpdates()      // Started to load selecedCurrency rates periodically
+                null
             }
-            catch(ex: Exception) {
+            catch (ex: Exception) {
                 ex.printStackTrace()
                 GeneralError()
             }
-
-            if(isActive) {
-                resultCall(operationResult)
-            }
         }
-    }
 }

@@ -10,6 +10,8 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_comma
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectStartDayOfWeekCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -20,6 +22,12 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
      *
      */
     val buttonsEnabled: MutableLiveData<Boolean> = MutableLiveData()
+
+    /**
+     * On configuration change we need to show dialog if it wasn't closed.
+     * That's why we can't use [command]
+     */
+    val dialogCommands: MutableLiveData<ViewCommand> = MutableLiveData()
 
     /**
      *
@@ -36,17 +44,21 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
     fun onAppProtectionButtonClick() {
         buttonsEnabled.value = false
 
-        val allMethods = model.getAppProtectionMethods()
+        launch {
+            val allMethods = model.getAppProtectionMethods()
+            val method = model.getAppProtectionMethod()
 
-        model.getAppProtectionMethod { protectionMethod, error ->
             buttonsEnabled.value = true
 
-            command.value = if(error != null) {
-                ShowErrorCommand(error)
-            }
-            else {
-                StartSelectAppProtectionMethodCommand(allMethods.indexOf(protectionMethod), allMethods)
-            }
+            method.error
+                ?.let {
+                    command.value = ShowErrorCommand(it)
+                }
+
+            method.value
+                ?.let {
+                    dialogCommands.value = StartSelectAppProtectionMethodCommand(allMethods.indexOf(it), allMethods)
+                }
         }
     }
 
@@ -56,15 +68,20 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
     fun onDefaultCurrencyButtonClick() {
         buttonsEnabled.value = false
 
-        model.getDefaultCurrency { currency, error ->
+        launch {
+            val defaultCurrency = model.getDefaultCurrency()
+
             buttonsEnabled.value = true
 
-            command.value = if(error != null) {
-                ShowErrorCommand(error)
-            }
-            else {
-                StartSelectDefaultCurrencyCommand(currency!!)
-            }
+            defaultCurrency.error
+                ?.let {
+                    command.value = ShowErrorCommand(it)
+                }
+
+            defaultCurrency.value
+                ?.let {
+                    dialogCommands.value = StartSelectDefaultCurrencyCommand(it)
+                }
         }
     }
 
@@ -74,17 +91,21 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
     fun onStartDayOfWeekButtonClick() {
         buttonsEnabled.value = false
 
-        val allDays = model.getAllDaysOfWeek()
+        launch {
+            val allDays = model.getAllDaysOfWeek()
+            val startDayOfWeek = model.getStartDayOfWeek()
 
-        model.getStartDayOfWeek { dayOfWeek, error ->
             buttonsEnabled.value = true
 
-            command.value = if(error != null) {
-                ShowErrorCommand(error)
-            }
-            else {
-                StartSelectStartDayOfWeekCommand(allDays.indexOf(dayOfWeek), allDays)
-            }
+            startDayOfWeek.error
+                ?.let {
+                    command.value = ShowErrorCommand(it)
+                }
+
+            startDayOfWeek.value
+                ?.let {
+                    dialogCommands.value = StartSelectStartDayOfWeekCommand(allDays.indexOf(it), allDays)
+                }
         }
     }
 
@@ -94,13 +115,14 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
     fun onAppProtectionSelected(selectedIndex: Int) {
         buttonsEnabled.value = false
 
-        val protectionMethod = model.getAppProtectionMethods()[selectedIndex]
+        launch {
+            val protectionMethod = model.getAppProtectionMethods()[selectedIndex]
+            val saveResult = model.saveAppProtectionMethod(protectionMethod)
 
-        model.saveAppProtectionMethod(protectionMethod) { saveResult ->
             buttonsEnabled.value = true
 
-            if(saveResult != null) {
-                ShowErrorCommand(saveResult)
+            saveResult?.let {
+                command.value = ShowErrorCommand(it)
             }
         }
     }
@@ -111,11 +133,13 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
     fun onDefaultCurrencySelected(selectedCurrency: Currency) {
         buttonsEnabled.value = false
 
-        model.saveDefaultCurrency(selectedCurrency) { saveResult ->
+        launch {
+            val saveResult = model.saveDefaultCurrency(selectedCurrency)
+
             buttonsEnabled.value = true
 
-            if(saveResult != null) {
-                ShowErrorCommand(saveResult)
+            saveResult?.let {
+                command.value = ShowErrorCommand(it)
             }
         }
     }
@@ -126,13 +150,15 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
     fun onStartDayOfWeekSelected(selectedIndex: Int) {
         buttonsEnabled.value = false
 
-        val startDay = model.getAllDaysOfWeek()[selectedIndex]
+        launch {
+            val startDay = model.getAllDaysOfWeek()[selectedIndex]
 
-        model.saveStartDayOfWeek(startDay) { saveResult ->
+            val saveResult = model.saveStartDayOfWeek(startDay)
+
             buttonsEnabled.value = true
 
-            if(saveResult != null) {
-                ShowErrorCommand(saveResult)
+            saveResult?.let {
+                command.value = ShowErrorCommand(it)
             }
         }
     }

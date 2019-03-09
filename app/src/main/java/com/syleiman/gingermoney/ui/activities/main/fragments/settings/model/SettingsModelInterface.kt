@@ -4,6 +4,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
+import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import org.threeten.bp.DayOfWeek
 
 /**
@@ -13,37 +14,37 @@ interface SettingsModelInterface : ModelBaseInterface {
     /**
      * Returns current value of default Currency
      */
-    fun getDefaultCurrency(resultCall: (Currency?, DisplayingError?) -> Unit)
+    suspend fun getDefaultCurrency(): ModelCallResult<out Currency>
 
     /**
-     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
+     * @return - null in case of success, otherwise it contains an error to display
      */
-    fun saveDefaultCurrency(defaultCurrency: Currency, resultCall: (DisplayingError?) -> Unit)
+    suspend fun saveDefaultCurrency(defaultCurrency: Currency): DisplayingError?
 
     /**
      * Returns current value of an app protection method
      */
-    fun getAppProtectionMethod(resultCall: (AppProtectionMethod?, DisplayingError?) -> Unit)
+    suspend fun getAppProtectionMethod(): ModelCallResult<out AppProtectionMethod>
 
     /**
-     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
+     * @return - null in case of success, otherwise it contains an error to display
      */
-    fun saveAppProtectionMethod(appProtectionMethod: AppProtectionMethod, resultCall: (DisplayingError?) -> Unit)
+    suspend fun saveAppProtectionMethod(appProtectionMethod: AppProtectionMethod): DisplayingError?
 
     /**
      * Returns current value of start day of week
      */
-    fun getStartDayOfWeek(resultCall: (DayOfWeek?, DisplayingError?) -> Unit)
+    suspend fun getStartDayOfWeek(): ModelCallResult<out DayOfWeek>
 
     /**
-     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
+     * @return - null in case of success, otherwise it contains an error to display
      */
-    fun saveStartDayOfWeek(startDayOfWeek: DayOfWeek, resultCall: (DisplayingError?) -> Unit)
+    suspend fun saveStartDayOfWeek(startDayOfWeek: DayOfWeek): DisplayingError?
 
     /**
      *
      */
-    fun getAppProtectionMethods(): List<AppProtectionMethod>
+    suspend fun getAppProtectionMethods(): List<AppProtectionMethod>
 
     /**
      *

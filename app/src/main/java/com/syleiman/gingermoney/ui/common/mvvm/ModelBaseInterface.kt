@@ -7,5 +7,5 @@ interface ModelBaseInterface {
     /**
      *
      */
-    fun cancelBackgroundOperations()
+    fun cancelBackgroundOperations() {}
 }

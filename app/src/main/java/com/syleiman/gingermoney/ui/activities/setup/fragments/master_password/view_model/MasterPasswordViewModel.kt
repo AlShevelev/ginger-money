@@ -7,6 +7,7 @@ import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.mo
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -43,15 +44,12 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
     fun onNextButtonClick() {
         nextButtonEnabled.value = false
 
-        model.savePassword(password.value) { saveResult ->
+        launch {
+            val saveResult = model.savePassword(password.value)
+
             nextButtonEnabled.value = true
 
-            command.value = if(saveResult == null) {
-                MoveToNextCommand()     // Ok, move to the next page
-            }
-            else {
-                ShowErrorCommand(saveResult)
-            }
+            command.value = saveResult?.let { ShowErrorCommand(it) } ?: MoveToNextCommand()
         }
     }
 }

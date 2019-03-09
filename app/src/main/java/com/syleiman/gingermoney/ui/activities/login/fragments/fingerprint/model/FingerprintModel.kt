@@ -5,7 +5,6 @@ import androidx.annotation.RequiresApi
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.FingerprintAuthEventsHandlerInterface
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.FingerprintAuthEventHandler
-import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import javax.inject.Inject
 
 /**
@@ -16,8 +15,7 @@ class FingerprintModel
 @Inject
 constructor(
     private val fingerprintAuthManager: FingerprintAuthManagerInterface
-) : ModelBase(),
-    FingerprintModelInterface {
+) : FingerprintModelInterface {
 
     private lateinit var fingerprintAuthEventsHandler: FingerprintAuthEventsHandlerInterface
 

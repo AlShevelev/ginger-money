@@ -15,6 +15,7 @@ import com.syleiman.gingermoney.ui.common.displaying_errors.TextError
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ShowWarningCommand
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -74,7 +75,9 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
     fun onLoginButtonClick() {
         buttonsEnabled.value = false
 
-        model.login(password.value) { loginResult ->
+        launch {
+            val loginResult = model.login(password.value)
+
             buttonsEnabled.value = true
 
             command.value = if(loginResult == null) {

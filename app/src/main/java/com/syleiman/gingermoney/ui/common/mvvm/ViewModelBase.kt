@@ -1,15 +1,25 @@
 package com.syleiman.gingermoney.ui.common.mvvm
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.syleiman.gingermoney.core.helpers.SingleLiveData
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import kotlinx.coroutines.*
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
 /**
  *
  */
 @Suppress("LeakingThis")
-abstract class ViewModelBase<TModel : ModelBaseInterface> : ViewModel() {
+abstract class ViewModelBase<TModel : ModelBaseInterface> : ViewModel(), CoroutineScope {
+
+    private val scopeJob: Job = SupervisorJob()
+
+    /**
+     * Context of this scope.
+     */
+    override val coroutineContext: CoroutineContext
+        get() = scopeJob + Dispatchers.Main
 
     @Inject
     internal lateinit var model: TModel
@@ -17,13 +27,15 @@ abstract class ViewModelBase<TModel : ModelBaseInterface> : ViewModel() {
     /**
      * Direct command for view
      */
-    val command: MutableLiveData<ViewCommand> = MutableLiveData()
+    val command: SingleLiveData<ViewCommand> = SingleLiveData()
 
     /**
      *
      */
     override fun onCleared() {
         super.onCleared()
-        model.cancelBackgroundOperations()
+
+        scopeJob.cancelChildren()
+        scopeJob.cancel()
     }
 }

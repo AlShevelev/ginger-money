@@ -7,6 +7,7 @@ import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActi
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -31,20 +32,26 @@ class AccountsViewModel : ViewModelBase<AccountsModelInterface>() {
     /** */
     private fun fillAccountsList() {
         loadingVisibility.value = View.VISIBLE
-        model.getAllAccounts { accounts, error ->
+
+        launch {
+            val accounts = model.getAllAccounts()
+
             loadingVisibility.value = View.GONE
 
-            if(accounts != null) {
-                if(accounts.isEmpty()) {
-                    stubVisibility.value = View.VISIBLE
+            accounts.value
+                ?.also {
+                    if(it.isEmpty()) {
+                        stubVisibility.value = View.VISIBLE
+                    }
+                    else {
+                        // do something
+                    }
                 }
-                else {
-                    // do something
+
+            accounts.error
+                ?.also {
+                    command.value = ShowErrorCommand(it)
                 }
-            }
-            else {
-                command.value = ShowErrorCommand(error!!)
-            }
         }
     }
 }

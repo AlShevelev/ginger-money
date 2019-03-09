@@ -1,5 +1,6 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.settings.view
 
+import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
@@ -16,6 +17,7 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import org.threeten.bp.DayOfWeek
+import java.lang.UnsupportedOperationException
 
 /**
  * Fragment for settings
@@ -49,6 +51,17 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
     /**
      *
      */
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel.dialogCommands.observe({this.lifecycle}) {
+            processDialogCommand(it)
+        }
+    }
+
+    /**
+     *
+     */
     override fun onDestroyView() {
         super.onDestroyView()
 
@@ -60,7 +73,7 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
     /**
      *
      */
-    override fun processViewCommand(command: ViewCommand) {
+    private fun processDialogCommand(command: ViewCommand) {
         when(command) {
             is StartSelectAppProtectionMethodCommand ->
                 startSelectAppProtectionMethod(command.selectedIndex, command.protectionMethods)
@@ -68,6 +81,7 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
                 startSelectStartDayOfWeek(command.selectedIndex, command.daysOfWeek)
             is StartSelectDefaultCurrencyCommand ->
                 startSelectDefaultCurrency(command.selectedCurrency)
+            else -> throw UnsupportedOperationException("This command is not supported: $command")
         }
     }
 

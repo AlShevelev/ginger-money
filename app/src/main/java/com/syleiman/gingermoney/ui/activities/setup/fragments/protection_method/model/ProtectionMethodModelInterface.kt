@@ -19,7 +19,7 @@ interface ProtectionMethodModelInterface: ModelBaseInterface {
     val startProtectionMethod: AppProtectionMethod
 
     /**
-     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
+     * @return - the argument is null in case of success, otherwise it contains an error to display
      */
-    fun saveProtectionMethod(protectionMethod: AppProtectionMethod, resultCall: (DisplayingError?) -> Unit)
+    suspend fun saveProtectionMethod(protectionMethod: AppProtectionMethod): DisplayingError?
 }

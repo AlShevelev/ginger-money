@@ -14,7 +14,7 @@ interface BaseCurrencyModelInterface : ModelBaseInterface {
     val startCurrencyValue: Currency
 
     /**
-     * @param resultCall - the argument is null in case of success, otherwise it contains an error to display
+     * @return - the argument is null in case of success, otherwise it contains an error to display
      */
-    fun saveCurrency(currency: Currency, resultCall: (DisplayingError?) -> Unit)
+    suspend fun saveCurrency(currency: Currency): DisplayingError?
 }

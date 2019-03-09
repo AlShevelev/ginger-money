@@ -9,6 +9,7 @@ import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import kotlinx.coroutines.launch
 
 /**
  *
@@ -47,15 +48,12 @@ class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModelInterface>(
     fun onFinishButtonClick() {
         finishButtonEnabled.value = false
 
-        model.saveProtectionMethod(appProtectionMethod.value!!) { saveResult ->
+        launch {
+            val saveResult = model.saveProtectionMethod(appProtectionMethod.value!!)
+
             finishButtonEnabled.value = true
 
-            command.value = if(saveResult == null) {
-                MoveToNextCommand()     // Ok, move to the next page
-            }
-            else {
-                ShowErrorCommand(saveResult)
-            }
+            command.value = saveResult?.let { ShowErrorCommand(it) } ?: MoveToNextCommand()
         }
     }
 }
