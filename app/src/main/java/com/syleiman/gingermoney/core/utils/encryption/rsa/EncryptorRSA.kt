@@ -117,8 +117,7 @@ constructor(
                 .setCertificateNotAfter(end.time)
                 .setEncryptionPaddings(KeyProperties.ENCRYPTION_PADDING_RSA_PKCS1)
                 .build()
-        }
-        else {
+        } else {
             KeyPairGeneratorSpec.Builder(appContext)
                 .setAlias(KEY_ALIAS)
                 .setSubject(X500Principal("CN=Sample Name, O=Android Authority"))

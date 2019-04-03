@@ -92,13 +92,11 @@ class CombinedStorageReadOperations(
             value = readFromCacheAction()
             if(value != null) {
                 return value
-            }
-            else {
+            } else {
                 value = readFromPersistentStorageAction()
                 if(value == null) {
                     return null
-                }
-                else {
+                } else {
                     needToUpdateCache = true
                 }
             }

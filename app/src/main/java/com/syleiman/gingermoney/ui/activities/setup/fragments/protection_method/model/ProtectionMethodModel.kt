@@ -44,8 +44,7 @@ constructor(
 
                 worksManager.startCurrencyRatesUpdates()      // Started to load selecedCurrency rates periodically
                 null
-            }
-            catch (ex: Exception) {
+            } catch (ex: Exception) {
                 ex.printStackTrace()
                 GeneralError()
             }

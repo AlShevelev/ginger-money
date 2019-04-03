@@ -38,6 +38,10 @@
         <item name="android:padding">@dimen/textFieldPadding</item>
     </style>
 
+    <style name="App.TextField.Text.TextWithIcon" parent="App.TextField.Text">
+        <item name="android:background">@null</item>
+    </style>
+
     <!-- Screen header - title -->
     <style name="App.Activity.ProgressBar" parent="Widget.AppCompat.ProgressBar">
         <item name="android:indeterminateTint">@color/primary</item>

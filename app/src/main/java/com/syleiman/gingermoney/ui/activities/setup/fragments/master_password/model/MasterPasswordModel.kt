@@ -38,14 +38,12 @@ constructor(
 
         return if(password == null || password.length !in passwordMinLen .. passwordMaxLen) {
             InvalidPasswordLenError(passwordMinLen, passwordMaxLen)
-        }
-        else {
+        } else {
             withContext(Dispatchers.IO) {
                 try {
                     keyValueStorage.setMasterPassword(encryptor.encrypt(stringsConverter.toBytes(password))!!)
                     null
-                }
-                catch(ex: Exception) {
+                } catch(ex: Exception) {
                     ex.printStackTrace()
                     GeneralError()
                 }

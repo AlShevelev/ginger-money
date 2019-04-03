@@ -24,8 +24,7 @@ constructor(
         withContext(Dispatchers.IO) {
             try {
                 ModelCallResult(null, db.getAccounts())
-            }
-            catch (ex: Exception) {
+            } catch (ex: Exception) {
                 ex.printStackTrace()
                 ModelCallResult(GeneralError(), null)
             }

@@ -42,8 +42,7 @@ class AccountsViewModel : ViewModelBase<AccountsModelInterface>() {
                 ?.also {
                     if(it.isEmpty()) {
                         stubVisibility.value = View.VISIBLE
-                    }
-                    else {
+                    } else {
                         // do something
                     }
                 }

@@ -3,6 +3,7 @@ package com.syleiman.gingermoney.application
 import android.annotation.SuppressLint
 import android.app.Application
 import com.jakewharton.threetenabp.AndroidThreeTen
+import com.shevelev.alphaEmojiPanel.EmojiInitializer
 import com.syleiman.gingermoney.application.dependency_injection.AppComponent
 import com.syleiman.gingermoney.application.dependency_injection.DependencyInjectionStorage
 import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
@@ -28,5 +29,7 @@ class App: Application() {
 
         crashlyticsUtils.registerAppInfo()
         crashlyticsUtils.registerDeviceInfo()
+
+        EmojiInitializer.init(this)
     }
 }

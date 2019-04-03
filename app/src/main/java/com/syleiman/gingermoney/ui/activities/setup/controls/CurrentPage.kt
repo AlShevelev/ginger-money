@@ -87,8 +87,7 @@ constructor(
         for(i in 0 until totalPages) {
             if(i == currentPageIndex) {
                 drawingPaint.style = Paint.Style.FILL
-            }
-            else {
+            } else {
                 drawingPaint.style = Paint.Style.STROKE
                 drawingPaint.strokeWidth = strokeWidth
                 drawingPaint.strokeCap

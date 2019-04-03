@@ -76,8 +76,7 @@ constructor(
     override suspend fun getAppProtectionMethods(): List<AppProtectionMethod> =
         if(fingerprintAuthManager.isAuthenticationPossible) {
             listOf(AppProtectionMethod.WITHOUT_PROTECTION, AppProtectionMethod.FINGERPRINT, AppProtectionMethod.MASTER_PASSWORD)
-        }
-        else {
+        } else {
             listOf(AppProtectionMethod.WITHOUT_PROTECTION, AppProtectionMethod.MASTER_PASSWORD)
         }
 
@@ -102,8 +101,7 @@ constructor(
             try {
                 saveAction()
                 null
-            }
-            catch (ex: Exception) {
+            } catch (ex: Exception) {
                 ex.printStackTrace()
                 GeneralError()
             }
@@ -116,8 +114,7 @@ constructor(
         withContext(Dispatchers.IO) {
             try {
                 ModelCallResult(null, getAction())
-            }
-            catch (ex: Exception) {
+            } catch (ex: Exception) {
                 ex.printStackTrace()
                 ModelCallResult(GeneralError(), null)
             }

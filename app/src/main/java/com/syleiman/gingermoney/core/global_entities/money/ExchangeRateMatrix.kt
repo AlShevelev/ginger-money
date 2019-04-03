@@ -70,8 +70,7 @@ class ExchangeRateMatrix(private val baseCurrency: Currency, private val exchang
             exchangeRates.forEach { exchangeRate2 ->
                 val quoteFactor = if(exchangeRate1.from == exchangeRate2.from) {
                     1.0
-                }
-                else {
+                } else {
                     1 / (exchangeRate2.quoteFactor / exchangeRate1.quoteFactor)
                 }
                 setValue(exchangeRate1.from, exchangeRate2.from, quoteFactor)

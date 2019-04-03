@@ -44,8 +44,7 @@ class LoginActivity : AppCompatActivity() {
             AppProtectionMethod.FINGERPRINT -> {
                 if(fingerprintAuthManager.isAuthenticationPossible) {
                     navigation.setFingerprintAsHome(this)
-                }
-                else {
+                } else {
                     navigation.setMasterPasswordAsHome(this)
                 }
             }

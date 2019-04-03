@@ -42,8 +42,7 @@ constructor(
     override suspend fun login(password: String?): DisplayingError? =
         if (password.isNullOrEmpty()) {
             InvalidPassword()
-        }
-        else {
+        } else {
             withContext(Dispatchers.IO) {
                 try {
                     val storedPassword = stringsConverter.fromBytes(encryptor.decrypt(keyValueStorage.getMasterPassword())!!)

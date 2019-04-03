@@ -11,8 +11,7 @@ abstract class StorageBase: StorageInterface, StorageOperationsInstanceInterface
             val operationsInstance = createWriteOperationsInstance()
             updateAction(operationsInstance)
             operationsInstance.commit()
-        }
-        catch(ex: Exception) {
+        } catch(ex: Exception) {
             ex.printStackTrace()
             throw ex
         }

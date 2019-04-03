@@ -82,8 +82,7 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
 
             command.value = if(loginResult == null) {
                 LoggedInCommand()     // Ok, move to the next page
-            }
-            else {
+            } else {
                 ShowErrorCommand(loginResult)
             }
         }

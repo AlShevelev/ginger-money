@@ -29,8 +29,7 @@ constructor(
             try {
                 keyValueStorage.setDefaultCurrency(currency)
                 null
-            }
-            catch (ex: Exception) {
+            } catch (ex: Exception) {
                 ex.printStackTrace()
                 GeneralError()
             }

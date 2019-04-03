@@ -100,14 +100,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/groupLabel"
-            app:layout_constraintBottom_toBottomOf="@+id/groupLabel"/>
+            app:layout_constraintBottom_toBottomOf="@+id/groupLabel"
+            tools:ignore="Autofill,LabelFor"/>
 
-        <EditText
+        <com.syleiman.gingermoney.ui.common.controls.EditTextWithEmoji
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/nameText"
-
-            style="@style/App.TextField.Text"
 
             app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
@@ -126,7 +125,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/amountLabel"
-            app:layout_constraintBottom_toBottomOf="@+id/amountLabel"/>
+            app:layout_constraintBottom_toBottomOf="@+id/amountLabel"
+            tools:ignore="Autofill,LabelFor"/>
 
         <EditText
             android:layout_width="0dp"
@@ -139,7 +139,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/memoLabel"
-            app:layout_constraintBottom_toBottomOf="@+id/memoLabel"/>
+            app:layout_constraintBottom_toBottomOf="@+id/memoLabel"
+            tools:ignore="Autofill,LabelFor"/>
 
         <RadioGroup
             android:layout_width="0dp"
@@ -165,10 +166,10 @@
                 app:drawableRadioButton_icon = "@drawable/ic_usd"
                 app:drawableRadioButton_iconTint = "@color/black"
                 app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
-                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+                android:paddingEnd="@dimen/addEditAccountUSDPadding"
 
                 android:tag="USD"
-            />
+                tools:ignore="RtlSymmetry"/>
 
             <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
                 android:id="@+id/eurSwitcher"
@@ -187,9 +188,10 @@
                 app:drawableRadioButton_iconTint = "@color/black"
                 app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
                 app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+                android:paddingEnd="@dimen/addEditAccountCurrencyPadding"
 
                 android:tag="EUR"
-            />
+                tools:ignore="RtlSymmetry"/>
 
             <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
                 android:id="@+id/rubSwitcher"
@@ -205,9 +207,10 @@
                 app:drawableRadioButton_iconTint = "@color/black"
                 app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
                 app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
+                android:paddingEnd="@dimen/addEditAccountCurrencyPadding"
 
                 android:tag="RUB"
-            />
+                tools:ignore="RtlSymmetry"/>
 
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,8 +46,7 @@ abstract class DbCore: RoomDatabase(), DbCoreDaoInterface, DbCoreRunInterface {
             val result = action.invoke(this)
             setTransactionSuccessful()
             return result
-        }
-        catch (ex: Exception) {
+        } catch (ex: Exception) {
             ex.printStackTrace()
             throw ex
         }

@@ -64,8 +64,7 @@ class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : 
         return try {
             connection = url.openConnection() as HttpURLConnection
             BufferedInputStream(connection.inputStream).use { it.reader().readText() }
-        }
-        catch (ex: IOException) {
+        } catch (ex: IOException) {
             ex.printStackTrace()
             crashlytics.log(ex)
 
@@ -87,8 +86,7 @@ class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : 
             val eurToUsdRate = ratesResult.getJSONObject(EUR_USD_QUERY_KEY).getDouble("val")
 
             listOf(ExchangeRate(Currency.RUB, Currency.USD, rubToUsdRate), ExchangeRate(Currency.EUR, Currency.USD, eurToUsdRate))
-        }
-        catch (ex: JSONException) {
+        } catch (ex: JSONException) {
             ex.printStackTrace()
             crashlytics.log(ex)
 
@@ -102,8 +100,7 @@ class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : 
         try {
             db.storeSourceExchangeRates(rates)
             true
-        }
-        catch (ex: Exception) {
+        } catch (ex: Exception) {
             ex.printStackTrace()
             crashlytics.log(ex)
 

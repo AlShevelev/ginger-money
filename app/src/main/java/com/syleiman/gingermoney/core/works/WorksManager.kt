@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.core.works
 
 import androidx.work.*
+import com.syleiman.gingermoney.BuildConfig
 import com.syleiman.gingermoney.core.works.update_currency_rate.UpdateCurrencyRatesWorker
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -11,6 +12,10 @@ import javax.inject.Inject
 class WorksManager
 @Inject
 constructor() : WorksManagerInterface {
+    private companion object {
+        private const val WORK_NAME = "${BuildConfig.APPLICATION_ID}.UPDATE_CURRENCY_RATES"
+    }
+
     /**
      *
      */
@@ -23,6 +28,6 @@ constructor() : WorksManagerInterface {
             .setConstraints(updateConstraints)
             .build()
 
-        WorkManager.getInstance().enqueueUniquePeriodicWork("UPDATE_CURRENCY_RATES", ExistingPeriodicWorkPolicy.KEEP, updateWork)
+        WorkManager.getInstance().enqueueUniquePeriodicWork(WORK_NAME, ExistingPeriodicWorkPolicy.KEEP, updateWork)
     }
 }

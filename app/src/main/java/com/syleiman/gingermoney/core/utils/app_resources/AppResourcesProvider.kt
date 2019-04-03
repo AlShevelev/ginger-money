@@ -55,8 +55,7 @@ constructor(
     override fun getColor(@ColorRes resId: Int): Int =
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             appContext.resources.getColor(resId, null)
-        }
-        else {
+        } else {
             appContext.resources.getColor(resId)
         }
 
@@ -70,8 +69,7 @@ constructor(
                 .getApplicationInfo(appContext.packageName, PackageManager.GET_META_DATA)
                 .metaData
                 .get(key)
-        }
-        catch (ex: PackageManager.NameNotFoundException) {
+        } catch (ex: PackageManager.NameNotFoundException) {
             ex.printStackTrace()
         }
 

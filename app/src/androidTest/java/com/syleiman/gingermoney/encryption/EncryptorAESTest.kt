@@ -29,8 +29,7 @@ class EncryptorAESTest: EncryptorTestBase() {
 
             encryptionUtilsInstance = if(Build.VERSION.SDK_INT >= 23) {     // New encryptor
                 EncryptorAES()
-            }
-            else {                                                          // Old encryptor
+            } else {                                                          // Old encryptor
                 val encryptor = EncryptorRSA(InstrumentationRegistry.getInstrumentation().targetContext.applicationContext)
 
                 val storage = InMemoryStorage()

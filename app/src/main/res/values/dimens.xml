@@ -17,6 +17,11 @@
     <dimen name="buttonIconSize">40dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="EditText with an icon">-->
+    <dimen name="textEditIconSize">20dp</dimen>
+    <dimen name="textEditIconMargin">8dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="General text field">-->
     <dimen name="textFieldPadding">6dp</dimen>
     <!--</editor-fold>-->
@@ -82,4 +87,6 @@
     <dimen name="addEditAccountFieldsMarginTop">14dp</dimen>
     <dimen name="addEditAccountFieldsMarginSide">12dp</dimen>
     <dimen name="addEditAccountFieldsLabelsGap">27dp</dimen>
+    <dimen name="addEditAccountUSDPadding">8dp</dimen>
+    <dimen name="addEditAccountCurrencyPadding">14dp</dimen>
 </resources>

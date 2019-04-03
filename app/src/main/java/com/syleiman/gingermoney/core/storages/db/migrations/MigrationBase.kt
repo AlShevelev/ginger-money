@@ -13,8 +13,7 @@ abstract class MigrationBase(startVersion: Int, endVersion: Int): Migration(star
         try {
             processMigration(database)
             database.setTransactionSuccessful()
-        }
-        catch (ex: Exception) {
+        } catch (ex: Exception) {
             ex.printStackTrace()
         }
         finally {
