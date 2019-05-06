@@ -9,10 +9,12 @@ import android.view.*
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.PopupWindow
+import androidx.appcompat.app.AppCompatActivity
+import androidx.arch.core.util.Cancellable
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.shevelev.alphaEmojiPanel.*
+import com.shevelev.alphaEmojiPanel.R
 import com.shevelev.alphaEmojiPanel.dto.TouchPoint
 import com.shevelev.alphaEmojiPanel.emojies.Emoji
 import com.shevelev.alphaEmojiPanel.iconsInLists.*
@@ -56,6 +58,8 @@ class EmojiPopupKeyboard (
     private val scopeJob: Job = SupervisorJob()
     override val coroutineContext: CoroutineContext
         get() = scopeJob + Dispatchers.Main
+
+    private var backPressedCallbackCancellation: Cancellable? = null
 
     /**
      *
@@ -110,13 +114,6 @@ class EmojiPopupKeyboard (
     }
 
     /**
-     *
-     */
-    @SuppressLint("InflateParams")
-    private fun createView(): View =
-        (context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE) as LayoutInflater).inflate(R.layout.popup_emoji, null, false)
-
-    /**
      * Set the listener for the event of keyboard closing.
      */
     fun setOnSoftKeyboardCloseListener(listener: () -> Unit) {
@@ -153,6 +150,12 @@ class EmojiPopupKeyboard (
             UIHelper.setSoftKeyboardVisibility(context, rootView, false)
 
             showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
+
+            // Close the popup by Back button
+            backPressedCallbackCancellation = (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback {
+                dismiss()
+                true
+            }
         }
     }
 
@@ -191,6 +194,9 @@ class EmojiPopupKeyboard (
         super.dismiss()
 
         closeComplexIconPopup()
+
+        backPressedCallbackCancellation?.cancel()
+        backPressedCallbackCancellation = null
     }
 
     /**
@@ -244,6 +250,12 @@ class EmojiPopupKeyboard (
             }
         }
     }
+
+    /**
+     *
+     */
+    @SuppressLint("InflateParams")
+    private fun createView(): View = EmojiPopupKeyboardView(context)
 
     /**
      *

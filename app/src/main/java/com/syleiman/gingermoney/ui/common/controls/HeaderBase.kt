@@ -25,9 +25,7 @@ constructor(
     }
 
     init {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        @Suppress("LeakingThis")
-        inflater.inflate(layoutResId, this)
+        inflate(context, layoutResId, this)
     }
 
     /**

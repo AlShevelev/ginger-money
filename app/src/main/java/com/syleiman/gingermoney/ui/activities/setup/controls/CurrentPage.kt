@@ -8,7 +8,9 @@ import android.util.AttributeSet
 import android.view.View
 import com.syleiman.gingermoney.R
 
-/** Show current page as a set of dots */
+/**
+ * Show current page as a set of dots
+ */
 class CurrentPage
 @JvmOverloads
 constructor(
@@ -54,11 +56,11 @@ constructor(
      *
      */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val widthMode = View.MeasureSpec.getMode(widthMeasureSpec)
-        var width = View.MeasureSpec.getSize(widthMeasureSpec)
+        val widthMode = MeasureSpec.getMode(widthMeasureSpec)
+        var width = MeasureSpec.getSize(widthMeasureSpec)
 
-        val heightMode = View.MeasureSpec.getMode(heightMeasureSpec)
-        var height = View.MeasureSpec.getSize(heightMeasureSpec)
+        val heightMode = MeasureSpec.getMode(heightMeasureSpec)
+        var height = MeasureSpec.getSize(heightMeasureSpec)
 
         if (widthMode != MeasureSpec.EXACTLY || heightMode != MeasureSpec.EXACTLY) {
             width = defWidth
