@@ -6,6 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
+    android:animateLayoutChanges="true"
+
     android:background="@color/emojiLightGray"
     tools:ignore="Overdraw">
 
@@ -74,6 +76,9 @@
         android:background="@null"
         app:srcCompat="@drawable/ic_home"
         app:tint = "@color/main_buttons"
+
+        android:visibility="gone"
+        tools:visibility="visible"
 
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guidelineBottom"

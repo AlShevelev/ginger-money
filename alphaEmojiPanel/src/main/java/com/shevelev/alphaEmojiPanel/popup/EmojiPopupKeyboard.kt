@@ -14,6 +14,7 @@ import androidx.arch.core.util.Cancellable
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.shevelev.alphaEmojiPanel.R
 import com.shevelev.alphaEmojiPanel.dto.TouchPoint
 import com.shevelev.alphaEmojiPanel.emojies.Emoji
 import com.shevelev.alphaEmojiPanel.iconsInLists.*
@@ -59,6 +60,9 @@ class EmojiPopupKeyboard (
 
     private var backPressedCallbackCancellation: Cancellable? = null
 
+    private val rootIcons = RootIcons()
+    private var isInRootMode = true
+
     /**
      *
      */
@@ -72,9 +76,11 @@ class EmojiPopupKeyboard (
         setSize(Size(WindowManager.LayoutParams.MATCH_PARENT, 255))
         setBackgroundDrawable(null)
 
+        animationStyle = R.style.popupEmojiKeyboardAnimation
+
         // Setting up of general icons list
         generalIconsAdapter = GridIconsAdapter(this)
-        generalIconsAdapter.updateData(RootIcons().getChildIcons())
+        generalIconsAdapter.updateData(rootIcons.getChildIcons())
 
         popupView.generalListView.apply {
             this.adapter = generalIconsAdapter
@@ -92,8 +98,7 @@ class EmojiPopupKeyboard (
 
         // Set buttons clicks
         popupView.setOnClickListenerHomeButton(View.OnClickListener {
-            closeComplexIconPopup()
-            generalIconsAdapter.updateData(RootIcons().getChildIcons())
+            moveToRootMode()
         })
 
         popupView.setOnClickListenerBackButton(View.OnClickListener {
@@ -143,9 +148,13 @@ class EmojiPopupKeyboard (
 
             showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 
-            // Close the popup by Back button
+            // Processes Back button action
             backPressedCallbackCancellation = (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback {
-                dismiss()
+                if(isInRootMode) {
+                    dismiss()               // Closes the popup
+                } else {
+                    moveToRootMode()
+                }
                 true
             }
         }
@@ -222,7 +231,11 @@ class EmojiPopupKeyboard (
         closeComplexIconPopup()
 
         when(icon) {
-            is IconsSet -> generalIconsAdapter.updateData(icon.getChildIcons())
+            is IconsSet -> {
+                generalIconsAdapter.updateData(icon.getChildIcons())
+                isInRootMode = false
+                (contentView as EmojiPopupKeyboardView).setHomeButtonVisibility(true)
+            }
 
             is ComplexIcon -> {
                 complexIconPopup = EmojiPopupComplexIcon(rootView, context, this, icon, touchPoint)
@@ -308,5 +321,16 @@ class EmojiPopupKeyboard (
     private fun closeComplexIconPopup() {
         complexIconPopup?.dismiss()
         complexIconPopup = null
+    }
+
+    /**
+     * Shows root icons
+     */
+    private fun moveToRootMode() {
+        closeComplexIconPopup()
+
+        generalIconsAdapter.updateData(rootIcons.getChildIcons())
+        isInRootMode = true
+        (contentView as EmojiPopupKeyboardView).setHomeButtonVisibility(false)
     }
 }
