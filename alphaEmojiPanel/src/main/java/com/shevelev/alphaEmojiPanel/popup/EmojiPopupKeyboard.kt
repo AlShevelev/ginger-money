@@ -1,20 +1,19 @@
 package com.shevelev.alphaEmojiPanel.popup
 
 import android.annotation.SuppressLint
-import android.app.Activity
 import android.content.Context
 import android.graphics.Rect
 import android.util.Size
-import android.view.*
-import android.widget.Button
-import android.widget.ImageButton
+import android.view.Gravity
+import android.view.KeyEvent
+import android.view.View
+import android.view.WindowManager
 import android.widget.PopupWindow
 import androidx.appcompat.app.AppCompatActivity
 import androidx.arch.core.util.Cancellable
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.shevelev.alphaEmojiPanel.R
 import com.shevelev.alphaEmojiPanel.dto.TouchPoint
 import com.shevelev.alphaEmojiPanel.emojies.Emoji
 import com.shevelev.alphaEmojiPanel.iconsInLists.*
@@ -47,7 +46,6 @@ class EmojiPopupKeyboard (
     private var keyBoardHeightLandscape = -1
 
     private val generalIconsAdapter: GridIconsAdapter
-    private val generalList: RecyclerView
 
     private val recentIconsAdapter: RecentIconsAdapter
     private val recentList: RecyclerView
@@ -66,8 +64,10 @@ class EmojiPopupKeyboard (
      */
     init {
         // Create view
-        val customView = createView()
-        contentView = customView
+        val popupView = createView()
+
+        // Set up view
+        contentView = popupView
         softInputMode = WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
         setSize(Size(WindowManager.LayoutParams.MATCH_PARENT, 255))
         setBackgroundDrawable(null)
@@ -76,41 +76,33 @@ class EmojiPopupKeyboard (
         generalIconsAdapter = GridIconsAdapter(this)
         generalIconsAdapter.updateData(RootIcons().getChildIcons())
 
-        generalList = customView.findViewById(R.id.generalList)
-        generalList.adapter = generalIconsAdapter
-        generalList.layoutManager = GridLayoutManager(context, getColumnsQuantity())
+        popupView.generalListView.apply {
+            this.adapter = generalIconsAdapter
+            this.layoutManager = GridLayoutManager(context, getColumnsQuantity())
+        }
 
         // Setting up of recent icons list
         recentIconsAdapter = RecentIconsAdapter(this)
-
         recentIconsCollection = RecentIconsCollection()
 
-        recentList = customView.findViewById(R.id.recentList)
-        recentList.adapter = recentIconsAdapter
-        recentList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recentList = popupView.recentListView.apply {
+            this.adapter = recentIconsAdapter
+            this.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
 
         // Set buttons clicks
-        customView.findViewById<ImageButton>(R.id.homeButton)
-            .let {
-                it.setOnClickListener {
-                    closeComplexIconPopup()
-                    generalIconsAdapter.updateData(RootIcons().getChildIcons())
-                }
-            }
+        popupView.setOnClickListenerHomeButton(View.OnClickListener {
+            closeComplexIconPopup()
+            generalIconsAdapter.updateData(RootIcons().getChildIcons())
+        })
 
-        customView.findViewById<ImageButton>(R.id.backButton)
-            .let {
-                it.setOnClickListener {
-                    _onKeyClickedListener?.invoke(KeyEvent.KEYCODE_DEL)
-                }
-            }
+        popupView.setOnClickListenerBackButton(View.OnClickListener {
+            _onKeyClickedListener?.invoke(KeyEvent.KEYCODE_DEL)
+        })
 
-        customView.findViewById<Button>(R.id.spaceButton)
-            .let {
-                it.setOnClickListener {
-                    _onKeyClickedListener?.invoke(KeyEvent.KEYCODE_SPACE)
-                }
-            }
+        popupView.setOnClickListenerSpaceButton(View.OnClickListener {
+            _onKeyClickedListener?.invoke(KeyEvent.KEYCODE_SPACE)
+        })
     }
 
     /**
@@ -255,7 +247,7 @@ class EmojiPopupKeyboard (
      *
      */
     @SuppressLint("InflateParams")
-    private fun createView(): View = EmojiPopupKeyboardView(context)
+    private fun createView(): EmojiPopupKeyboardView = EmojiPopupKeyboardView(context)
 
     /**
      *
