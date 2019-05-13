@@ -1,8 +1,12 @@
 package com.syleiman.gingermoney.ui.common.controls
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.os.Handler
+import android.os.Looper
 import android.util.AttributeSet
+import android.util.Log
 import android.widget.RadioButton
 import androidx.annotation.ColorInt
 import androidx.annotation.Px
@@ -33,6 +37,8 @@ constructor(
     init {
         attrs?.let { retrieveAttributes(attrs, defStyleAttr) }
         drawIcon()
+
+        Log.d("ONMEASURE", "Tag: $tag; width: $width; height: $height")
     }
 
     /**
@@ -61,5 +67,20 @@ constructor(
 
         compoundDrawablePadding = iconMargin
         setCompoundDrawables(null, null, icon, null)
+    }
+
+    @SuppressLint("DrawAllocation")
+    override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
+        super.onLayout(changed, left, top, right, bottom)
+
+        val width = right - left
+        val height = (bottom - top).toFloat()
+
+        // The icon is hidden for small screens
+        if(height / width > 0.5) {
+            Handler(Looper.getMainLooper()).post {
+                setCompoundDrawables(null, null, null, null)
+            }
+        }
     }
 }
