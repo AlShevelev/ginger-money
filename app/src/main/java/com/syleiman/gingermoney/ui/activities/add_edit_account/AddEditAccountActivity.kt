@@ -1,11 +1,11 @@
-package com.syleiman.gingermoney.ui.activities.addEditAccount
+package com.syleiman.gingermoney.ui.activities.add_edit_account
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.ui.activities.addEditAccount.dependency_injection.AddEditAccountActivityComponent
-import com.syleiman.gingermoney.ui.activities.addEditAccount.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelperInterface
 import kotlinx.android.synthetic.main.activity_add_edit_account.*
 import kotlinx.android.synthetic.main.activity_add_edit_account_header.*
 import javax.inject.Inject

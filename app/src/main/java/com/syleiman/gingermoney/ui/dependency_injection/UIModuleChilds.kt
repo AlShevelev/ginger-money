@@ -1,6 +1,6 @@
 package com.syleiman.gingermoney.ui.dependency_injection
 
-import com.syleiman.gingermoney.ui.activities.addEditAccount.dependency_injection.AddEditAccountActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent

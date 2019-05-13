@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.add.model
+package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model
 
 import javax.inject.Inject
 

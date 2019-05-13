@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.addEditAccount.navigation
+package com.syleiman.gingermoney.ui.activities.add_edit_account.navigation
 
 import androidx.annotation.IdRes
 import androidx.fragment.app.FragmentActivity

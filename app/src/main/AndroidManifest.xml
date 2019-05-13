@@ -34,7 +34,7 @@
             android:theme="@style/App.Activity.Main.Theme">
         </activity>
         <activity
-            android:name=".ui.activities.addEditAccount.AddEditAccountActivity"
+            android:name=".ui.activities.add_edit_account.AddEditAccountActivity"
             android:screenOrientation="sensor"
             android:theme="@style/App.Activity.Main.Theme">
         </activity>

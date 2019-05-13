@@ -1,11 +1,11 @@
-package com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.add.view
+package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view
 
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentAddEditAccountAddBinding
-import com.syleiman.gingermoney.ui.activities.addEditAccount.dependency_injection.AddEditAccountActivityComponent
-import com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.add.model.AddAccountModelInterface
-import com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.add.view_model.AddAccountViewModel
+import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_model.AddAccountViewModel
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 
 /**

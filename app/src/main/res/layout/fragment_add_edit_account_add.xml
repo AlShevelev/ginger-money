@@ -7,14 +7,14 @@
     <data>
         <variable
             name="viewModel"
-            type="com.syleiman.gingermoney.ui.activities.addEditAccount.fragments.add.view_model.AddAccountViewModel"/>
+            type="com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_model.AddAccountViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/bcg_activity_page"
-        tools:context=".ui.activities.addEditAccount.fragments.add.view.AddAccountFragment">
+        tools:context=".ui.activities.add_edit_account.fragments.add.view.AddAccountFragment">
 
 
         <androidx.constraintlayout.widget.Guideline

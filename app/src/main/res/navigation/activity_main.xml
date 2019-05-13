@@ -33,7 +33,7 @@
               tools:layout="@layout/fragment_main_statistics">
     </fragment>
     <activity android:id="@+id/addEditAccountActivity"
-              android:name="com.syleiman.gingermoney.ui.activities.addEditAccount.AddEditAccountActivity"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_account.AddEditAccountActivity"
               android:label="activity_add_edit_account"
               tools:layout="@layout/activity_add_edit_account">
         <argument android:name="ACCOUNT_ACTION"

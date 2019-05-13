@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.addEditAccount
+package com.syleiman.gingermoney.ui.activities.add_edit_account
 
 import android.content.Context
 import android.util.AttributeSet

@@ -6,7 +6,7 @@ import androidx.navigation.NavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.ui.activities.addEditAccount.AddEditAccountActivity
+import com.syleiman.gingermoney.ui.activities.add_edit_account.AddEditAccountActivity
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
