@@ -4,7 +4,7 @@ import java.util.Currency
 import com.syleiman.gingermoney.core.global_entities.money.Currency as CurrencyCode
 
 /**
- * Money totalCents with a selecedCurrency
+ * Money totalCents with a selected Currency
  */
 class Money {
     /**

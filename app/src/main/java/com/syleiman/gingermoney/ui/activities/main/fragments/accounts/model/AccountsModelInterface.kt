@@ -7,7 +7,7 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 /**
  *
  */
-interface AccountsModelInterface : ModelBaseInterface {
+interface AccountsModelInterface: ModelBaseInterface {
     /**
      *
      */

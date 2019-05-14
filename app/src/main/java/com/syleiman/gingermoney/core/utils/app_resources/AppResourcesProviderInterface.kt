@@ -4,6 +4,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
+import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import org.threeten.bp.DayOfWeek
 
@@ -48,4 +49,9 @@ interface AppResourcesProviderInterface {
      * Returns string value for a day of week
      */
     fun getDayOfWeekString(dayOfWeek: DayOfWeek): String
+
+    /**
+     * Returns string value for an account group
+     */
+    fun getAccountGroupString(group: AccountGroup): String
 }

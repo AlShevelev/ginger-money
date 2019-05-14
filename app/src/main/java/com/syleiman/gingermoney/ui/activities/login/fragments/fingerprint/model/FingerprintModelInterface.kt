@@ -6,9 +6,14 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 /**
  *
  */
-interface FingerprintModelInterface : ModelBaseInterface {
+interface FingerprintModelInterface: ModelBaseInterface {
     /**
      * Start an authentication session
      */
     fun startAuth(eventsCallback: FingerprintAuthEventHandler)
+
+    /**
+     *
+     */
+    fun cancelBackgroundOperations() {}
 }

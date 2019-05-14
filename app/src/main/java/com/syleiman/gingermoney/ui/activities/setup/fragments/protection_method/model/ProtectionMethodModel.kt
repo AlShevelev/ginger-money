@@ -5,9 +5,7 @@ import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManag
 import com.syleiman.gingermoney.core.works.WorksManagerInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
-import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
 
@@ -20,7 +18,8 @@ constructor(
     private val keyValueStorage: KeyValueStorageFacadeInterface,
     fingerprintAuthManager: FingerprintAuthManagerInterface,
     private val worksManager: WorksManagerInterface
-) : ProtectionMethodModelInterface {
+) : ModelBase(),
+    ProtectionMethodModelInterface {
     /**
      *
      */
@@ -36,17 +35,11 @@ constructor(
      * @return - the argument is null in case of success, otherwise it contains an error to display
      */
     override suspend fun saveProtectionMethod(protectionMethod: AppProtectionMethod): DisplayingError? =
-        withContext(Dispatchers.IO) {
-            try {
-                keyValueStorage.setAppProtectionMethod(protectionMethod)
-                keyValueStorage.setStartDayOfWeek(DayOfWeek.MONDAY)
-                keyValueStorage.setAppSetupComplete(true)
+        saveValue {
+            keyValueStorage.setAppProtectionMethod(protectionMethod)
+            keyValueStorage.setStartDayOfWeek(DayOfWeek.MONDAY)
+            keyValueStorage.setAppSetupComplete(true)
 
-                worksManager.startCurrencyRatesUpdates()      // Started to load selecedCurrency rates periodically
-                null
-            } catch (ex: Exception) {
-                ex.printStackTrace()
-                GeneralError()
-            }
+            worksManager.startCurrencyRatesUpdates()      // Started to load selected Currency rates periodically
         }
 }

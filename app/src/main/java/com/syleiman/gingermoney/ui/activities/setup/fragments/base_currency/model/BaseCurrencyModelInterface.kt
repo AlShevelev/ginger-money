@@ -7,7 +7,7 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 /**
  *
  */
-interface BaseCurrencyModelInterface : ModelBaseInterface {
+interface BaseCurrencyModelInterface: ModelBaseInterface {
     /**
      *
      */

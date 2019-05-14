@@ -10,7 +10,7 @@ import org.threeten.bp.DayOfWeek
 /**
  *
  */
-interface SettingsModelInterface : ModelBaseInterface {
+interface SettingsModelInterface: ModelBaseInterface {
     /**
      * Returns current value of default Currency
      */

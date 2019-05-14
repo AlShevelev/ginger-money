@@ -9,6 +9,7 @@ import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
 import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.dto.InvalidPassword
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
+import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -25,7 +26,8 @@ constructor(
     private val stringsConverter: StringsConverterInterface,
     fingerprintAuthManager: FingerprintAuthManagerInterface,
     resourcesProvider: AppResourcesProviderInterface
-) : MasterPasswordModelInterface {
+) : ModelBase(),
+    MasterPasswordModelInterface {
     /**
      *
      */

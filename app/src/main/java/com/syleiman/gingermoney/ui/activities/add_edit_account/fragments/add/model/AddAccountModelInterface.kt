@@ -5,5 +5,5 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 /**
  *
  */
-interface AddAccountModelInterface : ModelBaseInterface {
+interface AddAccountModelInterface: ModelBaseInterface {
 }

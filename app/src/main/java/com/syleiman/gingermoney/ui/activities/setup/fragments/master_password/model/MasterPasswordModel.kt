@@ -8,6 +8,7 @@ import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
 import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.dto.InvalidPasswordLenError
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
+import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -23,7 +24,8 @@ constructor(
     @Named("AES") private val encryptor: Encryptor,
     private val keyValueStorage: KeyValueStorageFacadeInterface,
     private val stringsConverter: StringsConverterInterface
-) : MasterPasswordModelInterface {
+) : ModelBase(),
+    MasterPasswordModelInterface {
 
     /**
      *

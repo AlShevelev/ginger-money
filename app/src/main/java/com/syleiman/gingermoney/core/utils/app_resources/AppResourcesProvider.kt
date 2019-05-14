@@ -8,6 +8,7 @@ import androidx.annotation.ColorRes
 import androidx.annotation.IntegerRes
 import androidx.annotation.StringRes
 import com.syleiman.gingermoney.R
+import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import org.threeten.bp.DayOfWeek
 import java.lang.UnsupportedOperationException
@@ -98,5 +99,22 @@ constructor(
             DayOfWeek.FRIDAY -> getString(R.string.dayFriday)
             DayOfWeek.SATURDAY -> getString(R.string.daySaturday)
             DayOfWeek.SUNDAY -> getString(R.string.daySunday)
+        }
+
+    /**
+     * Returns string value for an account group
+     */
+    override fun getAccountGroupString(group: AccountGroup): String =
+        when(group) {
+            AccountGroup.CASH -> getString(R.string.paymentCash)
+            AccountGroup.CARDS -> getString(R.string.paymentCards)
+            AccountGroup.CREDIT_CARDS -> getString(R.string.paymentCreditCards)
+            AccountGroup.DEBIT_CARDS -> getString(R.string.paymentDebitCards)
+            AccountGroup.ACCOUNTS -> getString(R.string.paymentAccounts)
+            AccountGroup.DEPOSITS -> getString(R.string.paymentDeposits)
+            AccountGroup.SAVINGS -> getString(R.string.paymentSavings)
+            AccountGroup.INVESTMENTS -> getString(R.string.paymentInvestments)
+            AccountGroup.SHARES -> getString(R.string.paymentShares)
+            AccountGroup.BONDS -> getString(R.string.paymentBonds)
         }
 }

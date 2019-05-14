@@ -6,7 +6,7 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 /**
  *
  */
-interface MasterPasswordModelInterface : ModelBaseInterface {
+interface MasterPasswordModelInterface: ModelBaseInterface {
     /**
      *
      */

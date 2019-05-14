@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.FingerprintAuthEventsHandlerInterface
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.FingerprintAuthEventHandler
+import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import javax.inject.Inject
 
 /**
@@ -15,7 +16,8 @@ class FingerprintModel
 @Inject
 constructor(
     private val fingerprintAuthManager: FingerprintAuthManagerInterface
-) : FingerprintModelInterface {
+) : ModelBase(),
+    FingerprintModelInterface {
 
     private lateinit var fingerprintAuthEventsHandler: FingerprintAuthEventsHandlerInterface
 
@@ -46,7 +48,6 @@ constructor(
      *
      */
     override fun cancelBackgroundOperations() {
-        super.cancelBackgroundOperations()
         fingerprintAuthEventsHandler.cancel()
     }
 }

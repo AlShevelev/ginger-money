@@ -5,10 +5,8 @@ import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInt
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManagerInterface
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
-import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
+import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
 
@@ -20,7 +18,8 @@ class SettingsModel
 constructor(
     private val keyValueStorage: KeyValueStorageFacadeInterface,
     private val fingerprintAuthManager: FingerprintAuthManagerInterface
-) : SettingsModelInterface {
+) : ModelBase(),
+    SettingsModelInterface {
 
     /**
      * Returns current value of default selected Currency
@@ -92,31 +91,4 @@ constructor(
             DayOfWeek.FRIDAY,
             DayOfWeek.SATURDAY,
             DayOfWeek.SUNDAY)
-
-    /**
-     *
-     */
-    private suspend fun saveValue(saveAction: () -> Unit): DisplayingError? =
-        withContext(Dispatchers.IO) {
-            try {
-                saveAction()
-                null
-            } catch (ex: Exception) {
-                ex.printStackTrace()
-                GeneralError()
-            }
-        }
-
-    /**
-     *
-     */
-    private suspend fun <T>getValue(getAction: () -> T?): ModelCallResult<out T> =
-        withContext(Dispatchers.IO) {
-            try {
-                ModelCallResult(null, getAction())
-            } catch (ex: Exception) {
-                ex.printStackTrace()
-                ModelCallResult(GeneralError(), null)
-            }
-        }
 }
