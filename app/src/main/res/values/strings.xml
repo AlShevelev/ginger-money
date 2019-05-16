@@ -50,15 +50,16 @@
     <string name="invalidPasswordError">Invalid password</string>
 
     <string name="paymentCash">Cash</string>
-    <string name="paymentCards">Cards</string>
-    <string name="paymentCreditCards">Credit cards</string>
-    <string name="paymentDebitCards">Debit cards</string>
-    <string name="paymentAccounts">Accounts</string>
-    <string name="paymentDeposits">Deposits</string>
+    <string name="paymentCards">Card</string>
+    <string name="paymentCreditCards">Credit card</string>
+    <string name="paymentDebitCards">Debit card</string>
+    <string name="paymentAccounts">Account</string>
+    <string name="paymentDeposits">Deposit</string>
     <string name="paymentSavings">Savings</string>
     <string name="paymentInvestments">Investments</string>
     <string name="paymentShares">Shares</string>
     <string name="paymentBonds">Bonds</string>
+    <string name="paymentOther">Other</string>
 
     <string name="passEnter">Enter master password</string>
     <string name="passMethodWithoutProtection">without protection</string>
@@ -119,4 +120,5 @@
 
     <string name="addEditAccountAddTitle">Add account</string>
     <string name="addEditAccountEditTitle">Edit account</string>
+    <string name="addEditAccountGroupDialogTitle">Account group</string>
 </resources>

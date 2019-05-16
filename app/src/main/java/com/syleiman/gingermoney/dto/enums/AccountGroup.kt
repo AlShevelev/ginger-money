@@ -13,7 +13,8 @@ enum class AccountGroup(val value: Byte) {
     SAVINGS(6),
     INVESTMENTS(7),
     SHARES(8),
-    BONDS(9);
+    BONDS(9),
+    OTHER(10);
 
     companion object Create {
         fun from(sourceValue: Byte): AccountGroup = values().first { it.value == sourceValue }

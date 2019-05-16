@@ -10,24 +10,16 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_comma
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectStartDayOfWeekCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import kotlinx.coroutines.launch
 
 /**
  *
  */
 class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
-
     /**
      *
      */
     val buttonsEnabled: MutableLiveData<Boolean> = MutableLiveData()
-
-    /**
-     * On configuration change we need to show dialog if it wasn't closed.
-     * That's why we can't use [command]
-     */
-    val dialogCommands: MutableLiveData<ViewCommand> = MutableLiveData()
 
     /**
      *

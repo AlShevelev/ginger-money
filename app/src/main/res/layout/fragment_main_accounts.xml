@@ -60,21 +60,10 @@
         <!--</editor-fold>-->
 
         <!--<editor-fold desc="Loading stub">-->
-        <FrameLayout
+        <com.syleiman.gingermoney.ui.common.controls.LoadingIndicator
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-
-            android:id="@+id/loadingStub"
-            android:visibility="@{viewModel.loadingVisibility}"
-            android:background="@color/lightGrayHalfTransparent">
-
-            <ProgressBar
-                style="@style/App.Activity.ProgressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:id="@+id/progressBar"/>
-        </FrameLayout>
+            android:visibility="@{viewModel.loadingVisibility}" />
         <!--</editor-fold>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>

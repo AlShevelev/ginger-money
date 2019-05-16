@@ -10,6 +10,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.ui.common.controls.dialogs.OneOptionDialog
 import com.syleiman.gingermoney.ui.common.controls.dialogs.OneOptionRadioDialog
 import javax.inject.Inject
 
@@ -88,4 +89,20 @@ constructor(
             selectedIndex)
         .show()
     }
+
+    /** Shows dialog with a list of options
+     * @param [resultCallback] index of selected item (null if user canceled dialog) */
+    override fun showOneOptionDialog(
+        context: Context,
+        items: List<String>,
+        title: String?,
+        resultCallback: (Int?) -> Unit
+    ): AlertDialog =
+        OneOptionDialog(
+            context,
+            items,
+            title,
+            resultCallback,
+            { it })
+        .show()
 }

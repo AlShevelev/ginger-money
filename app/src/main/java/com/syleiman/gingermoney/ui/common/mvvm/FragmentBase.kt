@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
@@ -27,6 +28,8 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
     private lateinit var _viewModel: TVM
     protected val viewModel: TVM
     get() = _viewModel
+
+    protected var activeDialog: AlertDialog? = null
 
     @Inject
     internal lateinit var resourcesProvider: AppResourcesProviderInterface

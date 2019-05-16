@@ -1,7 +1,6 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.settings.view
 
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
@@ -17,15 +16,11 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import org.threeten.bp.DayOfWeek
-import java.lang.UnsupportedOperationException
 
 /**
  * Fragment for settings
  */
 class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModelInterface, SettingsViewModel>() {
-
-    private var activeDialog: AlertDialog? = null
-
     /**
      *
      */

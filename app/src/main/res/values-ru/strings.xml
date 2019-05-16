@@ -43,15 +43,16 @@
     <string name="invalidPasswordError">Неверный пароль</string>
 
     <string name="paymentCash">Наличные</string>
-    <string name="paymentCards">Карты</string>
-    <string name="paymentCreditCards">Кредитные карты</string>
-    <string name="paymentDebitCards">Дебетовые карты</string>
-    <string name="paymentAccounts">Счета</string>
-    <string name="paymentDeposits">Депозиты</string>
+    <string name="paymentCards">Банковская карта</string>
+    <string name="paymentCreditCards">Кредитная карта</string>
+    <string name="paymentDebitCards">Дебетовая карта</string>
+    <string name="paymentAccounts">Счет</string>
+    <string name="paymentDeposits">Депозит</string>
     <string name="paymentSavings">Накопления</string>
     <string name="paymentInvestments">Инвестиции</string>
     <string name="paymentShares">Акции</string>
     <string name="paymentBonds">Облигации</string>
+    <string name="paymentOther">Иное</string>
 
     <string name="passEnter">Введите основной пароль</string>
     <string name="passMethodWithoutProtection">без защиты</string>
@@ -105,4 +106,5 @@
 
     <string name="addEditAccountAddTitle">Добавить счет</string>
     <string name="addEditAccountEditTitle">Отредактировать счет</string>
+    <string name="addEditAccountGroupDialogTitle">Категория счета</string>
 </resources>

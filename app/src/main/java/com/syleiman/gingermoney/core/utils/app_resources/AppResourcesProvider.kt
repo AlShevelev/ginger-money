@@ -42,7 +42,6 @@ constructor(
             else -> throw UnsupportedOperationException("Too many arguments: ${args.size}")
         }
 
-
     /**
      *
      */
@@ -116,5 +115,6 @@ constructor(
             AccountGroup.INVESTMENTS -> getString(R.string.paymentInvestments)
             AccountGroup.SHARES -> getString(R.string.paymentShares)
             AccountGroup.BONDS -> getString(R.string.paymentBonds)
+            AccountGroup.OTHER -> getString(R.string.paymentOther)
         }
 }

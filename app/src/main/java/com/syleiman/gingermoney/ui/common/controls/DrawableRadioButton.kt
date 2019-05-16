@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable
 import android.os.Handler
 import android.os.Looper
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.RadioButton
 import androidx.annotation.ColorInt
 import androidx.annotation.Px
@@ -37,8 +36,6 @@ constructor(
     init {
         attrs?.let { retrieveAttributes(attrs, defStyleAttr) }
         drawIcon()
-
-        Log.d("ONMEASURE", "Tag: $tag; width: $width; height: $height")
     }
 
     /**

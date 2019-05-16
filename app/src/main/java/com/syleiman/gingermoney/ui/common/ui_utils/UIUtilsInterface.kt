@@ -28,12 +28,20 @@ interface UIUtilsInterface {
      */
     fun showWarning(context: Context, message: String)
 
-    /** Shows dialog with a list of options
+    /** Shows dialog with a list of options and one option is selected
      * @param [resultCallback] index of selected item (null if user canceled dialog) */
     fun showOneOptionRadioDialog(
         context: Context,
         items: List<String>,
         selectedIndex: Int,
+        title: String?,
+        resultCallback: (Int?) -> Unit) : AlertDialog
+
+    /** Shows dialog with a list of options
+     * @param [resultCallback] index of selected item (null if user canceled dialog) */
+    fun showOneOptionDialog(
+        context: Context,
+        items: List<String>,
         title: String?,
         resultCallback: (Int?) -> Unit) : AlertDialog
 }

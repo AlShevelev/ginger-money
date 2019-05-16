@@ -16,7 +16,7 @@ import kotlinx.coroutines.launch
 class BaseCurrencyViewModel : ViewModelBase<BaseCurrencyModelInterface>() {
 
     /**
-     * Selected selecedCurrency
+     * Selected Currency
      */
     val currency: MutableLiveData<Currency> = MutableLiveData()
 
