@@ -1,1 +1,1 @@
-include ':app', ':alphaEmojiPanel'
+include ':app', ':alpha-emoji-panel'

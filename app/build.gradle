@@ -51,7 +51,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     /* Modules */
-    implementation project(':alphaEmojiPanel')
+    implementation project(':alpha-emoji-panel')
 
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
