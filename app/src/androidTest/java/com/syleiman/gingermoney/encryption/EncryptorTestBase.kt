@@ -27,7 +27,7 @@ abstract class EncryptorTestBase {
 
     /** */
     @Test
-    fun encrypt_empty() {
+    fun encryptEmpty() {
         // Arrange
         val source = ByteArray(0)
 
@@ -42,7 +42,7 @@ abstract class EncryptorTestBase {
 
     /** */
     @Test
-    fun decrypt_empty() {
+    fun decryptEmpty() {
         // Arrange
         val source = ByteArray(0)
 
@@ -57,7 +57,7 @@ abstract class EncryptorTestBase {
 
     /** */
     @Test
-    fun encrypt_null() {
+    fun encryptNull() {
         // Arrange
         val source = null
 
@@ -70,7 +70,7 @@ abstract class EncryptorTestBase {
 
     /** */
     @Test
-    fun decrypt_null() {
+    fun decryptNull() {
         // Arrange
         val source = null
 

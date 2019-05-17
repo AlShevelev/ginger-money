@@ -14,7 +14,7 @@ class MoneyTypeConverterTest {
      *
      */
     @Test
-    fun fromMoneyToDb_null() {
+    fun fromMoneyToDbNull() {
         // Arrange
         val sourceValue: Money? = null
         val converter = MoneyTypeConverter()
@@ -30,7 +30,7 @@ class MoneyTypeConverterTest {
      *
      */
     @Test
-    fun fromDbToMoney_null() {
+    fun fromDbToMoneyNull() {
         // Arrange
         val sourceValue: ByteArray? = null
         val converter = MoneyTypeConverter()

@@ -14,7 +14,7 @@ import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import javax.inject.Inject
 
 /**
- * Fragment for setup base selecedCurrency
+ * Fragment for setup base currency
  */
 class BaseCurrencyFragment : FragmentBase<FragmentSetupBaseCurrencyBinding, BaseCurrencyModelInterface, BaseCurrencyViewModel>() {
 

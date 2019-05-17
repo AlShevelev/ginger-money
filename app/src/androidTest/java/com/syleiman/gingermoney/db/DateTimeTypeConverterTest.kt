@@ -18,7 +18,7 @@ class DateTimeTypeConverterTest {
      *
      */
     @Test
-    fun fromZonedDateTimeSplitToDb_null() {
+    fun fromZonedDateTimeSplitToDbNull() {
         // Arrange
         val source: ZonedDateTimeSplit? = null
         val converter = DateTimeTypeConverter()
@@ -34,7 +34,7 @@ class DateTimeTypeConverterTest {
      *
      */
     @Test
-    fun fromDbToZonedDateTimeSplit_null() {
+    fun fromDbToZonedDateTimeSplitNull() {
         // Arrange
         val source: ByteArray? = null
         val converter = DateTimeTypeConverter()

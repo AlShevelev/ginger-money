@@ -9,16 +9,16 @@ class ExchangeRateMatrixTest {
      *
      */
     @Test(expected = IncorrectMoneyOperationException::class)
-    fun create_exchangeRateSetEmpty() {
+    fun createExchangeRateSetEmpty() {
         // Arrange
         ExchangeRateMatrix(Currency.USD, listOf())
     }
 
     /**
-     * The set must contains all rates except a rate for a base selecedCurrency
+     * The set must contains all rates except a rate for a base currency
      */
     @Test(expected = IncorrectMoneyOperationException::class)
-    fun create_exchangeRateIsNotFull() {
+    fun createExchangeRateIsNotFull() {
         // Arrange
         ExchangeRateMatrix(Currency.USD, listOf(ExchangeRate(Currency.RUB, Currency.USD, 0.13)))
     }
@@ -27,7 +27,7 @@ class ExchangeRateMatrixTest {
      * Quote rate can't be negative
      */
     @Test(expected = IncorrectMoneyOperationException::class)
-    fun validation_quoteFactorIsNegative() {
+    fun validationQuoteFactorIsNegative() {
         // Arrange
         ExchangeRateMatrix(
             Currency.USD,
@@ -37,10 +37,10 @@ class ExchangeRateMatrixTest {
     }
 
     /**
-     * Field "to" in [ExchangeRate] must be as same as a base selecedCurrency
+     * Field "to" in [ExchangeRate] must be as same as a base currency
      */
     @Test(expected = IncorrectMoneyOperationException::class)
-    fun validation_invalidToValue() {
+    fun validationInvalidToValue() {
         // Arrange
         ExchangeRateMatrix(
             Currency.USD,
@@ -50,10 +50,10 @@ class ExchangeRateMatrixTest {
     }
 
     /**
-     * Field "from" in [ExchangeRate] mustn't be as same as a base selecedCurrency
+     * Field "from" in [ExchangeRate] mustn't be as same as a base currency
      */
     @Test(expected = IncorrectMoneyOperationException::class)
-    fun validation_invalidFromValue() {
+    fun validationInvalidFromValue() {
         // Arrange
         ExchangeRateMatrix(
             Currency.USD,
@@ -66,7 +66,7 @@ class ExchangeRateMatrixTest {
      * Field "from" must be unique
      */
     @Test(expected = IncorrectMoneyOperationException::class)
-    fun validation_notUniqueFromValue() {
+    fun validationNotUniqueFromValue() {
         // Arrange
         ExchangeRateMatrix(
             Currency.USD,
@@ -76,10 +76,10 @@ class ExchangeRateMatrixTest {
     }
 
     /**
-     * Check quotes for the same selecedCurrency
+     * Check quotes for the same currency
      */
     @Test
-    fun checkMatrix_diagonal() {
+    fun checkMatrixDiagonal() {
         // Arrange
         val matrix = createTestMatrix()
 
@@ -106,7 +106,7 @@ class ExchangeRateMatrixTest {
      * Check direct rates
      */
     @Test
-    fun checkMatrix_directRates() {
+    fun checkMatrixDirectRates() {
         // Arrange
         val matrix = createTestMatrix()
 
@@ -138,7 +138,7 @@ class ExchangeRateMatrixTest {
      * Check relative rates
      */
     @Test
-    fun checkMatrix_relativeRates() {
+    fun checkMatrixRelativeRates() {
         // Arrange
         val matrix = createTestMatrix()
 
@@ -160,7 +160,7 @@ class ExchangeRateMatrixTest {
      * Try to convert money via the matrix
      */
     @Test
-    fun checkMatrix_conversion() {
+    fun checkMatrixConversion() {
         // Arrange
         val matrix = createTestMatrix()
         val moneyUsd = Currency.USD.toMoney(1.0)     // 1$

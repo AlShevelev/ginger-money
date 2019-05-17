@@ -2,8 +2,6 @@ package com.syleiman.gingermoney
 
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.IncorrectMoneyOperationException
-import com.syleiman.gingermoney.core.global_entities.money.toExchangeRate
-import com.syleiman.gingermoney.core.global_entities.money.toMoney
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
@@ -274,7 +272,7 @@ class MoneyTest {
     }
 
     /**
-     * Invalid exchange rate - "from" selecedCurrency as same as "to"
+     * Invalid exchange rate - "from" currency as same as "to"
      */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun convertToFailInvalidExchangeRateSameCurrency() {

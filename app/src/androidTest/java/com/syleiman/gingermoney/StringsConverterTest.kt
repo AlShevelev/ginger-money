@@ -36,7 +36,7 @@ class StringsConverterTest {
     }
 
     @Test
-    fun toBytes_empty() {
+    fun toBytesEmpty() {
         // Arrange
         val source = ""
 
@@ -65,7 +65,7 @@ class StringsConverterTest {
     }
 
     @Test
-    fun toBase64_empty() {
+    fun toBase64Empty() {
         // Arrange
         val source = ""
 

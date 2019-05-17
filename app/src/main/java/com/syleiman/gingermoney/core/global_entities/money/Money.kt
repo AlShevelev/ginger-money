@@ -1,8 +1,5 @@
 package com.syleiman.gingermoney.core.global_entities.money
 
-import java.util.Currency
-import com.syleiman.gingermoney.core.global_entities.money.Currency as CurrencyCode
-
 /**
  * Money totalCents with a selected Currency
  */
@@ -20,7 +17,7 @@ class Money {
     /**
      *
      */
-    val currency: CurrencyCode
+    val currency: Currency
 
     /**
      * The value with cents in a fraction
@@ -32,11 +29,9 @@ class Money {
      *
      * @param totalCents Quantity of cents in the value
      */
-    constructor(totalCents: Long, currency: CurrencyCode) {
-        val currencyDescription = createCurrencyDescription(currency)
-
+    constructor(totalCents: Long, currency: Currency) {
         this.currency = currency
-        centsFactor = calculateCentFactor(currencyDescription)
+        centsFactor = calculateCentFactor()
 
         this.totalCents = totalCents
     }
@@ -45,11 +40,9 @@ class Money {
      *
      * @param value The value with cents in a fraction
      */
-    constructor(value: Double, currency: CurrencyCode) {
-        val currencyDescription = createCurrencyDescription(currency)
-
+    constructor(value: Double, currency: Currency) {
         this.currency = currency
-        centsFactor = calculateCentFactor(currencyDescription)
+        centsFactor = calculateCentFactor()
 
         this.totalCents = Math.round(value * centsFactor)
     }
@@ -89,7 +82,7 @@ class Money {
     }
 
     /**
-     * Add one [Money] instance to other [Money] instance. The selecedCurrency must be same.
+     * Add one [Money] instance to other [Money] instance. The currency must be same.
      */
     operator fun plus(otherMoney: Money): Money {
         checkOperationPossibility(otherMoney)
@@ -100,7 +93,7 @@ class Money {
     }
 
     /**
-     * Subtract one [Money] instance from other [Money] instance. The selecedCurrency must be same.
+     * Subtract one [Money] instance from other [Money] instance. The currency must be same.
      */
     operator fun minus(otherMoney: Money): Money {
         checkOperationPossibility(otherMoney)
@@ -111,7 +104,7 @@ class Money {
     }
 
     /**
-     * Convert a [Money] value to another value with a different selecedCurrency
+     * Convert a [Money] value to another value with a different currency
      */
     fun convertTo(rate: ExchangeRate): Money {
         checkExchangePossibility(rate)
@@ -136,19 +129,9 @@ class Money {
     /**
      *
      */
-    private fun calculateCentFactor(currencyDescription: Currency): Int {
-        return Math.pow(10.0, currencyDescription.defaultFractionDigits.toDouble()).toInt()
+    private fun calculateCentFactor(): Int {
+        return Math.pow(10.0, currency.centDigits.toDouble()).toInt()
     }
-
-    /**
-     *
-     */
-    private fun createCurrencyDescription(currency: CurrencyCode) =
-        when(currency) {
-            CurrencyCode.USD -> Currency.getInstance("USD")
-            CurrencyCode.EUR -> Currency.getInstance("EUR")
-            CurrencyCode.RUB -> Currency.getInstance("RUB")
-        }
 
     /**
      * Check possibility of an operation between [otherMoney] and this money object
@@ -168,7 +151,7 @@ class Money {
         }
 
         if(rate.from == rate.to) {
-            throw IncorrectMoneyOperationException("Invalid exchange rate - you can't convert the selecedCurrency to the same selecedCurrency")
+            throw IncorrectMoneyOperationException("Invalid exchange rate - you can't convert the currency to the same currency")
         }
 
         if(rate.quoteFactor < 0) {

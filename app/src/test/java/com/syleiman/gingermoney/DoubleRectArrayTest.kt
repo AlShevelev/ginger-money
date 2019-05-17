@@ -9,7 +9,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = IllegalArgumentException::class)
-    fun create_invalidRows() {
+    fun createInvalidRows() {
         // Arrange
         DoubleRectArray(0, 5)
     }
@@ -18,7 +18,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = IllegalArgumentException::class)
-    fun create_invalidCols() {
+    fun createInvalidCols() {
         // Arrange
         DoubleRectArray(5, 0)
     }
@@ -27,7 +27,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun get_invalidRow_BottomBoundary() {
+    fun getInvalidRowBottomBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -39,7 +39,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun get_invalidRow_TopBoundary() {
+    fun getInvalidRowTopBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -51,7 +51,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun get_invalidCol_BottomBoundary() {
+    fun getInvalidColBottomBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -63,7 +63,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun get_invalidCol_TopBoundary() {
+    fun getInvalidColTopBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -75,7 +75,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun set_invalidRow_BottomBoundary() {
+    fun setInvalidRowBottomBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -87,7 +87,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun set_invalidRow_TopBoundary() {
+    fun setInvalidRowTopBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -99,7 +99,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun set_invalidCol_BottomBoundary() {
+    fun setInvalidColBottomBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -111,7 +111,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
-    fun set_invalidCol_TopBoundary() {
+    fun setInvalidColTopBoundary() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -123,7 +123,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test
-    fun getSet_firstItem() {
+    fun getSetFirstItem() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 
@@ -140,7 +140,7 @@ class DoubleRectArrayTest {
      *
      */
     @Test
-    fun getSet_lastItem() {
+    fun getSetLastItem() {
         // Arrange
         val array = DoubleRectArray(5, 5)
 

@@ -4,8 +4,8 @@ import com.syleiman.gingermoney.core.global_entities.collections.DoubleRectArray
 
 /**
  * All possible exchange rates as in-memory matrix
- * @param baseCurrency - base selecedCurrency to matrix calculation (it may be any selecedCurrency)
- * @param exchangeRates - set of exchange rates for every selecedCurrency (except a [baseCurrency] one) to a [baseCurrency].
+ * @param baseCurrency - base currency to matrix calculation (it may be any currency)
+ * @param exchangeRates - set of exchange rates for every currency (except a [baseCurrency] one) to a [baseCurrency].
  */
 class ExchangeRateMatrix(private val baseCurrency: Currency, private val exchangeRates: List<ExchangeRate>) {
 
@@ -58,11 +58,11 @@ class ExchangeRateMatrix(private val baseCurrency: Currency, private val exchang
      *
      */
     private fun calculateMatrix() {
-        // Set quote for a base selecedCurrency
+        // Set quote for a base currency
         setValue(baseCurrency, baseCurrency, 1.0)
 
         exchangeRates.forEach { exchangeRate1 ->
-            // Normal and reverse value to a base selecedCurrency
+            // Normal and reverse value to a base currency
             setValue(exchangeRate1.from, exchangeRate1.to, exchangeRate1.quoteFactor)
             setValue(exchangeRate1.to, exchangeRate1.from, 1/exchangeRate1.quoteFactor)
 
