@@ -49,6 +49,18 @@
     <string name="passwordLenError">Password length must be from {0} to {1} characters</string>
     <string name="invalidPasswordError">Invalid password</string>
 
+    <string name="amountKeyboard0Digit" translatable="false">0</string>
+    <string name="amountKeyboard1Digit" translatable="false">1</string>
+    <string name="amountKeyboard2Digit" translatable="false">2</string>
+    <string name="amountKeyboard3Digit" translatable="false">3</string>
+    <string name="amountKeyboard4Digit" translatable="false">4</string>
+    <string name="amountKeyboard5Digit" translatable="false">5</string>
+    <string name="amountKeyboard6Digit" translatable="false">6</string>
+    <string name="amountKeyboard7Digit" translatable="false">7</string>
+    <string name="amountKeyboard8Digit" translatable="false">8</string>
+    <string name="amountKeyboard9Digit" translatable="false">9</string>
+    <string name="amountKeyboardDone">Done</string>
+
     <string name="paymentCash">Cash</string>
     <string name="paymentCards">Card</string>
     <string name="paymentCreditCards">Credit card</string>

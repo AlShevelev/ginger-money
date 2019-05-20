@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/amountKeyboardHeight">
+
+    <Button
+        android:text="@string/amountKeyboard4Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit4Button"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal50"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical25"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard7Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit7Button"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal50"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical25"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard2Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit2Button"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical25"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard8Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit8Button"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal50"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical25"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal75"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboardDone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/doneButton"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical75"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard3Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit3Button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical75"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard1Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit1Button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical25"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard0Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit0Button"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal75"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical25"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard5Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit5Button"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical25"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal50"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard6Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit6Button"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical75"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal50"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:text="@string/amountKeyboard9Digit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/digit9Button"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal50"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal75"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical75"
+        style="@style/App.AmountKeyboard.Button"/>
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:id="@+id/switchCurrencyButton"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical75"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal75"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal50"
+        style="@style/App.AmountKeyboard.Button"/>
+
+    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:imageButton_icon="@drawable/ic_backspace"
+        app:imageButton_iconWidth="@dimen/amountKeyboardBackspaceWidth"
+        app:imageButton_iconHeight="@dimen/amountKeyboardBackspaceHeight"
+
+        android:id="@+id/backspaceButton"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical75"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        style="@style/App.AmountKeyboard.Button"
+        tools:ignore="ContentDescription"
+    />
+    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:imageButton_icon="@drawable/ic_clear_all"
+        app:imageButton_iconWidth="@dimen/amountKeyboardClearAllWidth"
+        app:imageButton_iconHeight="@dimen/amountKeyboardClearAllHeight"
+
+        android:id="@+id/clearAllButton"
+
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical75"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal25"
+        app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal50"
+
+        style="@style/App.AmountKeyboard.Button"
+        tools:ignore="ContentDescription"
+    />
+    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:imageButton_icon="@drawable/ic_dot"
+        app:imageButton_iconWidth="@dimen/amountKeyboardDotSize"
+        app:imageButton_iconHeight="@dimen/amountKeyboardDotSize"
+
+        android:id="@+id/dotButton"
+
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical25"
+
+        style="@style/App.AmountKeyboard.Button"
+        tools:ignore="ContentDescription"
+    />
+    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        app:imageButton_icon="@drawable/ic_minus"
+        app:imageButton_iconWidth="@dimen/amountKeyboardSignWidth"
+        app:imageButton_iconHeight="@dimen/amountKeyboardSignHeight"
+
+        android:id="@+id/signButton"
+
+        app:layout_constraintStart_toStartOf="@+id/guidelineVertical50"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal75"
+
+        style="@style/App.AmountKeyboard.Button"
+        tools:ignore="ContentDescription"
+    />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical25"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.25"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical50"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineVertical75"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.75"
+        android:orientation="vertical"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal25"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.25"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal50"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.5"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineHorizontal75"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintGuide_percent="0.75"
+        android:orientation="horizontal"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

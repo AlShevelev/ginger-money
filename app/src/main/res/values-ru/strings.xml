@@ -42,6 +42,8 @@
     <string name="passwordLenError">Длина пароля должна быть от {0} до {1} символов</string>
     <string name="invalidPasswordError">Неверный пароль</string>
 
+    <string name="amountKeyboardDone">Готово</string>
+
     <string name="paymentCash">Наличные</string>
     <string name="paymentCards">Банковская карта</string>
     <string name="paymentCreditCards">Кредитная карта</string>

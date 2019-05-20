@@ -21,4 +21,10 @@
         <attr name="iconButton_iconMargin" format="dimension" />
         <attr name="iconButton_iconSize" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="ImageButtonFixedIconSize">
+        <attr name="imageButton_icon" format="reference" />
+        <attr name="imageButton_iconWidth" format="dimension" />
+        <attr name="imageButton_iconHeight" format="dimension" />
+    </declare-styleable>
 </resources>

@@ -30,7 +30,7 @@ constructor(
     private var iconMargin: Int = 0
 
     init {
-        attrs?.let { retrieveAttributes(attrs, defStyleAttr) }
+        attrs?.let { retrieveAttributes(it, defStyleAttr) }
         drawIcon()
     }
 

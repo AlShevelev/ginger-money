@@ -36,6 +36,17 @@
     <dimen name="noDataTextMargin">8dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Main activity">-->
+    <dimen name="amountKeyboardHeight">256dp</dimen>
+    <dimen name="amountKeyboardBackspaceWidth">20dp</dimen>
+    <dimen name="amountKeyboardBackspaceHeight">15dp</dimen>
+    <dimen name="amountKeyboardClearAllWidth">20dp</dimen>
+    <dimen name="amountKeyboardClearAllHeight">12dp</dimen>
+    <dimen name="amountKeyboardDotSize">7dp</dimen>
+    <dimen name="amountKeyboardSignWidth">15dp</dimen>
+    <dimen name="amountKeyboardSignHeight">3dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Currency radio button">-->
     <dimen name="currencyRadioButtonIcon">16dp</dimen>
     <dimen name="currencyRadioButtonIconMargin">4dp</dimen>

@@ -221,6 +221,24 @@
                 tools:ignore="RtlSymmetry"/>
         </RadioGroup>
 
+
+        <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+            android:layout_width="90dp"
+            android:layout_height="63dp"
+
+            app:imageButton_icon="@drawable/ic_backspace"
+            app:imageButton_iconWidth="20dp"
+            app:imageButton_iconHeight="15dp"
+
+            android:id="@+id/backspaceButton"
+
+            app:layout_constraintTop_toBottomOf="@+id/currencyLabel"
+            app:layout_constraintStart_toStartOf="@+id/currencyLabel"
+
+            style="@style/App.AmountKeyboard.Button"
+            tools:ignore="ContentDescription"
+            android:layout_marginTop="32dp"/>
+
         <!--<editor-fold desc="Loading stub">-->
         <com.syleiman.gingermoney.ui.common.controls.LoadingIndicator
             android:layout_height="match_parent"
