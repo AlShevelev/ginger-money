@@ -7,6 +7,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_commands.ShowAmountKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_commands.StartSelectAccountGroupCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
@@ -43,6 +44,13 @@ class AddAccountViewModel : ViewModelBase<AddAccountModelInterface>() {
      */
     fun onAccountGroupSelected(selectedIndex: Int) {
         group.value = model.getAllAccountGroups()[selectedIndex]
+    }
+
+    /**
+     *
+     */
+    fun onAmountClick() {
+        command.value = ShowAmountKeyboard()
     }
 
     /**

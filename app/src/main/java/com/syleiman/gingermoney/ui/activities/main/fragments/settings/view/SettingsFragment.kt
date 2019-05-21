@@ -7,7 +7,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.databinding.FragmentMainSettingsBinding
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls.SelectCurrencyDialog
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.SelectCurrencyDialog
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectAppProtectionMethodCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectDefaultCurrencyCommand

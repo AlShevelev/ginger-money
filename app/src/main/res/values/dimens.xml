@@ -40,8 +40,7 @@
     <dimen name="amountKeyboardHeight">256dp</dimen>
     <dimen name="amountKeyboardBackspaceWidth">20dp</dimen>
     <dimen name="amountKeyboardBackspaceHeight">15dp</dimen>
-    <dimen name="amountKeyboardClearAllWidth">20dp</dimen>
-    <dimen name="amountKeyboardClearAllHeight">12dp</dimen>
+    <dimen name="amountKeyboardClearAllSize">20dp</dimen>
     <dimen name="amountKeyboardDotSize">7dp</dimen>
     <dimen name="amountKeyboardSignWidth">15dp</dimen>
     <dimen name="amountKeyboardSignHeight">3dp</dimen>

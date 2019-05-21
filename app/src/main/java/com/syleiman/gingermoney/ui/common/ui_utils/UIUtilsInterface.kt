@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.ui.common.ui_utils
 
 import android.content.Context
+import android.view.View
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 
@@ -35,7 +36,8 @@ interface UIUtilsInterface {
         items: List<String>,
         selectedIndex: Int,
         title: String?,
-        resultCallback: (Int?) -> Unit) : AlertDialog
+        resultCallback: (Int?) -> Unit
+    ): AlertDialog
 
     /** Shows dialog with a list of options
      * @param [resultCallback] index of selected item (null if user canceled dialog) */
@@ -43,5 +45,11 @@ interface UIUtilsInterface {
         context: Context,
         items: List<String>,
         title: String?,
-        resultCallback: (Int?) -> Unit) : AlertDialog
+        resultCallback: (Int?) -> Unit
+    ): AlertDialog
+
+    /**
+     *
+     */
+    fun setSoftKeyboardVisibility(context: Context, someViewInWindow: View, isVisible: Boolean)
 }

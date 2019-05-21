@@ -1,8 +1,7 @@
-package com.syleiman.gingermoney.ui.common.controls
+package com.syleiman.gingermoney.ui.common.widgets
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.LayoutRes

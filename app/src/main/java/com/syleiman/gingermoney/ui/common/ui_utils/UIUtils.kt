@@ -4,14 +4,16 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.view.Gravity
 import android.view.LayoutInflater
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
-import com.syleiman.gingermoney.ui.common.controls.dialogs.OneOptionDialog
-import com.syleiman.gingermoney.ui.common.controls.dialogs.OneOptionRadioDialog
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.OneOptionDialog
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.OneOptionRadioDialog
 import javax.inject.Inject
 
 /**
@@ -105,4 +107,16 @@ constructor(
             resultCallback,
             { it })
         .show()
+
+    /**
+     *
+     */
+    override fun setSoftKeyboardVisibility(context: Context, someViewInWindow: View, isVisible: Boolean) {
+        if (isVisible) {
+            someViewInWindow.post(KeyboardVisibilityRunnable(context, someViewInWindow))
+        } else {
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(someViewInWindow.windowToken, 0)
+        }
+    }
 }

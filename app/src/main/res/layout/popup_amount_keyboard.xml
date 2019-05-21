@@ -126,7 +126,7 @@
         app:layout_constraintTop_toTopOf="@+id/guidelineHorizontal50"
         style="@style/App.AmountKeyboard.Button"/>
 
-    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -144,13 +144,13 @@
         style="@style/App.AmountKeyboard.Button"
         tools:ignore="ContentDescription"
     />
-    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
         android:layout_width="0dp"
         android:layout_height="0dp"
 
         app:imageButton_icon="@drawable/ic_clear_all"
-        app:imageButton_iconWidth="@dimen/amountKeyboardClearAllWidth"
-        app:imageButton_iconHeight="@dimen/amountKeyboardClearAllHeight"
+        app:imageButton_iconWidth="@dimen/amountKeyboardClearAllSize"
+        app:imageButton_iconHeight="@dimen/amountKeyboardClearAllSize"
 
         android:id="@+id/clearAllButton"
 
@@ -162,7 +162,7 @@
         style="@style/App.AmountKeyboard.Button"
         tools:ignore="ContentDescription"
     />
-    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
         android:layout_width="0dp"
         android:layout_height="0dp"
 
@@ -180,7 +180,7 @@
         style="@style/App.AmountKeyboard.Button"
         tools:ignore="ContentDescription"
     />
-    <com.syleiman.gingermoney.ui.common.controls.ImageButtonFixedIconSize
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
         android:layout_width="0dp"
         android:layout_height="0dp"
 

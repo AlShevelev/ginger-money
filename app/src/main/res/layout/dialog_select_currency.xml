@@ -16,7 +16,7 @@
 
     android:orientation="vertical">
 
-    <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+    <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
         android:id="@+id/usdSwitcher"
 
         android:text="@string/currencyUsdShort"
@@ -34,7 +34,7 @@
         android:tag="USD"
     />
 
-    <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+    <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
         android:id="@+id/eurSwitcher"
 
         android:text="@string/currencyEurShort"
@@ -55,7 +55,7 @@
         android:tag="EUR"
     />
 
-    <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+    <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
         android:id="@+id/rubSwitcher"
 
         android:text="@string/currencyRubShort"

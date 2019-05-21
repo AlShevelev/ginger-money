@@ -6,6 +6,7 @@ import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginAc
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
+import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
 import dagger.Subcomponent
 
 /**
@@ -31,4 +32,6 @@ interface UIComponent {
     val mainActivity: MainActivityComponent.Builder
 
     val addEditAccountActivity: AddEditAccountActivityComponent.Builder
+
+    fun inject(amountKeyboard: AmountKeyboard)
 }

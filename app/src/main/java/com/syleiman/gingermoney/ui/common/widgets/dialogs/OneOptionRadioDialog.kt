@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.common.controls.dialogs
+package com.syleiman.gingermoney.ui.common.widgets.dialogs
 
 import android.content.Context
 import androidx.appcompat.app.AlertDialog

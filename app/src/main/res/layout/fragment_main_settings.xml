@@ -16,7 +16,7 @@
         android:background="@drawable/bcg_activity_page"
         tools:context=".ui.activities.main.fragments.settings.view.SettingsFragment">
 
-        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls.IconButton
+        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.IconButton
             android:text="@string/mainSettingsApplicationProtection"
 
             android:layout_width="0dp"
@@ -40,7 +40,7 @@
             android:onClick="@{() -> viewModel.onAppProtectionButtonClick()}"
         />
 
-        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls.IconButton
+        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.IconButton
             android:text="@string/mainSettingsDefaultCurrency"
             android:layout_width="0dp"
             android:layout_height="@dimen/settingsButtonHeight"
@@ -63,7 +63,7 @@
             android:onClick="@{() -> viewModel.onDefaultCurrencyButtonClick()}"
         />
 
-        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls.IconButton
+        <com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.IconButton
             android:text="@string/mainSettingsStartDay"
             android:layout_width="0dp"
             android:layout_height="@dimen/settingsButtonHeight"

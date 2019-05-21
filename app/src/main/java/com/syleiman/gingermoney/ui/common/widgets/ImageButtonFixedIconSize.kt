@@ -1,8 +1,9 @@
-package com.syleiman.gingermoney.ui.common.controls
+package com.syleiman.gingermoney.ui.common.widgets
 
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.Log
 import android.widget.ImageButton
 import androidx.annotation.Px
 import com.syleiman.gingermoney.R
@@ -28,16 +29,12 @@ constructor(
     init {
         scaleType = ScaleType.FIT_XY
         attrs?.let { retrieveAttributes(it) }
-
-        setImageDrawable(icon)
     }
 
     /**
      *
      */
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
-        super.onLayout(changed, left, top, right, bottom)
-
         val width = right - left
         val height = bottom - top
 
@@ -45,6 +42,10 @@ constructor(
         val verticalPadding = if(height > iconHeight) (height - iconHeight) / 2 else 0
 
         setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding)
+
+        setImageDrawable(icon)
+
+        super.onLayout(changed, left, top, right, bottom)
     }
 
     /**

@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.common.controls
+package com.syleiman.gingermoney.ui.common.widgets
 
 import android.content.Context
 import android.util.AttributeSet

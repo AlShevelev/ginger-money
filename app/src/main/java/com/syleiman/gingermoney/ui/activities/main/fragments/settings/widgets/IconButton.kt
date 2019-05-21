@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.main.fragments.settings.controls
+package com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets
 
 import android.content.Context
 import android.content.res.ColorStateList

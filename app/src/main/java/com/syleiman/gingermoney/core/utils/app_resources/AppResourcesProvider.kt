@@ -3,10 +3,7 @@ package com.syleiman.gingermoney.core.utils.app_resources
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import androidx.annotation.ColorInt
-import androidx.annotation.ColorRes
-import androidx.annotation.IntegerRes
-import androidx.annotation.StringRes
+import androidx.annotation.*
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
@@ -58,6 +55,11 @@ constructor(
         } else {
             appContext.resources.getColor(resId)
         }
+
+    /**
+     * Get dimension value in pixels
+     */
+    override fun getDimension(@DimenRes resId: Int): Float = appContext.resources.getDimension(resId)
 
     /**
      * Get metadata value as string

@@ -88,7 +88,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/chooseBaseCurrencyText">
 
-            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
                 android:id="@+id/usdSwitcher"
 
                 android:text="@string/currencyUsdShort"
@@ -106,7 +106,7 @@
                 android:tag="USD"
             />
 
-            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
                 android:id="@+id/eurSwitcher"
 
                 android:text="@string/currencyEurShort"
@@ -127,7 +127,7 @@
                 android:tag="EUR"
             />
 
-            <com.syleiman.gingermoney.ui.common.controls.DrawableRadioButton
+            <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
                 android:id="@+id/rubSwitcher"
 
                 android:text="@string/currencyRubShort"
@@ -166,7 +166,7 @@
             app:layout_constraintEnd_toEndOf="parent"
         />
 
-        <com.syleiman.gingermoney.ui.activities.setup.controls.CurrentPage
+        <com.syleiman.gingermoney.ui.activities.setup.widgets.CurrentPage
             android:id="@+id/currentPage"
 
             android:layout_width="@dimen/setupCurrentPageWidth"

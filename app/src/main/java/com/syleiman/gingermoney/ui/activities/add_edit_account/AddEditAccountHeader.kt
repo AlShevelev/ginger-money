@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.Toolbar
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.ui.common.controls.HeaderBase
+import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
 
 /** Show current page as a set of dots */
 class AddEditAccountHeader
