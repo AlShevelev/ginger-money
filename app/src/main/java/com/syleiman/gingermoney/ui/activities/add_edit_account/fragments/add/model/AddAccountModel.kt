@@ -7,9 +7,6 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import javax.inject.Inject
 
-/**
- *
- */
 class AddAccountModel
 @Inject
 constructor(
@@ -24,9 +21,6 @@ constructor(
             keyValueStorage.getDefaultCurrency()
         }
 
-    /**
-     *
-     */
     override fun getAllAccountGroups(): List<AccountGroup> =
         listOf(
             AccountGroup.CASH,
@@ -41,9 +35,5 @@ constructor(
             AccountGroup.BONDS,
             AccountGroup.OTHER)
 
-    /**
-     *
-     */
     override fun getAllCurrencies(): List<Currency> = listOf(Currency.USD, Currency.EUR, Currency.RUB)
-
 }

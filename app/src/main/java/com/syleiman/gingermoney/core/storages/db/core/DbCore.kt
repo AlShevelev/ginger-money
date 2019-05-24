@@ -12,9 +12,6 @@ import com.syleiman.gingermoney.core.storages.db.type_converters.DateTimeTypeCon
 import com.syleiman.gingermoney.core.storages.db.type_converters.EnumTypeConverter
 import com.syleiman.gingermoney.core.storages.db.type_converters.MoneyTypeConverter
 
-/**
- *
- */
 @Database(
     entities = [
         AccountDb::class,

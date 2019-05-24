@@ -8,9 +8,9 @@ import org.junit.BeforeClass
 import org.junit.Test
 import org.junit.runner.RunWith
 
-/** */
 @RunWith(AndroidJUnit4::class)
 class StringsConverterTest {
+
     companion object {
         private lateinit var converter: StringsConverterInterface
 
@@ -21,7 +21,6 @@ class StringsConverterTest {
         }
     }
 
-    /** */
     @Test
     fun toBytes() {
         // Arrange
@@ -48,7 +47,6 @@ class StringsConverterTest {
         assertEquals(source, testResult)
     }
 
-    /** */
     @Test
     fun toBase64() {
         // Arrange

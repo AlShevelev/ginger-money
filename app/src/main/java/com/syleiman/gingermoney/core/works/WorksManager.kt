@@ -6,9 +6,6 @@ import com.syleiman.gingermoney.core.works.update_currency_rate.UpdateCurrencyRa
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-/**
- *
- */
 class WorksManager
 @Inject
 constructor() : WorksManagerInterface {
@@ -16,9 +13,6 @@ constructor() : WorksManagerInterface {
         private const val WORK_NAME = "${BuildConfig.APPLICATION_ID}.UPDATE_CURRENCY_RATES"
     }
 
-    /**
-     *
-     */
     override fun startCurrencyRatesUpdates() {
         val updateConstraints = Constraints.Builder()
             .setRequiredNetworkType(NetworkType.CONNECTED)

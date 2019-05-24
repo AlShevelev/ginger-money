@@ -21,9 +21,6 @@ class ZonedDateTimeSplitTest {
         }
     }
 
-    /**
-     *
-     */
     @Test
     fun toSplitFromSplit() {
         // Arrange

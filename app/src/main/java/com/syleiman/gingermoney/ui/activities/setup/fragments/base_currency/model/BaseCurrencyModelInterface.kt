@@ -4,13 +4,8 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 
-/**
- *
- */
 interface BaseCurrencyModelInterface: ModelBaseInterface {
-    /**
-     *
-     */
+
     val startCurrencyValue: Currency
 
     /**

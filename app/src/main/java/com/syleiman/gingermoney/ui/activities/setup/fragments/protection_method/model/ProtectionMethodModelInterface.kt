@@ -4,18 +4,10 @@ import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 
-/**
- *
- */
 interface ProtectionMethodModelInterface: ModelBaseInterface {
-    /**
-     *
-     */
+
     val isFingerprintAuthenticationPossible: Boolean
 
-    /**
-     *
-     */
     val startProtectionMethod: AppProtectionMethod
 
     /**

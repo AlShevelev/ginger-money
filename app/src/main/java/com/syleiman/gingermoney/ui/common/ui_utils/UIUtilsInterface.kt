@@ -48,8 +48,5 @@ interface UIUtilsInterface {
         resultCallback: (Int?) -> Unit
     ): AlertDialog
 
-    /**
-     *
-     */
     fun setSoftKeyboardVisibility(context: Context, someViewInWindow: View, isVisible: Boolean)
 }

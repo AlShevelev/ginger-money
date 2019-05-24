@@ -25,7 +25,6 @@ constructor(
         private const val DISPLAY_DENSITY_CATEGORY_KEY = "DISPLAY_DENSITY_CATEGORY"
     }
 
-    /** */
     override fun registerDeviceInfo() {
         if(!isCrashlyticsEnabled) {
             return
@@ -48,7 +47,6 @@ constructor(
         }
     }
 
-    /** */
     override fun registerAppInfo() {
         if(!isCrashlyticsEnabled) {
             return
@@ -57,9 +55,6 @@ constructor(
         Crashlytics.setString(LOCALE_KEY, resourcesService.getLocale())
     }
 
-    /**
-     *
-     */
     override fun log(tag: String, message: String) {
         if(!isCrashlyticsEnabled) {
             return
@@ -68,9 +63,6 @@ constructor(
         Crashlytics.log(0, tag, message)
     }
 
-    /**
-     *
-     */
     override fun log(ex: Throwable) {
         if(!isCrashlyticsEnabled) {
             return

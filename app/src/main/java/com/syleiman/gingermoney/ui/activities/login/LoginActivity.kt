@@ -29,9 +29,6 @@ class LoginActivity : AppCompatActivity() {
     @Inject
     internal lateinit var fingerprintAuthManager: FingerprintAuthManagerInterface
 
-    /**
-     *
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -55,9 +52,6 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     *
-     */
     override fun onDestroy() {
         super.onDestroy()
 

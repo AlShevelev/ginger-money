@@ -6,9 +6,6 @@ import androidx.room.PrimaryKey
 import com.syleiman.gingermoney.core.global_entities.money.Money
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 
-/**
- *
- */
 @Entity(tableName = "account")
 data class AccountDb (
     @PrimaryKey

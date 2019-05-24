@@ -37,9 +37,6 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
     @Inject
     internal lateinit var uiUtils: UIUtilsInterface
 
-    /**
-     *
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -52,9 +49,6 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
         }
     }
 
-    /**
-     *
-     */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         inject()
 
@@ -65,30 +59,15 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
         return binding.root
     }
 
-    /**
-     *
-     */
     abstract fun provideViewModelType(): Class<TVM>
 
-    /**
-     *
-     */
     @LayoutRes
     abstract fun provideLayout(): Int
 
-    /**
-     *
-     */
     abstract fun inject()
 
-    /**
-     *
-     */
     abstract fun linkViewModel(binding: TB, viewModel: TVM)
 
-    /**
-     *
-     */
     protected open fun processViewCommand(command: ViewCommand) {}
 
     /**

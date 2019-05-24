@@ -18,14 +18,8 @@ constructor(
     private val appContext: Context
 ) : AppResourcesProviderInterface {
 
-    /**
-     *
-     */
     override fun getLocale(): String = getString(R.string.locale)
 
-    /**
-     *
-     */
     override fun getString(resId: Int): String = appContext.getString(resId)
 
     /**
@@ -39,14 +33,8 @@ constructor(
             else -> throw UnsupportedOperationException("Too many arguments: ${args.size}")
         }
 
-    /**
-     *
-     */
     override fun getInt(@IntegerRes resId: Int): Int = appContext.resources.getInteger(resId)
 
-    /**
-     *
-     */
     @Suppress("DEPRECATION")
     @ColorInt
     override fun getColor(@ColorRes resId: Int): Int =

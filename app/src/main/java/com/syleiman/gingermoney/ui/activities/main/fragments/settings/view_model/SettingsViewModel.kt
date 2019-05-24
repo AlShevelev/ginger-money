@@ -12,27 +12,16 @@ import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-/**
- *
- */
 class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
-    /**
-     *
-     */
+
     val buttonsEnabled: MutableLiveData<Boolean> = MutableLiveData()
 
-    /**
-     *
-     */
     init {
         App.injections.get<MainActivityComponent>().inject(this)
 
         buttonsEnabled.value = true
     }
 
-    /**
-     *
-     */
     fun onAppProtectionButtonClick() {
         buttonsEnabled.value = false
 
@@ -54,9 +43,6 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
         }
     }
 
-    /**
-     *
-     */
     fun onDefaultCurrencyButtonClick() {
         buttonsEnabled.value = false
 
@@ -77,9 +63,6 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
         }
     }
 
-    /**
-     *
-     */
     fun onStartDayOfWeekButtonClick() {
         buttonsEnabled.value = false
 
@@ -101,9 +84,6 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
         }
     }
 
-    /**
-     *
-     */
     fun onAppProtectionSelected(selectedIndex: Int) {
         buttonsEnabled.value = false
 
@@ -119,9 +99,6 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
         }
     }
 
-    /**
-     *
-     */
     fun onDefaultCurrencySelected(selectedCurrency: Currency) {
         buttonsEnabled.value = false
 
@@ -136,9 +113,6 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
         }
     }
 
-    /**
-     *
-     */
     fun onStartDayOfWeekSelected(selectedIndex: Int) {
         buttonsEnabled.value = false
 

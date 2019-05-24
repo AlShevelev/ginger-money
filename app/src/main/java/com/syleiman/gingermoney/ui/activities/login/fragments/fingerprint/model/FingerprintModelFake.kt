@@ -13,9 +13,6 @@ class FingerprintModelFake : FingerprintModelInterface {
         //  do nothing
     }
 
-    /**
-     *
-     */
     override fun cancelBackgroundOperations() {
         // do nothing
     }

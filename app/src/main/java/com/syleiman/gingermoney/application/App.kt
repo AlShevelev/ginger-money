@@ -10,6 +10,7 @@ import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
 import javax.inject.Inject
 
 class App: Application() {
+
     @Inject
     internal lateinit var crashlyticsUtils: CrashlyticsUtilsInterface
 

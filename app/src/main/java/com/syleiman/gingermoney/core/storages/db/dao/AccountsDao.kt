@@ -4,7 +4,6 @@ import androidx.room.Dao
 import androidx.room.Query
 import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
 
-
 /**
  * Dao for [com.syleiman.gingermoney.core.storages.db.entities.AccountDb] entity
  */

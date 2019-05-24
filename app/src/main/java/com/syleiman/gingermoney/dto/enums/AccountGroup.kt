@@ -1,8 +1,5 @@
 package com.syleiman.gingermoney.dto.enums
 
-/**
- *
- */
 enum class AccountGroup(val value: Byte) {
     CASH(0),
     CARDS(1),

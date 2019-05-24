@@ -4,13 +4,8 @@ import androidx.room.TypeConverter
 import com.syleiman.gingermoney.core.global_entities.date_time.ZonedDateTimeSplit
 import java.nio.ByteBuffer
 
-/**
- *
- */
 class DateTimeTypeConverter {
-    /**
-     *
-     */
+
     @TypeConverter
     fun fromZonedDateTimeSplitToDb(sourceData: ZonedDateTimeSplit?): ByteArray? {
         if(sourceData == null) {
@@ -26,9 +21,6 @@ class DateTimeTypeConverter {
             .array()
     }
 
-    /**
-     *
-     */
     @TypeConverter
     fun fromDbToZonedDateTimeSplit(sourceData: ByteArray?): ZonedDateTimeSplit? {
         if(sourceData == null) {

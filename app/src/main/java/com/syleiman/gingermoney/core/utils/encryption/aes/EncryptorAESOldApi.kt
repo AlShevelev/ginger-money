@@ -26,7 +26,6 @@ constructor(
         }
     }
 
-    /** */
     override fun getKey(): Key {
         if(key == null) {
             key = keyValueStorage.getAESCryptoKey()!!
@@ -37,10 +36,8 @@ constructor(
         return key!!
     }
 
-    /** */
     private fun isKeyExists() = keyValueStorage.getAESCryptoKey() != null
 
-    /** */
     private fun createKey() {
         val generatedKey = ByteArray(KEY_SIZE_BYTES)
         secureRandom.nextBytes(generatedKey)

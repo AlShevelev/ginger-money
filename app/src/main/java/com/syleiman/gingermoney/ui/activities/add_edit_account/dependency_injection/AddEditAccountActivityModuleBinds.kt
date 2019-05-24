@@ -10,16 +10,11 @@ import dagger.Module
 
 @Module
 abstract class AddEditAccountActivityModuleBinds {
-    /**
-     *
-     */
+
     @Binds
     @ActivityScope
     abstract fun provideNavigationHelper(helper: NavigationHelper): NavigationHelperInterface
 
-    /**
-     *
-     */
     @Binds
     abstract fun provideAddAccountModel(model: AddAccountModel): AddAccountModelInterface
 }

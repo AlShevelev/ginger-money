@@ -7,18 +7,12 @@ import com.syleiman.gingermoney.core.storages.db.mapping.mapToDb
 import com.syleiman.gingermoney.dto.entities.Account
 import javax.inject.Inject
 
-/**
- *
- */
 class DbStorageFacade
 @Inject
 constructor(
     private val db: DbCoreRunInterface
 ) : DbStorageFacadeInterface {
 
-    /**
-     *
-     */
     override fun storeSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>) {
         db.runInTransaction { dbCore ->
             dbCore.sourceExchangeRate.clear()
@@ -26,17 +20,11 @@ constructor(
         }
     }
 
-    /**
-     *
-     */
     override fun getSourceExchangeRates(): List<ExchangeRate> =
         db.run { dbCore ->
             dbCore.sourceExchangeRate.getAll().map { it.map() }
         }
 
-    /**
-     *
-     */
     override fun getAccounts(): List<Account> =
         db.run { dbCore ->
             dbCore.accounts.getAll().map { it.map() }

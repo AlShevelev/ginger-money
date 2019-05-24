@@ -10,7 +10,6 @@ import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
 import kotlinx.android.synthetic.main.fragment_main_accounts_header.view.*
 import javax.inject.Inject
 
-/** */
 class AccountsHeader
 @JvmOverloads
 constructor(
@@ -37,15 +36,9 @@ constructor(
         headerLink.attach(this)
     }
 
-    /**
-     *
-     */
     override fun detachFromFragment() {
         headerLink.detachHeader()
     }
 
-    /**
-     *
-     */
     override fun setAddButtonClickListener(listener: OnClickListener?) = addButton.setOnClickListener(listener)
 }

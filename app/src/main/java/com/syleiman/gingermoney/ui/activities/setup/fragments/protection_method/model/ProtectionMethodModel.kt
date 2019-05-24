@@ -9,9 +9,6 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
 
-/**
- *
- */
 class ProtectionMethodModel
 @Inject
 constructor(
@@ -20,14 +17,9 @@ constructor(
     private val worksManager: WorksManagerInterface
 ) : ModelBase(),
     ProtectionMethodModelInterface {
-    /**
-     *
-     */
+
     override val isFingerprintAuthenticationPossible: Boolean = fingerprintAuthManager.isAuthenticationPossible
 
-    /**
-     *
-     */
     override val startProtectionMethod: AppProtectionMethod
         get() = AppProtectionMethod.WITHOUT_PROTECTION
 

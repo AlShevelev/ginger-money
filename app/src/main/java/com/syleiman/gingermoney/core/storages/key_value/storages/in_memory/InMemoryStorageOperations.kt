@@ -4,7 +4,6 @@ import android.util.Base64
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
 
-/** */
 class InMemoryStorageOperations(private val storage: MutableMap<String, Any>):
     StorageReadOperationsInterface,
     StorageCommitOperationsInterface {

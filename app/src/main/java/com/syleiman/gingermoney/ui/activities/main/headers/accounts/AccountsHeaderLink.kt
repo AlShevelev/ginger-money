@@ -14,9 +14,6 @@ constructor() : AccountsHeaderLinkInterface {
 
     private var header: AccountsHeaderFragmentInterface? = null
 
-    /**
-     *
-     */
     override fun attach(fragment: AccountsFragmentHeaderInterface) {
         this.fragment = fragment
 
@@ -25,9 +22,6 @@ constructor() : AccountsHeaderLinkInterface {
         }
     }
 
-    /**
-     *
-     */
     override fun attach(header: AccountsHeaderFragmentInterface) {
         this.header = header
 
@@ -37,9 +31,6 @@ constructor() : AccountsHeaderLinkInterface {
 
     }
 
-    /**
-     *
-     */
     override fun detachFragment() {
         fragment = null
 
@@ -48,9 +39,6 @@ constructor() : AccountsHeaderLinkInterface {
         }
     }
 
-    /**
-     *
-     */
     override fun detachHeader() {
         header?.also {
             it.setAddButtonClickListener(null)

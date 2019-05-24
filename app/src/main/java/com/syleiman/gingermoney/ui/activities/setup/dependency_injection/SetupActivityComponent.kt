@@ -9,9 +9,6 @@ import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.
 import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.view_model.ProtectionMethodViewModel
 import dagger.Subcomponent
 
-/**
- *
- */
 @Subcomponent(modules = [SetupActivityModuleBinds::class])
 @ActivityScope
 interface SetupActivityComponent {

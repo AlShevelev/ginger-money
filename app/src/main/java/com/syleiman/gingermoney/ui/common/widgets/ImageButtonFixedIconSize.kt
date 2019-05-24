@@ -31,9 +31,6 @@ constructor(
         attrs?.let { retrieveAttributes(it) }
     }
 
-    /**
-     *
-     */
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         val width = right - left
         val height = bottom - top
@@ -48,9 +45,6 @@ constructor(
         super.onLayout(changed, left, top, right, bottom)
     }
 
-    /**
-     *
-     */
     private fun retrieveAttributes(attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageButtonFixedIconSize)
 

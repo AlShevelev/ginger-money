@@ -22,31 +22,16 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
 
     private lateinit var amountKeyboard: AmountKeyboard
 
-    /**
-     *
-     */
     override fun provideViewModelType(): Class<AddAccountViewModel> = AddAccountViewModel::class.java
 
-    /**
-     *
-     */
     override fun provideLayout(): Int = R.layout.fragment_add_edit_account_add
 
-    /**
-     *
-     */
     override fun inject() = App.injections.get<AddEditAccountActivityComponent>().inject(this)
 
-    /**
-     *
-     */
     override fun linkViewModel(binding: FragmentAddEditAccountAddBinding, viewModel: AddAccountViewModel) {
         binding.viewModel = viewModel
     }
 
-    /**
-     *
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -55,18 +40,12 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
         }
     }
 
-    /**
-     *
-     */
     override fun processViewCommand(command: ViewCommand) {
         when (command) {
             is ShowAmountKeyboard -> showAmountKeyboard(command)
         }
     }
 
-    /**
-     *
-     */
     private fun processDialogCommand(command: ViewCommand) {
         when(command) {
             is StartSelectAccountGroupCommand -> startSelectAccountGroup(command.groups)
@@ -74,9 +53,6 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
         }
     }
 
-    /**
-     *
-     */
     private fun startSelectAccountGroup(groups: List<AccountGroup>) {
         activeDialog = uiUtils.showOneOptionDialog(
             requireContext(),
@@ -87,9 +63,6 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
         }
     }
 
-    /**
-     *
-     */
     private fun showAmountKeyboard(command: ShowAmountKeyboard) {
         if(!::amountKeyboard.isInitialized) {
             amountKeyboard = AmountKeyboard(root, requireContext(), command.currencies)

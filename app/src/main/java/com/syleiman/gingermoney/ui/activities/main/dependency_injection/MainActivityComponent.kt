@@ -10,12 +10,10 @@ import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHead
 import com.syleiman.gingermoney.ui.activities.main.headers.settings.SettingsHeader
 import dagger.Subcomponent
 
-/**
- *
- */
 @Subcomponent(modules = [MainActivityModuleBinds::class])
 @ActivityScope
 interface MainActivityComponent {
+
     @Subcomponent.Builder
     interface Builder {
         fun build(): MainActivityComponent

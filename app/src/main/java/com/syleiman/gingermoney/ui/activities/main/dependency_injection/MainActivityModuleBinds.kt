@@ -14,28 +14,17 @@ import dagger.Module
 
 @Module
 abstract class MainActivityModuleBinds {
-    /**
-     *
-     */
+
     @Binds
     @ActivityScope
     abstract fun provideNavigationHelper(helper: NavigationHelper): NavigationHelperInterface
 
-    /**
-     *
-     */
     @Binds
     abstract fun provideSettingsModel(model: SettingsModel): SettingsModelInterface
 
-    /**
-     *
-     */
     @Binds
     abstract fun provideAccountsModel(model: AccountsModel): AccountsModelInterface
 
-    /**
-     *
-     */
     @Binds
     @ActivityScope
     abstract fun provideAccountsHeaderLink(bridge: AccountsHeaderLink): AccountsHeaderLinkInterface

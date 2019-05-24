@@ -2,9 +2,6 @@ package com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler
 
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.FingerprintAuthEventHandler
 
-/**
- *
- */
 interface FingerprintAuthEventsHandlerInterface {
     /**
      * Start an authentication session

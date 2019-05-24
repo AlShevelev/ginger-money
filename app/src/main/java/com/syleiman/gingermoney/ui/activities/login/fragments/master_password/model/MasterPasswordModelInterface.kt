@@ -3,18 +3,10 @@ package com.syleiman.gingermoney.ui.activities.login.fragments.master_password.m
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 
-/**
- *
- */
 interface MasterPasswordModelInterface: ModelBaseInterface {
-    /**
-     *
-     */
+
     val isFingerprintAuthenticationPossible: Boolean
 
-    /**
-     *
-     */
     val passwordMaxLen: Int
 
     /**

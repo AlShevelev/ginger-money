@@ -4,9 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-/**
- *
- */
 @Entity(tableName = "expense_category")
 data class ExpenseCategoryDb (
     @PrimaryKey

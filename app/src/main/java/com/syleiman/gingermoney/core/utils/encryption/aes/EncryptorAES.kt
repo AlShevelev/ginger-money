@@ -15,7 +15,6 @@ import javax.inject.Inject
 class EncryptorAES
 @Inject
 constructor() : EncryptorAESBase(), Encryptor, EncryptorFingerprint {
-
     companion object {
         private const val KEYSTORE_PROVIDER = "AndroidKeyStore"
         private const val KEY_ALIAS = "gingermoney_encryption_key_aes"
@@ -31,7 +30,6 @@ constructor() : EncryptorAESBase(), Encryptor, EncryptorFingerprint {
         }
     }
 
-    /** */
     override fun getKey(): Key {
         val keyEntry = keyStore.getEntry(KEY_ALIAS, null) as KeyStore.SecretKeyEntry
         return keyEntry.secretKey
@@ -50,10 +48,8 @@ constructor() : EncryptorAESBase(), Encryptor, EncryptorFingerprint {
         return cipher
     }
 
-    /** */
     private fun isKeyExists() = keyStore.containsAlias(KEY_ALIAS)
 
-    /** */
     @Throws(InvalidAlgorithmParameterException::class, NoSuchAlgorithmException::class, NoSuchProviderException::class)
     private fun createKey() {
         val generator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES,

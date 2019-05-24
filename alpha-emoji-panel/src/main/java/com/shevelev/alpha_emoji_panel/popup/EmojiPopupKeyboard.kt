@@ -26,9 +26,7 @@ import com.shevelev.alpha_emoji_panel.utils.UIHelper
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
-/**
- *
- */
+
 class EmojiPopupKeyboard (
     private val rootView: View,
     private val context: Context
@@ -63,9 +61,6 @@ class EmojiPopupKeyboard (
     private val rootIcons = RootIcons()
     private var isInRootMode = true
 
-    /**
-     *
-     */
     init {
         // Create view
         val popupView = createView()
@@ -178,9 +173,6 @@ class EmojiPopupKeyboard (
      */
     fun isKeyBoardOpen(): Boolean = isOpened
 
-    /**
-     *
-     */
     fun isSizeCalculated(): Boolean =
         if (UIHelper.getScreenOrientation(context) === ScreenOrientation.PORTRAIT) {
             keyBoardHeightPortrait != -1
@@ -224,9 +216,6 @@ class EmojiPopupKeyboard (
         }
     }
 
-    /**
-     *
-     */
     override fun onIconClick(icon: IconInGrid, touchPoint: TouchPoint) {
         closeComplexIconPopup()
 
@@ -256,15 +245,10 @@ class EmojiPopupKeyboard (
         }
     }
 
-    /**
-     *
-     */
     @SuppressLint("InflateParams")
     private fun createView(): EmojiPopupKeyboardView = EmojiPopupKeyboardView(context)
 
-    /**
-     *
-     */
+
     private fun calculatePortraitSizeAndShow(screenSize: Size) {
         val displayFrame = Rect()
         rootView.getWindowVisibleDisplayFrame(displayFrame)
@@ -287,9 +271,6 @@ class EmojiPopupKeyboard (
         }
     }
 
-    /**
-     *
-     */
     private fun showWithSomeHeight(height: Int) {
         setSize(Size(WindowManager.LayoutParams.MATCH_PARENT, height))
 
@@ -301,7 +282,6 @@ class EmojiPopupKeyboard (
         }
     }
 
-
     /**
      * Manually sets the popup window size
      */
@@ -310,14 +290,8 @@ class EmojiPopupKeyboard (
         height = size.height
     }
 
-    /**
-     *
-     */
     private fun getColumnsQuantity() = if(UIHelper.getScreenOrientation(context) == ScreenOrientation.PORTRAIT) 8 else 13
 
-    /**
-     *
-     */
     private fun closeComplexIconPopup() {
         complexIconPopup?.dismiss()
         complexIconPopup = null

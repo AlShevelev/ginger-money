@@ -8,9 +8,6 @@ import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.vi
 import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.view_model.MasterPasswordViewModel
 import dagger.Subcomponent
 
-/**
- *
- */
 @Subcomponent(modules = [LoginActivityModuleBinds::class, LoginActivityModule::class])
 @ActivityScope
 interface LoginActivityComponent {

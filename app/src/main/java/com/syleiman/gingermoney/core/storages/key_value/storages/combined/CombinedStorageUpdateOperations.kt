@@ -4,7 +4,6 @@ import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOp
 import java.util.concurrent.locks.ReentrantReadWriteLock
 import kotlin.concurrent.write
 
-/** */
 class CombinedStorageUpdateOperations(
     private val lock: ReentrantReadWriteLock,
     private val persistentStorage: StorageCommitOperationsInterface,

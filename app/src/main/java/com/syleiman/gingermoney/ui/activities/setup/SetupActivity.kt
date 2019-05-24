@@ -6,21 +6,13 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
 
-/**
- *
- */
 class SetupActivity : AppCompatActivity() {
-    /**
-     *
-     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setup)
     }
 
-    /**
-     *
-     */
     override fun onDestroy() {
         super.onDestroy()
 

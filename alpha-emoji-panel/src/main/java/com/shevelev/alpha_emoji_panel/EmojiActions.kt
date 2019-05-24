@@ -9,9 +9,6 @@ import com.shevelev.alpha_emoji_panel.popup.EmojiPopupKeyboard
 import com.shevelev.alpha_emoji_panel.utils.UIHelper
 import java.util.*
 
-/**
- *
- */
 class EmojiActions
 constructor(
     private val context: Context,
@@ -28,16 +25,10 @@ constructor(
     private val emojiEditTextList = ArrayList<AppCompatEditText>()
     private lateinit var emojiEditText: AppCompatEditText
 
-    /**
-     *
-     */
     init {
         addEmojiEditTextList(emojiEditTextViews)
     }
 
-    /**
-     *
-     */
     fun setUpEmojiKeyboard() {
         if (!::emojiEditText.isInitialized) {
             emojiEditText = emojiEditTextList[0]
@@ -86,18 +77,12 @@ constructor(
         showForEditText()
     }
 
-    /**
-     *
-     */
     override fun onFocusChange(v: View?, hasFocus: Boolean) {
         if (hasFocus && v is AppCompatEditText) {
             emojiEditText = v
         }
     }
 
-    /**
-     *
-     */
     private fun showForEditText() {
         emojiButton.setOnClickListener {
             if (!::emojiEditText.isInitialized) {
@@ -132,15 +117,9 @@ constructor(
         }
     }
 
-    /**
-     *
-     */
     private fun changeEmojiKeyboardIcon(iconToBeChanged: ImageView, drawableResourceId: Int) =
         iconToBeChanged.setImageResource(drawableResourceId)
 
-    /**
-     *
-     */
     private fun addEmojiEditTextList(emojiEditTextViews: Array<out AppCompatEditText>) {
         Collections.addAll(emojiEditTextList, *emojiEditTextViews)
 

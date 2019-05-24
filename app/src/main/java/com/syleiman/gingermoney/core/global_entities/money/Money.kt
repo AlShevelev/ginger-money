@@ -4,6 +4,7 @@ package com.syleiman.gingermoney.core.global_entities.money
  * Money totalCents with a selected Currency
  */
 class Money {
+
     /**
      * Quantity of cents in the value
      */
@@ -15,9 +16,6 @@ class Money {
     val centsFactor: Int
     get() = currency.centsFactor
 
-    /**
-     *
-     */
     val currency: Currency
 
     /**
@@ -46,9 +44,6 @@ class Money {
         this.totalCents = Math.round(value * centsFactor)
     }
 
-    /**
-     *
-     */
     override fun equals(other: Any?): Boolean {
         if (this === other) {
             return true
@@ -71,9 +66,6 @@ class Money {
         return true
     }
 
-    /**
-     *
-     */
     override fun hashCode(): Int {
         var result = (totalCents xor totalCents.ushr(32)).toInt()
         result = 31 * result + currency.hashCode()
@@ -110,9 +102,7 @@ class Money {
         return Money(value / rate.quoteFactor, rate.to)
     }
 
-    /**
-     *
-     */
+
     fun compareTo(other: Any): Int {
         return compareTo(other as Money)
     }
@@ -134,9 +124,6 @@ class Money {
         }
     }
 
-    /**
-     *
-     */
     private fun checkExchangePossibility(rate: ExchangeRate) {
         if(currency != rate.from) {
             throw IncorrectMoneyOperationException("The Operation is possible only between the same currencies")

@@ -1,6 +1,5 @@
 package com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.view
 
-
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentSetupMasterPasswordBinding
@@ -23,31 +22,16 @@ class MasterPasswordFragment : FragmentBase<FragmentSetupMasterPasswordBinding, 
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
 
-    /**
-     *
-     */
     override fun provideViewModelType(): Class<MasterPasswordViewModel> = MasterPasswordViewModel::class.java
 
-    /**
-     *
-     */
     override fun provideLayout(): Int = R.layout.fragment_setup_master_password
 
-    /**
-     *
-     */
     override fun inject() = App.injections.get<SetupActivityComponent>().inject(this)
 
-    /**
-     *
-     */
     override fun linkViewModel(binding: FragmentSetupMasterPasswordBinding, viewModel: MasterPasswordViewModel) {
         binding.viewModel = viewModel
     }
 
-    /**
-     *
-     */
     override fun processViewCommand(command: ViewCommand) {
         when(command) {
             is MoveToNextCommand -> navigation.moveToNext(this)

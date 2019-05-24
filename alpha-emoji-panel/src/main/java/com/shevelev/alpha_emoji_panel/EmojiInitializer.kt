@@ -10,9 +10,6 @@ import androidx.emoji.text.FontRequestEmojiCompatConfig
  * Emoji subsystem initialization (fonts loading etc.)
  */
 object EmojiInitializer {
-    /**
-     *
-     */
     @Suppress("SpellCheckingInspection")
     fun init(context: Context) {
         val fontRequest = FontRequest(
@@ -25,16 +22,10 @@ object EmojiInitializer {
         val config = FontRequestEmojiCompatConfig(context, fontRequest).setReplaceAll(true)
 
         EmojiCompat.init(config).registerInitCallback(object: EmojiCompat.InitCallback(){
-            /**
-             *
-             */
             override fun onInitialized() {
                 Log.d("EMOJI", "initialized")
             }
 
-            /**
-             *
-             */
             override fun onFailed(throwable: Throwable?) {
                 Log.d("EMOJI", "failed: ${throwable?.message}")
             }

@@ -7,9 +7,6 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import org.threeten.bp.DayOfWeek
 
-/**
- *
- */
 interface SettingsModelInterface: ModelBaseInterface {
     /**
      * Returns current value of default Currency
@@ -41,14 +38,7 @@ interface SettingsModelInterface: ModelBaseInterface {
      */
     suspend fun saveStartDayOfWeek(startDayOfWeek: DayOfWeek): DisplayingError?
 
-    /**
-     *
-     */
     suspend fun getAppProtectionMethods(): List<AppProtectionMethod>
 
-    /**
-     *
-     */
     fun getAllDaysOfWeek(): List<DayOfWeek>
-
 }

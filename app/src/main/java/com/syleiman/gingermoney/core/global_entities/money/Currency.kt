@@ -38,13 +38,7 @@ enum class Currency(val value: Byte, val symbol: Char) {
      */
     fun toMoney(value: Double) = Money(value, this)
 
-    /**
-     *
-     */
     fun toExchangeRate(to: Currency, quoteRate: Double) = ExchangeRate(this, to, quoteRate)
 
-    /**
-     *
-     */
     private fun getJavaCurrency(): JavaCurrency = JavaCurrency.getInstance(this.toString())
 }

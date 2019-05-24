@@ -42,7 +42,6 @@ constructor(
         }
     }
 
-    /** */
     override fun encrypt(data: ByteArray?): ByteArray? {
         if(data == null) {
             return null
@@ -68,7 +67,6 @@ constructor(
         return result
     }
 
-    /** */
     override fun decrypt(data: ByteArray?): ByteArray? {
         if(data == null) {
             return null

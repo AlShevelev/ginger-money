@@ -8,9 +8,6 @@ import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import javax.inject.Inject
 
-/**
- *
- */
 @RequiresApi(Build.VERSION_CODES.M)
 class FingerprintModel
 @Inject
@@ -44,9 +41,6 @@ constructor(
         isStarted = true
     }
 
-    /**
-     *
-     */
     override fun cancelBackgroundOperations() {
         fingerprintAuthEventsHandler.cancel()
     }

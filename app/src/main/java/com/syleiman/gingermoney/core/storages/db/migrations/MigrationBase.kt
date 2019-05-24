@@ -7,7 +7,6 @@ import androidx.sqlite.db.SupportSQLiteDatabase
  * Base class for all Db scheme migration
  */
 abstract class MigrationBase(startVersion: Int, endVersion: Int): Migration(startVersion, endVersion) {
-
     override fun migrate(database: SupportSQLiteDatabase) {
         database.beginTransaction()
         try {

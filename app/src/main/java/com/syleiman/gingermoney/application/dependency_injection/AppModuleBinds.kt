@@ -31,6 +31,7 @@ import javax.inject.Named
 @Suppress("unused")
 @Module
 abstract class AppModuleBinds {
+
     @Binds
     abstract fun provideDeviceInfoProvider(instance: DeviceInfoProvider): DeviceInfoProviderInterface
 
@@ -42,21 +43,17 @@ abstract class AppModuleBinds {
     abstract fun provideCrashlyticsUtils(instance: CrashlyticsUtils): CrashlyticsUtilsInterface
 
     //region Key-value storage
-    /**  */
     @Binds
     abstract fun provideKeyValueStorageFacade(facade: KeyValueStorageFacade): KeyValueStorageFacadeInterface
 
-    /**  */
     @Binds
     abstract fun provideKeyValueStorage(storage: CombinedStorage): StorageInterface
 
-    /**  */
     @Binds
     @ApplicationScope
     @Named("cache")
     abstract fun provideCacheStorage(storage: InMemoryStorage): StorageOperationsInstanceInterface
 
-    /**  */
     @Binds
     @Named("persistent")
     abstract fun providePersistentStorage(storage: SharedPreferencesStorage): StorageOperationsInstanceInterface

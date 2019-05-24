@@ -8,9 +8,6 @@ import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.common.extension.appResourcesProvider
 import com.syleiman.gingermoney.ui.common.extension.getParentActivity
 
-/**
- *
- */
 @BindingAdapter("selected_group")
 fun setSelectedAccountGroup(view: TextView, value: MutableLiveData<AccountGroup>?) {
     view.getParentActivity()?.let { parentActivity ->

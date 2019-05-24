@@ -6,8 +6,6 @@ import android.view.View
  * Link between a header & a fragment
  */
 interface AccountsHeaderFragmentInterface {
-    /**
-     *
-     */
+
     fun setAddButtonClickListener(listener: View.OnClickListener?)
 }

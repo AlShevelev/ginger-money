@@ -17,11 +17,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 import javax.inject.Inject
 
-/**
- *
- */
 class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : Worker(context, params) {
-
     companion object {
         private val RUB_USD_QUERY_KEY = "${Currency.USD}_${Currency.RUB}"
         private val EUR_USD_QUERY_KEY = "${Currency.USD}_${Currency.EUR}"
@@ -37,9 +33,6 @@ class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : 
         App.injections.get<AppComponent>().inject(this)
     }
 
-    /**
-     *
-     */
     override fun doWork(): Result =
         processServerRequest()?.let { ratesFromServer ->
             parseRates(ratesFromServer)?.let { parsedRates ->
@@ -75,9 +68,6 @@ class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : 
         }
     }
 
-    /**
-     *
-     */
     private fun parseRates(rates: String): List<ExchangeRate>? =
         try {
             val ratesResult = JSONObject(rates).getJSONObject("results")
@@ -93,9 +83,6 @@ class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : 
             null
         }
 
-    /**
-     *
-     */
     private fun storeRates(rates: List<ExchangeRate>): Any? =
         try {
             db.storeSourceExchangeRates(rates)

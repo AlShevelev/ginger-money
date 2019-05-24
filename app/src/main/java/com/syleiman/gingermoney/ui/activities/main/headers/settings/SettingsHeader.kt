@@ -12,7 +12,6 @@ import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
 import kotlinx.android.synthetic.main.fragment_main_settings_header.view.*
 import javax.inject.Inject
 
-/** */
 class SettingsHeader
 @JvmOverloads
 constructor(

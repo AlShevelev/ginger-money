@@ -4,13 +4,8 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.FingerprintAuthEventsHandlerInterface
 
-/**
- *
- */
 interface FingerprintAuthManagerInterface {
-    /**
-     *
-     */
+
     val isAuthenticationPossible: Boolean
 
     /**

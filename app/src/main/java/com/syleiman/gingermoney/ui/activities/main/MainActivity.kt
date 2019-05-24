@@ -14,17 +14,11 @@ import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperIn
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-/**
- *
- */
 class MainActivity : AppCompatActivity() {
 
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
 
-    /**
-     *
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)
 
@@ -37,9 +31,6 @@ class MainActivity : AppCompatActivity() {
         navigation.linkToBottomNavigation(this, mainNavPanel)
     }
 
-    /**
-     *
-     */
     override fun onDestroy() {
         super.onDestroy()
 
@@ -48,9 +39,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     *
-     */
     private fun updateHeader(title: CharSequence?, tag: String) {
         // Remove an old header
         mainToolbar.findViewWithTag<ConstraintLayout>(HeaderTags.CURRENT_HEADER)

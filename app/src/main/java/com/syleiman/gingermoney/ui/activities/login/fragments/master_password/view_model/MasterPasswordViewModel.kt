@@ -18,9 +18,6 @@ import com.syleiman.gingermoney.ui.common.view_commands.ShowWarningCommand
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-/**
- *
- */
 class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
 
     private val fingerprintAuthEventHandler: FingerprintAuthEventHandler = { processFingerprintAuthEvents(it) }
@@ -36,24 +33,12 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
      */
     val password: MutableLiveData<String> = MutableLiveData()
 
-    /**
-     *
-     */
     val fingerprintButtonVisible: MutableLiveData<Int> = MutableLiveData()
 
-    /**
-     *
-     */
     val passwordMaxLen: MutableLiveData<Int> = MutableLiveData()
 
-    /**
-     *
-     */
     val buttonsEnabled: MutableLiveData<Boolean> = MutableLiveData()
 
-    /**
-     *
-     */
     init {
         App.injections.get<LoginActivityComponent>().inject(this)
 
@@ -62,16 +47,10 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
         passwordMaxLen.value = model.passwordMaxLen
     }
 
-    /**
-     *
-     */
     fun onActive() {
         fingerprintModel.startAuth(fingerprintAuthEventHandler)
     }
 
-    /**
-     *
-     */
     fun onLoginButtonClick() {
         buttonsEnabled.value = false
 
@@ -88,16 +67,10 @@ class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
         }
     }
 
-    /**
-     *
-     */
     fun onUseFingerprintButtonClick() {
         command.value = SwitchCommand()
     }
 
-    /**
-     *
-     */
     private fun processFingerprintAuthEvents(event: FingerprintAuthEvent) {
         when(event) {
             is FingerprintAuthSuccessEvent -> command.value = LoggedInCommand()

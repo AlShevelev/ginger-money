@@ -19,14 +19,8 @@ class ExchangeRateMatrix(private val baseCurrency: Currency, private val exchang
         calculateMatrix()
     }
 
-    /**
-     *
-     */
     fun getExchangeRate(from: Currency, to: Currency) = ExchangeRate(from, to, getValue(from, to))
 
-    /**
-     *
-     */
     private fun validateSourceData() {
         if(exchangeRates.size != Currency.values().size-1) {
             throw IncorrectMoneyOperationException("Invalid length of an exchange rates list")
@@ -54,9 +48,6 @@ class ExchangeRateMatrix(private val baseCurrency: Currency, private val exchang
         }
     }
 
-    /**
-     *
-     */
     private fun calculateMatrix() {
         // Set quote for a base currency
         setValue(baseCurrency, baseCurrency, 1.0)
@@ -78,14 +69,8 @@ class ExchangeRateMatrix(private val baseCurrency: Currency, private val exchang
         }
     }
 
-    /**
-     *
-     */
     private fun getValue(from: Currency, to: Currency): Double = matrix.get(from.value.toInt(), to.value.toInt())
 
-    /**
-     *
-     */
     private fun setValue(from: Currency, to: Currency, value: Double) = matrix.set(from.value.toInt(), to.value.toInt(), value)
 }
 

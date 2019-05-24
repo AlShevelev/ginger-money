@@ -10,9 +10,6 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
 
-/**
- *
- */
 class SettingsModel
 @Inject
 constructor(
@@ -69,9 +66,6 @@ constructor(
             keyValueStorage.setStartDayOfWeek(startDayOfWeek)
         }
 
-    /**
-     *
-     */
     override suspend fun getAppProtectionMethods(): List<AppProtectionMethod> =
         if(fingerprintAuthManager.isAuthenticationPossible) {
             listOf(AppProtectionMethod.WITHOUT_PROTECTION, AppProtectionMethod.FINGERPRINT, AppProtectionMethod.MASTER_PASSWORD)
@@ -79,9 +73,6 @@ constructor(
             listOf(AppProtectionMethod.WITHOUT_PROTECTION, AppProtectionMethod.MASTER_PASSWORD)
         }
 
-    /**
-     *
-     */
     override fun getAllDaysOfWeek(): List<DayOfWeek> =
         listOf(
             DayOfWeek.MONDAY,

@@ -4,10 +4,7 @@ import com.syleiman.gingermoney.application.dependency_injection.scopes.Activity
 import com.syleiman.gingermoney.ui.activities.root.RootActivity
 import dagger.Subcomponent
 
-/**
- *
- */
-@Subcomponent()
+@Subcomponent
 @ActivityScope
 interface RootActivityComponent {
 
@@ -16,6 +13,5 @@ interface RootActivityComponent {
         fun build(): RootActivityComponent
     }
 
-    /** */
     fun inject(activity : RootActivity)
 }

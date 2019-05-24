@@ -1,8 +1,5 @@
 package com.syleiman.gingermoney.ui.activities.main.headers
 
-/**
- *
- */
 object HeaderTags {
     const val CURRENT_HEADER = "PAGE_HEADER"
 

@@ -1,8 +1,6 @@
 package com.syleiman.gingermoney.dto.enums
 
-/**
- *
- */
+
 enum class AppProtectionMethod {
     WITHOUT_PROTECTION,
     FINGERPRINT,

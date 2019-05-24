@@ -23,39 +23,21 @@ class FingerprintFragment : FragmentBase<FragmentLoginFingerprintBinding, Finger
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
 
-    /**
-     *
-     */
     override fun provideViewModelType(): Class<FingerprintViewModel> = FingerprintViewModel::class.java
 
-    /**
-     *
-     */
     override fun provideLayout(): Int = R.layout.fragment_login_fingerprint
 
-    /**
-     *
-     */
     override fun inject() = App.injections.get<LoginActivityComponent>().inject(this)
 
-    /**
-     *
-     */
     override fun linkViewModel(binding: FragmentLoginFingerprintBinding, viewModel: FingerprintViewModel) {
         binding.viewModel = viewModel
     }
 
-    /**
-     *
-     */
     override fun onResume() {
         super.onResume()
         viewModel.onActive()
     }
 
-    /**
-     *
-     */
     override fun processViewCommand(command: ViewCommand) {
         when(command) {
             is LoggedInCommand -> navigation.complete(this)

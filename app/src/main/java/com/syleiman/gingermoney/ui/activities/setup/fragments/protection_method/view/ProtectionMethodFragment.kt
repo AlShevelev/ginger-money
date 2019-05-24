@@ -1,6 +1,5 @@
 package com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.view
 
-
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentSetupProtectionMethodBinding
@@ -21,31 +20,16 @@ class ProtectionMethodFragment : FragmentBase<FragmentSetupProtectionMethodBindi
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
 
-    /**
-     *
-     */
     override fun provideViewModelType(): Class<ProtectionMethodViewModel> = ProtectionMethodViewModel::class.java
 
-    /**
-     *
-     */
     override fun provideLayout(): Int = R.layout.fragment_setup_protection_method
 
-    /**
-     *
-     */
     override fun inject() = App.injections.get<SetupActivityComponent>().inject(this)
 
-    /**
-     *
-     */
     override fun linkViewModel(binding: FragmentSetupProtectionMethodBinding, viewModel: ProtectionMethodViewModel) {
         binding.viewModel = viewModel
     }
 
-    /**
-     *
-     */
     override fun processViewCommand(command: ViewCommand) {
         when(command) {
             is MoveToNextCommand -> navigation.moveToNext(this)

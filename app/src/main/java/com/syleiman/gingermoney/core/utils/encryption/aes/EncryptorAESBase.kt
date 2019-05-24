@@ -23,7 +23,6 @@ abstract class EncryptorAESBase : Encryptor {
 
     protected val secureRandom = SecureRandom()
 
-    /** */
     override fun encrypt(data: ByteArray?): ByteArray? {
         if(data == null) {
             return null
@@ -57,7 +56,6 @@ abstract class EncryptorAESBase : Encryptor {
         return result
     }
 
-    /** */
     override fun decrypt(data: ByteArray?): ByteArray? {
         if(data == null) {
             return null
@@ -99,6 +97,5 @@ abstract class EncryptorAESBase : Encryptor {
         return result
     }
 
-    /** */
     protected abstract fun getKey(): Key
 }

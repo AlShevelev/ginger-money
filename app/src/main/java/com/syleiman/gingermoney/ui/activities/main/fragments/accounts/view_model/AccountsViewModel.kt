@@ -9,18 +9,12 @@ import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-/**
- *
- */
 class AccountsViewModel : ViewModelBase<AccountsModelInterface>() {
 
     val stubVisibility: MutableLiveData<Int> = MutableLiveData()
 
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
 
-    /**
-     *
-     */
     init {
         App.injections.get<MainActivityComponent>().inject(this)
 
@@ -29,7 +23,6 @@ class AccountsViewModel : ViewModelBase<AccountsModelInterface>() {
         fillAccountsList()
     }
 
-    /** */
     private fun fillAccountsList() {
         loadingVisibility.value = View.VISIBLE
 

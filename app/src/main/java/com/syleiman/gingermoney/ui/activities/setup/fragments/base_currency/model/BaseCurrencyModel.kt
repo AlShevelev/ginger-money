@@ -6,18 +6,13 @@ import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import javax.inject.Inject
 
-/**
- *
- */
 class BaseCurrencyModel
 @Inject
 constructor(
     private val keyValueStorage: KeyValueStorageFacadeInterface
 ) : ModelBase(),
     BaseCurrencyModelInterface {
-    /**
-     *
-     */
+
     override val startCurrencyValue: Currency = Currency.USD
 
     /**

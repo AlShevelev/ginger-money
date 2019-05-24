@@ -24,7 +24,6 @@ constructor(private val appContext: Context
             Size((it.widthPixels / it.density).toInt(), (it.heightPixels / it.density).toInt())
         }
 
-    /** */
     override val displaySizeCategory: DisplaySizeCategory
         get() = appContext.resources.configuration.screenLayout.let {
             when(it and Configuration.SCREENLAYOUT_SIZE_MASK) {
@@ -36,7 +35,6 @@ constructor(private val appContext: Context
             }
         }
 
-    /** */
     override val displayDensityCategory: DisplayDensityCategory
         get() = appContext.resources.displayMetrics.let { metrics ->
             val defaultScale = 1F / DisplayMetrics.DENSITY_DEFAULT

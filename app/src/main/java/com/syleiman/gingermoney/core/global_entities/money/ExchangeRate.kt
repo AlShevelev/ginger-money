@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.core.global_entities.money
 
 /** Exchange rate for [Money] */
 class ExchangeRate(
+
     /**
      * Source currency
      */

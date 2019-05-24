@@ -30,7 +30,7 @@ class AmountKeyboardMoneyTest(private val sourceMoney: Money, private val tag: S
                 arrayOf(Currency.USD.toMoney(-1.99),  "oneCase2Negative"),
                 arrayOf(Currency.USD.toMoney(-10.10),  "tenCase1Negative"),
 
-                arrayOf(Currency.USD.toMoney(1111111111111111.11),  "maxValue")
+                arrayOf(Currency.USD.toMoney(11111111111111.11),  "maxValue")
             )
         }
     }

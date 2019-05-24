@@ -5,13 +5,8 @@ import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-/**
- *
- */
 abstract class ModelBase: ModelBaseInterface {
-    /**
-     *
-     */
+
     protected suspend fun saveValue(saveAction: () -> Unit): DisplayingError? =
         withContext(Dispatchers.IO) {
             try {
@@ -23,9 +18,6 @@ abstract class ModelBase: ModelBaseInterface {
             }
         }
 
-    /**
-     *
-     */
     protected suspend fun <T>getValue(getAction: () -> T?): ModelCallResult<out T> =
         withContext(Dispatchers.IO) {
             try {

@@ -8,15 +8,10 @@ import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 import javax.inject.Inject
 
-/**
- *
- */
 class NavigationHelper
 @Inject
 constructor() : NavigationHelperBase(R.id.setupNavHostFragment), NavigationHelperInterface {
-    /**
-     *
-     */
+
     override fun moveToNext(currentFragment: Fragment) {
         when(currentFragment) {
             is MasterPasswordFragment -> moveTo(currentFragment, R.id.action_masterPasswordFragment_to_baseCurrencyFragment)

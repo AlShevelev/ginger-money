@@ -17,6 +17,7 @@ import javax.inject.Named
 /** Application level module - global objects are created here   */
 @Module
 class AppModule(private val appContext: Context) {
+
     /**  */
     @Provides
     @ApplicationScope

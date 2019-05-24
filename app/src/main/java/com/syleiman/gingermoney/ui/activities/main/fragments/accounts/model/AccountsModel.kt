@@ -6,9 +6,6 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import javax.inject.Inject
 
-/**
- *
- */
 class AccountsModel
 @Inject
 constructor(
@@ -16,9 +13,6 @@ constructor(
 ) : ModelBase(),
     AccountsModelInterface {
 
-    /**
-     *
-     */
     override suspend fun getAllAccounts(): ModelCallResult<out List<Account>> =
         getValue {
             db.getAccounts()

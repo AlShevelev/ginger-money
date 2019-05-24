@@ -9,7 +9,6 @@ abstract class EncryptorTestBase {
     abstract val converter: StringsConverterInterface
     abstract val encryptionUtils: Encryptor
 
-    /** */
     @Test
     fun encryptDecrypt() {
         // Arrange
@@ -25,7 +24,6 @@ abstract class EncryptorTestBase {
         Assert.assertEquals(source, testResult)
     }
 
-    /** */
     @Test
     fun encryptEmpty() {
         // Arrange
@@ -40,7 +38,6 @@ abstract class EncryptorTestBase {
         Assert.assertEquals(0, testResult.size)
     }
 
-    /** */
     @Test
     fun decryptEmpty() {
         // Arrange
@@ -55,7 +52,6 @@ abstract class EncryptorTestBase {
         Assert.assertEquals(0, testResult.size)
     }
 
-    /** */
     @Test
     fun encryptNull() {
         // Arrange
@@ -68,7 +64,6 @@ abstract class EncryptorTestBase {
         Assert.assertNull(testResult)
     }
 
-    /** */
     @Test
     fun decryptNull() {
         // Arrange

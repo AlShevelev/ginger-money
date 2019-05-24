@@ -47,7 +47,6 @@ constructor(
      */
     override fun showWarning(context: Context, message: String) = showCustomToast(context, message, CustomToastType.WARNING)
 
-    /** */
     @SuppressLint("InflateParams")
     private fun showCustomToast(context: Context, message: String, type: CustomToastType) {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -108,9 +107,6 @@ constructor(
             { it })
         .show()
 
-    /**
-     *
-     */
     override fun setSoftKeyboardVisibility(context: Context, someViewInWindow: View, isVisible: Boolean) {
         if (isVisible) {
             someViewInWindow.post(KeyboardVisibilityRunnable(context, someViewInWindow))

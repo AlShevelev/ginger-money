@@ -12,33 +12,19 @@ import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperI
 import dagger.Binds
 import dagger.Module
 
-/**
- *
- */
 @Module
 abstract class SetupActivityModuleBinds {
-    /**
-     *
-     */
+
     @Binds
     @ActivityScope
     abstract fun provideNavigationHelper(helper: NavigationHelper): NavigationHelperInterface
 
-    /**
-     *
-     */
     @Binds
     abstract fun provideMasterPasswordModel(model: MasterPasswordModel): MasterPasswordModelInterface
 
-    /**
-     *
-     */
     @Binds
     abstract fun provideBaseCurrencyModel(model: BaseCurrencyModel): BaseCurrencyModelInterface
 
-    /**
-     *
-     */
     @Binds
     abstract fun provideProtectionMethodModel(model: ProtectionMethodModel): ProtectionMethodModelInterface
 }

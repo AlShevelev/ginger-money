@@ -1,8 +1,5 @@
 package com.syleiman.gingermoney.dto.enums
 
-/**
- *
- */
 enum class Color(val value: Byte) {
     BLACK(0),
     WHITE(1),

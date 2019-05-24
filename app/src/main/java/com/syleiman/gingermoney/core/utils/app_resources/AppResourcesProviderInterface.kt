@@ -6,14 +6,8 @@ import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import org.threeten.bp.DayOfWeek
 
 interface AppResourcesProviderInterface {
-    /**
-     *
-     */
     fun getLocale(): String
 
-    /**
-     *
-     */
     fun getString(@StringRes resId: Int): String
 
     /**
@@ -21,14 +15,8 @@ interface AppResourcesProviderInterface {
      */
     fun getFormattedString(@StringRes resId: Int, vararg args: Any): String
 
-    /**
-     *
-     */
     fun getInt(@IntegerRes resId: Int): Int
 
-    /**
-     *
-     */
     @ColorInt
     fun getColor(@ColorRes resId: Int): Int
 

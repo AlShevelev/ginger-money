@@ -22,6 +22,5 @@ constructor(
      */
     override fun pixelsToDp(pixelValue: Int): Float = pixelValue / getAverageDensity()
 
-    /** */
     private fun getAverageDensity(): Float = context.resources.displayMetrics.density
 }

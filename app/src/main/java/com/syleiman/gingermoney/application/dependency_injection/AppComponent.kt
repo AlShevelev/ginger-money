@@ -14,20 +14,12 @@ import dagger.Component
 ])
 @ApplicationScope
 interface AppComponent {
+
     val ui: UIComponent.Builder
 
-    /**
-     *
-     */
     fun inject(app: App)
 
-    /**
-     *
-     */
     fun inject(converter: MoneyTypeConverter)
 
-    /**
-     *
-     */
     fun inject(worker: UpdateCurrencyRatesWorker)
 }

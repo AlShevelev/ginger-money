@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Base64
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
 
-/** */
 class SharedPreferencesStorageReadOperations(context: Context, name: String): StorageReadOperationsInterface {
     private val preferences = context.getSharedPreferences(name, Context.MODE_PRIVATE)
 
@@ -29,7 +28,6 @@ class SharedPreferencesStorageReadOperations(context: Context, name: String): St
     /** Read long value  */
     override fun readBytes(key: String): ByteArray? = read(key) { Base64.decode(preferences.getString(key, ""), Base64.DEFAULT) }
 
-    /** */
     private fun <T>read(key: String, readAction: () -> T): T? =
         if(preferences.contains(key)) readAction() else null
 }

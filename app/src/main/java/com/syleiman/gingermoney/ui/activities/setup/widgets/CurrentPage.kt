@@ -35,9 +35,6 @@ constructor(
         attrs?.let { retrieveAttributes(attrs, defStyleAttr) }
     }
 
-    /**
-     *
-     */
     @Suppress("UNUSED_PARAMETER")
     private fun retrieveAttributes(attrs: AttributeSet, defStyleAttr: Int) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.CurrentPage)
@@ -52,9 +49,6 @@ constructor(
         typedArray.recycle()
     }
 
-    /**
-     *
-     */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val widthMode = MeasureSpec.getMode(widthMeasureSpec)
         var width = MeasureSpec.getSize(widthMeasureSpec)
@@ -70,9 +64,6 @@ constructor(
         setMeasuredDimension(width, height)
     }
 
-    /**
-     *
-     */
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
@@ -80,9 +71,6 @@ constructor(
         drawingRect.bottom = height.toFloat()
     }
 
-    /**
-     *
-     */
     override fun onDraw(canvas: Canvas?) {
         val strokeWidth = drawingRect.height() / 10
 

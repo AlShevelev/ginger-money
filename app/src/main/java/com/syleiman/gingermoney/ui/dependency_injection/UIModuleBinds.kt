@@ -9,9 +9,6 @@ import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
 import dagger.Binds
 import dagger.Module
 
-/**
- *
- */
 @Suppress("unused")
 @Module
 abstract class UIModuleBinds {

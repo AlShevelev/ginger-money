@@ -8,6 +8,6 @@ class AmountKeyboardMoneyExceptionsTest {
     @Test(expected = IllegalArgumentException::class)
     fun testMainValueOverflow() {
         // Arrange
-        AmountKeyboardMoney(Currency.USD.toMoney(11111111111111111.11))
+        AmountKeyboardMoney(Currency.USD.toMoney(111111111111111.11))
     }
 }

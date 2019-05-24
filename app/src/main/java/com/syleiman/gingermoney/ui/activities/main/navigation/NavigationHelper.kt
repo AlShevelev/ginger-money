@@ -12,9 +12,6 @@ import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 import javax.inject.Inject
 
-/**
- *
- */
 class NavigationHelper
 @Inject
 constructor() : NavigationHelperBase(R.id.mainNavHostFragment), NavigationHelperInterface {
@@ -47,9 +44,6 @@ constructor() : NavigationHelperBase(R.id.mainNavHostFragment), NavigationHelper
             }
     }
 
-    /**
-     *
-     */
     override fun linkToBottomNavigation(activity: FragmentActivity, bottomNavigationView: BottomNavigationView) {
         NavigationUI.setupWithNavController(bottomNavigationView, getNavigationController(activity))
     }

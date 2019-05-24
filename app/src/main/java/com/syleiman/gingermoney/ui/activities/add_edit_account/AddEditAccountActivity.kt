@@ -11,7 +11,6 @@ import kotlinx.android.synthetic.main.activity_add_edit_account_header.*
 import javax.inject.Inject
 
 class AddEditAccountActivity : AppCompatActivity() {
-
     companion object {
         const val ACCOUNT_ACTION = "ACCOUNT_ACTION"
 
@@ -22,9 +21,6 @@ class AddEditAccountActivity : AppCompatActivity() {
     @Inject
     lateinit var navigation: NavigationHelperInterface
 
-    /**
-     *
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -45,17 +41,11 @@ class AddEditAccountActivity : AppCompatActivity() {
         backButton.setOnClickListener { onBackPressed() }
     }
 
-    /**
-     *
-     */
     override fun onBackPressed() {
         super.onBackPressed()
         navigation.processBackAnimation(this)
     }
 
-    /**
-     *
-     */
     override fun onDestroy() {
         super.onDestroy()
 

@@ -16,9 +16,6 @@ import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.Finger
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.FingerprintAuthEventsHandlerInterface
 import javax.inject.Inject
 
-/**
- *
- */
 class FingerprintAuthManager
 @Inject
 constructor(
@@ -26,9 +23,6 @@ constructor(
     private val encryptor: EncryptorFingerprint
 ) : FingerprintAuthManagerInterface {
 
-    /**
-     *
-     */
     override val isAuthenticationPossible: Boolean
         get() = checkAuthenticationPossibility()
 
@@ -43,9 +37,6 @@ constructor(
         return FingerprintAuthEventsHandler(manager, cryptoObject)
     }
 
-    /**
-     *
-     */
     private fun checkAuthenticationPossibility(): Boolean {
         // Check SDK
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -77,9 +68,6 @@ constructor(
         return true
     }
 
-    /**
-     *
-     */
     @RequiresApi(Build.VERSION_CODES.M)
     private fun getFingerprintManager() = appContext.getSystemService(FINGERPRINT_SERVICE) as FingerprintManager
 }

@@ -15,9 +15,7 @@ class MoneyTypeConverter {
     @field:Named("AES")
     internal lateinit var encryptor: Encryptor
 
-    /**
-     *
-     */
+
     @TypeConverter
     fun fromMoneyToDb(source: Money?): ByteArray? {
         if(source == null) {
@@ -36,9 +34,7 @@ class MoneyTypeConverter {
         return encryptor.encrypt(buffer)
     }
 
-    /**
-     *
-     */
+
     @TypeConverter
     fun fromDbToMoney(source: ByteArray?): Money? {
         if(source == null) {

@@ -5,22 +5,13 @@ import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 
-/**
- *
- */
 interface AddAccountModelInterface: ModelBaseInterface {
     /**
      * Returns current value of default selected Currency
      */
     suspend fun getDefaultCurrency(): ModelCallResult<out Currency>
 
-    /**
-     *
-     */
     fun getAllAccountGroups(): List<AccountGroup>
 
-    /**
-     *
-     */
     fun getAllCurrencies(): List<Currency>
 }

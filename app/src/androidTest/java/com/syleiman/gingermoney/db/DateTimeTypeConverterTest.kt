@@ -9,14 +9,9 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.threeten.bp.ZonedDateTime
 
-/**
- *
- */
 @RunWith(AndroidJUnit4::class)
 class DateTimeTypeConverterTest {
-    /**
-     *
-     */
+
     @Test
     fun fromZonedDateTimeSplitToDbNull() {
         // Arrange
@@ -30,9 +25,6 @@ class DateTimeTypeConverterTest {
         assertNull(result)
     }
 
-    /**
-     *
-     */
     @Test
     fun fromDbToZonedDateTimeSplitNull() {
         // Arrange
@@ -46,9 +38,6 @@ class DateTimeTypeConverterTest {
         assertNull(result)
     }
 
-    /**
-     *
-     */
     @Test
     fun toDbFromDb() {
         // Arrange

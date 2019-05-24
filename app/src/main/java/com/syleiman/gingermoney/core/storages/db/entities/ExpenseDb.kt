@@ -7,9 +7,6 @@ import androidx.room.PrimaryKey
 import com.syleiman.gingermoney.core.global_entities.date_time.ZonedDateTimeSplit
 import com.syleiman.gingermoney.core.global_entities.money.Money
 
-/**
- *
- */
 @Entity(
     tableName = "expense",
     foreignKeys = [

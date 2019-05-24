@@ -25,39 +25,21 @@ class MasterPasswordFragment : FragmentBase<FragmentLoginMasterPasswordBinding, 
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
 
-    /**
-     *
-     */
     override fun provideViewModelType(): Class<MasterPasswordViewModel> = MasterPasswordViewModel::class.java
 
-    /**
-     *
-     */
     override fun provideLayout(): Int = R.layout.fragment_login_master_password
 
-    /**
-     *
-     */
     override fun inject() = App.injections.get<LoginActivityComponent>().inject(this)
 
-    /**
-     *
-     */
     override fun linkViewModel(binding: FragmentLoginMasterPasswordBinding, viewModel: MasterPasswordViewModel) {
         binding.viewModel = viewModel
     }
 
-    /**
-     *
-     */
     override fun onResume() {
         super.onResume()
         viewModel.onActive()
     }
 
-    /**
-     *
-     */
     override fun processViewCommand(command: ViewCommand) {
         when(command) {
             is LoggedInCommand -> navigation.complete(this)

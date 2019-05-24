@@ -8,9 +8,6 @@ import android.os.CancellationSignal
 import androidx.annotation.RequiresApi
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.*
 
-/**
- *
- */
 @RequiresApi(Build.VERSION_CODES.M)
 class FingerprintAuthEventsHandler(
     private val manager: FingerprintManager,
@@ -41,34 +38,22 @@ class FingerprintAuthEventsHandler(
         cancellationSignal.takeIf { !isInTerminalState && !it.isCanceled }?.cancel()
     }
 
-    /**
-     *
-     */
     override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
         super.onAuthenticationError(errorCode, errString)
         isInTerminalState = true
         eventsCallback(FingerprintAuthErrorEvent(errString?.toString()))
     }
 
-    /**
-     *
-     */
     override fun onAuthenticationFailed() {
         super.onAuthenticationFailed()
         eventsCallback(FingerprintAuthFailEvent())
     }
 
-    /**
-     *
-     */
     override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence?) {
         super.onAuthenticationHelp(helpCode, helpString)
         eventsCallback(FingerprintAuthWarningEvent(helpString?.toString()))
     }
 
-    /**
-     *
-     */
     override fun onAuthenticationSucceeded(result: FingerprintManager.AuthenticationResult?) {
         super.onAuthenticationSucceeded(result)
         isInTerminalState = true

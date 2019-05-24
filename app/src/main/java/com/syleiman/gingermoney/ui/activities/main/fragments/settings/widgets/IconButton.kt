@@ -34,9 +34,6 @@ constructor(
         drawIcon()
     }
 
-    /**
-     *
-     */
     @Suppress("UNUSED_PARAMETER")
     private fun retrieveAttributes(attrs: AttributeSet, defStyleAttr: Int) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.IconButton)
@@ -51,9 +48,6 @@ constructor(
         typedArray.recycle()
     }
 
-    /**
-     *
-     */
     private fun drawIcon() {
         icon.bounds = icon.inscribe(iconSize)
         icon.setTintList(color)

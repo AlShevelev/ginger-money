@@ -24,46 +24,25 @@ class AccountsFragment :
     @Inject
     internal lateinit var navigation: NavigationHelperInterface
 
-    /**
-     *
-     */
     override fun provideViewModelType(): Class<AccountsViewModel> = AccountsViewModel::class.java
 
-    /**
-     *
-     */
     override fun provideLayout(): Int = R.layout.fragment_main_accounts
 
-    /**
-     *
-     */
     override fun inject() = App.injections.get<MainActivityComponent>().inject(this)
 
-    /**
-     *
-     */
     override fun linkViewModel(binding: FragmentMainAccountsBinding, viewModel: AccountsViewModel) {
         binding.viewModel = viewModel
     }
 
-    /**
-     *
-     */
     override fun onStart() {
         super.onStart()
         headerLink.attach(this)
     }
 
-    /**
-     *
-     */
     override fun onStop() {
         super.onStop()
         headerLink.detachFragment()
     }
 
-    /**
-     *
-     */
     override fun onAddButtonClick() = navigation.moveToAddEdiAccount(this)
 }

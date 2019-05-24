@@ -9,9 +9,6 @@ import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupAc
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
 import dagger.Subcomponent
 
-/**
- *
- */
 @Subcomponent(modules = [
     UIModuleBinds::class,
     UIModuleChilds::class

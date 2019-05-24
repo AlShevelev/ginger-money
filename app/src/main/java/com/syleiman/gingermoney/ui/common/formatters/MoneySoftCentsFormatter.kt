@@ -12,13 +12,7 @@ class MoneySoftCentsFormatter: MoneyHardCentsFormatter() {
         const val CENTS_2_FORMAT_STRING = "#,###.##"
     }
 
-    /**
-     *
-     */
     override fun getTemplateForZero() = CENTS_2_ZERO_FORMAT_STRING
 
-    /**
-     *
-     */
     override fun getTemplateForNonZero() = CENTS_2_FORMAT_STRING
 }

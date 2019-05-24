@@ -4,9 +4,6 @@ import org.threeten.bp.Instant
 import org.threeten.bp.ZoneId
 import org.threeten.bp.ZonedDateTime
 
-/**
- *
- */
 fun ZonedDateTime.toSplit(): ZonedDateTimeSplit {
     val zone = this.zone.id
 
@@ -18,9 +15,6 @@ fun ZonedDateTime.toSplit(): ZonedDateTimeSplit {
     return ZonedDateTimeSplit(seconds, nanoseconds, zone)
 }
 
-/**
- *
- */
 fun ZonedDateTimeSplit.toZoneDateTime(): ZonedDateTime {
     val restoredInstant = Instant.ofEpochSecond(seconds, nanoseconds.toLong())
     return ZonedDateTime.ofInstant(restoredInstant, ZoneId.of(this.timeZoneId))

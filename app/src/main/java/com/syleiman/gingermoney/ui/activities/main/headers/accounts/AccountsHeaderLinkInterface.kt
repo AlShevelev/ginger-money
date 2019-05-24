@@ -7,23 +7,11 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.Accou
  */
 interface AccountsHeaderLinkInterface {
 
-    /**
-     *
-     */
     fun attach(fragment: AccountsFragmentHeaderInterface)
 
-    /**
-     *
-     */
     fun attach(header: AccountsHeaderFragmentInterface)
 
-    /**
-     *
-     */
     fun detachFragment()
 
-    /**
-     *
-     */
     fun detachHeader()
 }

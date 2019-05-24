@@ -15,9 +15,6 @@ import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-/**
- *
- */
 class RootActivity : CoroutineScope, AppCompatActivity() {
 
     @Inject
@@ -34,18 +31,12 @@ class RootActivity : CoroutineScope, AppCompatActivity() {
     override val coroutineContext: CoroutineContext
         get() = scopeJob + Dispatchers.Main
 
-    /**
-     *
-     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         App.injections.get<RootActivityComponent>().inject(this)
     }
 
-    /**
-     *
-     */
     override fun onStart() {
         super.onStart()
 
@@ -76,9 +67,6 @@ class RootActivity : CoroutineScope, AppCompatActivity() {
         }
     }
 
-    /**
-     *
-     */
     override fun onStop() {
         super.onStop()
 
@@ -86,9 +74,6 @@ class RootActivity : CoroutineScope, AppCompatActivity() {
         scopeJob.cancel()
     }
 
-    /**
-     *
-     */
     override fun onDestroy() {
         super.onDestroy()
 
@@ -97,18 +82,12 @@ class RootActivity : CoroutineScope, AppCompatActivity() {
         }
     }
 
-    /**
-     *
-     */
     private fun moveTo(targetActivity: Class<*>) {
         // We don't need some complex navigation logic for this activity, so we should not use Navigation Component
         startActivity(Intent(this, targetActivity))
         finish()
     }
 
-    /**
-     *
-     */
     private fun moveToLogin(appProtectionMethod: AppProtectionMethod) {
         startActivity(LoginActivity.createStartIntent(this, appProtectionMethod))
         finish()

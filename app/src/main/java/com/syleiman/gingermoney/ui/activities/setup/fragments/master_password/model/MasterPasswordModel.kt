@@ -14,9 +14,6 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Named
 
-/**
- *
- */
 class MasterPasswordModel
 @Inject
 constructor(
@@ -27,9 +24,6 @@ constructor(
 ) : ModelBase(),
     MasterPasswordModelInterface {
 
-    /**
-     *
-     */
     override val passwordMaxLen: Int = resourcesProvider.getInt(R.integer.masterPasswordMaxLen)
 
     /**

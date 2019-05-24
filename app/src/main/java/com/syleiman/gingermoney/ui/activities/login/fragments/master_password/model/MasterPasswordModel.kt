@@ -15,9 +15,6 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Named
 
-/**
- *
- */
 class MasterPasswordModel
 @Inject
 constructor(
@@ -28,14 +25,9 @@ constructor(
     resourcesProvider: AppResourcesProviderInterface
 ) : ModelBase(),
     MasterPasswordModelInterface {
-    /**
-     *
-     */
+
     override val isFingerprintAuthenticationPossible: Boolean = fingerprintAuthManager.isAuthenticationPossible
 
-    /**
-     *
-     */
     override val passwordMaxLen: Int = resourcesProvider.getInt(R.integer.masterPasswordMaxLen)
 
     /**

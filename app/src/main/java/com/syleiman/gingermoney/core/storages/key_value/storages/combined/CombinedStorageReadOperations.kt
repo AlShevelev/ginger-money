@@ -6,7 +6,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock
 import kotlin.concurrent.read
 import kotlin.concurrent.write
 
-/** */
 class CombinedStorageReadOperations(
     private val lock: ReentrantReadWriteLock,
     private val persistentStorage: StorageReadOperationsInterface,
@@ -79,7 +78,6 @@ class CombinedStorageReadOperations(
         )
     }
 
-    /** */
     private fun <T>read(
         readFromCacheAction: () -> T?,
         readFromPersistentStorageAction: () -> T?,

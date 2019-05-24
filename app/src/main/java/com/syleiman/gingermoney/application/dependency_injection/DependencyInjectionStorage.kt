@@ -11,6 +11,7 @@ import kotlin.reflect.KClass
 
 /** Storage for Dagger components on application level  */
 class DependencyInjectionStorage(private val appContext: Context) {
+
     private val components = mutableMapOf<KClass<*>, Any>()
 
     inline fun <reified T>get(vararg args: Any): T = getComponent(T::class, args)

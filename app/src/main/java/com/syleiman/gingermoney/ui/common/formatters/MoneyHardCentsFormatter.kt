@@ -14,9 +14,6 @@ open class MoneyHardCentsFormatter: MoneyFormatter {
         const val CENTS_2_FORMAT_STRING = "#,###.00"
     }
 
-    /**
-     *
-     */
     override fun format(value: Money): String {
         val numberValue = Math.abs(value.value)
 
@@ -36,13 +33,7 @@ open class MoneyHardCentsFormatter: MoneyFormatter {
         return "${value.currency.symbol} $sign${DecimalFormat(numberFormatTemplate).format(numberValue)}"
     }
 
-    /**
-     *
-     */
     protected open fun getTemplateForZero() = CENTS_2_ZERO_FORMAT_STRING
 
-    /**
-     *
-     */
     protected open fun getTemplateForNonZero() = CENTS_2_FORMAT_STRING
 }

@@ -6,9 +6,6 @@ import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.vie
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_model.AddAccountViewModel
 import dagger.Subcomponent
 
-/**
- *
- */
 @Subcomponent(modules = [AddEditAccountActivityModuleBinds::class])
 @ActivityScope
 interface AddEditAccountActivityComponent {

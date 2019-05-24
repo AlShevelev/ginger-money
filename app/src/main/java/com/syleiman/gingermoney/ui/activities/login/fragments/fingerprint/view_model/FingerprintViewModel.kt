@@ -14,9 +14,6 @@ import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ShowWarningCommand
 import javax.inject.Inject
 
-/**
- *
- */
 class FingerprintViewModel : ViewModelBase<FingerprintModelInterface>() {
 
     private val fingerprintAuthEventHandler: FingerprintAuthEventHandler = { processAuthEvents(it) }
@@ -24,30 +21,18 @@ class FingerprintViewModel : ViewModelBase<FingerprintModelInterface>() {
     @Inject
     internal lateinit var resourcesProvider: AppResourcesProviderInterface
 
-    /**
-     *
-     */
     init {
         App.injections.get<LoginActivityComponent>().inject(this)
     }
 
-    /**
-     *
-     */
     fun onActive() {
         model.startAuth(fingerprintAuthEventHandler)
     }
 
-    /**
-     *
-     */
     fun onUseMasterPasswordButtonClick() {
         command.value = SwitchCommand()
     }
 
-    /**
-     *
-     */
     private fun processAuthEvents(event: FingerprintAuthEvent) {
         when(event) {
             is FingerprintAuthSuccessEvent -> command.value = LoggedInCommand()

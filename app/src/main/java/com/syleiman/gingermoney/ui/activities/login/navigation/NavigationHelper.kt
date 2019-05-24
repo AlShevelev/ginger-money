@@ -9,9 +9,6 @@ import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.vi
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 import javax.inject.Inject
 
-/**
- *
- */
 class NavigationHelper
 @Inject
 constructor() : NavigationHelperBase(R.id.loginNavHostFragment), NavigationHelperInterface {
@@ -45,9 +42,6 @@ constructor() : NavigationHelperBase(R.id.loginNavHostFragment), NavigationHelpe
         }
     }
 
-    /**
-     *
-     */
     private fun setHome(@IdRes id: Int, activity: FragmentActivity) {
         val controller = getNavigationController(activity)
         val inflater = controller.navInflater

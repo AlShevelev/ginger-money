@@ -15,7 +15,6 @@ class OneOptionDialog<T>(
     private val resultCallback: (Int?) -> Unit,
     private val itemToStringMapper: (T) -> CharSequence) {
 
-    //Select dialog's style - colorAccent for options and ? for buttons
     fun show() : AlertDialog =
         AlertDialog
             .Builder(context, R.style.App_Activity_Main_Dialog_Theme)
@@ -29,6 +28,8 @@ class OneOptionDialog<T>(
             .setOnCancelListener { resultCallback(null) }
             .show()
 
-    /** Create text items for dialog  */
+    /**
+     * Create text items for dialog
+     */
     private fun createItems(): Array<CharSequence> = items.map { itemToStringMapper(it) }.toTypedArray()
 }

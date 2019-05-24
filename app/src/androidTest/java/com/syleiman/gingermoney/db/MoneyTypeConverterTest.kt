@@ -10,9 +10,7 @@ import org.junit.Assert.*
 
 @RunWith(AndroidJUnit4::class)
 class MoneyTypeConverterTest {
-    /**
-     *
-     */
+
     @Test
     fun fromMoneyToDbNull() {
         // Arrange
@@ -26,9 +24,6 @@ class MoneyTypeConverterTest {
         assertNull(resultValue)
     }
 
-    /**
-     *
-     */
     @Test
     fun fromDbToMoneyNull() {
         // Arrange
@@ -42,9 +37,6 @@ class MoneyTypeConverterTest {
         assertNull(resultValue)
     }
 
-    /**
-     *
-     */
     @Test
     fun toDbFromDb() {
         // Arrange

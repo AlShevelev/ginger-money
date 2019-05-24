@@ -11,9 +11,6 @@ import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-/**
- *
- */
 class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModelInterface>() {
 
     /**
@@ -21,19 +18,10 @@ class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModelInterface>(
      */
     val appProtectionMethod: MutableLiveData<AppProtectionMethod> = MutableLiveData()
 
-    /**
-     *
-     */
     val finishButtonEnabled: MutableLiveData<Boolean> = MutableLiveData()
 
-    /**
-     *
-     */
     val fingerprintMethodVisibility: MutableLiveData<Int> = MutableLiveData()
 
-    /**
-     *
-     */
     init {
         App.injections.get<SetupActivityComponent>().inject(this)
 
@@ -42,9 +30,6 @@ class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModelInterface>(
         fingerprintMethodVisibility.value = if(model.isFingerprintAuthenticationPossible) View.VISIBLE else View.GONE
     }
 
-    /**
-     *
-     */
     fun onFinishButtonClick() {
         finishButtonEnabled.value = false
 

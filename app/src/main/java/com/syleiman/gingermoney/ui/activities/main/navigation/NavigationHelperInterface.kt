@@ -6,9 +6,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBaseInterface
 
-/**
- *
- */
 interface NavigationHelperInterface : NavigationHelperBaseInterface {
 
     /**
@@ -16,9 +13,7 @@ interface NavigationHelperInterface : NavigationHelperBaseInterface {
      */
     fun setOnDestinationChangedListener(activity: FragmentActivity, listener: (CharSequence?, String) -> Unit)
 
-    /**
-     *
-     */
+
     fun linkToBottomNavigation(activity: FragmentActivity, bottomNavigationView: BottomNavigationView)
 
     /**

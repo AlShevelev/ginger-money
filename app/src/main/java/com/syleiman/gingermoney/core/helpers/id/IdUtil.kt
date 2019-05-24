@@ -4,9 +4,6 @@ import java.nio.ByteBuffer
 import java.util.*
 
 object IdUtil {
-    /**
-     *
-     */
     fun generateLongId(): Long {
         val id = UUID.randomUUID()
 

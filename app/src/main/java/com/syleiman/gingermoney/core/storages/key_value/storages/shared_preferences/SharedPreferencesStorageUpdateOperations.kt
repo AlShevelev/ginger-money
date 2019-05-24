@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Base64
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
 
-/** */
 class SharedPreferencesStorageUpdateOperations(context: Context, name: String): StorageCommitOperationsInterface {
     private val preferencesEditor = context.getSharedPreferences(name, Context.MODE_PRIVATE).edit()
 

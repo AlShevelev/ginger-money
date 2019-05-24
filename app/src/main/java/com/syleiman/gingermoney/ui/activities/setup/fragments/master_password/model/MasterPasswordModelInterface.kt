@@ -3,13 +3,8 @@ package com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.m
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseInterface
 
-/**
- *
- */
 interface MasterPasswordModelInterface: ModelBaseInterface {
-    /**
-     *
-     */
+
     val passwordMaxLen: Int
 
     /**
