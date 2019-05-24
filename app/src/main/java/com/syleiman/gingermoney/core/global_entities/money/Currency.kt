@@ -1,5 +1,6 @@
 package com.syleiman.gingermoney.core.global_entities.money
 
+import com.syleiman.gingermoney.core.helpers.MathEx
 import java.util.Currency as JavaCurrency
 
 /**
@@ -11,10 +12,16 @@ enum class Currency(val value: Byte, val symbol: Char) {
     RUB(2, '\u20bd');
 
     /**
-     * Quantity of cents in one unit of the currency
+     * Quantity of cents digits in one unit of the currency
      */
     val centDigits: Int
     get() = getJavaCurrency().defaultFractionDigits
+
+    /**
+     * How many cents in a one unit of the currency
+     */
+    val centsFactor: Int
+    get() = MathEx.pow10(centDigits).toInt()
 
     companion object Create {
         fun from(sourceValue: Byte): Currency = values().first { it.value == sourceValue }

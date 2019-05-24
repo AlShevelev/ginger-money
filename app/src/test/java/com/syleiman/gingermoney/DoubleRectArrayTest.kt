@@ -5,27 +5,18 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class DoubleRectArrayTest {
-    /**
-     *
-     */
     @Test(expected = IllegalArgumentException::class)
     fun createInvalidRows() {
         // Arrange
         DoubleRectArray(0, 5)
     }
 
-    /**
-     *
-     */
     @Test(expected = IllegalArgumentException::class)
     fun createInvalidCols() {
         // Arrange
         DoubleRectArray(5, 0)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun getInvalidRowBottomBoundary() {
         // Arrange
@@ -35,9 +26,6 @@ class DoubleRectArrayTest {
         array.get(-1, 2)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun getInvalidRowTopBoundary() {
         // Arrange
@@ -47,9 +35,6 @@ class DoubleRectArrayTest {
         array.get(5, 2)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun getInvalidColBottomBoundary() {
         // Arrange
@@ -59,9 +44,6 @@ class DoubleRectArrayTest {
         array.get(2, -1)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun getInvalidColTopBoundary() {
         // Arrange
@@ -71,9 +53,6 @@ class DoubleRectArrayTest {
         array.get(2, 5)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun setInvalidRowBottomBoundary() {
         // Arrange
@@ -83,9 +62,6 @@ class DoubleRectArrayTest {
         array.set(-1, 2, 42.0)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun setInvalidRowTopBoundary() {
         // Arrange
@@ -95,9 +71,6 @@ class DoubleRectArrayTest {
         array.set(5, 2, 42.0)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun setInvalidColBottomBoundary() {
         // Arrange
@@ -107,9 +80,6 @@ class DoubleRectArrayTest {
         array.set(2, -1, 42.0)
     }
 
-    /**
-     *
-     */
     @Test(expected = ArrayIndexOutOfBoundsException::class)
     fun setInvalidColTopBoundary() {
         // Arrange
@@ -119,9 +89,6 @@ class DoubleRectArrayTest {
         array.set(2, 5, 42.0)
     }
 
-    /**
-     *
-     */
     @Test
     fun getSetFirstItem() {
         // Arrange
@@ -136,9 +103,6 @@ class DoubleRectArrayTest {
         assertEquals(valueSet, valueGet, 0.001)
     }
 
-    /**
-     *
-     */
     @Test
     fun getSetLastItem() {
         // Arrange

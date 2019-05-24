@@ -5,9 +5,6 @@ import org.junit.Assert
 import org.junit.Test
 
 class ExchangeRateMatrixTest {
-    /**
-     *
-     */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun createExchangeRateSetEmpty() {
         // Arrange
@@ -184,5 +181,3 @@ class ExchangeRateMatrixTest {
                 ExchangeRate(Currency.EUR, Currency.USD, 0.874),
                 ExchangeRate(Currency.RUB, Currency.USD, 66.666)))
 }
-
-// Test martix's compatibility - try to convert money

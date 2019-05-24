@@ -19,6 +19,9 @@ import kotlinx.android.synthetic.main.fragment_add_edit_account_add.*
  * Add accounts page
  */
 class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAccountModelInterface, AddAccountViewModel>() {
+
+    private lateinit var amountKeyboard: AmountKeyboard
+
     /**
      *
      */
@@ -57,7 +60,7 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
      */
     override fun processViewCommand(command: ViewCommand) {
         when (command) {
-            is ShowAmountKeyboard -> AmountKeyboard(root, requireContext()).show()
+            is ShowAmountKeyboard -> showAmountKeyboard(command)
         }
     }
 
@@ -82,5 +85,16 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
         ) { resultIndex ->
             resultIndex?.also { viewModel.onAccountGroupSelected(it) }
         }
+    }
+
+    /**
+     *
+     */
+    private fun showAmountKeyboard(command: ShowAmountKeyboard) {
+        if(!::amountKeyboard.isInitialized) {
+            amountKeyboard = AmountKeyboard(root, requireContext(), command.currencies)
+            amountKeyboard.setOnEditingListener { viewModel.onAmountEdit(it) }
+        }
+        amountKeyboard.show(command.value)
     }
 }

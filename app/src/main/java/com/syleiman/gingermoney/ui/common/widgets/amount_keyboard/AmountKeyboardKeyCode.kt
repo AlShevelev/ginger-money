@@ -1,8 +1,5 @@
 package com.syleiman.gingermoney.ui.common.widgets.amount_keyboard
 
-/**
- *
- */
 enum class AmountKeyboardKeyCode {
     KEY_1,
     KEY_2,

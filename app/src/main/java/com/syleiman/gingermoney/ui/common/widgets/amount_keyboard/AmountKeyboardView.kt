@@ -5,12 +5,10 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.syleiman.gingermoney.R
+import com.syleiman.gingermoney.core.global_entities.money.Currency
 import kotlinx.android.synthetic.main.popup_amount_keyboard.view.*
 import java.lang.UnsupportedOperationException
 
-/**
- *
- */
 class AmountKeyboardView
 @JvmOverloads
 constructor(
@@ -22,9 +20,6 @@ constructor(
 
     private var onKeyClickListener: ((AmountKeyboardKeyCode) -> Unit)? = null
 
-    /**
-     *
-     */
     init {
         inflate(context, R.layout.popup_amount_keyboard, this)
 
@@ -47,16 +42,10 @@ constructor(
         signButton.setOnClickListener(this)
     }
 
-    /**
-     *
-     */
     fun setOnKeyClickListener(listener: ((AmountKeyboardKeyCode) -> Unit)?) {
         onKeyClickListener = listener
     }
 
-    /**
-     *
-     */
     fun setButtonState(code: AmountKeyboardKeyCode, isEnabled: Boolean) {
         val button = when(code) {
             AmountKeyboardKeyCode.KEY_0 -> digit0Button
@@ -81,9 +70,10 @@ constructor(
         button.isEnabled = isEnabled
     }
 
-    /**
-     * 
-     */
+    fun setCurrency(currency: Currency) {
+        switchCurrencyButton.text = currency.symbol.toString()
+    }
+
     override fun onClick(view: View?) {
         view.let { 
             val code = when(it) {

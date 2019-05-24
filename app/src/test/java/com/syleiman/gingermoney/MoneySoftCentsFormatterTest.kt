@@ -1,320 +1,59 @@
 package com.syleiman.gingermoney
 
 import com.syleiman.gingermoney.core.global_entities.money.Currency
+import com.syleiman.gingermoney.core.global_entities.money.Money
 import com.syleiman.gingermoney.ui.common.formatters.MoneySoftCentsFormatter
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import org.junit.runner.RunWith
+import org.junit.runners.Parameterized
 
-class MoneySoftCentsFormatterTest {
-    @Test
-    fun zeroCase1() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(0.00)
-        val formatter = MoneySoftCentsFormatter()
+@RunWith(Parameterized::class)
+class MoneySoftCentsFormatterTest(private val sourceMoney: Money, private val expectedString: String, private val tag: String) {
+    companion object {
+        @JvmStatic
+        @Parameterized.Parameters
+        fun data() : Collection<Array<Any>> {
+            return listOf(
+                arrayOf(Currency.USD.toMoney(0.00), "0", "zeroCase1"),
+                arrayOf(Currency.USD.toMoney(-0.00), "0", "zeroCase1Negative"),
+                arrayOf(Currency.USD.toMoney(0.4), "0.4", "zeroCase2"),
+                arrayOf(Currency.USD.toMoney(-0.4), "-0.4", "zeroCase2Negative"),
+                arrayOf(Currency.USD.toMoney(0.02), "0.02", "zeroCase3"),
+                arrayOf(Currency.USD.toMoney(-0.02), "-0.02", "zeroCase3Negative"),
+                arrayOf(Currency.USD.toMoney(0.42), "0.42", "zeroCase4"),
+                arrayOf(Currency.USD.toMoney(-0.42), "-0.42", "zeroCase4Negative"),
 
-        // Act
-        val stringValue = formatter.format(moneyValue)
+                arrayOf(Currency.USD.toMoney(1.00), "1", "oneCase1"),
+                arrayOf(Currency.USD.toMoney(-1.00), "-1", "oneCase1Negative"),
+                arrayOf(Currency.USD.toMoney(1.4), "1.4", "oneCase2"),
+                arrayOf(Currency.USD.toMoney(-1.4), "-1.4", "oneCase2Negative"),
+                arrayOf(Currency.USD.toMoney(1.02), "1.02", "oneCase3"),
+                arrayOf(Currency.USD.toMoney(-1.02), "-1.02", "oneCase3Negative"),
+                arrayOf(Currency.USD.toMoney(1.42), "1.42", "oneCase4"),
+                arrayOf(Currency.USD.toMoney(-1.42), "-1.42", "oneCase4Negative"),
 
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 0", stringValue)
+                arrayOf(Currency.USD.toMoney(10.00), "10", "ten"),
+                arrayOf(Currency.USD.toMoney(-10.00), "-10", "tenNegative"),
+                arrayOf(Currency.USD.toMoney(100.00), "100", "oneHundred"),
+                arrayOf(Currency.USD.toMoney(-100.00), "-100", "oneHundredNegative"),
+                arrayOf(Currency.USD.toMoney(1000.00), "1,000", "oneThousand"),
+                arrayOf(Currency.USD.toMoney(-1000.00), "-1,000", "oneThousandNegative"),
+                arrayOf(Currency.USD.toMoney(1000000.00), "1,000,000", "oneMillion"),
+                arrayOf(Currency.USD.toMoney(-1000000.00), "-1,000,000", "oneMillionNegative")
+            )
+        }
     }
 
     @Test
-    fun zeroCase1Negative() {
+    fun test() {
         // Arrange
-        val moneyValue = Currency.USD.toMoney(-0.00)
         val formatter = MoneySoftCentsFormatter()
 
         // Act
-        val stringValue = formatter.format(moneyValue)
+        val stringValue = formatter.format(sourceMoney)
 
         // Assert
-        assertEquals("${moneyValue.currency.symbol} 0", stringValue)
-    }
-
-    @Test
-    fun zeroCase2() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(0.4)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 0.4", stringValue)
-    }
-
-    @Test
-    fun zeroCase2Negative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-0.4)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -0.4", stringValue)
-    }
-
-    @Test
-    fun zeroCase3() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(0.02)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 0.02", stringValue)
-    }
-
-    @Test
-    fun zeroCase3Negative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-0.02)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -0.02", stringValue)
-    }
-
-    @Test
-    fun zeroCase4() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(0.42)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 0.42", stringValue)
-    }
-
-    @Test
-    fun zeroCase4Negative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-0.42)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -0.42", stringValue)
-    }
-
-    @Test
-    fun oneCase1() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(1.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 1", stringValue)
-    }
-
-    @Test
-    fun oneCase1Negative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-1.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -1", stringValue)
-    }
-
-    @Test
-    fun oneCase2() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(1.4)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 1.4", stringValue)
-    }
-
-    @Test
-    fun oneCase2Negative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-1.4)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -1.4", stringValue)
-    }
-
-    @Test
-    fun oneCase3() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(1.02)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 1.02", stringValue)
-    }
-
-    @Test
-    fun oneCase3Negative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-1.02)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -1.02", stringValue)
-    }
-
-    @Test
-    fun oneCase4() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(1.42)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 1.42", stringValue)
-    }
-
-    @Test
-    fun oneCase4Negative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-1.42)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -1.42", stringValue)
-    }
-
-    @Test
-    fun ten() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(10.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 10", stringValue)
-    }
-
-    @Test
-    fun tenNegative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-10.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -10", stringValue)
-    }
-
-    @Test
-    fun oneHundred() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(100.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 100", stringValue)
-    }
-
-    @Test
-    fun oneHundredNegative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-100.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -100", stringValue)
-    }
-
-    @Test
-    fun oneThousand() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(1000.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 1,000", stringValue)
-    }
-
-    @Test
-    fun oneThousandNegative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-1000.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -1,000", stringValue)
-    }
-
-    @Test
-    fun oneMillion() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(1000000.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} 1,000,000", stringValue)
-    }
-
-    @Test
-    fun oneMillionNegative() {
-        // Arrange
-        val moneyValue = Currency.USD.toMoney(-1000000.00)
-        val formatter = MoneySoftCentsFormatter()
-
-        // Act
-        val stringValue = formatter.format(moneyValue)
-
-        // Assert
-        assertEquals("${moneyValue.currency.symbol} -1,000,000", stringValue)
+        assertEquals("[$tag] test fail!", "${sourceMoney.currency.symbol} $expectedString", stringValue)
     }
 }

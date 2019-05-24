@@ -40,4 +40,10 @@ constructor(
             AccountGroup.SHARES,
             AccountGroup.BONDS,
             AccountGroup.OTHER)
+
+    /**
+     *
+     */
+    override fun getAllCurrencies(): List<Currency> = listOf(Currency.USD, Currency.EUR, Currency.RUB)
+
 }

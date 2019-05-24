@@ -13,6 +13,7 @@ class Money {
      * How many cents in a one unit of money
      */
     val centsFactor: Int
+    get() = currency.centsFactor
 
     /**
      *
@@ -31,7 +32,6 @@ class Money {
      */
     constructor(totalCents: Long, currency: Currency) {
         this.currency = currency
-        centsFactor = calculateCentFactor()
 
         this.totalCents = totalCents
     }
@@ -42,7 +42,6 @@ class Money {
      */
     constructor(value: Double, currency: Currency) {
         this.currency = currency
-        centsFactor = calculateCentFactor()
 
         this.totalCents = Math.round(value * centsFactor)
     }
@@ -124,13 +123,6 @@ class Money {
     operator fun compareTo(otherMoney: Money): Int {
         checkOperationPossibility(otherMoney)
         return totalCents.compareTo(otherMoney.totalCents)
-    }
-
-    /**
-     *
-     */
-    private fun calculateCentFactor(): Int {
-        return Math.pow(10.0, currency.centDigits.toDouble()).toInt()
     }
 
     /**

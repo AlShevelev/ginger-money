@@ -76,19 +76,6 @@
             style="@style/App.TextField.Label"
         />
 
-        <TextView
-            android:text="@string/commonCurrency"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/currencyLabel"
-            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
-            app:layout_constraintTop_toBottomOf="@+id/memoLabel"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
-
-            style="@style/App.TextField.Label"
-        />
-
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -125,6 +112,7 @@
             android:id="@+id/amountText"
 
             android:onClick="@{() -> viewModel.onAmountClick()}"
+            android:text="@{viewModel.amount}"
 
             android:focusable="false"
 
@@ -150,80 +138,6 @@
             app:layout_constraintTop_toTopOf="@+id/memoLabel"
             app:layout_constraintBottom_toBottomOf="@+id/memoLabel"
             tools:ignore="Autofill,LabelFor"/>
-
-        <RadioGroup
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/currencyGroup"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
-            android:orientation="horizontal"
-
-            app:selected_currency="@{viewModel.currency}"
-
-            app:layout_constraintStart_toStartOf="@+id/guideline"
-            app:layout_constraintBottom_toBottomOf="@+id/currencyLabel"
-            app:layout_constraintTop_toTopOf="@+id/currencyLabel">
-
-            <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
-                android:id="@+id/usdSwitcher"
-
-                android:text="@string/currencyUsdShort"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
-                style="@style/App.CurrencyRadioButton.Dark.Small"
-
-                app:drawableRadioButton_icon = "@drawable/ic_usd"
-                app:drawableRadioButton_iconTint = "@color/black"
-                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
-                android:paddingEnd="@dimen/addEditAccountUSDPadding"
-
-                android:tag="USD"
-                tools:ignore="RtlSymmetry"/>
-
-            <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
-                android:id="@+id/eurSwitcher"
-
-                android:text="@string/currencyEurShort"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
-                android:layout_marginStart="@dimen/currencyRadioButtonGap"
-                android:layout_marginEnd="@dimen/currencyRadioButtonGap"
-
-                style="@style/App.CurrencyRadioButton.Dark.Small"
-
-                app:drawableRadioButton_icon = "@drawable/ic_eur"
-                app:drawableRadioButton_iconTint = "@color/black"
-                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
-                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
-                android:paddingEnd="@dimen/addEditAccountCurrencyPadding"
-
-                android:tag="EUR"
-                tools:ignore="RtlSymmetry"/>
-
-            <com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
-                android:id="@+id/rubSwitcher"
-
-                android:text="@string/currencyRubShort"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-
-                style="@style/App.CurrencyRadioButton.Dark.Small"
-
-                app:drawableRadioButton_icon = "@drawable/ic_rub"
-                app:drawableRadioButton_iconTint = "@color/black"
-                app:drawableRadioButton_iconSize="@dimen/currencyRadioButtonIcon"
-                app:drawableRadioButton_iconMargin="@dimen/currencyRadioButtonIconMargin"
-                android:paddingEnd="@dimen/addEditAccountCurrencyPadding"
-
-                android:tag="RUB"
-                tools:ignore="RtlSymmetry"/>
-        </RadioGroup>
 
         <!--<editor-fold desc="Loading stub">-->
         <com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator

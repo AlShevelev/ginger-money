@@ -18,4 +18,9 @@ interface AddAccountModelInterface: ModelBaseInterface {
      *
      */
     fun getAllAccountGroups(): List<AccountGroup>
+
+    /**
+     *
+     */
+    fun getAllCurrencies(): List<Currency>
 }

@@ -6,10 +6,6 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class MoneyTest {
-
-    /**
-     *
-     */
     @Test
     fun createUSDFromCents() {
         // Act
@@ -21,9 +17,6 @@ class MoneyTest {
         assertEquals(100, money.centsFactor)
     }
 
-    /**
-     *
-     */
     @Test
     fun createUSDFromValue() {
         // Act
@@ -35,9 +28,6 @@ class MoneyTest {
         assertEquals(100, money.centsFactor)
     }
 
-    /**
-     *
-     */
     @Test
     fun createEURFromCents() {
         // Act
@@ -49,9 +39,6 @@ class MoneyTest {
         assertEquals(100, money.centsFactor)
     }
 
-    /**
-     *
-     */
     @Test
     fun createEURFromValue() {
         // Act
@@ -63,9 +50,6 @@ class MoneyTest {
         assertEquals(100, money.centsFactor)
     }
 
-    /**
-     *
-     */
     @Test
     fun createRUBFromCents() {
         // Act
@@ -77,9 +61,6 @@ class MoneyTest {
         assertEquals(100, money.centsFactor)
     }
 
-    /**
-     *
-     */
     @Test
     fun createRUBFromValue() {
         // Act
@@ -91,9 +72,6 @@ class MoneyTest {
         assertEquals(100, money.centsFactor)
     }
 
-    /**
-     *
-     */
     @Test
     fun createFromZeroCents() {
         // Act
@@ -103,9 +81,6 @@ class MoneyTest {
         assertEquals(0.00, money.value, 0.001)
     }
 
-    /**
-     *
-     */
     @Test
     fun createFromZeroValue() {
         // Act
@@ -115,9 +90,6 @@ class MoneyTest {
         assertEquals(0.00, money.value, 0.001)
     }
 
-    /**
-     *
-     */
     @Test
     fun createFromNegativeCents() {
         // Act
@@ -127,9 +99,6 @@ class MoneyTest {
         assertEquals(-0.5, money.value, 0.001)
     }
 
-    /**
-     *
-     */
     @Test
     fun createFromNegativeValue() {
         // Act
@@ -139,9 +108,6 @@ class MoneyTest {
         assertEquals(-0.5, money.value, 0.001)
     }
 
-    /**
-     *
-     */
     @Test
     fun add() {
         // Arrange
@@ -155,9 +121,6 @@ class MoneyTest {
         assertEquals(Currency.USD.toMoney(2.61), result)
     }
 
-    /**
-     *
-     */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun addFail() {
         // Arrange
@@ -168,9 +131,6 @@ class MoneyTest {
         money1 + money2
     }
 
-    /**
-     *
-     */
     @Test
     fun subtract() {
         // Arrange
@@ -184,9 +144,6 @@ class MoneyTest {
         assertEquals(Currency.USD.toMoney(0.03), result)
     }
 
-    /**
-     *
-     */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun subtractFail() {
         // Arrange
@@ -197,9 +154,6 @@ class MoneyTest {
         money1 - money2
     }
 
-    /**
-     *
-     */
     @Test
     fun compareToEquals() {
         // Arrange
@@ -213,9 +167,6 @@ class MoneyTest {
         assertEquals(true, result)
     }
 
-    /**
-     *
-     */
     @Test
     fun compareToGreater() {
         // Arrange
@@ -229,9 +180,6 @@ class MoneyTest {
         assertEquals(true, result)
     }
 
-    /**
-     *
-     */
     @Test
     fun compareToLess() {
         // Arrange
@@ -245,9 +193,6 @@ class MoneyTest {
         assertEquals(true, result)
     }
 
-    /**
-     *
-     */
     @Test(expected = IncorrectMoneyOperationException::class)
     fun compareToFail() {
         // Arrange
@@ -297,9 +242,6 @@ class MoneyTest {
         money1.convertTo(rate)
     }
 
-    /**
-     *
-     */
     @Test
     fun convertTo() {
         // Arrange
