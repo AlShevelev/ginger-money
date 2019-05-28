@@ -17,7 +17,11 @@ import java.net.HttpURLConnection
 import java.net.URL
 import javax.inject.Inject
 
-class UpdateCurrencyRatesWorker(context : Context, params : WorkerParameters) : Worker(context, params) {
+class UpdateCurrencyRatesWorker(
+    context : Context,
+    params : WorkerParameters
+) : Worker(context, params) {
+
     companion object {
         private val RUB_USD_QUERY_KEY = "${Currency.USD}_${Currency.RUB}"
         private val EUR_USD_QUERY_KEY = "${Currency.USD}_${Currency.EUR}"

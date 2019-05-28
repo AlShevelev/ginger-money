@@ -30,7 +30,7 @@ class DependencyInjectionStorage(private val appContext: Context) {
 
     fun releaseComponent(type: KClass<*>) = components.remove(type)
 
-    @Suppress("IMPLICIT_CAST_TO_ANY", "UNCHECKED_CAST", "DEPRECATION")
+    @Suppress("IMPLICIT_CAST_TO_ANY", "UNCHECKED_CAST")
     private fun <T>provideComponent(type: KClass<*>, args: Array<out Any>): T {
         return when(type) {
             AppComponent::class -> DaggerAppComponent.builder().appModule(AppModule(appContext)).build()

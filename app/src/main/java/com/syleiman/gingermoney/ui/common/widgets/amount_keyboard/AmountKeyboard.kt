@@ -39,9 +39,6 @@ class AmountKeyboard (
     @Inject
     internal lateinit var appResourceProvider: AppResourcesProviderInterface
 
-    @Inject
-    internal lateinit var uiUtilsInterface: UIUtilsInterface
-
     init{
         App.injections.get<UIComponent>().inject(this)
 
@@ -67,7 +64,6 @@ class AmountKeyboard (
 
         view.setCurrency(getNextCurrency(currentState.currency))
 
-        uiUtilsInterface.setSoftKeyboardVisibility(context, rootView, false)
         showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 
         // Processes Back button action

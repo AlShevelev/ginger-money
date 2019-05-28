@@ -4,7 +4,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.Money
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 
-data class ShowAmountKeyboard(
+class ShowAmountKeyboard(
     val value: Money,
     val currencies: List<Currency>
 ): ViewCommand

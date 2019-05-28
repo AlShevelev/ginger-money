@@ -34,7 +34,6 @@ class RecentIconsCollection {
         }
     }
 
-
     suspend fun save(context: Context) {
         withContext(Dispatchers.IO) {
             synchronized(this@RecentIconsCollection) {

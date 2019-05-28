@@ -8,7 +8,6 @@ import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-@Suppress("LeakingThis")
 abstract class ViewModelBase<TModel : ModelBaseInterface> : ViewModel(), CoroutineScope {
 
     private val scopeJob: Job = SupervisorJob()

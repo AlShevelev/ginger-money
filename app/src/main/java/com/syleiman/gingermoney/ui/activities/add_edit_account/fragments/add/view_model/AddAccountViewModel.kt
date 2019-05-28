@@ -3,13 +3,11 @@ package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.vi
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.Money
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelInterface
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_commands.ShowAmountKeyboard
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_commands.StartSelectAccountGroupCommand
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_commands.*
 import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
 import com.syleiman.gingermoney.ui.common.formatters.MoneySoftCentsFormatter
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
@@ -41,6 +39,8 @@ class AddAccountViewModel : ViewModelBase<AddAccountModelInterface>() {
     }
 
     fun onAmountClick() {
+        command.value = HideSoftKeyboard()
+        command.value = HideEmojiKeyboard()
         command.value = ShowAmountKeyboard(amountRaw, model.getAllCurrencies())
     }
 
@@ -49,6 +49,23 @@ class AddAccountViewModel : ViewModelBase<AddAccountModelInterface>() {
 
         val formatter = if(result.hasCents) MoneyHardCentsFormatter() else MoneySoftCentsFormatter()
         amount.value = formatter.format(result.value)
+    }
+
+    fun onMemoTextFieldFocusChanged(hasFocus: Boolean) {
+        if(hasFocus) {
+            command.value = HideAmountKeyboard()
+            command.value = HideEmojiKeyboard()
+        }
+    }
+
+    fun onNameTextFieldFocusChanged(hasFocus: Boolean) {
+        if(hasFocus) {
+            command.value = HideAmountKeyboard()
+        }
+    }
+
+    fun onEmojiKeyboardOpened() {
+        command.value = HideAmountKeyboard()
     }
 
     private fun initView() {

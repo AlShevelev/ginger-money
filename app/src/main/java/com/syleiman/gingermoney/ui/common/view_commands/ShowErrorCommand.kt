@@ -5,4 +5,6 @@ import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 /**
  * Show some error
  */
-data class ShowErrorCommand(val error: DisplayingError) : ViewCommand
+class ShowErrorCommand(
+    val error: DisplayingError
+) : ViewCommand

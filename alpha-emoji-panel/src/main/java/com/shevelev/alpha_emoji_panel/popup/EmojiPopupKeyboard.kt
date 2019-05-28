@@ -34,9 +34,10 @@ class EmojiPopupKeyboard (
     IconActions,
     CoroutineScope {
 
-    private var _onEmojiClickedListener: ((Emoji) -> Unit)? = null
-    private var _onKeyClickedListener: ((Int) -> Unit)? = null  // param is a key code
-    private var _onSoftKeyboardCloseListener: (() -> Unit)? = null
+    private var onEmojiClickedListener: ((Emoji) -> Unit)? = null
+    private var onKeyClickedListener: ((Int) -> Unit)? = null  // param is a key code
+    private var onSoftKeyboardCloseListener: (() -> Unit)? = null
+    private var onOpenListener: (() -> Unit)? = null
 
     private var pendingOpen: Boolean = false
     private var isOpened: Boolean = false
@@ -97,34 +98,34 @@ class EmojiPopupKeyboard (
         })
 
         popupView.setOnClickListenerBackButton(View.OnClickListener {
-            _onKeyClickedListener?.invoke(KeyEvent.KEYCODE_DEL)
+            onKeyClickedListener?.invoke(KeyEvent.KEYCODE_DEL)
         })
 
         popupView.setOnClickListenerSpaceButton(View.OnClickListener {
-            _onKeyClickedListener?.invoke(KeyEvent.KEYCODE_SPACE)
+            onKeyClickedListener?.invoke(KeyEvent.KEYCODE_SPACE)
         })
     }
 
     /**
      * Set the listener for the event of keyboard closing.
      */
-    fun setOnSoftKeyboardCloseListener(listener: () -> Unit) {
-        _onSoftKeyboardCloseListener = listener
+    fun setOnSoftKeyboardCloseListener(listener: (() -> Unit)?) {
+        onSoftKeyboardCloseListener = listener
     }
 
     /**
      * Set the listener for the event when any of the emoji icon is clicked
      */
-    fun setOnEmojiClickedListener(listener: (Emoji) -> Unit) {
-        _onEmojiClickedListener = listener
+    fun setOnEmojiClickedListener(listener: ((Emoji) -> Unit)?) {
+        onEmojiClickedListener = listener
     }
 
     /**
      * Set the listener for the extra keys (backspace & space)
      * [listener] only param is a key code
      */
-    fun setOnKeyClickedListener(listener: (Int) -> Unit) {
-        _onKeyClickedListener = listener
+    fun setOnKeyClickedListener(listener: ((Int) -> Unit)?) {
+        onKeyClickedListener = listener
     }
 
     /**
@@ -152,6 +153,8 @@ class EmojiPopupKeyboard (
                 }
                 true
             }
+
+            onOpenListener?.invoke()
         }
     }
 
@@ -231,7 +234,7 @@ class EmojiPopupKeyboard (
             }
 
             is SimpleIcon -> {
-                _onEmojiClickedListener?.invoke(icon.icon)
+                onEmojiClickedListener?.invoke(icon.icon)
 
                 if(recentIconsCollection.add(icon)) {
                     recentIconsAdapter.updateData(recentIconsCollection.icons)
@@ -243,6 +246,10 @@ class EmojiPopupKeyboard (
                 }
             }
         }
+    }
+
+    fun setOnOpenListener(listener: (() -> Unit)?) {
+        onOpenListener = listener
     }
 
     @SuppressLint("InflateParams")
@@ -267,7 +274,7 @@ class EmojiPopupKeyboard (
         } else {
             // Keyboard is closed
             isOpened = false
-            _onSoftKeyboardCloseListener?.invoke()
+            onSoftKeyboardCloseListener?.invoke()
         }
     }
 

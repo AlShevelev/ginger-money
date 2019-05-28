@@ -42,9 +42,7 @@ constructor(
 
         //If the text keyboard closes, also dismiss the emoji popup
         popup.setOnSoftKeyboardCloseListener {
-            if (popup.isShowing) {
-                popup.dismiss()
-            }
+            hide()
         }
 
         //On emoji clicked, add it to editText
@@ -82,6 +80,14 @@ constructor(
             emojiEditText = v
         }
     }
+
+    fun hide() {
+        if (popup.isShowing) {
+            popup.dismiss()
+        }
+    }
+
+    fun setOnKeyboardOpenListener(listener: (() -> Unit)?) = popup.setOnOpenListener(listener)
 
     private fun showForEditText() {
         emojiButton.setOnClickListener {
