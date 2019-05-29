@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.ui.common.widgets
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.Log
@@ -26,6 +27,8 @@ constructor(
     @Px
     private var iconHeight: Int = 0
 
+    private var tint: ColorStateList? = null
+
     init {
         scaleType = ScaleType.FIT_XY
         attrs?.let { retrieveAttributes(it) }
@@ -40,6 +43,7 @@ constructor(
 
         setPadding(horizontalPadding, verticalPadding, horizontalPadding, verticalPadding)
 
+        tint?.let { icon.setTintList(it) }
         setImageDrawable(icon)
 
         super.onLayout(changed, left, top, right, bottom)
@@ -52,6 +56,8 @@ constructor(
 
         iconWidth = typedArray.getDimension(R.styleable.ImageButtonFixedIconSize_imageButton_iconWidth, 0f).toInt()
         iconHeight = typedArray.getDimension(R.styleable.ImageButtonFixedIconSize_imageButton_iconHeight, 0f).toInt()
+
+        tint = typedArray.getColorStateList(R.styleable.ImageButtonFixedIconSize_imageButton_tint)
 
         typedArray.recycle()
     }

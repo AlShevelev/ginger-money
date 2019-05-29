@@ -25,23 +25,24 @@
         android:tag="TITLE"
     />
 
-    <ImageButton
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
         android:id="@+id/addButton"
 
-        android:layout_width="@dimen/buttonIconSize"
-        android:layout_height="@dimen/buttonIconSize"
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
 
-        app:srcCompat="@drawable/ic_add"
-        app:tint="@color/header_button"
         android:background="@null"
-        android:scaleType="fitCenter"
-        android:scaleX="0.5"
-        android:scaleY="0.5"
+
+        app:imageButton_tint = "@color/header_button"
+        app:imageButton_icon="@drawable/ic_add"
+        app:imageButton_iconWidth="@dimen/headerButtonIconSize"
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
 
         android:layout_marginEnd="@dimen/headerButtonMargin"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="ContentDescription"/>
+    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

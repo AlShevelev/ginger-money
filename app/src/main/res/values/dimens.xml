@@ -13,10 +13,6 @@
     <dimen name="toastMargin">8dp</dimen>
     <!--</editor-fold>-->
 
-    <!--<editor-fold desc="General button">-->
-    <dimen name="buttonIconSize">40dp</dimen>
-    <!--</editor-fold>-->
-
     <!--<editor-fold desc="EditText with an icon">-->
     <dimen name="textEditIconSize">20dp</dimen>
     <dimen name="textEditIconMargin">8dp</dimen>
@@ -27,6 +23,8 @@
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Headers">-->
+    <dimen name="headerButtonSize">40dp</dimen>
+    <dimen name="headerButtonIconSize">20dp</dimen>
     <dimen name="headerMargin">11dp</dimen>
     <dimen name="headerButtonMargin">2dp</dimen>
     <!--</editor-fold>-->

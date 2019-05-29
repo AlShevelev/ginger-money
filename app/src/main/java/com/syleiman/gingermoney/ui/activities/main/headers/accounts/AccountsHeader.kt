@@ -23,9 +23,8 @@ constructor(
         /**
          * Create header and attach it to a toolbar
          */
-        fun create(context: Context, title: CharSequence?, toolbar: Toolbar) = AccountsHeader(
-            context
-        ).setup(title, toolbar)
+        fun create(context: Context, title: CharSequence?, toolbar: Toolbar) =
+            AccountsHeader(context).setup(title, toolbar)
     }
 
     @Inject

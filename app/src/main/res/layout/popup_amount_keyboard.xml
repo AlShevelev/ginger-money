@@ -144,6 +144,7 @@
         style="@style/App.AmountKeyboard.Button"
         tools:ignore="ContentDescription"
     />
+
     <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
         android:layout_width="0dp"
         android:layout_height="0dp"

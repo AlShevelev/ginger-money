@@ -26,5 +26,6 @@
         <attr name="imageButton_icon" format="reference" />
         <attr name="imageButton_iconWidth" format="dimension" />
         <attr name="imageButton_iconHeight" format="dimension" />
+        <attr name="imageButton_tint" format="reference" />
     </declare-styleable>
 </resources>
