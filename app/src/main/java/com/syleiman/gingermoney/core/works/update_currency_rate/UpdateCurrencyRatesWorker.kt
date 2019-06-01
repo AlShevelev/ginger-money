@@ -89,7 +89,7 @@ class UpdateCurrencyRatesWorker(
 
     private fun storeRates(rates: List<ExchangeRate>): Any? =
         try {
-            db.storeSourceExchangeRates(rates)
+            db.updateSourceExchangeRates(rates)
             true
         } catch (ex: Exception) {
             ex.printStackTrace()

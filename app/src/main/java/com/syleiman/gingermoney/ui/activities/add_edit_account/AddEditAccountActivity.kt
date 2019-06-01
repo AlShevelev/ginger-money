@@ -30,15 +30,14 @@ class AddEditAccountActivity : AppCompatActivity() {
 
         setSupportActionBar(addEditAccountToolbar)
 
-        val startAction = intent.extras!!.getString(ACCOUNT_ACTION)
-        when(startAction) {
+        when(intent.extras!!.getString(ACCOUNT_ACTION)) {
             ADD -> navigation.setAddAccountAsHome(this)
             EDIT -> navigation.setEditAccountAsHome(this)
         }
 
         AddEditAccountHeader.create(this, navigation.getTitle(this), addEditAccountToolbar)
 
-        backButton.setOnClickListener { onBackPressed() }
+        backButton.setOnClickListener { navigation.moveBack(this) }
     }
 
     override fun onBackPressed() {

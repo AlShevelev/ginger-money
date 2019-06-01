@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.ui.common.navigation
 
 import android.os.Bundle
+import androidx.annotation.CallSuper
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -14,9 +15,18 @@ abstract class NavigationHelperBase(@IdRes private val navHostId: Int) : Navigat
     /**
      * Move back in back stack
      */
-    override fun moveBack(currentFragment: Fragment) {
-        getNavigationController(currentFragment).popBackStack()
+    override fun moveBack(currentFragment: Fragment, finishCurrentActivity: Boolean) {
+        if(finishCurrentActivity) {
+            moveBack(currentFragment.activity!!)
+        } else {
+            getNavigationController(currentFragment).popBackStack()
+        }
     }
+
+    /**
+     * Move back in back stack
+     */
+    override fun moveBack(currentActivity: FragmentActivity) = currentActivity.onBackPressed()
 
     /**
      * Move to some destination

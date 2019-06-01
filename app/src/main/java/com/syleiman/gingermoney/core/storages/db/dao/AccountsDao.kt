@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.core.storages.db.dao
 
 import androidx.room.Dao
+import androidx.room.Insert
 import androidx.room.Query
 import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
 
@@ -11,4 +12,7 @@ import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
 interface AccountsDao {
     @Query("select * from account")
     fun getAll(): List<AccountDb>
+
+    @Insert
+    fun insert(account: AccountDb)
 }

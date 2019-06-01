@@ -83,7 +83,7 @@
 
             style="@style/App.TextField.Text"
 
-            app:selected_group = "@{viewModel.group}"
+            app:account_group = "@{viewModel.group}"
             android:onClick="@{() -> viewModel.onAccountGroupClick()}"
 
             android:focusable="false"
@@ -99,6 +99,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/nameText"
+
+            app:emoji_text="@{viewModel.name}"
+            app:max_length="@{viewModel.nameMaxLen}"
 
             app:layout_constraintStart_toStartOf="@+id/guideline"
             android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
@@ -132,12 +135,35 @@
 
             style="@style/App.TextField.Text"
 
+            android:text="@{viewModel.memo}"
+            android:maxLength="@{viewModel.memoMaxLen}"
+
             android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/memoLabel"
             app:layout_constraintBottom_toBottomOf="@+id/memoLabel"
             tools:ignore="Autofill,LabelFor"/>
+
+        <Button
+            android:layout_width="@dimen/actionButtonWidth"
+            android:layout_height="@dimen/actionButtonHeight"
+
+            android:id="@+id/saveButton"
+
+            android:text="@string/commonSave"
+
+            style="@style/App.ActionButton"
+
+            android:layout_marginTop="@dimen/actionButtonTopMargin"
+
+            android:onClick="@{() -> viewModel.onSaveButtonClick()}"
+            android:enabled="@{viewModel.buttonsEnabled}"
+
+            app:layout_constraintTop_toBottomOf="@+id/memoText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <!--<editor-fold desc="Loading stub">-->
         <com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator

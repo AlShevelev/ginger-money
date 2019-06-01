@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_commands
+package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.view_commands
 
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.Money

@@ -109,4 +109,9 @@
     <string name="addEditAccountAddTitle">Добавить счет</string>
     <string name="addEditAccountEditTitle">Отредактировать счет</string>
     <string name="addEditAccountGroupDialogTitle">Категория счета</string>
+
+    <string name="addEditAccountGroupIsEmptyError">Группа счета не может быть пустой</string>
+    <string name="addEditAccountMemoIsTooLongError">Заметка слишком длинная</string>
+    <string name="addEditAccountNameIsEmptyError">Имя счета не может быть пустым</string>
+    <string name="addEditAccountNameIsTooLongError">Имя счета слишком длинное</string>
 </resources>

@@ -133,4 +133,9 @@
     <string name="addEditAccountAddTitle">Add account</string>
     <string name="addEditAccountEditTitle">Edit account</string>
     <string name="addEditAccountGroupDialogTitle">Account group</string>
+
+    <string name="addEditAccountGroupIsEmptyError">Group of account can\'t be empty</string>
+    <string name="addEditAccountMemoIsTooLongError">Memo value is too long</string>
+    <string name="addEditAccountNameIsEmptyError">Name of account can\'t be empty</string>
+    <string name="addEditAccountNameIsTooLongError">Name of account is too long</string>
 </resources>

@@ -2,4 +2,7 @@
 <resources>
     <integer name="masterPasswordMinLen">4</integer>
     <integer name="masterPasswordMaxLen">32</integer>
+
+    <integer name="accountNameMaxLen">32</integer>
+    <integer name="accountMemoMaxLen">32</integer>
 </resources>

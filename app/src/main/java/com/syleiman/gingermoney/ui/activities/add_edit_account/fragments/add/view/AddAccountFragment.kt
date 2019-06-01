@@ -7,11 +7,18 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentAddEditAccountAddBinding
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.GroupIsEmpty
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.MemoIsTooLong
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.NameIsEmpty
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.NameIsTooLong
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelInterface
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_commands.*
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.view_commands.*
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.view_model.AddAccountViewModel
+import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
+import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
 import kotlinx.android.synthetic.main.fragment_add_edit_account_add.*
@@ -26,6 +33,9 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
 
     @Inject
     internal lateinit var uiUtilsInterface: UIUtilsInterface
+
+    @Inject
+    internal lateinit var navigation: NavigationHelperInterface
 
     override fun provideViewModelType(): Class<AddAccountViewModel> = AddAccountViewModel::class.java
 
@@ -59,6 +69,8 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
             is HideSoftKeyboard -> hideSoftKeyboard()
             is HideEmojiKeyboard -> hideEmojiKeyboard()
             is HideAmountKeyboard -> hideAmountKeyboard()
+            is ShowErrorCommand -> showError(command.error)
+            is MoveBackViewCommand -> navigation.moveBack(this, true)
             else -> throw UnsupportedOperationException("This command is not supported: $command")
         }
     }
@@ -105,5 +117,16 @@ class AddAccountFragment : FragmentBase<FragmentAddEditAccountAddBinding, AddAcc
         if(::amountKeyboard.isInitialized) {
             amountKeyboard.hide()
         }
+    }
+
+    private fun showError(error: DisplayingError) {
+        val errorResId = when(error) {
+            is GroupIsEmpty -> R.string.addEditAccountGroupIsEmptyError
+            is MemoIsTooLong -> R.string.addEditAccountMemoIsTooLongError
+            is NameIsEmpty -> R.string.addEditAccountNameIsEmptyError
+            is NameIsTooLong -> R.string.addEditAccountNameIsTooLongError
+            else -> throw java.lang.UnsupportedOperationException("Command is not supported: ${error::class.simpleName}")
+        }
+        uiUtils.showError(requireContext(), resourcesProvider.getString(errorResId))
     }
 }

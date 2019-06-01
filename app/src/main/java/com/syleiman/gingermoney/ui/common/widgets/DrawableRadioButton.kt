@@ -68,7 +68,7 @@ constructor(
         val height = (bottom - top).toFloat()
 
         // The icon is hidden for small screens
-        if(height / width > 0.5) {
+        if(height / width > 0.8) {
             Handler(Looper.getMainLooper()).post {
                 setCompoundDrawables(null, null, null, null)
             }

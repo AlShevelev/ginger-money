@@ -9,7 +9,8 @@ import javax.inject.Inject
 class NavigationHelper
 @Inject
 constructor() : NavigationHelperBase(R.id.addEditAccountNavHostFragment), NavigationHelperInterface {
-   override fun setAddAccountAsHome(activity: FragmentActivity) = setHome(R.id.addAccountFragment, activity)
+
+    override fun setAddAccountAsHome(activity: FragmentActivity) = setHome(R.id.addAccountFragment, activity)
 
     override fun setEditAccountAsHome(activity: FragmentActivity)  = setHome(R.id.editAccountFragment, activity)
 

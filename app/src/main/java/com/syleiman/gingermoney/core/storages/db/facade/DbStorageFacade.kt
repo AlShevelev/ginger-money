@@ -12,8 +12,7 @@ class DbStorageFacade
 constructor(
     private val db: DbCoreRunInterface
 ) : DbStorageFacadeInterface {
-
-    override fun storeSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>) {
+    override fun updateSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>) {
         db.runInTransaction { dbCore ->
             dbCore.sourceExchangeRate.clear()
             dbCore.sourceExchangeRate.insert(sourceExchangeRates.map { it.mapToDb() })
@@ -29,4 +28,10 @@ constructor(
         db.run { dbCore ->
             dbCore.accounts.getAll().map { it.map() }
         }
+
+    override fun addAccount(account: Account) {
+        db.run { dbCore ->
+            dbCore.accounts.insert(account.mapToDb())
+        }
+    }
 }

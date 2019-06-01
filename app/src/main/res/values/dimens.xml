@@ -29,6 +29,12 @@
     <dimen name="headerButtonMargin">2dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Login, Save etc.">-->
+    <dimen name="actionButtonTopMargin">20dp</dimen>
+    <dimen name="actionButtonWidth">146dp</dimen>
+    <dimen name="actionButtonHeight">39dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Main activity">-->
     <dimen name="noDataIcon">60dp</dimen>
     <dimen name="noDataTextMargin">8dp</dimen>
@@ -72,9 +78,6 @@
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Setups">-->
-    <dimen name="loginButtonTop">20dp</dimen>
-    <dimen name="loginButtonWidth">146dp</dimen>
-    <dimen name="loginButtonHeight">39dp</dimen>
     <dimen name="setupFingerprintImageWidth">80dp</dimen>
     <dimen name="setupFingerprintImagePadding">15dp</dimen>
     <dimen name="setupFingerprintImageTop">38dp</dimen>
