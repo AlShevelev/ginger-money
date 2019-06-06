@@ -99,7 +99,12 @@ class Money {
      */
     fun convertTo(rate: ExchangeRate): Money {
         checkExchangePossibility(rate)
-        return Money(value / rate.quoteFactor, rate.to)
+
+        return if(rate.from == rate.to) {
+            Money(this.totalCents, this.currency)
+        } else {
+            Money(value / rate.quoteFactor, rate.to)
+        }
     }
 
 
@@ -127,10 +132,6 @@ class Money {
     private fun checkExchangePossibility(rate: ExchangeRate) {
         if(currency != rate.from) {
             throw IncorrectMoneyOperationException("The Operation is possible only between the same currencies")
-        }
-
-        if(rate.from == rate.to) {
-            throw IncorrectMoneyOperationException("Invalid exchange rate - you can't convert the currency to the same currency")
         }
 
         if(rate.quoteFactor < 0) {

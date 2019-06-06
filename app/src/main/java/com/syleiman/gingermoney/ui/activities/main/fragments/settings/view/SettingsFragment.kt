@@ -6,13 +6,13 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.databinding.FragmentMainSettingsBinding
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
-import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.SelectCurrencyDialog
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectAppProtectionMethodCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectDefaultCurrencyCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectStartDayOfWeekCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.SelectCurrencyDialog
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import org.threeten.bp.DayOfWeek
@@ -26,7 +26,7 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
 
     override fun provideLayout(): Int = R.layout.fragment_main_settings
 
-    override fun inject() = App.injections.get<MainActivityComponent>().inject(this)
+    override fun inject() = App.injections.get<SettingsFragmentComponent>().inject(this)
 
     override fun linkViewModel(binding: FragmentMainSettingsBinding, viewModel: SettingsViewModel) {
         binding.viewModel = viewModel

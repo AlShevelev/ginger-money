@@ -13,13 +13,18 @@
     <dimen name="toastMargin">8dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="List items">-->
+    <dimen name="listItemHeight">44dp</dimen>
+    <dimen name="listItemSizeMargin">12dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="EditText with an icon">-->
     <dimen name="textEditIconSize">20dp</dimen>
     <dimen name="textEditIconMargin">8dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="General text field">-->
-    <dimen name="textFieldPadding">6dp</dimen>
+    <dimen name="textFieldPadding">6dp</dimen>77
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Headers">-->
@@ -94,10 +99,20 @@
     <dimen name="settingsCurrencyDialogLinesGap">20dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Accounts">-->
+    <dimen name="accountsListItemMenuButtonWidth">41dp</dimen>
+    <dimen name="accountsListItemMenuButtonIconWidth">5dp</dimen>
+    <dimen name="accountsListItemMenuButtonIconHeight">20dp</dimen>
+    <dimen name="accountsListItemStrokeWidth">1dp</dimen>
+    <dimen name="accountsListItemStrokeOffset">-1dp</dimen>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Add & Edit accounts">-->
     <dimen name="addEditAccountFieldsBarrier">85dp</dimen>
     <dimen name="addEditAccountFieldsMarginTop">14dp</dimen>
     <dimen name="addEditAccountFieldsMarginSide">12dp</dimen>
     <dimen name="addEditAccountFieldsLabelsGap">27dp</dimen>
     <dimen name="addEditAccountUSDPadding">8dp</dimen>
     <dimen name="addEditAccountCurrencyPadding">14dp</dimen>
+    <!--</editor-fold>-->
 </resources>

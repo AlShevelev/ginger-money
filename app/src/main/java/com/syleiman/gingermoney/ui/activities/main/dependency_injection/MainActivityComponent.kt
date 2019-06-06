@@ -2,15 +2,13 @@ package com.syleiman.gingermoney.ui.activities.main.dependency_injection
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.ActivityScope
 import com.syleiman.gingermoney.ui.activities.main.MainActivity
-import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
-import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view.SettingsFragment
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.settings.SettingsHeader
 import dagger.Subcomponent
 
-@Subcomponent(modules = [MainActivityModuleBinds::class])
+@Subcomponent(modules = [MainActivityModuleBinds::class, MainActivityModuleChilds::class])
 @ActivityScope
 interface MainActivityComponent {
 
@@ -19,13 +17,13 @@ interface MainActivityComponent {
         fun build(): MainActivityComponent
     }
 
+    val accountsFragment: AccountsFragmentComponent.Builder
+
+    val settingsFragment: SettingsFragmentComponent.Builder
+
     fun inject(activity : MainActivity)
 
     fun inject(header : SettingsHeader)
-    fun inject(fragment : SettingsFragment)
-    fun inject(viewModel: SettingsViewModel)
 
     fun inject(header : AccountsHeader)
-    fun inject(fragment : AccountsFragment)
-    fun inject(viewModel: AccountsViewModel)
 }

@@ -18,7 +18,7 @@ constructor() : WorksManagerInterface {
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        val updateWork = PeriodicWorkRequestBuilder<UpdateCurrencyRatesWorker>(3, TimeUnit.HOURS)
+        val updateWork = PeriodicWorkRequestBuilder<UpdateCurrencyRatesWorker>(6, TimeUnit.HOURS)
             .setConstraints(updateConstraints)
             .build()
 

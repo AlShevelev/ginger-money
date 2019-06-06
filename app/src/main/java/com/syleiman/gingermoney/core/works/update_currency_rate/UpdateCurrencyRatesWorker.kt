@@ -51,10 +51,11 @@ class UpdateCurrencyRatesWorker(
      * @return null in case of error
      */
     private fun processServerRequest(): String? {
-        val baseUriString = "https://free.currencyconverterapi.com/api/v6/convert"
-        val fullUriString = "$baseUriString?q=$RUB_USD_QUERY_KEY,$EUR_USD_QUERY_KEY"
+        val baseUri = "https://free.currencyconverterapi.com/api/v6/convert"
+        val apiKeyString = "apiKey=6e0cd2c3f42de678235c"
+        val fullUri = "$baseUri?q=$RUB_USD_QUERY_KEY,$EUR_USD_QUERY_KEY&$apiKeyString"
 
-        val url = URL(fullUriString)
+        val url = URL(fullUri)
         var connection: HttpURLConnection? = null
 
         // We don't need to use Retrofit or ktor or "pure" okHttp for such simple case

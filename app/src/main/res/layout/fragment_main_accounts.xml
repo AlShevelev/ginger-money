@@ -16,6 +16,15 @@
         android:background="@drawable/bcg_activity_page"
         tools:context=".ui.activities.main.fragments.accounts.view.AccountsFragment">
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/accountsList"
+
+            tools:visibility="visible"
+            android:visibility="@{viewModel.accountsListVisibility}"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
         <!--<editor-fold desc="No data stub">-->
         <ImageView
             android:id="@+id/noDataStubIcon"
@@ -63,7 +72,8 @@
         <com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:visibility="@{viewModel.loadingVisibility}" />
+            android:visibility="@{viewModel.loadingVisibility}" >
+        </com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator>
         <!--</editor-fold>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>

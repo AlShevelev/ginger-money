@@ -3,7 +3,7 @@ package com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_mode
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
-import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectAppProtectionMethodCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectDefaultCurrencyCommand
@@ -17,7 +17,7 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
     val buttonsEnabled: MutableLiveData<Boolean> = MutableLiveData()
 
     init {
-        App.injections.get<MainActivityComponent>().inject(this)
+        App.injections.get<SettingsFragmentComponent>().inject(this)
 
         buttonsEnabled.value = true
     }

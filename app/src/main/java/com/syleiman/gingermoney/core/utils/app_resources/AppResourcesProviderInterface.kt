@@ -3,6 +3,7 @@ package com.syleiman.gingermoney.core.utils.app_resources
 import androidx.annotation.*
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
+import com.syleiman.gingermoney.dto.enums.Color
 import org.threeten.bp.DayOfWeek
 
 interface AppResourcesProviderInterface {
@@ -19,6 +20,9 @@ interface AppResourcesProviderInterface {
 
     @ColorInt
     fun getColor(@ColorRes resId: Int): Int
+
+    @ColorInt
+    fun getColor(color: Color): Int
 
     /**
      * Get dimension value in pixels

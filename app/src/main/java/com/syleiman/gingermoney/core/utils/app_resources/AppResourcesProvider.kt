@@ -7,6 +7,7 @@ import androidx.annotation.*
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
+import com.syleiman.gingermoney.dto.enums.Color
 import org.threeten.bp.DayOfWeek
 import java.lang.UnsupportedOperationException
 import java.text.MessageFormat
@@ -43,6 +44,30 @@ constructor(
         } else {
             appContext.resources.getColor(resId)
         }
+
+    @ColorInt
+    override fun getColor(color: Color): Int =
+        when(color) {
+            Color.BLACK -> getColor(R.color.black)
+            Color.WHITE -> getColor(R.color.white)
+            Color.RED -> getColor(R.color.red)
+            Color.PINK -> getColor(R.color.pink)
+            Color.PURPLE -> getColor(R.color.purple)
+            Color.DEEP_PURPLE -> getColor(R.color.deepPurple)
+            Color.INDIGO -> getColor(R.color.indigo)
+            Color.BLUE -> getColor(R.color.blue)
+            Color.LIGHT_BLUE -> getColor(R.color.lightBlue)
+            Color.CYAN -> getColor(R.color.cyan)
+            Color.TEAL -> getColor(R.color.teal)
+            Color.GREEN -> getColor(R.color.green)
+            Color.LIGHT_GREEN -> getColor(R.color.lightGreen)
+            Color.LIME -> getColor(R.color.lime)
+            Color.YELLOW -> getColor(R.color.yellow)
+            Color.AMBER -> getColor(R.color.amber)
+            Color.ORANGE -> getColor(R.color.orange)
+            Color.DEEP_ORANGE -> getColor(R.color.deepOrange)
+        }
+
 
     /**
      * Get dimension value in pixels

@@ -219,14 +219,17 @@ class MoneyTest {
     /**
      * Invalid exchange rate - "from" currency as same as "to"
      */
-    @Test(expected = IncorrectMoneyOperationException::class)
     fun convertToFailInvalidExchangeRateSameCurrency() {
         // Arrange
         val money1 = Currency.USD.toMoney(1.316)
         val rate = Currency.USD.toExchangeRate(Currency.USD, 5.0)
 
         // Act
-        money1.convertTo(rate)
+        val result = money1.convertTo(rate)
+
+        // Assert
+        assertEquals(Currency.USD, result.currency)
+        assertEquals(1.316, result.value, 0.001)
     }
 
     /**

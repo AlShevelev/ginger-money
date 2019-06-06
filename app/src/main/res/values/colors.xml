@@ -9,6 +9,7 @@
 
     <color name="gray">#afafaf</color>
     <color name="lightGray">#ebebeb</color>
+    <color name="ultraLightGray">@color/textOnPrimary</color>
     <color name="darkGray">#828282</color>
 
     <color name="lightGrayHalfTransparent">#80EBEBEB</color>

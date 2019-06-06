@@ -41,6 +41,8 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        inject()
+
         _viewModel = ViewModelProviders.of(this).get(provideViewModelType())
 
         _viewModel.command.observe({this.lifecycle}) {
@@ -51,8 +53,6 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        inject()
-
         binding = DataBindingUtil.inflate(inflater, provideLayout(), container, false)
         binding.lifecycleOwner = this
 
@@ -60,14 +60,21 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
         return binding.root
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        releaseInjection()
+    }
+
     abstract fun provideViewModelType(): Class<TVM>
 
     @LayoutRes
-    abstract fun provideLayout(): Int
+    protected abstract fun provideLayout(): Int
 
-    abstract fun inject()
+    protected abstract fun inject()
 
-    abstract fun linkViewModel(binding: TB, viewModel: TVM)
+    protected open fun releaseInjection() {}
+
+    protected abstract fun linkViewModel(binding: TB, viewModel: TVM)
 
     protected open fun processViewCommand(command: ViewCommand) {}
 

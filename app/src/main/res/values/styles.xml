@@ -12,6 +12,17 @@
         <item name="android:textColor">@color/textOnPrimary</item>
     </style>
 
+    <!-- Common text label -->
+    <style name="App.TextField.Label" parent="App.Text.OnPrimary">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="App.TextField.Label.End" parent="App.TextField.Label">
+        <item name="android:textAlignment">textEnd</item>
+    </style>
+
     <!-- No data stub - text -->
     <style name="App.Activity.NoData.Text" parent="App.Text.OnPrimary">
         <item name="android:textColor">@color/gray</item>
@@ -21,12 +32,6 @@
     </style>
 
     <!-- Setup screen -->
-    <style name="App.TextField.Label" parent="App.Text.OnPrimary">
-        <item name="android:textSize">@dimen/textSizeSmall</item>
-        <item name="android:textAlignment">textStart</item>
-        <item name="android:textColor">@color/black</item>
-    </style>
-
     <style name="App.TextField.Text" parent="TextAppearance.AppCompat">
         <item name="android:inputType">text</item>
         <item name="android:ems">10</item>
