@@ -17,6 +17,8 @@ class ExchangeRateSourceData(private val db: DbStorageFacadeInterface) {
      */
     fun getRates(baseCurrency: Currency): List<ExchangeRate> {
         val sourceRates = db.getSourceExchangeRates()
+            .takeIf { it.isNotEmpty() }
+            ?: getDefaultData()
 
         val recalculationNeeded = validate(sourceRates, baseCurrency)
 
@@ -73,4 +75,12 @@ class ExchangeRateSourceData(private val db: DbStorageFacadeInterface) {
             .map { ExchangeRate(it.from, newBaseCurrency, it.quoteFactor * baseFactor) }
             .plus(ExchangeRate(rates[newBaseCurrencyIndex].to, newBaseCurrency, baseFactor))
     }
+
+    /**
+     * Returns exchange rates if source data is empty
+     */
+    private fun getDefaultData(): List<ExchangeRate> =
+        listOf(
+            ExchangeRate(Currency.RUB, Currency.USD, 65.0),
+            ExchangeRate(Currency.EUR, Currency.USD, 0.87))
 }
