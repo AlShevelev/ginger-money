@@ -7,8 +7,10 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.application.dependency_injection.AppComponent
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
+import com.syleiman.gingermoney.core.global_entities.money.ExchangeRateSourceData
 import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacadeInterface
 import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
+import dagger.Lazy
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.BufferedInputStream
@@ -28,10 +30,10 @@ class UpdateCurrencyRatesWorker(
     }
 
     @Inject
-    internal lateinit var crashlytics: CrashlyticsUtilsInterface
+    internal lateinit var crashlytics: Lazy<CrashlyticsUtilsInterface>
 
     @Inject
-    internal lateinit var db: DbStorageFacadeInterface
+    internal lateinit var db: Lazy<DbStorageFacadeInterface>
 
     init {
         App.injections.get<AppComponent>().inject(this)
@@ -64,7 +66,7 @@ class UpdateCurrencyRatesWorker(
             BufferedInputStream(connection.inputStream).use { it.reader().readText() }
         } catch (ex: IOException) {
             ex.printStackTrace()
-            crashlytics.log(ex)
+            crashlytics.get().log(ex)
 
             null
         }
@@ -83,18 +85,18 @@ class UpdateCurrencyRatesWorker(
             listOf(ExchangeRate(Currency.RUB, Currency.USD, rubToUsdRate), ExchangeRate(Currency.EUR, Currency.USD, eurToUsdRate))
         } catch (ex: JSONException) {
             ex.printStackTrace()
-            crashlytics.log(ex)
+            crashlytics.get().log(ex)
 
             null
         }
 
     private fun storeRates(rates: List<ExchangeRate>): Any? =
         try {
-            db.updateSourceExchangeRates(rates)
+            ExchangeRateSourceData(db.get()).updateRates(rates)
             true
         } catch (ex: Exception) {
             ex.printStackTrace()
-            crashlytics.log(ex)
+            crashlytics.get().log(ex)
 
             null
         }

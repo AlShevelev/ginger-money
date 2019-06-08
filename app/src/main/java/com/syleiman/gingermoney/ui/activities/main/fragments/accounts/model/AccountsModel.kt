@@ -1,6 +1,7 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model
 
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRateMatrix
+import com.syleiman.gingermoney.core.global_entities.money.ExchangeRateSourceData
 import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacadeInterface
 import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInterface
 import com.syleiman.gingermoney.dto.enums.Color
@@ -23,8 +24,8 @@ constructor(
     override suspend fun getListItems(): ModelCallResult<out List<ListItem>> =
         getValue {
             val defaultCurrency = keyValueStorage.getDefaultCurrency()
-            val exchangeRates = db.getSourceExchangeRates()
-            val exchangeMatrix = ExchangeRateMatrix(defaultCurrency!!, exchangeRates)
+            val sourceExchangeRates = ExchangeRateSourceData(db)
+            val exchangeMatrix = ExchangeRateMatrix(defaultCurrency!!, sourceExchangeRates.getRates(defaultCurrency))
 
             val result = mutableListOf<ListItem>()
 

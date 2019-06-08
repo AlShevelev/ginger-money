@@ -15,38 +15,10 @@ class ExchangeRateMatrix(private val baseCurrency: Currency, private val exchang
     private val matrix = DoubleRectArray(totalCurrencies, totalCurrencies)
 
     init {
-        validateSourceData()
         calculateMatrix()
     }
 
     fun getExchangeRate(from: Currency, to: Currency) = ExchangeRate(from, to, getValue(from, to))
-
-    private fun validateSourceData() {
-        if(exchangeRates.size != Currency.values().size-1) {
-            throw IncorrectMoneyOperationException("Invalid length of an exchange rates list")
-        }
-
-        val processedCurrency = mutableSetOf<Currency>()
-
-        exchangeRates.forEach { exchangeRate ->
-            if(exchangeRate.quoteFactor <= 0.0) {
-                throw IncorrectMoneyOperationException("A value of a quote must be positive")
-            }
-
-            if(exchangeRate.to != baseCurrency) {
-                throw IncorrectMoneyOperationException("Invalid target value: ${exchangeRate.to}")
-            }
-
-            if(exchangeRate.from == baseCurrency) {
-                throw IncorrectMoneyOperationException("Invalid source value: ${exchangeRate.from}")
-            }
-
-            if(processedCurrency.contains(exchangeRate.from)) {
-                throw IncorrectMoneyOperationException("Source value (${exchangeRate.from}) must be unique")
-            }
-            processedCurrency.add(exchangeRate.from)
-        }
-    }
 
     private fun calculateMatrix() {
         // Set quote for a base currency
