@@ -10,7 +10,7 @@
               android:label="@string/addEditAccountAddTitle"
               tools:layout="@layout/fragment_add_edit_account_add"/>
     <fragment android:id="@+id/editAccountFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.EditAccountFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.view.EditAccountFragment"
               android:label="@string/addEditAccountEditTitle"
               tools:layout="@layout/fragment_add_edit_account_edit"/>
 </navigation>

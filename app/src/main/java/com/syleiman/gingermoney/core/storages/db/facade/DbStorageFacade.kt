@@ -12,6 +12,7 @@ class DbStorageFacade
 constructor(
     private val db: DbCoreRunInterface
 ) : DbStorageFacadeInterface {
+
     override fun updateSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>) {
         db.runInTransaction { dbCore ->
             dbCore.sourceExchangeRate.clear()
@@ -34,4 +35,26 @@ constructor(
             dbCore.accounts.insert(account.mapToDb())
         }
     }
+
+    override fun updateAccount(account: Account) {
+        db.run { dbCore ->
+            dbCore.accounts.update(account.mapToDb())
+        }
+    }
+
+    /**
+     * Get account by its Db id
+     */
+    override fun getAccount(id: Long): Account? =
+        db.run { dbCore ->
+            dbCore.accounts.get(id)?.map()
+        }
+
+    /**
+     * Returns true if an account has expenses
+     */
+    override fun hasExpenses(accountId: Long): Boolean =
+        db.run { dbCore ->
+            dbCore.expenses.exists(accountId)
+        }
 }

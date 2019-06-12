@@ -1,8 +1,10 @@
 package com.syleiman.gingermoney.ui.activities.add_edit_account.navigation
 
+import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.fragment.app.FragmentActivity
 import com.syleiman.gingermoney.R
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 import javax.inject.Inject
 
@@ -10,16 +12,22 @@ class NavigationHelper
 @Inject
 constructor() : NavigationHelperBase(R.id.addEditAccountNavHostFragment), NavigationHelperInterface {
 
-    override fun setAddAccountAsHome(activity: FragmentActivity) = setHome(R.id.addAccountFragment, activity)
+    override fun setAddAccountAsHome(activity: FragmentActivity) = setHome(R.id.addAccountFragment, activity, null)
 
-    override fun setEditAccountAsHome(activity: FragmentActivity)  = setHome(R.id.editAccountFragment, activity)
+    override fun setEditAccountAsHome(activity: FragmentActivity, accountDbId: Long)  {
 
-    private fun setHome(@IdRes id: Int, activity: FragmentActivity) {
+        val bundle = Bundle()
+        bundle.putLong(NavigationArgs.ACCOUNT_DB_ID, accountDbId)
+
+        setHome(R.id.editAccountFragment, activity, bundle)
+    }
+
+    private fun setHome(@IdRes id: Int, activity: FragmentActivity, destinationArgs: Bundle?) {
         val controller = getNavigationController(activity)
         val inflater = controller.navInflater
         val graph = inflater.inflate(R.navigation.activity_add_edit_account)
         graph.startDestination = id
-        controller.graph = graph
+        controller.setGraph(graph, destinationArgs)
     }
 
     override fun getTitle(activity: FragmentActivity) =

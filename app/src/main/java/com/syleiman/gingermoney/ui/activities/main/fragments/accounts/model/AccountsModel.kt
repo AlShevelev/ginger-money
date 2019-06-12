@@ -37,7 +37,7 @@ constructor(
                 .groupBy { it.accountGroup }
                 .map { (group, accounts) ->
                     var groupAmount = defaultCurrency.toMoney(0L)
-                    result.add(GroupListItem(group.value.toLong(), group, groupAmount, Color.BLUE, Color.BLACK))
+                    result.add(GroupListItem(group.value.toLong(), group, groupAmount, Color.YELLOW, Color.BLACK))
                     val groupIndex = result.lastIndex
 
                     accounts

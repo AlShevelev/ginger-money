@@ -9,11 +9,13 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.adapter.AccountsListAdapter
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders.GroupViewHolderItemDecoration
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLinkInterface
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
+import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import kotlinx.android.synthetic.main.fragment_main_accounts.*
 import javax.inject.Inject
 
@@ -66,7 +68,13 @@ class AccountsFragment :
         viewModel.onViewActive()
     }
 
-    override fun onAddButtonClick() = navigation.moveToAddEdiAccount(this)
+    override fun onAddButtonClick() = navigation.moveToAddAccount(this)
+
+    override fun processViewCommand(command: ViewCommand) {
+        when(command) {
+            is MoveToEditAccountCommand -> navigation.moveToEditAccount(this, command.accountDbId)
+        }
+    }
 
     private fun updateAccountsList(accounts: List<ListItem>) {
         if(!::accountsListAdapter.isInitialized) {

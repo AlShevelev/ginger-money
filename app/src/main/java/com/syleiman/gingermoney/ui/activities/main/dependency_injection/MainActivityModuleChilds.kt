@@ -8,5 +8,4 @@ import dagger.Module
     AccountsFragmentComponent::class,
     SettingsFragmentComponent::class
 ])
-class MainActivityModuleChilds {
-}
+class MainActivityModuleChilds

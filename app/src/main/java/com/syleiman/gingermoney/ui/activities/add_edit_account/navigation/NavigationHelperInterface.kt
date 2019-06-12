@@ -7,7 +7,7 @@ interface NavigationHelperInterface: NavigationHelperBaseInterface {
 
     fun setAddAccountAsHome(activity: FragmentActivity)
 
-    fun setEditAccountAsHome(activity: FragmentActivity)
+    fun setEditAccountAsHome(activity: FragmentActivity, accountDbId: Long)
 
     fun getTitle(activity: FragmentActivity): String
 

@@ -29,6 +29,8 @@ class AccountViewHolder(
                 itemView.name.text = it.name
                 itemView.amount.text = MoneyHardCentsFormatter().format(it.amount)
             }
+
+        itemView.setOnClickListener { eventsProcessor?.onAccountClick(listItem.dbId) }
     }
 
     /**
@@ -36,5 +38,6 @@ class AccountViewHolder(
      */
     override fun release() {
         eventsProcessor = null
+        itemView.setOnClickListener(null)
     }
 }

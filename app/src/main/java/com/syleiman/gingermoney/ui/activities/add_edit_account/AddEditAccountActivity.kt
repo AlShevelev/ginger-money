@@ -6,18 +6,15 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_ACTION
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_DB_ID
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ADD
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.EDIT
 import kotlinx.android.synthetic.main.activity_add_edit_account.*
 import kotlinx.android.synthetic.main.activity_add_edit_account_header.*
 import javax.inject.Inject
 
 class AddEditAccountActivity : AppCompatActivity() {
-    companion object {
-        const val ACCOUNT_ACTION = "ACCOUNT_ACTION"
-
-        const val ADD = "ADD"
-        const val EDIT = "EDIT"
-    }
-
     @Inject
     lateinit var navigation: NavigationHelperInterface
 
@@ -30,12 +27,20 @@ class AddEditAccountActivity : AppCompatActivity() {
 
         setSupportActionBar(addEditAccountToolbar)
 
-        when(intent.extras!!.getString(ACCOUNT_ACTION)) {
-            ADD -> navigation.setAddAccountAsHome(this)
-            EDIT -> navigation.setEditAccountAsHome(this)
-        }
+        var showDeleteButton = false
+        intent.extras
+            ?.let { extras ->
+                when(extras.getString(ACCOUNT_ACTION)) {
+                    ADD -> navigation.setAddAccountAsHome(this)
+                    EDIT -> {
+                        navigation.setEditAccountAsHome(this, extras.getLong(ACCOUNT_DB_ID))
+                        showDeleteButton = true
+                    }
+                }
+            }
 
-        AddEditAccountHeader.create(this, navigation.getTitle(this), addEditAccountToolbar)
+
+        AddEditAccountHeader.create(this, navigation.getTitle(this), addEditAccountToolbar, showDeleteButton)
 
         backButton.setOnClickListener { navigation.moveBack(this) }
     }

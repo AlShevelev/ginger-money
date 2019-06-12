@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
@@ -28,6 +29,10 @@ class AccountsViewModel : ViewModelBase<AccountsModelInterface>(), ListItemEvent
 
     fun onViewActive() {
         fillAccountsList()
+    }
+
+    override fun onAccountClick(accountDbId: Long) {
+        command.value = MoveToEditAccountCommand(accountDbId)
     }
 
     private fun fillAccountsList() {

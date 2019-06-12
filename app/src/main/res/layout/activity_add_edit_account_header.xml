@@ -42,4 +42,25 @@
         android:tag="TITLE"
     />
 
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
+        android:id="@+id/deleteButton"
+
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
+
+        android:background="@null"
+
+        app:imageButton_tint = "@color/header_button"
+        app:imageButton_icon="@drawable/ic_delete"
+        app:imageButton_iconWidth="@dimen/addEditAccountHeaderDeleteButtonWidth"
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        tools:visibility="visible"
+        android:visibility="gone"
+    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

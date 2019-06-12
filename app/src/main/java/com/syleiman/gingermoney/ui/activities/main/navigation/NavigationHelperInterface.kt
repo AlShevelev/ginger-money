@@ -17,7 +17,12 @@ interface NavigationHelperInterface : NavigationHelperBaseInterface {
     fun linkToBottomNavigation(activity: FragmentActivity, bottomNavigationView: BottomNavigationView)
 
     /**
-     * Move to add/edit account screen
+     * Move to "Add account" screen
      */
-    fun moveToAddEdiAccount(currentFragment: AccountsFragment)
+    fun moveToAddAccount(currentFragment: AccountsFragment)
+
+    /**
+     * Move to "Edit account" screen
+     */
+    fun moveToEditAccount(currentFragment: AccountsFragment, accountDbId: Long)
 }

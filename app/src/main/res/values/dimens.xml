@@ -114,5 +114,7 @@
     <dimen name="addEditAccountFieldsLabelsGap">27dp</dimen>
     <dimen name="addEditAccountUSDPadding">8dp</dimen>
     <dimen name="addEditAccountCurrencyPadding">14dp</dimen>
+
+    <dimen name="addEditAccountHeaderDeleteButtonWidth">16dp</dimen>
     <!--</editor-fold>-->
 </resources>

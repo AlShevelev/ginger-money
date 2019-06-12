@@ -8,10 +8,10 @@ import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInt
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.enums.AccountGroup
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.GroupIsEmpty
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.MemoIsTooLong
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.NameIsEmpty
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dto.errors.NameIsTooLong
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmpty
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.MemoIsTooLong
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.NameIsEmpty
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.NameIsTooLong
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
@@ -20,7 +20,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
-class AddAccountModel
+open class AddAccountModel
 @Inject
 constructor(
     private val keyValueStorage: KeyValueStorageFacadeInterface,
@@ -78,14 +78,14 @@ constructor(
         }
     }
 
-    private fun validateGroup(group: AccountGroup?): DisplayingError? = if(group != null) null else GroupIsEmpty()
+    protected fun validateGroup(group: AccountGroup?): DisplayingError? = if(group != null) null else GroupIsEmpty()
 
-    private fun validateName(name: String?): DisplayingError? =
+    protected fun validateName(name: String?): DisplayingError? =
         when {
             name.isNullOrEmpty() || name.isNullOrBlank() -> NameIsEmpty()
             name.length > nameMaxLen -> NameIsTooLong()
             else -> null
         }
 
-    private fun validateMemo(memo: String?) = memo?.takeIf { it.length > memoMaxLen }?.let { MemoIsTooLong() }
+    protected fun validateMemo(memo: String?) = memo?.takeIf { it.length > memoMaxLen }?.let { MemoIsTooLong() }
 }

@@ -22,7 +22,8 @@ import javax.inject.Inject
 class AmountKeyboard (
     private val rootView: View,
     private val context: Context,
-    private val currencies: List<Currency>
+    private val currencies: List<Currency>,
+    private val canEditCurrency: Boolean
 ) : PopupWindow(context) {
 
     private var backPressedCallbackCancellation: Cancellable? = null
@@ -63,6 +64,7 @@ class AmountKeyboard (
         onEditingListener?.invoke(AmountKeyboardEditingResult(currentState.toMoney(), currentState.hasCents))
 
         view.setCurrency(getNextCurrency(currentState.currency))
+        view.setButtonState(AmountKeyboardKeyCode.KEY_CURRENCY, canEditCurrency)
 
         showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 

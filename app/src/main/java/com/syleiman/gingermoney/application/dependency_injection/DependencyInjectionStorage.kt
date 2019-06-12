@@ -2,6 +2,9 @@ package com.syleiman.gingermoney.application.dependency_injection
 
 import android.content.Context
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dependency_injection.AddAccountFragmentComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentModule
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
@@ -48,6 +51,11 @@ class DependencyInjectionStorage(private val appContext: Context) {
             SettingsFragmentComponent::class -> get<MainActivityComponent>().settingsFragment.build()
 
             AddEditAccountActivityComponent::class -> get<UIComponent>().addEditAccountActivity.build()
+            AddAccountFragmentComponent::class -> get<AddEditAccountActivityComponent>().addAccountsFragment.build()
+            EditAccountFragmentComponent::class -> get<AddEditAccountActivityComponent>()
+                .editAccountsFragment
+                .init(EditAccountFragmentModule(args[0] as Long))
+                .build()
 
             else -> throw UnsupportedOperationException("This component is not supported: ${type.simpleName}")
         } as T
