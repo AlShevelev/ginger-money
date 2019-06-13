@@ -109,7 +109,6 @@ class ExchangeRateMatrixTest {
      */
     private fun createTestMatrix() : ExchangeRateMatrix =
         ExchangeRateMatrix(
-            Currency.USD,
             listOf(
                 ExchangeRate(Currency.EUR, Currency.USD, 0.874),
                 ExchangeRate(Currency.RUB, Currency.USD, 66.666)))

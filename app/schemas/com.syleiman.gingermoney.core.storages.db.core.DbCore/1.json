@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0be85d11a6b870ce21ad37c78c16cec4",
+    "identityHash": "8930fe331b84c3fa6c480171cb54c1d1",
     "entities": [
       {
         "tableName": "account",
@@ -221,11 +221,55 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "account_group_settings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_group_settings_id` INTEGER NOT NULL, `group` INTEGER, `currency` INTEGER, `foreground_color` INTEGER, `background_color` INTEGER, PRIMARY KEY(`account_group_settings_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "account_group_settings_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accountGroup",
+            "columnName": "group",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "currency",
+            "columnName": "currency",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "foregroundColor",
+            "columnName": "foreground_color",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "backgroundColor",
+            "columnName": "background_color",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "account_group_settings_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0be85d11a6b870ce21ad37c78c16cec4\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8930fe331b84c3fa6c480171cb54c1d1\")"
     ]
   }
 }

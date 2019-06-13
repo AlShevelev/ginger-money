@@ -1,26 +1,42 @@
 package com.syleiman.gingermoney.core.storages.db.facade
 
+import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.dto.entities.Account
+import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
+import com.syleiman.gingermoney.dto.enums.AccountGroup
+import com.syleiman.gingermoney.dto.enums.Color
 
 interface DbStorageFacadeInterface {
     fun updateSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>)
 
-    fun getSourceExchangeRates(): List<ExchangeRate>
+    fun readSourceExchangeRates(): List<ExchangeRate>
 
-    fun getAccounts(): List<Account>
+    fun readAccounts(): List<Account>
 
-    fun addAccount(account: Account)
+    fun createAccount(account: Account)
 
     fun updateAccount(account: Account)
 
     /**
      * Get account by its Db id
      */
-    fun getAccount(id: Long): Account?
+    fun readAccount(id: Long): Account?
 
     /**
      * Returns true if an account has expenses
      */
     fun hasExpenses(accountId: Long): Boolean
+
+    fun readAccountGroupSettings(): List<AccountGroupSettings>
+
+    /**
+     * [accountGroup] null in case of Total group
+     */
+    fun updateAccountGroupSettings(accountGroup: AccountGroup?, currency: Currency)
+
+    /**
+     * [accountGroup] null in case of Total group
+     */
+    fun updateAccountGroupSettings(accountGroup: AccountGroup?, foregroundColor: Color, backgroundColor: Color)
 }

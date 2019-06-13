@@ -31,7 +31,7 @@ constructor(
 
     override suspend fun getAccount(): ModelCallResult<out Account> =
         getValue {
-            db.getAccount(accountDbId)!!
+            db.readAccount(accountDbId)!!
         }
 
     override suspend fun canUpdateCurrency(): ModelCallResult<out Boolean> =

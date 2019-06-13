@@ -4,20 +4,16 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.syleiman.gingermoney.core.storages.db.dao.SourceExchangeRateDao
-import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
-import com.syleiman.gingermoney.core.storages.db.entities.ExpenseCategoryDb
-import com.syleiman.gingermoney.core.storages.db.entities.ExpenseDb
-import com.syleiman.gingermoney.core.storages.db.entities.SourceExchangeRateDb
-import com.syleiman.gingermoney.core.storages.db.type_converters.DateTimeTypeConverter
-import com.syleiman.gingermoney.core.storages.db.type_converters.EnumTypeConverter
-import com.syleiman.gingermoney.core.storages.db.type_converters.MoneyTypeConverter
+import com.syleiman.gingermoney.core.storages.db.entities.*
+import com.syleiman.gingermoney.core.storages.db.type_converters.*
 
 @Database(
     entities = [
         AccountDb::class,
         ExpenseCategoryDb::class,
         ExpenseDb::class,
-        SourceExchangeRateDb::class
+        SourceExchangeRateDb::class,
+        AccountGroupSettingsDb::class
     ],
     version = 1)
 @TypeConverters(

@@ -12,13 +12,13 @@ import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
 @Dao
 interface AccountsDao {
     @Query("select * from account")
-    fun getAll(): List<AccountDb>
+    fun readAll(): List<AccountDb>
 
     @Query("select * from account where account_id = :id")
-    fun get(id: Long): AccountDb?
+    fun read(id: Long): AccountDb?
 
     @Insert
-    fun insert(account: AccountDb)
+    fun create(account: AccountDb)
 
     @Update
     fun update(account: AccountDb)

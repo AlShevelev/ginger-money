@@ -11,11 +11,11 @@ import com.syleiman.gingermoney.core.storages.db.entities.SourceExchangeRateDb
 @Dao
 interface SourceExchangeRateDao {
     @Insert
-    fun insert(sourceExchangeRate: List<SourceExchangeRateDb>)
+    fun create(sourceExchangeRate: List<SourceExchangeRateDb>)
 
     @Query("select * from source_exchange_rate")
-    fun getAll(): List<SourceExchangeRateDb>
+    fun readAll(): List<SourceExchangeRateDb>
 
     @Query("delete from source_exchange_rate")
-    fun clear()
+    fun deleteAll()
 }

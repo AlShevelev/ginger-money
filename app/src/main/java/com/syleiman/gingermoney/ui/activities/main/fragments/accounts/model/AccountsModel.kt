@@ -1,9 +1,11 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model
 
+import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRateMatrix
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRateSourceData
 import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacadeInterface
 import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInterface
+import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.AccountListItem
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.GroupListItem
@@ -25,28 +27,36 @@ constructor(
         getValue {
             val defaultCurrency = keyValueStorage.getDefaultCurrency()
             val sourceExchangeRates = ExchangeRateSourceData(db)
-            val exchangeMatrix = ExchangeRateMatrix(defaultCurrency!!, sourceExchangeRates.getRates(defaultCurrency))
+            val exchangeMatrix = ExchangeRateMatrix(sourceExchangeRates.getRates())
+
+            val dbAccounts = db.readAccounts()
+
+            val allUsedGroups = dbAccounts.map { it.accountGroup }.distinct()
+            val headersSettings = calculateHeadersSettings(defaultCurrency!!, allUsedGroups)
 
             val result = mutableListOf<ListItem>()
 
-            var totalAmount = defaultCurrency.toMoney(0L)
+            var totalAmount = headersSettings.totalCurrency.toMoney(0L)
             result.add(TotalListItem(-1, totalAmount))
 
-            db.getAccounts()
+            dbAccounts
                 .sortedBy { it.accountGroup.value }
                 .groupBy { it.accountGroup }
                 .map { (group, accounts) ->
-                    var groupAmount = defaultCurrency.toMoney(0L)
+                    val groupSettings = headersSettings.groupsSettings[group]!!
+
+                    var groupAmount = groupSettings.currency.toMoney(0L)
                     result.add(GroupListItem(group.value.toLong(), group, groupAmount, Color.YELLOW, Color.BLACK))
                     val groupIndex = result.lastIndex
 
                     accounts
                         .sortedBy { it.name }
                         .forEach { account ->
-                            val rate = exchangeMatrix.getExchangeRate(account.amount.currency, defaultCurrency)
+                            val totalRate = exchangeMatrix.getExchangeRate(account.amount.currency, headersSettings.totalCurrency)
+                            val groupRate = exchangeMatrix.getExchangeRate(account.amount.currency, groupSettings.currency)
 
-                            totalAmount += account.amount.convertTo(rate)
-                            groupAmount += account.amount.convertTo(rate)
+                            totalAmount += account.amount.convertTo(totalRate)
+                            groupAmount += account.amount.convertTo(groupRate)
 
                             result.add(AccountListItem(account.id!!, account.id!!, account.name, account.amount))
                         }
@@ -57,4 +67,27 @@ constructor(
 
             result
         }
+
+    private fun calculateHeadersSettings(defaultCurrency: Currency, usedGroups: List<AccountGroup>): ListItemsSettings {
+        val dbGroupsSettings = db.readAccountGroupSettings()
+
+        val totalCurrency = dbGroupsSettings.firstOrNull { it.accountGroup == null }?.currency ?: defaultCurrency
+
+        val groupsSettings = mutableMapOf<AccountGroup,GroupListItemSettings>()
+
+        usedGroups.forEach { group ->
+            val dbGroupSettings = dbGroupsSettings.firstOrNull { it.accountGroup == group }
+
+            groupsSettings[group] = if(dbGroupSettings == null) {
+                GroupListItemSettings(defaultCurrency, Color.BLACK, Color.YELLOW)
+            } else {
+                GroupListItemSettings(
+                    dbGroupSettings.currency ?: defaultCurrency,
+                    dbGroupSettings.foregroundColor ?: Color.BLACK,
+                    dbGroupSettings.backgroundColor ?: Color.YELLOW)
+            }
+        }
+
+        return ListItemsSettings(totalCurrency, groupsSettings)
+    }
 }

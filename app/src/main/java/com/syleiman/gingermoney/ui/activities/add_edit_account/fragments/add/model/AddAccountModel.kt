@@ -68,7 +68,7 @@ constructor(
         } else {
             withContext(Dispatchers.IO) {
                 try {
-                    db.addAccount(Account(null, group!!, name!!, amount, memo))
+                    db.createAccount(Account(null, group!!, name!!, amount, memo))
                     null
                 } catch (ex: Exception) {
                     ex.printStackTrace()

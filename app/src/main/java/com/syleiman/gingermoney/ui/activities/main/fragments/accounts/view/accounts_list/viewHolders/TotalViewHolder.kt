@@ -1,7 +1,7 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders
 
-import android.view.LayoutInflater
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.widget.PopupMenu
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.TotalListItem
@@ -18,6 +18,8 @@ class TotalViewHolder(
 
     private var eventsProcessor: ListItemEventsProcessor? = null
 
+    private var popupMenu: PopupMenu? = null
+
     /**
      * UI elements must be initialized here
      */
@@ -28,6 +30,8 @@ class TotalViewHolder(
             .let {
                 itemView.amount.text = MoneyHardCentsFormatter().format(it.amount)
             }
+
+        itemView.menuButton.setOnClickListener { createMenu(it) }
     }
 
     /**
@@ -35,5 +39,17 @@ class TotalViewHolder(
      */
     override fun release() {
         eventsProcessor = null
+
+        itemView.menuButton.setOnClickListener(null)
+        popupMenu?.dismiss()
+    }
+
+    private fun createMenu(view: View) {
+        popupMenu = PopupMenu(view.context, view)
+            .apply {
+                val inflater: MenuInflater = this.menuInflater
+                inflater.inflate(R.menu.add_edit_account_total, this.menu)
+                this.show()
+            }
     }
 }

@@ -114,4 +114,7 @@
     <string name="addEditAccountMemoIsTooLongError">Заметка слишком длинная</string>
     <string name="addEditAccountNameIsEmptyError">Имя счета не может быть пустым</string>
     <string name="addEditAccountNameIsTooLongError">Имя счета слишком длинное</string>
+
+    <string name="addEditAccountMenuSelectCurrency">Валюта…</string>
+    <string name="addEditAccountMenuSelectColors">Цвета…</string>
 </resources>

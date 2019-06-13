@@ -1,7 +1,10 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders
 
 import android.view.LayoutInflater
+import android.view.MenuInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.PopupMenu
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
@@ -21,6 +24,9 @@ class GroupViewHolder(
 ) {
 
     private var eventsProcessor: ListItemEventsProcessor? = null
+
+    private var popupMenu: PopupMenu? = null
+
 
     @Inject
     internal lateinit var resProvider: AppResourcesProviderInterface
@@ -43,6 +49,8 @@ class GroupViewHolder(
                 itemView.amount.text = MoneyHardCentsFormatter().format(it.amount)
                 itemView.amount.setTextColor(resProvider.getColor(it.foregroundColor))
             }
+
+        itemView.menuButton.setOnClickListener { createMenu(it) }
     }
 
     /**
@@ -50,5 +58,17 @@ class GroupViewHolder(
      */
     override fun release() {
         eventsProcessor = null
+
+        itemView.menuButton.setOnClickListener(null)
+        popupMenu?.dismiss()
+    }
+
+    private fun createMenu(view: View) {
+        popupMenu = PopupMenu(view.context, view)
+            .apply {
+                val inflater: MenuInflater = this.menuInflater
+                inflater.inflate(R.menu.add_edit_account_group, this.menu)
+                this.show()
+            }
     }
 }
