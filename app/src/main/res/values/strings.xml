@@ -116,11 +116,14 @@
     <string name="mainAccountsShowSumIn">Show sum in…</string>
     <string name="mainAccountsShowAmount">show an amount of all accounts</string>
     <string name="mainAccountsSelectColors">Select colors</string>
+    <string name="mainAccountsSelectCurrency">Select currency</string>
     <string name="mainAccountsTextColor">Text color</string>
     <string name="mainAccountsBackgroundColor">Background color</string>
     <string name="mainAccountsAdd">Add account</string>
     <string name="mainAccountsSelectGroup">Select group</string>
     <string name="mainAccountsNoData">You have no account yet</string>
+    <string name="mainAccountsMenuSelectCurrency">Currency…</string>
+    <string name="mainAccountsMenuSelectColors">Colors…</string>
 
     <string name="mainSettings">Settings</string>
     <string name="mainSettingsApplicationProtection">Application protection</string>
@@ -138,7 +141,4 @@
     <string name="addEditAccountMemoIsTooLongError">Memo value is too long</string>
     <string name="addEditAccountNameIsEmptyError">Name of account can\'t be empty</string>
     <string name="addEditAccountNameIsTooLongError">Name of account is too long</string>
-
-    <string name="addEditAccountMenuSelectCurrency">Currency…</string>
-    <string name="addEditAccountMenuSelectColors">Colors…</string>
 </resources>

@@ -2,6 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/selectCurrency"
-        android:title="@string/addEditAccountMenuSelectCurrency"
+        android:title="@string/mainAccountsMenuSelectCurrency"
     />
 </menu>

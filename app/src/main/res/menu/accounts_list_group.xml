@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/selectCurrency"
-        android:title="@string/addEditAccountMenuSelectCurrency"
+        android:title="@string/mainAccountsMenuSelectCurrency"
     />
 
     <item
         android:id="@+id/selectColors"
-        android:title="@string/addEditAccountMenuSelectColors"
+        android:title="@string/mainAccountsMenuSelectColors"
     />
 </menu>

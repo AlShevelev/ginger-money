@@ -6,7 +6,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectAppProtectionMethodCommand
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectDefaultCurrencyCommand
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectStartDayOfWeekCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
@@ -58,7 +58,10 @@ class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
 
             defaultCurrency.value
                 ?.let {
-                    dialogCommands.value = StartSelectDefaultCurrencyCommand(it)
+                    dialogCommands.value =
+                        StartSelectCurrencyDialogCommand(
+                            it
+                        )
                 }
         }
     }

@@ -3,9 +3,12 @@ package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_mode
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
+import com.syleiman.gingermoney.core.global_entities.money.Currency
+import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
@@ -33,6 +36,23 @@ class AccountsViewModel : ViewModelBase<AccountsModelInterface>(), ListItemEvent
 
     override fun onAccountClick(accountDbId: Long) {
         command.value = MoveToEditAccountCommand(accountDbId)
+    }
+
+    override fun onOnCurrencyMenuItemClick(group: AccountGroup?) {
+        launch {
+            dialogCommands.value = StartSelectCurrencyDialogCommand(model.getCurrencyForGroup(group), group)
+        }
+    }
+
+    fun onOnCurrencySelected(selectedCurrency: Currency, group: AccountGroup?) {
+        launch {
+            val error = model.updateCurrency(group, selectedCurrency)
+            if(error != null) {
+                command.value = ShowErrorCommand(error)
+            } else {
+                fillAccountsList()
+            }
+        }
     }
 
     private fun fillAccountsList() {

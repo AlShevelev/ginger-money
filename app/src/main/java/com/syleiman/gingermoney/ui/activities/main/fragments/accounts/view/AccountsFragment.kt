@@ -4,13 +4,17 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
+import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.databinding.FragmentMainAccountsBinding
+import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.adapter.AccountsListAdapter
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders.GroupViewHolderItemDecoration
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.SelectCurrencyDialog
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLinkInterface
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
@@ -50,6 +54,10 @@ class AccountsFragment :
 
         viewModel.accountsListData.observe({this.lifecycle}) {
             updateAccountsList(it)
+        }
+
+        viewModel.dialogCommands.observe({this.lifecycle}) {
+            processDialogCommand(it)
         }
     }
 
@@ -91,5 +99,26 @@ class AccountsFragment :
         }
 
         accountsListAdapter.update(accounts)
+    }
+
+    private fun processDialogCommand(command: ViewCommand) {
+        when(command) {
+            is StartSelectCurrencyDialogCommand ->
+                startSelectDefaultCurrency(command.selectedCurrency, command.group)
+            else -> throw UnsupportedOperationException("This command is not supported: $command")
+        }
+    }
+
+    private fun startSelectDefaultCurrency(selectedCurrency: Currency, group: AccountGroup?) {
+        activeDialog = SelectCurrencyDialog(
+            requireContext(),
+            selectedCurrency,
+            resourcesProvider.getString(R.string.mainAccountsSelectCurrency),
+            resourcesProvider.getString(R.string.commonOk),
+            resourcesProvider.getString(R.string.commonCancel)
+        ) { resultCurrency ->
+            resultCurrency?.also { viewModel.onOnCurrencySelected(resultCurrency, group) }
+        }
+        .show()
     }
 }

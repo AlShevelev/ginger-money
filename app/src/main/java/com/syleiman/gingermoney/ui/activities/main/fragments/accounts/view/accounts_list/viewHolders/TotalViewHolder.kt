@@ -41,6 +41,8 @@ class TotalViewHolder(
         eventsProcessor = null
 
         itemView.menuButton.setOnClickListener(null)
+
+        popupMenu?.setOnMenuItemClickListener(null)
         popupMenu?.dismiss()
     }
 
@@ -48,7 +50,13 @@ class TotalViewHolder(
         popupMenu = PopupMenu(view.context, view)
             .apply {
                 val inflater: MenuInflater = this.menuInflater
-                inflater.inflate(R.menu.add_edit_account_total, this.menu)
+                inflater.inflate(R.menu.accounts_list_total, this.menu)
+
+                setOnMenuItemClickListener {
+                    eventsProcessor?.onOnCurrencyMenuItemClick(null)
+                    true
+                }
+
                 this.show()
             }
     }

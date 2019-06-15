@@ -91,7 +91,8 @@
     <string name="mainAccountsTotal">Итого</string>
     <string name="mainAccountsShowSumIn">Показывать сумму в…</string>
     <string name="mainAccountsShowAmount">показывать сумму по всем счетам</string>
-    <string name="mainAccountsSelectColors">Выбор цветов</string>
+    <string name="mainAccountsSelectColors">Выберите цвета</string>
+    <string name="mainAccountsSelectCurrency">Выберите валюту</string>
     <string name="mainAccountsTextColor">Цвет текста</string>
     <string name="mainAccountsBackgroundColor">Цвет фона</string>
     <string name="mainAccountsAdd">Добавить счет</string>
@@ -115,6 +116,6 @@
     <string name="addEditAccountNameIsEmptyError">Имя счета не может быть пустым</string>
     <string name="addEditAccountNameIsTooLongError">Имя счета слишком длинное</string>
 
-    <string name="addEditAccountMenuSelectCurrency">Валюта…</string>
-    <string name="addEditAccountMenuSelectColors">Цвета…</string>
+    <string name="mainAccountsMenuSelectCurrency">Валюта…</string>
+    <string name="mainAccountsMenuSelectColors">Цвета…</string>
 </resources>

@@ -3,6 +3,6 @@ package com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_comm
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 
-class StartSelectDefaultCurrencyCommand(
+class StartSelectCurrencyDialogCommand(
     val selectedCurrency: Currency
 ) : ViewCommand

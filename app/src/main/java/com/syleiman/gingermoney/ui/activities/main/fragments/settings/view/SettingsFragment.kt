@@ -9,7 +9,7 @@ import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectAppProtectionMethodCommand
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectDefaultCurrencyCommand
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectStartDayOfWeekCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.SelectCurrencyDialog
@@ -40,21 +40,13 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-
-        // Close a dialog to avoid leak of view
-        activeDialog?.takeIf { it.isShowing }?.dismiss()
-        activeDialog = null
-    }
-
     private fun processDialogCommand(command: ViewCommand) {
         when(command) {
             is StartSelectAppProtectionMethodCommand ->
                 startSelectAppProtectionMethod(command.selectedIndex, command.protectionMethods)
             is StartSelectStartDayOfWeekCommand ->
                 startSelectStartDayOfWeek(command.selectedIndex, command.daysOfWeek)
-            is StartSelectDefaultCurrencyCommand ->
+            is StartSelectCurrencyDialogCommand ->
                 startSelectDefaultCurrency(command.selectedCurrency)
             else -> throw UnsupportedOperationException("This command is not supported: $command")
         }

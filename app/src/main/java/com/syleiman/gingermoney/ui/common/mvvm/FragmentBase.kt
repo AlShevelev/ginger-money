@@ -60,6 +60,14 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+
+        // Close a dialog to avoid leak of view
+        activeDialog?.takeIf { it.isShowing }?.dismiss()
+        activeDialog = null
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         releaseInjection()

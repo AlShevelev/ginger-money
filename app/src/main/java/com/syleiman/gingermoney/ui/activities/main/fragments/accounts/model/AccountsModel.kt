@@ -11,8 +11,11 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.Accoun
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.GroupListItem
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.TotalListItem
+import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class AccountsModel
@@ -66,6 +69,23 @@ constructor(
             result[0] = (result[0] as TotalListItem).copy(amount = totalAmount)
 
             result
+        }
+
+    override suspend fun getCurrencyForGroup(group: AccountGroup?): Currency =
+        withContext(Dispatchers.IO) {
+            try {
+                db.readAccountGroupSettings()
+                    .firstOrNull { it.accountGroup == group }?.currency
+                    ?: keyValueStorage.getDefaultCurrency()!!
+            } catch (ex: Exception) {
+                ex.printStackTrace()
+                keyValueStorage.getDefaultCurrency()!!
+            }
+        }
+
+    override suspend fun updateCurrency(group: AccountGroup?, currency: Currency): DisplayingError? =
+        saveValue {
+            db.updateAccountGroupSettings(group, currency)
         }
 
     private fun calculateHeadersSettings(defaultCurrency: Currency, usedGroups: List<AccountGroup>): ListItemsSettings {

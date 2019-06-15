@@ -50,7 +50,7 @@ class GroupViewHolder(
                 itemView.amount.setTextColor(resProvider.getColor(it.foregroundColor))
             }
 
-        itemView.menuButton.setOnClickListener { createMenu(it) }
+        itemView.menuButton.setOnClickListener { createMenu(it, listItem) }
     }
 
     /**
@@ -63,11 +63,20 @@ class GroupViewHolder(
         popupMenu?.dismiss()
     }
 
-    private fun createMenu(view: View) {
+    private fun createMenu(view: View, listItem: GroupListItem) {
         popupMenu = PopupMenu(view.context, view)
             .apply {
                 val inflater: MenuInflater = this.menuInflater
-                inflater.inflate(R.menu.add_edit_account_group, this.menu)
+                inflater.inflate(R.menu.accounts_list_group, this.menu)
+
+                setOnMenuItemClickListener { menuItem ->
+                    when(menuItem.itemId) {
+                        R.id.selectCurrency -> eventsProcessor?.onOnCurrencyMenuItemClick(listItem.accountGroup)
+                    }
+
+                    true
+                }
+
                 this.show()
             }
     }
