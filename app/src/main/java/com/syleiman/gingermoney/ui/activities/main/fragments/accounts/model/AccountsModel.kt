@@ -8,6 +8,7 @@ import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInt
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.AccountListItem
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.GroupListItem
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.TotalListItem
@@ -25,6 +26,9 @@ constructor(
     private val keyValueStorage: KeyValueStorageFacadeInterface
 ) : ModelBase(),
     AccountsModelInterface {
+
+    private val defaultGroupTextColor = Color.BLACK
+    private val defaultGroupBackgroundColor = Color.YELLOW
 
     override suspend fun getListItems(): ModelCallResult<out List<ListItem>> =
         getValue {
@@ -49,7 +53,7 @@ constructor(
                     val groupSettings = headersSettings.groupsSettings[group]!!
 
                     var groupAmount = groupSettings.currency.toMoney(0L)
-                    result.add(GroupListItem(group.value.toLong(), group, groupAmount, Color.YELLOW, Color.BLACK))
+                    result.add(GroupListItem(group.value.toLong(), group, groupAmount, groupSettings.colors))
                     val groupIndex = result.lastIndex
 
                     accounts
@@ -71,7 +75,7 @@ constructor(
             result
         }
 
-    override suspend fun getCurrencyForGroup(group: AccountGroup?): Currency =
+    override suspend fun getCurrency(group: AccountGroup?): Currency =
         withContext(Dispatchers.IO) {
             try {
                 db.readAccountGroupSettings()
@@ -83,9 +87,29 @@ constructor(
             }
         }
 
+    override suspend fun getColors(group: AccountGroup): ModelCallResult<out TextColors> =
+        getValue {
+            db.readAccountGroupSettings()
+                .firstOrNull { it.accountGroup == group }
+                ?.let {
+                    TextColors(
+                        it.foregroundColor ?: defaultGroupTextColor, it.backgroundColor ?: defaultGroupBackgroundColor
+                    )
+                }
+                ?: TextColors(
+                    defaultGroupTextColor,
+                    defaultGroupBackgroundColor
+                )
+        }
+
     override suspend fun updateCurrency(group: AccountGroup?, currency: Currency): DisplayingError? =
         saveValue {
             db.updateAccountGroupSettings(group, currency)
+        }
+
+    override suspend fun updateColors(group: AccountGroup, colors: TextColors): DisplayingError? =
+        saveValue {
+            db.updateAccountGroupSettings(group, colors.foregroundColor, colors.backgroundColor)
         }
 
     private fun calculateHeadersSettings(defaultCurrency: Currency, usedGroups: List<AccountGroup>): ListItemsSettings {
@@ -99,12 +123,20 @@ constructor(
             val dbGroupSettings = dbGroupsSettings.firstOrNull { it.accountGroup == group }
 
             groupsSettings[group] = if(dbGroupSettings == null) {
-                GroupListItemSettings(defaultCurrency, Color.BLACK, Color.YELLOW)
+                GroupListItemSettings(defaultCurrency,
+                    TextColors(
+                        defaultGroupTextColor,
+                        defaultGroupBackgroundColor
+                    )
+                )
             } else {
                 GroupListItemSettings(
                     dbGroupSettings.currency ?: defaultCurrency,
-                    dbGroupSettings.foregroundColor ?: Color.BLACK,
-                    dbGroupSettings.backgroundColor ?: Color.YELLOW)
+                    TextColors(
+                        dbGroupSettings.foregroundColor ?: defaultGroupTextColor,
+                        dbGroupSettings.backgroundColor ?: defaultGroupBackgroundColor
+                    )
+                )
             }
         }
 

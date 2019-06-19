@@ -9,6 +9,11 @@
     <dimen name="textSizeLarge">20sp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Strokes width">-->
+    <dimen name="strokeThin">1dp</dimen>
+    <dimen name="strokeNormal">2dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Toasts">-->
     <dimen name="toastMargin">8dp</dimen>
     <!--</editor-fold>-->
@@ -53,6 +58,11 @@
     <dimen name="amountKeyboardDotSize">7dp</dimen>
     <dimen name="amountKeyboardSignWidth">15dp</dimen>
     <dimen name="amountKeyboardSignHeight">3dp</dimen>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Color selection control">-->
+    <dimen name="selectColorItemSize">40dp</dimen>
+    <dimen name="selectColorMargin">5dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Currency radio button">-->
@@ -103,7 +113,6 @@
     <dimen name="accountsListItemMenuButtonWidth">41dp</dimen>
     <dimen name="accountsListItemMenuButtonIconWidth">5dp</dimen>
     <dimen name="accountsListItemMenuButtonIconHeight">20dp</dimen>
-    <dimen name="accountsListItemStrokeWidth">1dp</dimen>
     <dimen name="accountsListItemStrokeOffset">-1dp</dimen>
     <!--</editor-fold>-->
 

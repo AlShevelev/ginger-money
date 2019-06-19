@@ -6,4 +6,6 @@ interface ListItemEventsProcessor {
     fun onAccountClick(accountDbId: Long)
 
     fun onOnCurrencyMenuItemClick(group: AccountGroup?)
+
+    fun onOnColorMenuItemClick(group: AccountGroup)
 }

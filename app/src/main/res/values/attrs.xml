@@ -28,4 +28,10 @@
         <attr name="imageButton_iconHeight" format="dimension" />
         <attr name="imageButton_tint" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="SelectColorGridItem">
+        <attr name="selectColorGridItem_markColor" format="color" />
+        <attr name="selectColorGridItem_fillColor" format="color" />
+        <attr name="selectColorGridItem_strokeColor" format="color" />
+    </declare-styleable>
 </resources>

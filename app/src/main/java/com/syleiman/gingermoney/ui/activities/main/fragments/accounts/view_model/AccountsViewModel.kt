@@ -6,8 +6,10 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectColorsDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
@@ -40,13 +42,35 @@ class AccountsViewModel : ViewModelBase<AccountsModelInterface>(), ListItemEvent
 
     override fun onOnCurrencyMenuItemClick(group: AccountGroup?) {
         launch {
-            dialogCommands.value = StartSelectCurrencyDialogCommand(model.getCurrencyForGroup(group), group)
+            dialogCommands.value = StartSelectCurrencyDialogCommand(model.getCurrency(group), group)
+        }
+    }
+
+    override fun onOnColorMenuItemClick(group: AccountGroup) {
+        launch {
+            val colors = model.getColors(group)
+            if (colors.error != null) {
+                command.value = ShowErrorCommand(colors.error)
+            } else {
+                dialogCommands.value = StartSelectColorsDialogCommand(colors.value!!, group)
+            }
         }
     }
 
     fun onOnCurrencySelected(selectedCurrency: Currency, group: AccountGroup?) {
         launch {
             val error = model.updateCurrency(group, selectedCurrency)
+            if(error != null) {
+                command.value = ShowErrorCommand(error)
+            } else {
+                fillAccountsList()
+            }
+        }
+    }
+
+    fun onColorsSelected(colors: TextColors, group: AccountGroup) {
+        launch {
+            val error = model.updateColors(group, colors)
             if(error != null) {
                 command.value = ShowErrorCommand(error)
             } else {

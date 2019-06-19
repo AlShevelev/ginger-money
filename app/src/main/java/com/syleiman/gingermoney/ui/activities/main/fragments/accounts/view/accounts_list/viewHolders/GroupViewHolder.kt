@@ -44,10 +44,10 @@ class GroupViewHolder(
         (listItem as GroupListItem)
             .let {
                 itemView.name.text = resProvider.getAccountGroupString(it.accountGroup)
-                itemView.name.setTextColor(resProvider.getColor(it.foregroundColor))
+                itemView.name.setTextColor(resProvider.getColor(it.colors.foregroundColor))
 
                 itemView.amount.text = MoneyHardCentsFormatter().format(it.amount)
-                itemView.amount.setTextColor(resProvider.getColor(it.foregroundColor))
+                itemView.amount.setTextColor(resProvider.getColor(it.colors.foregroundColor))
             }
 
         itemView.menuButton.setOnClickListener { createMenu(it, listItem) }
@@ -72,7 +72,7 @@ class GroupViewHolder(
                 setOnMenuItemClickListener { menuItem ->
                     when(menuItem.itemId) {
                         R.id.selectCurrency -> eventsProcessor?.onOnCurrencyMenuItemClick(listItem.accountGroup)
-                    }
+                        R.id.selectColors -> eventsProcessor?.onOnColorMenuItemClick(listItem.accountGroup)                    }
 
                     true
                 }

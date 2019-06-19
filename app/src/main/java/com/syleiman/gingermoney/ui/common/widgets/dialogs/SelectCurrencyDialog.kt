@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets
+package com.syleiman.gingermoney.ui.common.widgets.dialogs
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -10,7 +10,6 @@ import com.syleiman.gingermoney.ui.common.widgets.DrawableRadioButton
 
 /**
  * Dialog for selected one option from a list using radio-buttons
- * @param <T> item in the list
  */
 class SelectCurrencyDialog(
     private val context : Context,

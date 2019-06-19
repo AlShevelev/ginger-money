@@ -23,8 +23,8 @@ class AccountListItemDiffAlg(
             }
 
             oldItem is GroupListItem && newItem is GroupListItem ->
-                oldItem.foregroundColor == newItem.foregroundColor &&
-                oldItem.backgroundColor == newItem.backgroundColor &&
+                oldItem.colors.foregroundColor == newItem.colors.foregroundColor &&
+                oldItem.colors.backgroundColor == newItem.colors.backgroundColor &&
                 oldItem.accountGroup == newItem.accountGroup &&
                 oldItem.amount == newItem.amount
 

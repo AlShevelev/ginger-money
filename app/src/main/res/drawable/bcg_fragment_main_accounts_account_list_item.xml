@@ -5,7 +5,7 @@
             <shape android:shape="rectangle">
                 <stroke
                     android:color="@color/gray"
-                    android:width="@dimen/accountsListItemStrokeWidth"/>
+                    android:width="@dimen/strokeThin"/>
                 <solid
                     android:color="@color/lightGray" />
             </shape>
@@ -16,7 +16,7 @@
             <shape android:shape="rectangle">
                 <stroke
                     android:color="@color/gray"
-                    android:width="@dimen/accountsListItemStrokeWidth"/>
+                    android:width="@dimen/strokeThin"/>
                 <solid
                     android:color="@color/ultraLightGray" />
             </shape>

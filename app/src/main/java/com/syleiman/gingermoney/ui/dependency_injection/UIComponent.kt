@@ -7,6 +7,9 @@ import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActi
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.SelectColorGridItem
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.SelectColorSampleTextView
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.SelectColorDialogView
 import dagger.Subcomponent
 
 @Subcomponent(modules = [
@@ -31,4 +34,10 @@ interface UIComponent {
     val addEditAccountActivity: AddEditAccountActivityComponent.Builder
 
     fun inject(amountKeyboard: AmountKeyboard)
+
+    fun inject(selectColorGridItem: SelectColorGridItem)
+
+    fun inject(selectColorSampleTextView: SelectColorSampleTextView)
+
+    fun inject(selectColorDialogView: SelectColorDialogView)
 }

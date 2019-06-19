@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.core.utils.app_resources
 
 import android.content.Context
 import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
 import android.os.Build
 import androidx.annotation.*
 import com.syleiman.gingermoney.R
@@ -73,6 +74,9 @@ constructor(
      * Get dimension value in pixels
      */
     override fun getDimension(@DimenRes resId: Int): Float = appContext.resources.getDimension(resId)
+
+    /** Get drawable resource */
+    override fun getDrawable(@DrawableRes resId: Int) : Drawable = appContext.resources.getDrawable(resId, null)
 
     /**
      * Get metadata value as string

@@ -1,5 +1,6 @@
 package com.syleiman.gingermoney.core.utils.app_resources
 
+import android.graphics.drawable.Drawable
 import androidx.annotation.*
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
@@ -28,6 +29,8 @@ interface AppResourcesProviderInterface {
      * Get dimension value in pixels
      */
     fun getDimension(@DimenRes resId: Int): Float
+
+    fun getDrawable(@DrawableRes resId: Int) : Drawable
 
     /**
      * Gets metadata value as string

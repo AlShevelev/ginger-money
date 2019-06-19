@@ -80,7 +80,6 @@ constructor(
             } else {
                 drawingPaint.style = Paint.Style.STROKE
                 drawingPaint.strokeWidth = strokeWidth
-                drawingPaint.strokeCap
             }
 
             val radius = drawingRect.height()/2 - strokeWidth/2

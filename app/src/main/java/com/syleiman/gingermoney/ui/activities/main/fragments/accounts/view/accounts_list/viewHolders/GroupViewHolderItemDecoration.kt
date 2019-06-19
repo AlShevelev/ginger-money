@@ -23,10 +23,10 @@ class GroupViewHolderItemDecoration(
         val strokePaint = Paint(Paint.ANTI_ALIAS_FLAG)
         strokePaint.color = resourcesProvider.getColor(R.color.gray)
         strokePaint.style = Paint.Style.FILL
-        strokePaint.strokeWidth = resourcesProvider.getDimension(R.dimen.accountsListItemStrokeWidth)
+        strokePaint.strokeWidth  = resourcesProvider.getDimension(R.dimen.strokeThin)
 
         processDraw(parent) { listItem, viewBounds ->
-            backgroundPaint.color = resourcesProvider.getColor(listItem.backgroundColor)
+            backgroundPaint.color = resourcesProvider.getColor(listItem.colors.backgroundColor)
 
             c.drawRect(viewBounds, backgroundPaint)
 

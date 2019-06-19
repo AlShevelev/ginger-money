@@ -45,6 +45,10 @@
     <string name="commonName">Name</string>
     <string name="commonCurrency">Currency</string>
 
+    <string name="dialogSelectColorsTitle">Select colors</string>
+    <string name="dialogSelectColorsText">Text color</string>
+    <string name="dialogSelectColorsBackground">Background color</string>
+
     <string name="commonGeneralError">Unfortunately, an error was encountered during the operation.</string>
     <string name="passwordLenError">Password length must be from {0} to {1} characters</string>
     <string name="invalidPasswordError">Invalid password</string>

@@ -8,18 +8,22 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.databinding.FragmentMainAccountsBinding
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.adapter.AccountsListAdapter
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders.GroupViewHolderItemDecoration
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectColorsDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.widgets.SelectCurrencyDialog
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.SelectCurrencyDialog
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLinkInterface
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.SelectColorDialog
 import kotlinx.android.synthetic.main.fragment_main_accounts.*
 import javax.inject.Inject
 
@@ -103,13 +107,13 @@ class AccountsFragment :
 
     private fun processDialogCommand(command: ViewCommand) {
         when(command) {
-            is StartSelectCurrencyDialogCommand ->
-                startSelectDefaultCurrency(command.selectedCurrency, command.group)
+            is StartSelectCurrencyDialogCommand -> startSelectCurrency(command.selectedCurrency, command.group)
+            is StartSelectColorsDialogCommand -> startSelectColors(command.colors, command.group)
             else -> throw UnsupportedOperationException("This command is not supported: $command")
         }
     }
 
-    private fun startSelectDefaultCurrency(selectedCurrency: Currency, group: AccountGroup?) {
+    private fun startSelectCurrency(selectedCurrency: Currency, group: AccountGroup?) {
         activeDialog = SelectCurrencyDialog(
             requireContext(),
             selectedCurrency,
@@ -118,6 +122,21 @@ class AccountsFragment :
             resourcesProvider.getString(R.string.commonCancel)
         ) { resultCurrency ->
             resultCurrency?.also { viewModel.onOnCurrencySelected(resultCurrency, group) }
+        }
+        .show()
+    }
+
+    private fun startSelectColors(colors: TextColors, group: AccountGroup) {
+        activeDialog = SelectColorDialog(
+            requireContext(),
+            colors.foregroundColor,
+            colors.backgroundColor,
+            MoneyHardCentsFormatter().format(Currency.USD.toMoney(1000.0)),
+            resourcesProvider.getString(R.string.mainAccountsSelectColors),
+            resourcesProvider.getString(R.string.commonOk),
+            resourcesProvider.getString(R.string.commonCancel)
+        ) { selectedColors ->
+            selectedColors?.let { viewModel.onColorsSelected(it, group) }
         }
         .show()
     }
