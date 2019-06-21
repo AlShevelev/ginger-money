@@ -1,6 +1,9 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
@@ -53,16 +56,16 @@ class AccountsFragment :
         binding.viewModel = viewModel
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel.accountsListData.observe({this.lifecycle}) {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewModel.accountsListData.observe({this.viewLifecycleOwner.lifecycle}) {
             updateAccountsList(it)
         }
 
-        viewModel.dialogCommands.observe({this.lifecycle}) {
+        viewModel.dialogCommands.observe({this.viewLifecycleOwner.lifecycle}) {
             processDialogCommand(it)
         }
+
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onStart() {
@@ -132,7 +135,7 @@ class AccountsFragment :
             colors.foregroundColor,
             colors.backgroundColor,
             MoneyHardCentsFormatter().format(Currency.USD.toMoney(1000.0)),
-            resourcesProvider.getString(R.string.mainAccountsSelectColors),
+            resourcesProvider.getString(R.string.dialogSelectColorsTitle),
             resourcesProvider.getString(R.string.commonOk),
             resourcesProvider.getString(R.string.commonCancel)
         ) { selectedColors ->

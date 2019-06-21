@@ -16,6 +16,7 @@
 
     <!--<editor-fold desc="Toasts">-->
     <dimen name="toastMargin">8dp</dimen>
+    <dimen name="toastCorners">10dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="List items">-->

@@ -21,29 +21,15 @@
     <string name="daySaturday">Saturday</string>
     <string name="daySunday">Sunday</string>
 
-    <string name="commonPrevious">Previous</string>
     <string name="commonNext">Next</string>
     <string name="commonFinish">Finish</string>
     <string name="commonOk">OK</string>
     <string name="commonCancel">Cancel</string>
     <string name="commonSave">Save</string>
-    <string name="commonDone">Done</string>
     <string name="commonAmount">Amount</string>
     <string name="commonMemo">Memo</string>
-    <plurals name="commonAccount">
-        <item quantity="one">Account</item>
-        <item quantity="many">Accounts</item>
-    </plurals>
-    <plurals name="commonCategory">
-        <item quantity="one">Category</item>
-        <item quantity="many">Categories</item>
-    </plurals>
-    <string name="commonDateTime">Date&amp;Time</string>
-    <string name="commonCamera">Camera</string>
-    <string name="commonGallery">Gallery</string>
     <string name="commonGroup">Group</string>
     <string name="commonName">Name</string>
-    <string name="commonCurrency">Currency</string>
 
     <string name="dialogSelectColorsTitle">Select colors</string>
     <string name="dialogSelectColorsText">Text color</string>
@@ -105,26 +91,12 @@
     <string name="enterFingerprintAuthFail">A fingerprint has not been recognized</string>
 
     <string name="mainCosts">Expenses</string>
-    <string name="mainCostsAdd">Add expenses</string>
-    <string name="mainCostsCategoriesList">Expenses categories</string>
-    <string name="mainCostsCategoryEdit">Edit category</string>
 
     <string name="mainStatistics">Statistics</string>
-    <string name="mainStatisticsPeriodically">Periodically</string>
-    <string name="mainStatisticsWeekly">Weekly</string>
-    <string name="mainStatisticsMonthly">Monthly</string>
-    <string name="mainStatisticsYearly">Yearly</string>
 
     <string name="mainAccounts">Accounts</string>
     <string name="mainAccountsTotal">Total</string>
-    <string name="mainAccountsShowSumIn">Show sum in…</string>
-    <string name="mainAccountsShowAmount">show an amount of all accounts</string>
-    <string name="mainAccountsSelectColors">Select colors</string>
     <string name="mainAccountsSelectCurrency">Select currency</string>
-    <string name="mainAccountsTextColor">Text color</string>
-    <string name="mainAccountsBackgroundColor">Background color</string>
-    <string name="mainAccountsAdd">Add account</string>
-    <string name="mainAccountsSelectGroup">Select group</string>
     <string name="mainAccountsNoData">You have no account yet</string>
     <string name="mainAccountsMenuSelectCurrency">Currency…</string>
     <string name="mainAccountsMenuSelectColors">Colors…</string>

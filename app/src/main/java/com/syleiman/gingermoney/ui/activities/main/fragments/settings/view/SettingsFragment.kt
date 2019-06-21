@@ -1,6 +1,9 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.settings.view
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
@@ -32,12 +35,12 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
         binding.viewModel = viewModel
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel.dialogCommands.observe({this.lifecycle}) {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewModel.dialogCommands.observe({this.viewLifecycleOwner.lifecycle}) {
             processDialogCommand(it)
         }
+
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun processDialogCommand(command: ViewCommand) {

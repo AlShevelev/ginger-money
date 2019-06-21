@@ -44,15 +44,15 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
         inject()
 
         _viewModel = ViewModelProviders.of(this).get(provideViewModelType())
+    }
 
-        _viewModel.command.observe({this.lifecycle}) {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        _viewModel.command.observe({viewLifecycleOwner.lifecycle}) {
             if(!processViewCommandGeneral(it)) {
                 processViewCommand(it)
             }
         }
-    }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, provideLayout(), container, false)
         binding.lifecycleOwner = this
 

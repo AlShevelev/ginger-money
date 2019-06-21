@@ -1,7 +1,9 @@
 package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.ViewDataBinding
@@ -38,12 +40,8 @@ abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModelInter
     protected abstract val nameText: EditTextWithEmoji
     protected abstract val root: ConstraintLayout
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        viewModel.dialogCommands.observe({this.lifecycle}) {
-            processDialogCommand(it)
-        }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
