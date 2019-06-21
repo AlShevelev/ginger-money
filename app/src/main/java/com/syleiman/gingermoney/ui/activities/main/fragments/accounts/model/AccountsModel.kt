@@ -38,6 +38,10 @@ constructor(
 
             val dbAccounts = db.readAccounts()
 
+            if(dbAccounts.isEmpty()) {
+                return@getValue listOf<ListItem>()
+            }
+
             val allUsedGroups = dbAccounts.map { it.accountGroup }.distinct()
             val headersSettings = calculateHeadersSettings(defaultCurrency!!, allUsedGroups)
 

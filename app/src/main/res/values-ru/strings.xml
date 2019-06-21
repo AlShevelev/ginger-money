@@ -71,7 +71,7 @@
     <string name="mainAccounts">Счета</string>
     <string name="mainAccountsTotal">Итого</string>
     <string name="mainAccountsSelectCurrency">Выберите валюту</string>
-    <string name="mainAccountsNoData">У вас еще нет ни одного счета</string>
+    <string name="mainAccountsNoData">У вас еще нет счетов</string>
 
     <string name="mainSettings">Настройки</string>
     <string name="mainSettingsApplicationProtection">Защита приложения</string>

@@ -97,7 +97,7 @@
     <string name="mainAccounts">Accounts</string>
     <string name="mainAccountsTotal">Total</string>
     <string name="mainAccountsSelectCurrency">Select currency</string>
-    <string name="mainAccountsNoData">You have no account yet</string>
+    <string name="mainAccountsNoData">You have no accounts yet</string>
     <string name="mainAccountsMenuSelectCurrency">Currency…</string>
     <string name="mainAccountsMenuSelectColors">Colors…</string>
 
