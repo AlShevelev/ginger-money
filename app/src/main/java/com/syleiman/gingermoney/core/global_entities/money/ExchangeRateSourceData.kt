@@ -1,11 +1,11 @@
 package com.syleiman.gingermoney.core.global_entities.money
 
-import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacadeInterface
+import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacade
 
 /**
  * Class for saving, loading and validating source data for [ExchangeRateMatrix]
  */
-class ExchangeRateSourceData(private val db: DbStorageFacadeInterface) {
+class ExchangeRateSourceData(private val db: DbStorageFacade) {
 
     /**
      * Updates source rates data in the Db

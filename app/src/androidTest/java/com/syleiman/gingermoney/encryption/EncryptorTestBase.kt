@@ -1,12 +1,12 @@
 package com.syleiman.gingermoney.encryption
 
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
-import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverterInterface
+import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
 import org.junit.Assert
 import org.junit.Test
 
 abstract class EncryptorTestBase {
-    abstract val converter: StringsConverterInterface
+    abstract val converter: StringsConverter
     abstract val encryptionUtils: Encryptor
 
     @Test

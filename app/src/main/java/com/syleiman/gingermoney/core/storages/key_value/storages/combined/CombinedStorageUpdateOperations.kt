@@ -1,14 +1,14 @@
 package com.syleiman.gingermoney.core.storages.key_value.storages.combined
 
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperations
 import java.util.concurrent.locks.ReentrantReadWriteLock
 import kotlin.concurrent.write
 
 class CombinedStorageUpdateOperations(
     private val lock: ReentrantReadWriteLock,
-    private val persistentStorage: StorageCommitOperationsInterface,
-    private val cacheStorage: StorageCommitOperationsInterface
-): StorageCommitOperationsInterface {
+    private val persistentStorage: StorageCommitOperations,
+    private val cacheStorage: StorageCommitOperations
+): StorageCommitOperations {
 
     /** Put boolean value  */
     override fun putBoolean(key: String, value: Boolean) {

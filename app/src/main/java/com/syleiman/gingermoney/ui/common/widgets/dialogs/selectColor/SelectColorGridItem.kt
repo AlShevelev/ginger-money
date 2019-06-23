@@ -7,7 +7,7 @@ import android.view.View
 import androidx.annotation.ColorInt
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.dependency_injection.UIComponent
 import javax.inject.Inject
 import com.syleiman.gingermoney.dto.enums.Color as ColorGM
@@ -47,7 +47,7 @@ constructor(
     }
 
     @Inject
-    internal lateinit var appResourcesProvider: AppResourcesProviderInterface
+    internal lateinit var appResourcesProvider: AppResourcesProvider
 
     init {
         App.injections.get<UIComponent>().inject(this)

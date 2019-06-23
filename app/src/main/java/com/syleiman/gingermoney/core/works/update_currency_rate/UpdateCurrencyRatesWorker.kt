@@ -8,8 +8,8 @@ import com.syleiman.gingermoney.application.dependency_injection.AppComponent
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRateSourceData
-import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacadeInterface
-import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
+import com.syleiman.gingermoney.core.storages.db.facade.DbStorageFacade
+import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtils
 import dagger.Lazy
 import org.json.JSONException
 import org.json.JSONObject
@@ -30,10 +30,10 @@ class UpdateCurrencyRatesWorker(
     }
 
     @Inject
-    internal lateinit var crashlytics: Lazy<CrashlyticsUtilsInterface>
+    internal lateinit var crashlytics: Lazy<CrashlyticsUtils>
 
     @Inject
-    internal lateinit var db: Lazy<DbStorageFacadeInterface>
+    internal lateinit var db: Lazy<DbStorageFacade>
 
     init {
         App.injections.get<AppComponent>().inject(this)

@@ -7,7 +7,7 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentAddEditAccountEditBinding
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.AccountFragmentBase
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentComponent
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.model.EditAccountModelInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.model.EditAccountModel
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.view_model.EditAccountViewModel
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs
 import com.syleiman.gingermoney.ui.common.widgets.EditTextWithEmoji
@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_add_edit_account_edit.root as roo
  * Edit accounts page
  *
  */
-class EditAccountFragment : AccountFragmentBase<FragmentAddEditAccountEditBinding, EditAccountModelInterface, EditAccountViewModel>() {
+class EditAccountFragment : AccountFragmentBase<FragmentAddEditAccountEditBinding, EditAccountModel, EditAccountViewModel>() {
 
     override val memoText: EditText
         get() = memoTextWidget

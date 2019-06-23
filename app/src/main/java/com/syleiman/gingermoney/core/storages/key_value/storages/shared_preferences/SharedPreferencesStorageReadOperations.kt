@@ -2,9 +2,9 @@ package com.syleiman.gingermoney.core.storages.key_value.storages.shared_prefere
 
 import android.content.Context
 import android.util.Base64
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperations
 
-class SharedPreferencesStorageReadOperations(context: Context, name: String): StorageReadOperationsInterface {
+class SharedPreferencesStorageReadOperations(context: Context, name: String): StorageReadOperations {
     private val preferences = context.getSharedPreferences(name, Context.MODE_PRIVATE)
 
     /** Check is item exists  */

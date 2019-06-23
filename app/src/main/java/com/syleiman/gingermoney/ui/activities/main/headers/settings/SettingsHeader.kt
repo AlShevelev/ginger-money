@@ -6,7 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import com.syleiman.gingermoney.BuildConfig
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
 import kotlinx.android.synthetic.main.fragment_main_settings_header.view.*
@@ -28,7 +28,7 @@ constructor(
     }
 
     @Inject
-    internal lateinit var resourcesProvider: AppResourcesProviderInterface
+    internal lateinit var resourcesProvider: AppResourcesProvider
 
     init {
         App.injections.get<MainActivityComponent>().inject(this)

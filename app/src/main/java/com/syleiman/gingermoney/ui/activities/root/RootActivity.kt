@@ -4,13 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInterface
+import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacade
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.login.LoginActivity
 import com.syleiman.gingermoney.ui.activities.main.MainActivity
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.SetupActivity
-import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
+import com.syleiman.gingermoney.ui.common.ui_utils.UIUtils
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
@@ -18,10 +18,10 @@ import kotlin.coroutines.CoroutineContext
 class RootActivity : CoroutineScope, AppCompatActivity() {
 
     @Inject
-    lateinit var keyValueStorage: KeyValueStorageFacadeInterface
+    lateinit var keyValueStorage: KeyValueStorageFacade
 
     @Inject
-    lateinit var uiUtils: UIUtilsInterface
+    lateinit var uiUtils: UIUtils
 
     private lateinit var scopeJob: Job
 

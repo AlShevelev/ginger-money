@@ -3,13 +3,13 @@ package com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.v
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
-import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.model.MasterPasswordModelInterface
+import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.model.MasterPasswordModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
+class MasterPasswordViewModel : ViewModelBase<MasterPasswordModel>() {
     /**
      * Our master-password
      */

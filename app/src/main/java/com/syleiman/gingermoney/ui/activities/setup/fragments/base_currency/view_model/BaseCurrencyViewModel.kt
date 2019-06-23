@@ -4,13 +4,13 @@ import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
-import com.syleiman.gingermoney.ui.activities.setup.fragments.base_currency.model.BaseCurrencyModelInterface
+import com.syleiman.gingermoney.ui.activities.setup.fragments.base_currency.model.BaseCurrencyModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-class BaseCurrencyViewModel : ViewModelBase<BaseCurrencyModelInterface>() {
+class BaseCurrencyViewModel : ViewModelBase<BaseCurrencyModel>() {
 
     /**
      * Selected Currency

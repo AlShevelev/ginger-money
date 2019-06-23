@@ -1,9 +1,9 @@
 package com.syleiman.gingermoney.core.storages.key_value.storages.combined
 
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageBase
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageOperationsInstanceInterface
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperations
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageOperationsInstance
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperations
 import java.util.concurrent.locks.ReentrantReadWriteLock
 import javax.inject.Inject
 import javax.inject.Named
@@ -12,14 +12,14 @@ import javax.inject.Named
 class CombinedStorage
 @Inject
 constructor(
-    @Named("cache") private val cacheStorage: StorageOperationsInstanceInterface,
-    @Named("persistent") private val persistentStorage: StorageOperationsInstanceInterface
+    @Named("cache") private val cacheStorage: StorageOperationsInstance,
+    @Named("persistent") private val persistentStorage: StorageOperationsInstance
 ): StorageBase() {
 
     private val lock = ReentrantReadWriteLock()
 
     /** Create proxy for read */
-    override fun createReadOperationsInstance(): StorageReadOperationsInterface =
+    override fun createReadOperationsInstance(): StorageReadOperations =
         CombinedStorageReadOperations(
             lock,
             persistentStorage.createReadOperationsInstance(),
@@ -27,7 +27,7 @@ constructor(
             cacheStorage.createWriteOperationsInstance())
 
     /** Create proxy for read */
-    override fun createWriteOperationsInstance(): StorageCommitOperationsInterface =
+    override fun createWriteOperationsInstance(): StorageCommitOperations =
         CombinedStorageUpdateOperations(
             lock,
             persistentStorage.createWriteOperationsInstance(),

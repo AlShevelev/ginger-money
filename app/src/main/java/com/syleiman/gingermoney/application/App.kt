@@ -6,13 +6,13 @@ import com.jakewharton.threetenabp.AndroidThreeTen
 import com.shevelev.alpha_emoji_panel.EmojiInitializer
 import com.syleiman.gingermoney.application.dependency_injection.AppComponent
 import com.syleiman.gingermoney.application.dependency_injection.DependencyInjectionStorage
-import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtilsInterface
+import com.syleiman.gingermoney.core.utils.crashlytics.CrashlyticsUtils
 import javax.inject.Inject
 
 class App: Application() {
 
     @Inject
-    internal lateinit var crashlyticsUtils: CrashlyticsUtilsInterface
+    internal lateinit var crashlyticsUtils: CrashlyticsUtils
 
     companion object {
         @SuppressLint("StaticFieldLeak")

@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -12,9 +11,9 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
-import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
+import com.syleiman.gingermoney.ui.common.ui_utils.UIUtils
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import javax.inject.Inject
@@ -22,7 +21,7 @@ import javax.inject.Inject
 /**
  * Base class for all fragments
  */
-abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: ViewModelBase<TM>> : Fragment() {
+abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBase, TVM: ViewModelBase<TM>> : Fragment() {
 
     private lateinit var binding: TB
 
@@ -33,10 +32,10 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBaseInterface, TVM: Vi
     protected var activeDialog: AlertDialog? = null
 
     @Inject
-    internal lateinit var resourcesProvider: AppResourcesProviderInterface
+    internal lateinit var resourcesProvider: AppResourcesProvider
 
     @Inject
-    internal lateinit var uiUtils: UIUtilsInterface
+    internal lateinit var uiUtils: UIUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

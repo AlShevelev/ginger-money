@@ -12,7 +12,7 @@ import com.syleiman.gingermoney.databinding.FragmentMainAccountsBinding
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
 import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
-import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.adapter.AccountsListAdapter
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders.GroupViewHolderItemDecoration
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
@@ -20,8 +20,8 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_comma
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
 import com.syleiman.gingermoney.ui.common.widgets.dialogs.SelectCurrencyDialog
-import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLinkInterface
-import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLink
+import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
@@ -34,17 +34,17 @@ import javax.inject.Inject
  * Accounts page
  */
 class AccountsFragment :
-    FragmentBase<FragmentMainAccountsBinding, AccountsModelInterface, AccountsViewModel>(),
-    AccountsFragmentHeaderInterface {
+    FragmentBase<FragmentMainAccountsBinding, AccountsModel, AccountsViewModel>(),
+    AccountsFragmentHeader {
 
     private lateinit var accountsListAdapter: AccountsListAdapter
     private lateinit var accountsListLayoutManager: LinearLayoutManager
 
     @Inject
-    internal lateinit var headerLink: AccountsHeaderLinkInterface
+    internal lateinit var headerLink: AccountsHeaderLink
 
     @Inject
-    internal lateinit var navigation: NavigationHelperInterface
+    internal lateinit var navigation: NavigationHelper
 
     override fun provideViewModelType(): Class<AccountsViewModel> = AccountsViewModel::class.java
 

@@ -5,10 +5,10 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentSetupMasterPasswordBinding
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.dto.InvalidPasswordLenError
-import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.model.MasterPasswordModelInterface
+import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.model.MasterPasswordModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.master_password.view_model.MasterPasswordViewModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
-import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
@@ -17,10 +17,10 @@ import javax.inject.Inject
 /**
  * Fragment for setup master-password
  */
-class MasterPasswordFragment : FragmentBase<FragmentSetupMasterPasswordBinding, MasterPasswordModelInterface, MasterPasswordViewModel>() {
+class MasterPasswordFragment : FragmentBase<FragmentSetupMasterPasswordBinding, MasterPasswordModel, MasterPasswordViewModel>() {
 
     @Inject
-    internal lateinit var navigation: NavigationHelperInterface
+    internal lateinit var navigation: NavigationHelper
 
     override fun provideViewModelType(): Class<MasterPasswordViewModel> = MasterPasswordViewModel::class.java
 

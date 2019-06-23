@@ -2,10 +2,10 @@ package com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.view_
 
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.*
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
-import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model.FingerprintModelInterface
+import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model.FingerprintModel
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.LoggedInCommand
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.SwitchCommand
 import com.syleiman.gingermoney.ui.common.displaying_errors.TextError
@@ -14,12 +14,12 @@ import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ShowWarningCommand
 import javax.inject.Inject
 
-class FingerprintViewModel : ViewModelBase<FingerprintModelInterface>() {
+class FingerprintViewModel : ViewModelBase<FingerprintModel>() {
 
     private val fingerprintAuthEventHandler: FingerprintAuthEventHandler = { processAuthEvents(it) }
 
     @Inject
-    internal lateinit var resourcesProvider: AppResourcesProviderInterface
+    internal lateinit var resourcesProvider: AppResourcesProvider
 
     init {
         App.injections.get<LoginActivityComponent>().inject(this)

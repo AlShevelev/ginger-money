@@ -1,14 +1,14 @@
 package com.syleiman.gingermoney.core.storages.key_value.storages.in_memory
 
 import android.util.Base64
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperations
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperations
 
 class InMemoryStorageOperations(private val storage: MutableMap<String, Any>):
-    StorageReadOperationsInterface,
-    StorageCommitOperationsInterface {
+    StorageReadOperations,
+    StorageCommitOperations {
 
-    //region StorageReadOperationsInterface members
+    //region StorageReadOperations members
     /** Check is item exists  */
     override fun contains(key: String): Boolean = storage.containsKey(key)
 
@@ -31,7 +31,7 @@ class InMemoryStorageOperations(private val storage: MutableMap<String, Any>):
     override fun readBytes(key: String): ByteArray? = readString(key)?.let {Base64.decode(it, Base64.DEFAULT)}
     //endregion
 
-    //region StorageCommitOperationsInterface members
+    //region StorageCommitOperations members
     /** Complete editing  */
     override fun commit() {
         // do nothing

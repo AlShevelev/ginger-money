@@ -7,7 +7,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
 import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
-import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModelInterface
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.MoveToEditAccountCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectColorsDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectCurrencyDialogCommand
@@ -16,7 +16,7 @@ import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-class AccountsViewModel : ViewModelBase<AccountsModelInterface>(), ListItemEventsProcessor {
+class AccountsViewModel : ViewModelBase<AccountsModel>(), ListItemEventsProcessor {
 
     val stubVisibility: MutableLiveData<Int> = MutableLiveData()
 

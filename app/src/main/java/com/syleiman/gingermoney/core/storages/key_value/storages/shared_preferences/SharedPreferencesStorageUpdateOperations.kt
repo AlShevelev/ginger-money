@@ -2,9 +2,9 @@ package com.syleiman.gingermoney.core.storages.key_value.storages.shared_prefere
 
 import android.content.Context
 import android.util.Base64
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperations
 
-class SharedPreferencesStorageUpdateOperations(context: Context, name: String): StorageCommitOperationsInterface {
+class SharedPreferencesStorageUpdateOperations(context: Context, name: String): StorageCommitOperations {
     private val preferencesEditor = context.getSharedPreferences(name, Context.MODE_PRIVATE).edit()
 
     /** Put boolean value  */

@@ -3,13 +3,13 @@ package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.vi
 import android.view.View
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dependency_injection.AddAccountFragmentComponent
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModel
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.AccountViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboardEditingResult
 import kotlinx.coroutines.launch
 
-class AddAccountViewModel : AccountViewModelBase<AddAccountModelInterface>() {
+class AddAccountViewModel : AccountViewModelBase<AddAccountModel>() {
 
     override val canUpdateCurrency: Boolean
         get() = true

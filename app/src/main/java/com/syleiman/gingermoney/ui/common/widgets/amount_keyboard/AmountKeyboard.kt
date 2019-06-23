@@ -11,8 +11,7 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.Money
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
-import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.dependency_injection.UIComponent
 import javax.inject.Inject
 
@@ -38,7 +37,7 @@ class AmountKeyboard (
     private lateinit var currentState: AmountKeyboardMoney
 
     @Inject
-    internal lateinit var appResourceProvider: AppResourcesProviderInterface
+    internal lateinit var appResourceProvider: AppResourcesProvider
 
     init{
         App.injections.get<UIComponent>().inject(this)

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.PopupMenu
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.GroupListItem
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
@@ -29,7 +29,7 @@ class GroupViewHolder(
 
 
     @Inject
-    internal lateinit var resProvider: AppResourcesProviderInterface
+    internal lateinit var resProvider: AppResourcesProvider
 
     init {
         App.injections.get<AccountsFragmentComponent>().inject(this)

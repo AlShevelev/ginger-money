@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
-import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_ACTION
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_DB_ID
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ADD
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 class AddEditAccountActivity : AppCompatActivity() {
     @Inject
-    lateinit var navigation: NavigationHelperInterface
+    lateinit var navigation: NavigationHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -3,7 +3,7 @@ package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.core.global_entities.money.Money
 import com.syleiman.gingermoney.dto.enums.AccountGroup
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModel
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.view_commands.*
 import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
 import com.syleiman.gingermoney.ui.common.formatters.MoneySoftCentsFormatter
@@ -13,7 +13,7 @@ import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
 import kotlinx.coroutines.launch
 
 @Suppress("LeakingThis")
-abstract class AccountViewModelBase<TM: AddAccountModelInterface> : ViewModelBase<TM>() {
+abstract class AccountViewModelBase<TM: AddAccountModel> : ViewModelBase<TM>() {
     protected lateinit var amountRaw: Money
 
     protected abstract val canUpdateCurrency: Boolean

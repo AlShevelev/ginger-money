@@ -1,8 +1,8 @@
 package com.syleiman.gingermoney
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverterImpl
 import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
-import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverterInterface
 import org.junit.Assert.assertEquals
 import org.junit.BeforeClass
 import org.junit.Test
@@ -12,12 +12,12 @@ import org.junit.runner.RunWith
 class StringsConverterTest {
 
     companion object {
-        private lateinit var converter: StringsConverterInterface
+        private lateinit var converter: StringsConverter
 
         @BeforeClass
         @JvmStatic
         fun setUp() {
-            converter = StringsConverter()
+            converter = StringsConverterImpl()
         }
     }
 

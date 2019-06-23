@@ -10,7 +10,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.databinding.FragmentMainSettingsBinding
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectAppProtectionMethodCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectStartDayOfWeekCommand
@@ -23,7 +23,7 @@ import org.threeten.bp.DayOfWeek
 /**
  * Fragment for settings
  */
-class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModelInterface, SettingsViewModel>() {
+class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel, SettingsViewModel>() {
 
     override fun provideViewModelType(): Class<SettingsViewModel> = SettingsViewModel::class.java
 

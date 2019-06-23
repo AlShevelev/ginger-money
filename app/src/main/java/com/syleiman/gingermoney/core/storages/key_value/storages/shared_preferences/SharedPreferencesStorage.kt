@@ -2,8 +2,8 @@ package com.syleiman.gingermoney.core.storages.key_value.storages.shared_prefere
 
 import android.content.Context
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageBase
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperations
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperations
 import javax.inject.Inject
 
 /** Storage based on shared preferences */
@@ -17,10 +17,10 @@ constructor(
         get() = "${context.packageName}.App"
 
     /** Create proxy for read */
-    override fun createReadOperationsInstance(): StorageReadOperationsInterface =
+    override fun createReadOperationsInstance(): StorageReadOperations =
         SharedPreferencesStorageReadOperations(context, storageName)
 
     /** Create proxy for read */
-    override fun createWriteOperationsInstance(): StorageCommitOperationsInterface =
+    override fun createWriteOperationsInstance(): StorageCommitOperations =
         SharedPreferencesStorageUpdateOperations(context, storageName)
 }

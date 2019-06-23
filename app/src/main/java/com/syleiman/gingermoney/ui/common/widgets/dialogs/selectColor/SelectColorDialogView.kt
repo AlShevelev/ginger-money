@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.dto.enums.Color
 import com.syleiman.gingermoney.ui.dependency_injection.UIComponent
 import kotlinx.android.synthetic.main.dialog_select_color.view.*
@@ -23,7 +23,7 @@ constructor(
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     @Inject
-    internal lateinit var appResourcesProvider: AppResourcesProviderInterface
+    internal lateinit var appResourcesProvider: AppResourcesProvider
 
     var textColor: Color
     get() = textColorGrid.selectedColor

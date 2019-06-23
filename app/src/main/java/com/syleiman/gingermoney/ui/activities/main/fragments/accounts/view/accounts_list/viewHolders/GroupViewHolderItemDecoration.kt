@@ -5,7 +5,7 @@ import android.graphics.Paint
 import android.graphics.RectF
 import androidx.recyclerview.widget.RecyclerView
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.GroupListItem
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.adapter.AdapterRawDataAccess
 
@@ -13,7 +13,7 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accou
  * To draw background of [GroupViewHolder]
  */
 class GroupViewHolderItemDecoration(
-    private val resourcesProvider: AppResourcesProviderInterface
+    private val resourcesProvider: AppResourcesProvider
 ): RecyclerView.ItemDecoration() {
 
     override fun onDraw(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {

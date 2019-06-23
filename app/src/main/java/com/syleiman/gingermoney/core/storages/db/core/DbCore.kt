@@ -20,19 +20,19 @@ import com.syleiman.gingermoney.core.storages.db.type_converters.*
     MoneyTypeConverter::class,
     DateTimeTypeConverter::class,
     EnumTypeConverter::class)
-abstract class DbCore: RoomDatabase(), DbCoreDaoInterface, DbCoreRunInterface {
+abstract class DbCore: RoomDatabase(), DbCoreDao, DbCoreRun {
 
     abstract override val sourceExchangeRate: SourceExchangeRateDao
 
     /**
      * Run some code without transaction
      */
-    override fun <T>run(action: (DbCoreDaoInterface) -> T): T = action.invoke(this)
+    override fun <T>run(action: (DbCoreDao) -> T): T = action.invoke(this)
 
     /**
      * Run some code in transaction
      */
-    override fun <T>runInTransaction(action: (DbCoreDaoInterface) -> T): T {
+    override fun <T>runInTransaction(action: (DbCoreDao) -> T): T {
         beginTransaction()
 
         try {

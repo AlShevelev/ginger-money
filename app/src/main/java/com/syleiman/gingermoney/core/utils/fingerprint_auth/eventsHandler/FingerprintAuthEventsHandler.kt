@@ -1,62 +1,15 @@
-@file:Suppress("DEPRECATION")
-
 package com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler
 
-import android.hardware.fingerprint.FingerprintManager
-import android.os.Build
-import android.os.CancellationSignal
-import androidx.annotation.RequiresApi
-import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.*
+import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.FingerprintAuthEventHandler
 
-@RequiresApi(Build.VERSION_CODES.M)
-class FingerprintAuthEventsHandler(
-    private val manager: FingerprintManager,
-    private val cryptoObject: FingerprintManager.CryptoObject
-) : FingerprintManager.AuthenticationCallback(),
-    FingerprintAuthEventsHandlerInterface {
-
-    private lateinit var cancellationSignal: CancellationSignal
-
-    private lateinit var eventsCallback: FingerprintAuthEventHandler
-
-    private var isInTerminalState = false
-
+interface FingerprintAuthEventsHandler {
     /**
      * Start an authentication session
      */
-    override fun start(eventsCallback: FingerprintAuthEventHandler) {
-        this.eventsCallback = eventsCallback
-
-        cancellationSignal = CancellationSignal()
-        manager.authenticate(cryptoObject, cancellationSignal, 0, this, null)
-    }
+    fun start(eventsCallback: FingerprintAuthEventHandler)
 
     /**
      * Cancel an authentication session
      */
-    override fun cancel() {
-        cancellationSignal.takeIf { !isInTerminalState && !it.isCanceled }?.cancel()
-    }
-
-    override fun onAuthenticationError(errorCode: Int, errString: CharSequence?) {
-        super.onAuthenticationError(errorCode, errString)
-        isInTerminalState = true
-        eventsCallback(FingerprintAuthErrorEvent(errString?.toString()))
-    }
-
-    override fun onAuthenticationFailed() {
-        super.onAuthenticationFailed()
-        eventsCallback(FingerprintAuthFailEvent())
-    }
-
-    override fun onAuthenticationHelp(helpCode: Int, helpString: CharSequence?) {
-        super.onAuthenticationHelp(helpCode, helpString)
-        eventsCallback(FingerprintAuthWarningEvent(helpString?.toString()))
-    }
-
-    override fun onAuthenticationSucceeded(result: FingerprintManager.AuthenticationResult?) {
-        super.onAuthenticationSucceeded(result)
-        isInTerminalState = true
-        eventsCallback(FingerprintAuthSuccessEvent())
-    }
+    fun cancel()
 }

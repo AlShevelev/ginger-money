@@ -4,11 +4,11 @@ import android.view.View
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
-import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProviderInterface
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events.*
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
-import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model.FingerprintModelInterface
-import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.model.MasterPasswordModelInterface
+import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model.FingerprintModel
+import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.model.MasterPasswordModel
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.LoggedInCommand
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.SwitchCommand
 import com.syleiman.gingermoney.ui.common.displaying_errors.TextError
@@ -18,15 +18,15 @@ import com.syleiman.gingermoney.ui.common.view_commands.ShowWarningCommand
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MasterPasswordViewModel : ViewModelBase<MasterPasswordModelInterface>() {
+class MasterPasswordViewModel : ViewModelBase<MasterPasswordModel>() {
 
     private val fingerprintAuthEventHandler: FingerprintAuthEventHandler = { processFingerprintAuthEvents(it) }
 
     @Inject
-    internal lateinit var fingerprintModel: FingerprintModelInterface
+    internal lateinit var fingerprintModel: FingerprintModel
 
     @Inject
-    internal lateinit var resourcesProvider: AppResourcesProviderInterface
+    internal lateinit var resourcesProvider: AppResourcesProvider
 
     /**
      * Our master-password

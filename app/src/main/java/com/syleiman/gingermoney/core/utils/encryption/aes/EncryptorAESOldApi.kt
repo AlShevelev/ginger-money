@@ -1,6 +1,6 @@
 package com.syleiman.gingermoney.core.utils.encryption.aes
 
-import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacadeInterface
+import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacade
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import java.security.Key
 import javax.crypto.spec.SecretKeySpec
@@ -10,7 +10,7 @@ import javax.inject.Inject
 class EncryptorAESOldApi
 @Inject
 constructor(
-    private val keyValueStorage: KeyValueStorageFacadeInterface,
+    private val keyValueStorage: KeyValueStorageFacade,
     private val encryptor: Encryptor
 ) : EncryptorAESBase(), Encryptor {
 

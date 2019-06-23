@@ -1,8 +1,8 @@
 package com.syleiman.gingermoney.core.storages.key_value.storages.in_memory
 
 import com.syleiman.gingermoney.core.storages.key_value.storages.StorageBase
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperations
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperations
 import java.util.*
 import javax.inject.Inject
 
@@ -13,8 +13,8 @@ constructor(): StorageBase() {
     private val storage: MutableMap<String, Any> = TreeMap()
 
     /** Create proxy for read */
-    override fun createReadOperationsInstance(): StorageReadOperationsInterface = InMemoryStorageOperations(storage)
+    override fun createReadOperationsInstance(): StorageReadOperations = InMemoryStorageOperations(storage)
 
     /** Create proxy for read */
-    override fun createWriteOperationsInstance(): StorageCommitOperationsInterface = InMemoryStorageOperations(storage)
+    override fun createWriteOperationsInstance(): StorageCommitOperations = InMemoryStorageOperations(storage)
 }

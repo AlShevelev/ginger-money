@@ -4,10 +4,10 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentSetupProtectionMethodBinding
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
-import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.model.ProtectionMethodModelInterface
+import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.model.ProtectionMethodModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.view_model.ProtectionMethodViewModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
-import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import javax.inject.Inject
@@ -15,10 +15,10 @@ import javax.inject.Inject
 /**
  * Fragment for setup protection method for the app
  */
-class ProtectionMethodFragment : FragmentBase<FragmentSetupProtectionMethodBinding, ProtectionMethodModelInterface, ProtectionMethodViewModel>() {
+class ProtectionMethodFragment : FragmentBase<FragmentSetupProtectionMethodBinding, ProtectionMethodModel, ProtectionMethodViewModel>() {
 
     @Inject
-    internal lateinit var navigation: NavigationHelperInterface
+    internal lateinit var navigation: NavigationHelper
 
     override fun provideViewModelType(): Class<ProtectionMethodViewModel> = ProtectionMethodViewModel::class.java
 

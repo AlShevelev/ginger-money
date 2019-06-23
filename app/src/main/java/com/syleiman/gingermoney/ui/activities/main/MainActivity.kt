@@ -10,14 +10,14 @@ import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
 import com.syleiman.gingermoney.ui.activities.main.headers.settings.SettingsHeader
-import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    internal lateinit var navigation: NavigationHelperInterface
+    internal lateinit var navigation: NavigationHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
          super.onCreate(savedInstanceState)

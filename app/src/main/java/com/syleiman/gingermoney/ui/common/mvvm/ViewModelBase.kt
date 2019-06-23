@@ -8,7 +8,7 @@ import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
 
-abstract class ViewModelBase<TModel : ModelBaseInterface> : ViewModel(), CoroutineScope {
+abstract class ViewModelBase<TModel : ModelBase> : ViewModel(), CoroutineScope {
 
     private val scopeJob: Job = SupervisorJob()
 

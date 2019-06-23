@@ -1,17 +1,17 @@
 package com.syleiman.gingermoney.core.storages.key_value.storages.combined
 
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperationsInterface
-import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperationsInterface
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageCommitOperations
+import com.syleiman.gingermoney.core.storages.key_value.storages.StorageReadOperations
 import java.util.concurrent.locks.ReentrantReadWriteLock
 import kotlin.concurrent.read
 import kotlin.concurrent.write
 
 class CombinedStorageReadOperations(
     private val lock: ReentrantReadWriteLock,
-    private val persistentStorage: StorageReadOperationsInterface,
-    private val cacheStorageRead: StorageReadOperationsInterface,
-    private val cacheStorageUpdate: StorageCommitOperationsInterface
-): StorageReadOperationsInterface {
+    private val persistentStorage: StorageReadOperations,
+    private val cacheStorageRead: StorageReadOperations,
+    private val cacheStorageUpdate: StorageCommitOperations
+): StorageReadOperations {
 
     /** Check is item exists  */
     override fun contains(key: String): Boolean {

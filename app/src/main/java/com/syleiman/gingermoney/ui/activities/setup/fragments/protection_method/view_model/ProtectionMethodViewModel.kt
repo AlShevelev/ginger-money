@@ -5,13 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
-import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.model.ProtectionMethodModelInterface
+import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.model.ProtectionMethodModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModelInterface>() {
+class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModel>() {
 
     /**
      * Selected protection method

@@ -1,48 +1,38 @@
 package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.ViewDataBinding
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.dto.enums.AccountGroup
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModel
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmpty
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.MemoIsTooLong
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.NameIsEmpty
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.NameIsTooLong
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.view_commands.*
-import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelperInterface
+import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
-import com.syleiman.gingermoney.ui.common.ui_utils.UIUtilsInterface
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import com.syleiman.gingermoney.ui.common.widgets.EditTextWithEmoji
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
 import javax.inject.Inject
 
-abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModelInterface, TVM: AccountViewModelBase<TM>>:
+abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModel, TVM: AccountViewModelBase<TM>>:
     FragmentBase<TB, TM, TVM>() {
 
     private lateinit var amountKeyboard: AmountKeyboard
 
     @Inject
-    internal lateinit var uiUtilsInterface: UIUtilsInterface
-
-    @Inject
-    internal lateinit var navigation: NavigationHelperInterface
+    internal lateinit var navigation: NavigationHelper
 
     protected abstract val memoText: EditText
     protected abstract val nameText: EditTextWithEmoji
     protected abstract val root: ConstraintLayout
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -91,7 +81,7 @@ abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModelInter
     }
 
     private fun hideSoftKeyboard() {
-        uiUtilsInterface.setSoftKeyboardVisibility(requireContext(), root, false)
+        uiUtils.setSoftKeyboardVisibility(requireContext(), root, false)
 
         memoText.clearFocus()
         nameText.clearFocus()

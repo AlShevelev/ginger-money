@@ -5,7 +5,7 @@ import com.syleiman.gingermoney.core.utils.fingerprint_auth.eventsHandler.events
 /**
  * An empty stub  model in case when fingerprint authentication is impossible
  */
-class FingerprintModelFake : FingerprintModelInterface {
+class FingerprintModelFake : FingerprintModel {
     /**
      * Start an authentication session
      */

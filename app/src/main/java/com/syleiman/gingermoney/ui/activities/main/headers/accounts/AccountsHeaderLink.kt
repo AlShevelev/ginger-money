@@ -1,49 +1,17 @@
 package com.syleiman.gingermoney.ui.activities.main.headers.accounts
 
-import android.view.View
-import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragmentHeaderInterface
-import javax.inject.Inject
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragmentHeader
 
 /**
  * Link between a header & a fragment
  */
-class AccountsHeaderLink
-@Inject
-constructor() : AccountsHeaderLinkInterface {
-    private var fragment: AccountsFragmentHeaderInterface? = null
+interface AccountsHeaderLink {
 
-    private var header: AccountsHeaderFragmentInterface? = null
+    fun attach(fragment: AccountsFragmentHeader)
 
-    override fun attach(fragment: AccountsFragmentHeaderInterface) {
-        this.fragment = fragment
+    fun attach(header: AccountsHeaderFragment)
 
-        header?.also {
-            it.setAddButtonClickListener(View.OnClickListener { fragment.onAddButtonClick() })
-        }
-    }
+    fun detachFragment()
 
-    override fun attach(header: AccountsHeaderFragmentInterface) {
-        this.header = header
-
-        fragment?.also { fragment ->
-            header.setAddButtonClickListener(View.OnClickListener { fragment.onAddButtonClick() })
-        }
-
-    }
-
-    override fun detachFragment() {
-        fragment = null
-
-        header?.also {
-            it.setAddButtonClickListener(null)
-        }
-    }
-
-    override fun detachHeader() {
-        header?.also {
-            it.setAddButtonClickListener(null)
-        }
-
-        header = null
-    }
+    fun detachHeader()
 }

@@ -17,7 +17,7 @@ constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : HeaderBase(context, attrs, defStyleAttr, R.layout.fragment_main_accounts_header),
-    AccountsHeaderFragmentInterface {
+    AccountsHeaderFragment {
 
     companion object {
         /**
@@ -28,7 +28,7 @@ constructor(
     }
 
     @Inject
-    internal lateinit var headerLink: AccountsHeaderLinkInterface
+    internal lateinit var headerLink: AccountsHeaderLink
 
     init {
         App.injections.get<MainActivityComponent>().inject(this)

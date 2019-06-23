@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
-import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModelInterface
+import com.syleiman.gingermoney.ui.activities.main.fragments.settings.model.SettingsModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectAppProtectionMethodCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_commands.StartSelectStartDayOfWeekCommand
@@ -12,7 +12,7 @@ import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
-class SettingsViewModel : ViewModelBase<SettingsModelInterface>() {
+class SettingsViewModel : ViewModelBase<SettingsModel>() {
 
     val buttonsEnabled: MutableLiveData<Boolean> = MutableLiveData()
 
