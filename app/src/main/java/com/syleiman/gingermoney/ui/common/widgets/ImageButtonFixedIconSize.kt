@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.ImageButton
 import androidx.annotation.Px
 import com.syleiman.gingermoney.R

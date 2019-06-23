@@ -9,7 +9,7 @@ import com.syleiman.gingermoney.R
  * Full screen loading indicator
  */
 /** Base class for all headers */
-final class LoadingIndicator
+class LoadingIndicator
 @JvmOverloads
 constructor(
     context: Context,

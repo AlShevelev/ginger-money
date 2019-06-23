@@ -42,7 +42,7 @@ constructor() : EncryptorAESBase(), Encryptor, EncryptorFingerprint {
         // Get key
         val secretKey = getKey()
 
-        val cipher = Cipher.getInstance(EncryptorAESBase.CRYPTO_ALG)
+        val cipher = Cipher.getInstance(CRYPTO_ALG)
         cipher.init(Cipher.ENCRYPT_MODE, secretKey)
 
         return cipher

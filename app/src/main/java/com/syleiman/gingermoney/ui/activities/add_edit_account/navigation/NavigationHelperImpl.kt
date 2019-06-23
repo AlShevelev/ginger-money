@@ -34,5 +34,5 @@ constructor() : NavigationHelperBaseImpl(R.id.addEditAccountNavHostFragment), Na
         getNavigationController(activity).currentDestination!!.label.toString()
 
     override fun processBackAnimation(activity: FragmentActivity) =
-        activity.overridePendingTransition(R.anim.nav_slide_in_left, R.anim.nav_slide_out_right);
+        activity.overridePendingTransition(R.anim.nav_slide_in_left, R.anim.nav_slide_out_right)
 }

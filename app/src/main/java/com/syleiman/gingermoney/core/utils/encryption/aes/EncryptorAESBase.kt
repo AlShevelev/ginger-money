@@ -29,7 +29,7 @@ abstract class EncryptorAESBase : Encryptor {
         }
 
         if(data.isEmpty()) {
-            return kotlin.ByteArray(0)
+            return ByteArray(0)
         }
 
         // Get key
@@ -62,7 +62,7 @@ abstract class EncryptorAESBase : Encryptor {
         }
 
         if(data.isEmpty()) {
-            return kotlin.ByteArray(0)
+            return ByteArray(0)
         }
 
         // Get key

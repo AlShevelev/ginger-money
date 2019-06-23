@@ -48,7 +48,7 @@ constructor(
         }
 
         if(data.isEmpty()) {
-            return kotlin.ByteArray(0)
+            return ByteArray(0)
         }
 
         val privateKeyEntry = keyStore.getEntry(KEY_ALIAS, null) as KeyStore.PrivateKeyEntry
@@ -73,7 +73,7 @@ constructor(
         }
 
         if(data.isEmpty()) {
-            return kotlin.ByteArray(0)
+            return ByteArray(0)
         }
 
         val privateKeyEntry = keyStore.getEntry(KEY_ALIAS, null) as KeyStore.PrivateKeyEntry
