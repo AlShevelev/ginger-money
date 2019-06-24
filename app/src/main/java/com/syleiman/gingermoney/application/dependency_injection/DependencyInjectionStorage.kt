@@ -8,6 +8,7 @@ import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.de
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
+import com.syleiman.gingermoney.ui.activities.main.fragments.payments.dependency_injection.PaymentsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
 import com.syleiman.gingermoney.ui.dependency_injection.UIComponent
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent
@@ -49,6 +50,7 @@ class DependencyInjectionStorage(private val appContext: Context) {
             MainActivityComponent::class -> get<UIComponent>().mainActivity.build()
             AccountsFragmentComponent::class -> get<MainActivityComponent>().accountsFragment.build()
             SettingsFragmentComponent::class -> get<MainActivityComponent>().settingsFragment.build()
+            PaymentsFragmentComponent::class -> get<MainActivityComponent>().paymentsFragment.build()
 
             AddEditAccountActivityComponent::class -> get<UIComponent>().addEditAccountActivity.build()
             AddAccountFragmentComponent::class -> get<AddEditAccountActivityComponent>().addAccountsFragment.build()

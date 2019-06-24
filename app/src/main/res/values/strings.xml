@@ -76,7 +76,7 @@
     </string>
     <string name="setupBaseCurrency">Choose base currency</string>
     <string name="setupBaseCurrencyExplanation">The base currency is the one you use most often to record your incomes and
-        expenses.
+        payments.
     </string>
     <string name="setupProtectionMethod">Select the application protection method</string>
     <string name="setupProtectionExplanation">This method will only be used when starting the application. This is a simple but
@@ -90,7 +90,7 @@
     <string name="enterUseMaster">Use master password</string>
     <string name="enterFingerprintAuthFail">A fingerprint has not been recognized</string>
 
-    <string name="mainCosts">Expenses</string>
+    <string name="mainCosts">Payments</string>
 
     <string name="mainStatistics">Statistics</string>
 

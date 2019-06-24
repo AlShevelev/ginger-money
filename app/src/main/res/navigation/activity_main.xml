@@ -18,9 +18,9 @@
         />
     </fragment>
     <fragment android:id="@+id/expensesFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.expenses.view.ExpensesFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.main.fragments.payments.view.PaymentsFragment"
               android:label="@string/mainCosts"
-              tools:layout="@layout/fragment_main_expenses">
+              tools:layout="@layout/fragment_main_payments">
     </fragment>
     <fragment android:id="@+id/settingsFragment"
               android:name="com.syleiman.gingermoney.ui.activities.main.fragments.settings.view.SettingsFragment"
