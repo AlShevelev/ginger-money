@@ -24,4 +24,9 @@ class PaymentsFragment :
     override fun linkViewModel(binding: FragmentMainPaymentsBinding, viewModel: PaymentsViewModel) {
         binding.viewModel = viewModel
     }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.onViewActive()
+    }
 }

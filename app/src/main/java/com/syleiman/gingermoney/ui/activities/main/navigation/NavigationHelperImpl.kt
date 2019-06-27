@@ -32,7 +32,7 @@ constructor() : NavigationHelperBaseImpl(R.id.mainNavHostFragment), NavigationHe
         NavController
             .OnDestinationChangedListener { _, destination, _ ->
                 val tag = when(destination.id) {
-                    R.id.expensesFragment -> HeaderTags.EXPENSES_FRAGMENT
+                    R.id.paymentsFragment -> HeaderTags.PAYMENTS_FRAGMENT
                     R.id.statisticsFragment -> HeaderTags.STATISTICS_FRAGMENT
                     R.id.accountsFragment -> HeaderTags.ACCOUNTS_FRAGMENT
                     R.id.settingsFragment -> HeaderTags.SETTINGS_FRAGMENT

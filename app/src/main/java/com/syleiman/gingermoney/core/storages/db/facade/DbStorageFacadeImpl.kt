@@ -57,11 +57,11 @@ constructor(
         }
 
     /**
-     * Returns true if an account has expenses
+     * Returns true if an account has payments
      */
-    override fun hasExpenses(accountId: Long): Boolean =
+    override fun hasPayments(accountId: Long): Boolean =
         db.run { dbCore ->
-            dbCore.expenses.exists(accountId)
+            dbCore.payments.exists(accountId)
         }
 
     override fun readAccountGroupSettings(): List<AccountGroupSettings> =

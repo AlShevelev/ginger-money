@@ -64,7 +64,9 @@
     <string name="enterUseMaster">Вход по основному паролю</string>
     <string name="enterFingerprintAuthFail">Отпечаток не распознан</string>
 
-    <string name="mainCosts">Расходы</string>
+    <string name="mainPayments">Расходы</string>
+    <string name="mainPaymentsNoPayments">В этом месяце у вас нет расходов</string>
+    <string name="mainPaymentsNoAccounts">У вас еще нет счетов. Добавьте хотя бы один.</string>
 
     <string name="mainStatistics">Статистика</string>
 

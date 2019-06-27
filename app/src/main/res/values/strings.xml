@@ -90,7 +90,9 @@
     <string name="enterUseMaster">Use master password</string>
     <string name="enterFingerprintAuthFail">A fingerprint has not been recognized</string>
 
-    <string name="mainCosts">Payments</string>
+    <string name="mainPayments">Payments</string>
+    <string name="mainPaymentsNoPayments">There are no payments this month</string>
+    <string name="mainPaymentsNoAccounts">You have no accounts yet. Add at least one.</string>
 
     <string name="mainStatistics">Statistics</string>
 

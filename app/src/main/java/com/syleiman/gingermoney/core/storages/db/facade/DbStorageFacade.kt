@@ -24,9 +24,9 @@ interface DbStorageFacade {
     fun readAccount(id: Long): Account?
 
     /**
-     * Returns true if an account has expenses
+     * Returns true if an account has payments
      */
-    fun hasExpenses(accountId: Long): Boolean
+    fun hasPayments(accountId: Long): Boolean
 
     fun readAccountGroupSettings(): List<AccountGroupSettings>
 

@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Query
 
 @Dao
-interface ExpensesDao {
-    @Query("select exists(select 1 from expense where account_id = :accountId)")
+interface PaymentsDao {
+    @Query("select exists(select 1 from payment where account_id = :accountId)")
     fun exists(accountId: Long): Boolean
 }

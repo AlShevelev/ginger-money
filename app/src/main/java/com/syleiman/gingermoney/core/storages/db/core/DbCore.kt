@@ -10,8 +10,8 @@ import com.syleiman.gingermoney.core.storages.db.type_converters.*
 @Database(
     entities = [
         AccountDb::class,
-        ExpenseCategoryDb::class,
-        ExpenseDb::class,
+        PaymentCategoryDb::class,
+        PaymentDb::class,
         SourceExchangeRateDb::class,
         AccountGroupSettingsDb::class
     ],

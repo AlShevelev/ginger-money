@@ -49,12 +49,12 @@
         "foreignKeys": []
       },
       {
-        "tableName": "expense_category",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`expense_category_id` INTEGER NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`expense_category_id`))",
+        "tableName": "payment_category",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`payment_category_id` INTEGER NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`payment_category_id`))",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "expense_category_id",
+            "columnName": "payment_category_id",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -67,7 +67,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "expense_category_id"
+            "payment_category_id"
           ],
           "autoGenerate": false
         },
@@ -75,12 +75,12 @@
         "foreignKeys": []
       },
       {
-        "tableName": "expense",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`expense_id` INTEGER NOT NULL, `account_id` INTEGER NOT NULL, `expense_category_id` INTEGER NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `memo_image_file_name` TEXT, `create_at` BLOB NOT NULL, `create_at_estimate` INTEGER NOT NULL, PRIMARY KEY(`expense_id`), FOREIGN KEY(`account_id`) REFERENCES `account`(`account_id`) ON UPDATE NO ACTION ON DELETE RESTRICT , FOREIGN KEY(`expense_category_id`) REFERENCES `expense_category`(`expense_category_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "tableName": "payment",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`payment_id` INTEGER NOT NULL, `account_id` INTEGER NOT NULL, `payment_category_id` INTEGER NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `memo_image_file_name` TEXT, `create_at` BLOB NOT NULL, `create_at_estimate` INTEGER NOT NULL, PRIMARY KEY(`payment_id`), FOREIGN KEY(`account_id`) REFERENCES `account`(`account_id`) ON UPDATE NO ACTION ON DELETE RESTRICT , FOREIGN KEY(`payment_category_id`) REFERENCES `payment_category`(`payment_category_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
         "fields": [
           {
             "fieldPath": "id",
-            "columnName": "expense_id",
+            "columnName": "payment_id",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -91,8 +91,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "expenseCategoryId",
-            "columnName": "expense_category_id",
+            "fieldPath": "paymentCategoryId",
+            "columnName": "payment_category_id",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -129,34 +129,34 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "expense_id"
+            "payment_id"
           ],
           "autoGenerate": false
         },
         "indices": [
           {
-            "name": "index_expense_account_id",
+            "name": "index_payment_account_id",
             "unique": false,
             "columnNames": [
               "account_id"
             ],
-            "createSql": "CREATE  INDEX `index_expense_account_id` ON `${TABLE_NAME}` (`account_id`)"
+            "createSql": "CREATE  INDEX `index_payment_account_id` ON `${TABLE_NAME}` (`account_id`)"
           },
           {
-            "name": "index_expense_expense_category_id",
+            "name": "index_payment_payment_category_id",
             "unique": false,
             "columnNames": [
-              "expense_category_id"
+              "payment_category_id"
             ],
-            "createSql": "CREATE  INDEX `index_expense_expense_category_id` ON `${TABLE_NAME}` (`expense_category_id`)"
+            "createSql": "CREATE  INDEX `index_payment_payment_category_id` ON `${TABLE_NAME}` (`payment_category_id`)"
           },
           {
-            "name": "index_expense_create_at_estimate",
+            "name": "index_payment_create_at_estimate",
             "unique": false,
             "columnNames": [
               "create_at_estimate"
             ],
-            "createSql": "CREATE  INDEX `index_expense_create_at_estimate` ON `${TABLE_NAME}` (`create_at_estimate`)"
+            "createSql": "CREATE  INDEX `index_payment_create_at_estimate` ON `${TABLE_NAME}` (`create_at_estimate`)"
           }
         ],
         "foreignKeys": [
@@ -172,14 +172,14 @@
             ]
           },
           {
-            "table": "expense_category",
+            "table": "payment_category",
             "onDelete": "RESTRICT",
             "onUpdate": "NO ACTION",
             "columns": [
-              "expense_category_id"
+              "payment_category_id"
             ],
             "referencedColumns": [
-              "expense_category_id"
+              "payment_category_id"
             ]
           }
         ]

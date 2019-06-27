@@ -48,11 +48,8 @@ class AccountsViewModel : ViewModelBase<AccountsModel>(), ListItemEventsProcesso
 
     override fun onOnColorMenuItemClick(group: AccountGroup) {
         launch {
-            val colors = model.getColors(group)
-            if (colors.error != null) {
-                command.value = ShowErrorCommand(colors.error)
-            } else {
-                dialogCommands.value = StartSelectColorsDialogCommand(colors.value!!, group)
+            processCallResult(model.getColors(group)) {
+                dialogCommands.value = StartSelectColorsDialogCommand(it, group)
             }
         }
     }
@@ -83,22 +80,16 @@ class AccountsViewModel : ViewModelBase<AccountsModel>(), ListItemEventsProcesso
         loadingVisibility.value = View.VISIBLE
 
         launch {
-            val accounts = model.getListItems()
+            val accounts = model.getAccountsList()
 
             loadingVisibility.value = View.GONE
 
-            accounts.value
-                ?.let {
-                    accountsListData.value = it
+            processCallResult(accounts) {
+                accountsListData.value = it
 
-                    stubVisibility.value = if(it.isEmpty()) View.VISIBLE else View.INVISIBLE
-                    accountsListVisibility.value = if(it.isEmpty()) View.INVISIBLE else View.VISIBLE
-                }
-
-            accounts.error
-                ?.also {
-                    command.value = ShowErrorCommand(it)
-                }
+                stubVisibility.value = if(it.isEmpty()) View.VISIBLE else View.INVISIBLE
+                accountsListVisibility.value = if(it.isEmpty()) View.INVISIBLE else View.VISIBLE
+            }
         }
     }
 }

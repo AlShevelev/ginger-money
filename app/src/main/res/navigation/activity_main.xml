@@ -3,7 +3,7 @@
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/activity_main"
-            app:startDestination="@id/expensesFragment">
+            app:startDestination="@id/paymentsFragment">
 
     <fragment android:id="@+id/accountsFragment"
               android:name="com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment"
@@ -17,9 +17,9 @@
                 app:popExitAnim="@anim/nav_slide_out_right"
         />
     </fragment>
-    <fragment android:id="@+id/expensesFragment"
+    <fragment android:id="@+id/paymentsFragment"
               android:name="com.syleiman.gingermoney.ui.activities.main.fragments.payments.view.PaymentsFragment"
-              android:label="@string/mainCosts"
+              android:label="@string/mainPayments"
               tools:layout="@layout/fragment_main_payments">
     </fragment>
     <fragment android:id="@+id/settingsFragment"

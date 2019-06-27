@@ -3,6 +3,7 @@ package com.syleiman.gingermoney.ui.common.mvvm
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.syleiman.gingermoney.core.helpers.SingleLiveData
+import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import kotlinx.coroutines.*
 import javax.inject.Inject
@@ -31,6 +32,11 @@ abstract class ViewModelBase<TModel : ModelBase> : ViewModel(), CoroutineScope {
      * That's why we can't use [command]
      */
     val dialogCommands: MutableLiveData<ViewCommand> = MutableLiveData()
+
+    protected fun <T>processCallResult(callResult: ModelCallResult<T>, normalAction: (T) -> Unit) {
+        callResult.value?.let { normalAction(it) }
+        callResult.error?.also { command.value = ShowErrorCommand(it) }
+    }
 
     override fun onCleared() {
         super.onCleared()

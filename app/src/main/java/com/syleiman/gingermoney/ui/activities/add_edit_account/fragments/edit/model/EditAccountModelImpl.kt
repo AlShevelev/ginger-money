@@ -36,7 +36,7 @@ constructor(
 
     override suspend fun canUpdateCurrency(): ModelCallResult<out Boolean> =
         getValue {
-            !db.hasExpenses(accountDbId)
+            !db.hasPayments(accountDbId)
         }
 
     override suspend fun save(group: AccountGroup?, name: String?, amount: Money, memo: String?): DisplayingError? {

@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         // And add a new one
         when(tag) {
-            HeaderTags.EXPENSES_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
+            HeaderTags.PAYMENTS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
             HeaderTags.STATISTICS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
             HeaderTags.ACCOUNTS_FRAGMENT -> AccountsHeader.create(this, title, mainToolbar)
             HeaderTags.SETTINGS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)

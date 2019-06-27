@@ -8,7 +8,7 @@ import com.syleiman.gingermoney.core.global_entities.date_time.ZonedDateTimeSpli
 import com.syleiman.gingermoney.core.global_entities.money.Money
 
 @Entity(
-    tableName = "expense",
+    tableName = "payment",
     foreignKeys = [
         ForeignKey(
             entity = AccountDb::class,
@@ -17,22 +17,22 @@ import com.syleiman.gingermoney.core.global_entities.money.Money
             onDelete = ForeignKey.RESTRICT
         ),
         ForeignKey(
-            entity = ExpenseCategoryDb::class,
-            parentColumns = ["expense_category_id"],
-            childColumns = ["expense_category_id"],
+            entity = PaymentCategoryDb::class,
+            parentColumns = ["payment_category_id"],
+            childColumns = ["payment_category_id"],
             onDelete = ForeignKey.RESTRICT
         )
     ])
-data class ExpenseDb (
+data class PaymentDb (
     @PrimaryKey
-    @ColumnInfo(name = "expense_id")
+    @ColumnInfo(name = "payment_id")
     var id: Long,
 
     @ColumnInfo(name = "account_id", index = true)
     var accountId: Long,
 
-    @ColumnInfo(name = "expense_category_id", index = true)
-    var expenseCategoryId: Long,
+    @ColumnInfo(name = "payment_category_id", index = true)
+    var paymentCategoryId: Long,
 
     @ColumnInfo(name = "amount", typeAffinity = ColumnInfo.BLOB)
     val amount: Money,

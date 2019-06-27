@@ -30,7 +30,7 @@ constructor(
     private val defaultGroupTextColor = Color.BLACK
     private val defaultGroupBackgroundColor = Color.YELLOW
 
-    override suspend fun getListItems(): ModelCallResult<out List<ListItem>> =
+    override suspend fun getAccountsList(): ModelCallResult<out List<ListItem>> =
         getValue {
             val defaultCurrency = keyValueStorage.getDefaultCurrency()
             val sourceExchangeRates = ExchangeRateSourceData(db)

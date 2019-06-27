@@ -31,15 +31,9 @@ class SettingsViewModel : ViewModelBase<SettingsModel>() {
 
             buttonsEnabled.value = true
 
-            method.error
-                ?.let {
-                    command.value = ShowErrorCommand(it)
-                }
-
-            method.value
-                ?.let {
-                    dialogCommands.value = StartSelectAppProtectionMethodCommand(allMethods.indexOf(it), allMethods)
-                }
+            processCallResult(method) {
+                dialogCommands.value = StartSelectAppProtectionMethodCommand(allMethods.indexOf(it), allMethods)
+            }
         }
     }
 
@@ -51,18 +45,9 @@ class SettingsViewModel : ViewModelBase<SettingsModel>() {
 
             buttonsEnabled.value = true
 
-            defaultCurrency.error
-                ?.let {
-                    command.value = ShowErrorCommand(it)
-                }
-
-            defaultCurrency.value
-                ?.let {
-                    dialogCommands.value =
-                        StartSelectCurrencyDialogCommand(
-                            it
-                        )
-                }
+            processCallResult(defaultCurrency) {
+                dialogCommands.value = StartSelectCurrencyDialogCommand(it)
+            }
         }
     }
 
@@ -75,15 +60,9 @@ class SettingsViewModel : ViewModelBase<SettingsModel>() {
 
             buttonsEnabled.value = true
 
-            startDayOfWeek.error
-                ?.let {
-                    command.value = ShowErrorCommand(it)
-                }
-
-            startDayOfWeek.value
-                ?.let {
-                    dialogCommands.value = StartSelectStartDayOfWeekCommand(allDays.indexOf(it), allDays)
-                }
+            processCallResult(startDayOfWeek) {
+                dialogCommands.value = StartSelectStartDayOfWeekCommand(allDays.indexOf(it), allDays)
+            }
         }
     }
 

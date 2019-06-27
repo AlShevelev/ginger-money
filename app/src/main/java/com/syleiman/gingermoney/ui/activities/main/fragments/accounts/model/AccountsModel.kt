@@ -10,7 +10,7 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 
 interface AccountsModel: ModelBase {
 
-    suspend fun getListItems(): ModelCallResult<out List<ListItem>>
+    suspend fun getAccountsList(): ModelCallResult<out List<ListItem>>
 
     suspend fun getCurrency(group: AccountGroup?): Currency
 
