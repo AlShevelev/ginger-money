@@ -16,6 +16,27 @@
         android:background="@drawable/bcg_activity_page"
         tools:context=".ui.activities.main.fragments.payments.view.PaymentsFragment">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/appPaymentButton"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+
+            app:srcCompat="@drawable/ic_add"
+            app:tint = "@color/white"
+            app:backgroundTint="@color/primary"
+
+            tools:visibility="visible"
+            android:visibility="@{viewModel.addPaymentButtonVisibility}"
+
+            android:layout_marginEnd="@dimen/fabMargin"
+            android:layout_marginBottom="@dimen/fabMargin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+        />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/paymentsList"
 
@@ -76,7 +97,8 @@
         <com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:visibility="@{viewModel.loadingVisibility}" >
+            android:visibility="@{viewModel.loadingVisibility}"
+            android:id="@+id/loadingIndicator">
         </com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator>
         <!--</editor-fold>-->
     </androidx.constraintlayout.widget.ConstraintLayout>

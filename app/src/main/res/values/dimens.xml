@@ -19,6 +19,10 @@
     <dimen name="toastCorners">10dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Floating action button">-->
+    <dimen name="fabMargin">16dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="List items">-->
     <dimen name="listItemHeight">44dp</dimen>
     <dimen name="listItemSizeMargin">12dp</dimen>

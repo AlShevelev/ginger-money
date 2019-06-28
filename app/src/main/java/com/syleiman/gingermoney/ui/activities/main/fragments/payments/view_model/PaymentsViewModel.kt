@@ -20,6 +20,8 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
     val stubVisibility: MutableLiveData<Int> = MutableLiveData()
     val stubText: MutableLiveData<String> = MutableLiveData()
 
+    val addPaymentButtonVisibility: MutableLiveData<Int> = MutableLiveData()
+
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
 
     @Inject
@@ -30,6 +32,7 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
 
         stubVisibility.value = View.VISIBLE
         paymentsListVisibility.value = View.INVISIBLE
+        addPaymentButtonVisibility.value = View.INVISIBLE
     }
 
     fun onViewActive() {
@@ -49,13 +52,20 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
                     !it.hasAccounts -> {
                         stubText.value = appResourcesProvider.getString(R.string.mainPaymentsNoAccounts)
                         stubVisibility.value = View.VISIBLE
+                        addPaymentButtonVisibility.value = View.INVISIBLE
+                        paymentsListVisibility.value = View.INVISIBLE
                     }
                     it.payments.isEmpty() -> {
                         stubText.value = appResourcesProvider.getString(R.string.mainPaymentsNoPayments)
                         stubVisibility.value = View.VISIBLE
+                        addPaymentButtonVisibility.value = View.VISIBLE
+                        paymentsListVisibility.value = View.INVISIBLE
                     }
                     else -> {
                         stubVisibility.value = View.INVISIBLE
+                        paymentsListVisibility.value = View.VISIBLE
+                        addPaymentButtonVisibility.value = View.VISIBLE
+
                         // Show payments
                     }
                 }
