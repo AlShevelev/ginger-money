@@ -8,7 +8,6 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
 import kotlinx.android.synthetic.main.activity_add_edit_account_header.view.*
 
-/** Show current page as a set of dots */
 class AddEditAccountHeader
 @JvmOverloads
 constructor(

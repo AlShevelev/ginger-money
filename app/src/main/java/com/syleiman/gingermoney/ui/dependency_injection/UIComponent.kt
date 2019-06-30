@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.ui.dependency_injection
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.UIScope
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injection.AddEditPaymentActivityComponent
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent
@@ -32,6 +33,8 @@ interface UIComponent {
     val mainActivity: MainActivityComponent.Builder
 
     val addEditAccountActivity: AddEditAccountActivityComponent.Builder
+
+    val addEditPaymentActivity: AddEditPaymentActivityComponent.Builder
 
     fun inject(amountKeyboard: AmountKeyboard)
 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary">
+
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
+        android:id="@+id/backButton"
+
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
+
+        android:background="@null"
+
+        app:imageButton_tint = "@color/header_button"
+        app:imageButton_icon="@drawable/ic_back"
+        app:imageButton_iconWidth="@dimen/headerButtonIconSize"
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+    />
+
+
+    <TextView
+        android:id="@+id/headerTitle"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:text="Title"
+        style="@style/App.Activity.Header.Title"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/backButton"
+
+        android:tag="TITLE"
+    />
+
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
+        android:id="@+id/addButton"
+
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
+
+        android:background="@null"
+
+        app:imageButton_tint = "@color/header_button"
+        app:imageButton_icon="@drawable/ic_add"
+        app:imageButton_iconWidth="@dimen/headerButtonIconSize"
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        tools:visibility="visible"
+        android:visibility="gone"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

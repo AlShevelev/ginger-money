@@ -23,6 +23,10 @@
     <dimen name="fabMargin">16dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Toolbar">-->
+    <dimen name="toolbarElevation">4dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="List items">-->
     <dimen name="listItemHeight">44dp</dimen>
     <dimen name="listItemSizeMargin">12dp</dimen>

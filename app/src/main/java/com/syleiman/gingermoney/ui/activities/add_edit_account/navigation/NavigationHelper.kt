@@ -8,8 +8,4 @@ interface NavigationHelper: NavigationHelperBase {
     fun setAddAccountAsHome(activity: FragmentActivity)
 
     fun setEditAccountAsHome(activity: FragmentActivity, accountDbId: Long)
-
-    fun getTitle(activity: FragmentActivity): String
-
-    fun processBackAnimation(activity: FragmentActivity)
 }

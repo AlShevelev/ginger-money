@@ -6,8 +6,8 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.add_edit_account.dependency_injection.AddEditAccountActivityComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelper
-import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_ACTION
-import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_DB_ID
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACTION
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.DB_ID
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ADD
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.EDIT
 import kotlinx.android.synthetic.main.activity_add_edit_account.*
@@ -30,10 +30,10 @@ class AddEditAccountActivity : AppCompatActivity() {
         var showDeleteButton = false
         intent.extras
             ?.let { extras ->
-                when(extras.getString(ACCOUNT_ACTION)) {
+                when(extras.getString(ACTION)) {
                     ADD -> navigation.setAddAccountAsHome(this)
                     EDIT -> {
-                        navigation.setEditAccountAsHome(this, extras.getLong(ACCOUNT_DB_ID))
+                        navigation.setEditAccountAsHome(this, extras.getLong(DB_ID))
                         showDeleteButton = true
                     }
                 }

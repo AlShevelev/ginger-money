@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/activity_add_edit_payment"
+            app:startDestination="@id/addPaymentFragment">
+
+    <fragment android:id="@+id/addCategoryFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_category.view.AddCategoryFragment"
+              android:label="@string/addEditPaymentAddCategoryTitle"/>
+
+    <fragment android:id="@+id/addPaymentFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view.AddPaymentFragment"
+              android:label=" @string/addEditPaymentAddTitle">
+        <action android:id="@+id/action_addPaymentFragment_to_listCategoryFragment"
+                app:destination="@id/listCategoryFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/listCategoryFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.view.ListCategoryFragment"
+              android:label="@string/addEditPaymentCategoriesListTitle">
+        <action android:id="@+id/action_listCategoryFragment_to_addCategoryFragment"
+                app:destination="@id/addCategoryFragment"/>
+    </fragment>
+</navigation>

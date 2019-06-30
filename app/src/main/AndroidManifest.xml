@@ -5,8 +5,7 @@
 
     <uses-feature
         android:name="android.hardware.fingerprint"
-        android:required="false"/>
-    <!--suppress DeprecatedClassUsageInspection -->
+        android:required="false"/> <!-- suppress DeprecatedClassUsageInspection -->
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -35,6 +34,11 @@
         </activity>
         <activity
             android:name=".ui.activities.add_edit_account.AddEditAccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/App.Activity.Main.Theme">
+        </activity>
+        <activity
+            android:name=".ui.activities.add_edit_payment.AddEditPaymentActivity"
             android:screenOrientation="portrait"
             android:theme="@style/App.Activity.Main.Theme">
         </activity>

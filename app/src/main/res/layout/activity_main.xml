@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
 
-        android:elevation="4dp"
+        android:elevation="@dimen/toolbarElevation"
         android:background="?attr/colorPrimary"
         app:titleTextColor="@color/textOnPrimary"
 

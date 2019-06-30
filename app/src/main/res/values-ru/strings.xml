@@ -74,6 +74,8 @@
     <string name="mainAccountsTotal">Итого</string>
     <string name="mainAccountsSelectCurrency">Выберите валюту</string>
     <string name="mainAccountsNoData">У вас еще нет счетов</string>
+    <string name="mainAccountsMenuSelectCurrency">Валюта…</string>
+    <string name="mainAccountsMenuSelectColors">Цвета…</string>
 
     <string name="mainSettings">Настройки</string>
     <string name="mainSettingsApplicationProtection">Защита приложения</string>
@@ -92,6 +94,7 @@
     <string name="addEditAccountNameIsEmptyError">Имя счета не может быть пустым</string>
     <string name="addEditAccountNameIsTooLongError">Имя счета слишком длинное</string>
 
-    <string name="mainAccountsMenuSelectCurrency">Валюта…</string>
-    <string name="mainAccountsMenuSelectColors">Цвета…</string>
+    <string name="addEditPaymentAddTitle">Добавить платеж</string>
+    <string name="addEditPaymentCategoriesListTitle">Категории платежей</string>
+    <string name="addEditPaymentAddCategoryTitle">Добавить категорию платежа</string>
 </resources>

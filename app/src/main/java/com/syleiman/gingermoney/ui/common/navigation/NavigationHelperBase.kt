@@ -13,4 +13,8 @@ interface NavigationHelperBase {
      * Move back in back stack
      */
     fun moveBack(currentActivity: FragmentActivity)
+
+    fun getTitle(activity: FragmentActivity): String
+
+    fun processBackAnimation(activity: FragmentActivity)
 }

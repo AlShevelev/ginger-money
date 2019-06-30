@@ -7,9 +7,10 @@ import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
+import com.syleiman.gingermoney.ui.activities.main.fragments.payments.view.PaymentsFragment
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
-import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_ACTION
-import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACCOUNT_DB_ID
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACTION
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.DB_ID
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ADD
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.EDIT
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBaseImpl
@@ -18,7 +19,6 @@ import javax.inject.Inject
 class NavigationHelperImpl
 @Inject
 constructor() : NavigationHelperBaseImpl(R.id.mainNavHostFragment), NavigationHelper {
-
     private var onDestinationChangedListener: NavController.OnDestinationChangedListener? = null
 
     /**
@@ -55,7 +55,7 @@ constructor() : NavigationHelperBaseImpl(R.id.mainNavHostFragment), NavigationHe
      * Move to add/edit account screen
      */
     override fun moveToAddAccount(currentFragment: AccountsFragment) {
-        val args = Bundle().also { it.putString(ACCOUNT_ACTION, ADD) }
+        val args = Bundle().also { it.putString(ACTION, ADD) }
         moveTo(currentFragment, R.id.action_accountsFragment_to_addEditAccountActivity, args = args)
     }
 
@@ -65,10 +65,15 @@ constructor() : NavigationHelperBaseImpl(R.id.mainNavHostFragment), NavigationHe
     override fun moveToEditAccount(currentFragment: AccountsFragment, accountDbId: Long) {
         val args = Bundle()
             .also {
-                it.putString(ACCOUNT_ACTION, EDIT)
-                it.putLong(ACCOUNT_DB_ID, accountDbId)
+                it.putString(ACTION, EDIT)
+                it.putLong(DB_ID, accountDbId)
             }
 
         moveTo(currentFragment, R.id.action_accountsFragment_to_addEditAccountActivity, args = args)
+    }
+
+    override fun moveToAddPayment(currentFragment: PaymentsFragment) {
+        val args = Bundle().also { it.putString(ACTION, ADD) }
+        moveTo(currentFragment, R.id.action_paymentsFragment_to_addEditPaymentActivity, args = args)
     }
 }

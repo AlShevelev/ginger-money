@@ -33,7 +33,7 @@ class EditAccountFragment : AccountFragmentBase<FragmentAddEditAccountEditBindin
     override fun provideLayout(): Int = R.layout.fragment_add_edit_account_edit
 
     override fun inject() {
-        val accountDbId = arguments!!.getLong(NavigationArgs.ACCOUNT_DB_ID)
+        val accountDbId = arguments!!.getLong(NavigationArgs.DB_ID)
         App.injections.get<EditAccountFragmentComponent>(accountDbId).inject(this)
     }
 

@@ -3,6 +3,7 @@ package com.syleiman.gingermoney.ui.activities.main.navigation
 import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
+import com.syleiman.gingermoney.ui.activities.main.fragments.payments.view.PaymentsFragment
 import com.syleiman.gingermoney.ui.common.navigation.NavigationHelperBase
 
 interface NavigationHelper : NavigationHelperBase {
@@ -24,4 +25,6 @@ interface NavigationHelper : NavigationHelperBase {
      * Move to "Edit account" screen
      */
     fun moveToEditAccount(currentFragment: AccountsFragment, accountDbId: Long)
+
+    fun moveToAddPayment(currentFragment: PaymentsFragment)
 }

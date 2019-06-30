@@ -5,10 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.add_edit_account.AddEditAccountActivity">
+    tools:context=".ui.activities.add_edit_payment.AddEditPaymentActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/addEditAccountToolbar"
+        android:id="@+id/addEditPaymentToolbar"
 
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
@@ -35,12 +35,12 @@
 
     <!-- Host for all fragments (all fragments'll be displayed here) -->
     <fragment
-        android:id="@+id/addEditAccountNavHostFragment"
+        android:id="@+id/addEditPaymentNavHostFragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
-        app:layout_constraintTop_toBottomOf="@+id/addEditAccountToolbar"
+        app:layout_constraintTop_toBottomOf="@+id/addEditPaymentToolbar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
