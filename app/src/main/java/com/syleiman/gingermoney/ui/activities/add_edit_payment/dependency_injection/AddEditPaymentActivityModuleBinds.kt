@@ -8,7 +8,6 @@ import dagger.Module
 
 @Module
 abstract class AddEditPaymentActivityModuleBinds {
-
     @Binds
     @ActivityScope
     abstract fun provideNavigationHelper(helper: NavigationHelperImpl): NavigationHelper
