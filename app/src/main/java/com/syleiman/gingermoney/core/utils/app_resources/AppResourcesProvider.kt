@@ -25,6 +25,8 @@ interface AppResourcesProvider {
     @ColorInt
     fun getColor(color: Color): Int
 
+    fun getBool(@BoolRes boolResId: Int): Boolean
+
     /**
      * Get dimension value in pixels
      */

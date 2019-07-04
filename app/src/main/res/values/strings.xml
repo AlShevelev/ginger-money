@@ -21,6 +21,10 @@
     <string name="daySaturday">Saturday</string>
     <string name="daySunday">Sunday</string>
 
+    <string name="dateTimeFormat">MM/dd/yyyy HH:mm a</string>
+    <string name="dateFormat">MM/dd/yyyy</string>
+    <string name="timeFormat">HH:mm a</string>
+
     <string name="commonNext">Next</string>
     <string name="commonFinish">Finish</string>
     <string name="commonOk">OK</string>
@@ -30,6 +34,7 @@
     <string name="commonMemo">Memo</string>
     <string name="commonGroup">Group</string>
     <string name="commonName">Name</string>
+
 
     <string name="dialogSelectColorsTitle">Select colors</string>
     <string name="dialogSelectColorsText">Text color</string>
@@ -143,4 +148,5 @@
     <string name="addEditPaymentAddTitle">Add payment</string>
     <string name="addEditPaymentCategoriesListTitle">Payment categories</string>
     <string name="addEditPaymentAddCategoryTitle">Add payment category</string>
+    <string name="addEditPaymentCreatedAt">Created at</string>
 </resources>

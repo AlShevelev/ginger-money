@@ -26,3 +26,15 @@ fun ZonedDateTimeSplit.toZoneDateTime(): ZonedDateTime {
 fun ZonedDateTime.getEstimateValue(): Int {
     return this.year * 372 + (this.monthValue - 1) * 31 + this.dayOfMonth
 }
+
+/**
+ * Returns a copy of this ZonedDateTime with a year, month and day of month values altered.
+ * [monthOfYear] value starts from 1 - for January the value is 1
+ */
+fun ZonedDateTime.withDate(year: Int, monthOfYear: Int, dayOfMonth: Int): ZonedDateTime =
+    this.withYear(year).withMonth(monthOfYear).withDayOfMonth(dayOfMonth)
+
+/**
+ * Returns a copy of this ZonedDateTime with a hour and minute values altered.
+ */
+fun ZonedDateTime.withTime(hour: Int, minute: Int): ZonedDateTime = this.withHour(hour).withMinute(minute)

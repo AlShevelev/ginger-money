@@ -69,6 +69,7 @@ constructor(
             Color.DEEP_ORANGE -> getColor(R.color.deepOrange)
         }
 
+    override fun getBool(@BoolRes boolResId: Int): Boolean = appContext.resources.getBoolean(boolResId)
 
     /**
      * Get dimension value in pixels

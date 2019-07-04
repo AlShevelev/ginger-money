@@ -4,9 +4,9 @@
         <shape android:shape="rectangle">
             <stroke
                 android:color="@color/gray"
-                android:width="1dp"/>
+                android:width="@dimen/strokeThin"/>
             <corners
-                android:radius="5dp"/>
+                android:radius="@dimen/editTextCorners"/>
             <solid
                 android:color="@color/textOnPrimary" />
         </shape>

@@ -14,6 +14,10 @@
     <dimen name="strokeNormal">2dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Strokes width">-->
+    <dimen name="editTextCorners">5dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Toasts">-->
     <dimen name="toastMargin">8dp</dimen>
     <dimen name="toastCorners">10dp</dimen>
@@ -134,5 +138,9 @@
     <dimen name="addEditAccountCurrencyPadding">14dp</dimen>
 
     <dimen name="addEditAccountHeaderDeleteButtonWidth">16dp</dimen>
+    <!--</editor-fold>-->
+
+    <!--<editor-fold desc="Add & Edit payments">-->
+    <dimen name="addEditPaymentFieldsBarrier">85dp</dimen>
     <!--</editor-fold>-->
 </resources>

@@ -12,6 +12,10 @@
     <string name="daySaturday">Суббота</string>
     <string name="daySunday">Воскресенье</string>
 
+    <string name="dateTimeFormat">dd.MM.yyyy HH:mm</string>
+    <string name="dateFormat">dd.MM.yyyy</string>
+    <string name="timeFormat">HH:mm</string>
+
     <string name="commonNext">Далее</string>
     <string name="commonFinish">Готово</string>
     <string name="commonOk">OK</string>
@@ -97,4 +101,5 @@
     <string name="addEditPaymentAddTitle">Добавить платеж</string>
     <string name="addEditPaymentCategoriesListTitle">Категории платежей</string>
     <string name="addEditPaymentAddCategoryTitle">Добавить категорию платежа</string>
+    <string name="addEditPaymentCreatedAt">Создан в</string>
 </resources>
