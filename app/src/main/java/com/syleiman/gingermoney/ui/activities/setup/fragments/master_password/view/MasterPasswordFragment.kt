@@ -40,7 +40,6 @@ class MasterPasswordFragment : FragmentBase<FragmentSetupMasterPasswordBinding, 
                 when(command.error) {
                     is InvalidPasswordLenError -> {
                         uiUtils.showError(
-                            requireContext(),
                             resourcesProvider.getFormattedString(
                                 R.string.passwordLenError,
                                 command.error.minPasswordLen,

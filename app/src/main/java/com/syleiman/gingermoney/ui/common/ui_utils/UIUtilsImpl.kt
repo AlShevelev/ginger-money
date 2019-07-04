@@ -5,7 +5,6 @@ import android.content.Context
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
@@ -22,34 +21,33 @@ import javax.inject.Inject
 class UIUtilsImpl
 @Inject
 constructor(
+    private val appContext: Context,
     private val appResourcesProvider: AppResourcesProvider
 ) : UIUtils {
 
     /**
      * Show non-blocking UI error message
      */
-    override fun showError(context: Context, @StringRes messageResId: Int) =
-        showError(context, appResourcesProvider.getString(messageResId))
+    override fun showError(@StringRes messageResId: Int) = showError(appResourcesProvider.getString(messageResId))
 
     /**
      * Show non-blocking UI error message
      */
-    override fun showError(context: Context, message: String) = showCustomToast(context, message, CustomToastType.ERROR)
+    override fun showError(message: String) = showCustomToast(message, CustomToastType.ERROR)
 
     /**
      * Show non-blocking UI warning message
      */
-    override fun showWarning(context: Context, @StringRes messageResId: Int) =
-        showWarning(context, appResourcesProvider.getString(messageResId))
+    override fun showWarning(@StringRes messageResId: Int) = showWarning(appResourcesProvider.getString(messageResId))
 
     /**
      * Show non-blocking UI error warning
      */
-    override fun showWarning(context: Context, message: String) = showCustomToast(context, message, CustomToastType.WARNING)
+    override fun showWarning(message: String) = showCustomToast(message, CustomToastType.WARNING)
 
     @SuppressLint("InflateParams")
-    private fun showCustomToast(context: Context, message: String, type: CustomToastType) {
-        val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    private fun showCustomToast(message: String, type: CustomToastType) {
+        val inflater = appContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
         val customView = when(type) {
             CustomToastType.ERROR -> inflater.inflate(R.layout.toast_error, null)
@@ -59,7 +57,7 @@ constructor(
         val textView = customView.findViewById<TextView>(R.id.message_text)
         textView.text = message
 
-        with(Toast(context)) {
+        with(Toast(appContext)) {
             setGravity(Gravity.FILL_HORIZONTAL or Gravity.TOP, 0, 0)
             duration = Toast.LENGTH_SHORT
             view = customView
@@ -107,12 +105,7 @@ constructor(
             { it })
         .show()
 
-    override fun setSoftKeyboardVisibility(context: Context, someViewInWindow: View, isVisible: Boolean) {
-        if (isVisible) {
-            someViewInWindow.post(KeyboardVisibilityRunnable(context, someViewInWindow))
-        } else {
-            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(someViewInWindow.windowToken, 0)
-        }
+    override fun setSoftKeyboardVisibility(someViewInWindow: View, isVisible: Boolean) {
+        someViewInWindow.post(SoftKeyboardVisibilityRunnable(appContext, someViewInWindow, isVisible))
     }
 }

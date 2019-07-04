@@ -94,7 +94,7 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBase, TVM: ViewModelBa
             is ShowErrorCommand -> {
                 when(command.error) {
                     is GeneralError -> {
-                        uiUtils.showError(requireContext(), resourcesProvider.getString(R.string.commonGeneralError))
+                        uiUtils.showError(resourcesProvider.getString(R.string.commonGeneralError))
                         return true
                     }
                 }

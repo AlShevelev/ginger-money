@@ -91,7 +91,7 @@ abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModel, TVM
     }
 
     private fun hideSoftKeyboard() {
-        uiUtils.setSoftKeyboardVisibility(requireContext(), root, false)
+        uiUtils.setSoftKeyboardVisibility(root, false)
 
         memoText.clearFocus()
         nameText.clearFocus()
@@ -116,6 +116,6 @@ abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModel, TVM
             is NameIsTooLong -> R.string.addEditAccountNameIsTooLongError
             else -> throw java.lang.UnsupportedOperationException("Command is not supported: ${error::class.simpleName}")
         }
-        uiUtils.showError(requireContext(), resourcesProvider.getString(errorResId))
+        uiUtils.showError(resourcesProvider.getString(errorResId))
     }
 }

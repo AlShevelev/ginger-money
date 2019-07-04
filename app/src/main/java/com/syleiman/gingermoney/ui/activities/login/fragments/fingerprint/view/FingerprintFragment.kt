@@ -44,13 +44,13 @@ class FingerprintFragment : FragmentBase<FragmentLoginFingerprintBinding, Finger
 
             is ShowErrorCommand -> {
                 when(command.error) {
-                    is TextError -> uiUtils.showError(requireContext(), command.error.textMessage)
+                    is TextError -> uiUtils.showError(command.error.textMessage)
                 }
             }
 
             is ShowWarningCommand -> {
                 when(command.warning) {
-                    is TextError -> uiUtils.showWarning(requireContext(), command.warning.textMessage)
+                    is TextError -> uiUtils.showWarning(command.warning.textMessage)
                 }
             }
 
