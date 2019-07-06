@@ -63,6 +63,13 @@
     <dimen name="noDataTextMargin">8dp</dimen>
     <!--</editor-fold>-->
 
+    <!--<editor-fold desc="Text fields">-->
+    <dimen name="textFieldsBarrier">85dp</dimen>
+    <dimen name="textFieldsMarginTop">14dp</dimen>
+    <dimen name="textFieldsMarginSide">12dp</dimen>
+    <dimen name="textFieldsLabelsGap">27dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Main activity">-->
     <dimen name="amountKeyboardHeight">256dp</dimen>
     <dimen name="amountKeyboardBackspaceWidth">20dp</dimen>
@@ -130,10 +137,6 @@
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Add & Edit accounts">-->
-    <dimen name="addEditAccountFieldsBarrier">85dp</dimen>
-    <dimen name="addEditAccountFieldsMarginTop">14dp</dimen>
-    <dimen name="addEditAccountFieldsMarginSide">12dp</dimen>
-    <dimen name="addEditAccountFieldsLabelsGap">27dp</dimen>
     <dimen name="addEditAccountUSDPadding">8dp</dimen>
     <dimen name="addEditAccountCurrencyPadding">14dp</dimen>
 

@@ -1,19 +1,20 @@
 package com.syleiman.gingermoney.dto.entities
 
 import com.syleiman.gingermoney.core.global_entities.money.Money
-import com.syleiman.gingermoney.dto.enums.AccountGroup
 import org.threeten.bp.ZonedDateTime
 
-data class Account (
+data class Payment (
     val id: Long?,
 
-    val accountGroup: AccountGroup,
+    val account: Account,
 
-    val name: String,
+    val paymentCategoryId: Long,            Add PaymentCategory entity
 
     val amount: Money,
 
     val memo: String?,
 
-    val lastUsed: ZonedDateTime?
+    val createAt: ZonedDateTime,
+
+    val createAtEstimate: Int
 )

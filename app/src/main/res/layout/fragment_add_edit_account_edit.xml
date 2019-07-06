@@ -21,7 +21,7 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintGuide_begin="@dimen/addEditAccountFieldsBarrier"
+            app:layout_constraintGuide_begin="@dimen/textFieldsBarrier"
             android:id="@+id/guideline"/>
 
         <TextView
@@ -29,10 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/groupLabel"
-            android:layout_marginTop="@dimen/addEditAccountFieldsMarginTop"
+            android:layout_marginTop="@dimen/textFieldsMarginTop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginStart="@dimen/textFieldsMarginSide"
 
             style="@style/App.TextField.Label"
         />
@@ -42,10 +42,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/nameLabel"
-            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
+            android:layout_marginTop="@dimen/textFieldsLabelsGap"
             app:layout_constraintTop_toBottomOf="@+id/groupLabel"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginStart="@dimen/textFieldsMarginSide"
 
             style="@style/App.TextField.Label"
         />
@@ -55,10 +55,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/amountLabel"
-            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
+            android:layout_marginTop="@dimen/textFieldsLabelsGap"
             app:layout_constraintTop_toBottomOf="@+id/nameLabel"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginStart="@dimen/textFieldsMarginSide"
 
             style="@style/App.TextField.Label"
         />
@@ -68,10 +68,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/memoLabel"
-            android:layout_marginTop="@dimen/addEditAccountFieldsLabelsGap"
+            android:layout_marginTop="@dimen/textFieldsLabelsGap"
             app:layout_constraintTop_toBottomOf="@+id/amountLabel"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginStart="@dimen/textFieldsMarginSide"
 
             style="@style/App.TextField.Label"
         />
@@ -88,7 +88,7 @@
 
             android:focusable="false"
 
-            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginEnd="@dimen/textFieldsMarginSide"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/groupLabel"
@@ -104,7 +104,7 @@
             app:max_length="@{viewModel.nameMaxLen}"
 
             app:layout_constraintStart_toStartOf="@+id/guideline"
-            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginEnd="@dimen/textFieldsMarginSide"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/nameLabel"
             app:layout_constraintBottom_toBottomOf="@+id/nameLabel"/>
@@ -121,7 +121,7 @@
 
             style="@style/App.TextField.Text"
 
-            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginEnd="@dimen/textFieldsMarginSide"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/amountLabel"
@@ -138,7 +138,7 @@
             android:text="@={viewModel.memo}"
             android:maxLength="@{viewModel.memoMaxLen}"
 
-            android:layout_marginEnd="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginEnd="@dimen/textFieldsMarginSide"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="@+id/memoLabel"

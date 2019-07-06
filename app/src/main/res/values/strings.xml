@@ -34,7 +34,7 @@
     <string name="commonMemo">Memo</string>
     <string name="commonGroup">Group</string>
     <string name="commonName">Name</string>
-
+    <string name="commonAccount">Account</string>
 
     <string name="dialogSelectColorsTitle">Select colors</string>
     <string name="dialogSelectColorsText">Text color</string>

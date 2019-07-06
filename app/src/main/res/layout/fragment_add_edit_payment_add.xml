@@ -30,10 +30,10 @@
             android:text="@string/addEditPaymentCreatedAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/addEditAccountFieldsMarginTop"
+            android:layout_marginTop="@dimen/textFieldsMarginTop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="@dimen/addEditAccountFieldsMarginSide"
+            android:layout_marginStart="@dimen/textFieldsMarginSide"
 
             style="@style/App.TextField.Label"
         />
@@ -75,12 +75,45 @@
             android:focusable="false"
 
             tools:ignore="Autofill,LabelFor"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/textFieldsMarginSide"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/createdAtTextDate"
             app:layout_constraintBottom_toBottomOf="@+id/createdAtTextDate"
             app:layout_constraintStart_toEndOf="@+id/createdAtTextDate"
             app:layout_constraintHorizontal_bias="0.5"/>
+
+        <TextView
+            android:id="@+id/accountLabel"
+
+            android:text="@string/commonAccount"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textFieldsLabelsGap"
+            app:layout_constraintTop_toBottomOf="@+id/createdAtLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/textFieldsMarginSide"
+
+            style="@style/App.TextField.Label"
+        />
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/accountText"
+
+            android:focusable="false"
+
+            style="@style/App.TextField.Text"
+
+            android:layout_marginEnd="@dimen/textFieldsMarginSide"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/accountLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/accountLabel"
+            tools:ignore="Autofill,LabelFor"
+        />
+
 
         <!--
                 <TextView

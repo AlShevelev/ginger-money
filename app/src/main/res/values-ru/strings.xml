@@ -25,6 +25,7 @@
     <string name="commonMemo">Заметка</string>
     <string name="commonGroup">Группа</string>
     <string name="commonName">Название</string>
+    <string name="commonAccount">Счет</string>
 
     <string name="dialogSelectColorsTitle">Выберите цвета</string>
     <string name="dialogSelectColorsText">Цвет текста</string>

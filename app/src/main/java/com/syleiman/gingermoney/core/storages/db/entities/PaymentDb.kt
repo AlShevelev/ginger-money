@@ -40,9 +40,6 @@ data class PaymentDb (
     @ColumnInfo(name = "memo")
     val memo: String?,
 
-    @ColumnInfo(name = "memo_image_file_name")
-    val memoImageFileName: String?,
-
     @ColumnInfo(name = "create_at", typeAffinity = ColumnInfo.BLOB)
     val createAt: ZonedDateTimeSplit,
 
