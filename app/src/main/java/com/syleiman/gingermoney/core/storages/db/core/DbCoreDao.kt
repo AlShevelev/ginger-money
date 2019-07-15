@@ -1,9 +1,6 @@
 package com.syleiman.gingermoney.core.storages.db.core
 
-import com.syleiman.gingermoney.core.storages.db.dao.AccountGroupSettingsDao
-import com.syleiman.gingermoney.core.storages.db.dao.AccountsDao
-import com.syleiman.gingermoney.core.storages.db.dao.PaymentsDao
-import com.syleiman.gingermoney.core.storages.db.dao.SourceExchangeRateDao
+import com.syleiman.gingermoney.core.storages.db.dao.*
 
 interface DbCoreDao {
     val sourceExchangeRate: SourceExchangeRateDao
@@ -13,4 +10,6 @@ interface DbCoreDao {
     val payments: PaymentsDao
 
     val accountGroupSettings: AccountGroupSettingsDao
+
+    val paymentCategory: PaymentCategoryDao
 }

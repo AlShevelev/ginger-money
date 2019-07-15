@@ -70,7 +70,7 @@
     <dimen name="textFieldsLabelsGap">27dp</dimen>
     <!--</editor-fold>-->
 
-    <!--<editor-fold desc="Main activity">-->
+    <!--<editor-fold desc="Amount keyboard">-->
     <dimen name="amountKeyboardHeight">256dp</dimen>
     <dimen name="amountKeyboardBackspaceWidth">20dp</dimen>
     <dimen name="amountKeyboardBackspaceHeight">15dp</dimen>
@@ -79,6 +79,8 @@
     <dimen name="amountKeyboardSignWidth">15dp</dimen>
     <dimen name="amountKeyboardSignHeight">3dp</dimen>
     <!--</editor-fold>-->
+
+    <dimen name="accountKeyboardItem">64dp</dimen>
 
     <!--<editor-fold desc="Color selection control">-->
     <dimen name="selectColorItemSize">40dp</dimen>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/accountKeyboardItem"
+             xmlns:tools="http://schemas.android.com/tools">
+    <Button
+        android:id="@+id/accountButton"
+
+        android:text= ""
+        tools:text = "Some text"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/App.AccountKeyboard.Button"/>
+
+</FrameLayout>

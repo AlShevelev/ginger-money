@@ -12,6 +12,13 @@
         <item name="android:textColor">@color/textOnPrimary</item>
     </style>
 
+    <!-- Dark header for keyboards -->
+    <style name="App.KeyboardHeader" parent="App.Text.OnPrimary">
+        <item name="android:background">@color/darkGray</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
     <!-- Common text label -->
     <style name="App.TextField.Label" parent="App.Text.OnPrimary">
         <item name="android:textSize">@dimen/textSizeSmall</item>
@@ -185,6 +192,14 @@
         <item name="android:textSize">@dimen/textSizeNormal</item>
         <item name="android:focusable">false</item>
         <item name="android:background">@drawable/bcg_amount_keyboard_button</item>
+    </style>
+
+    <style name="App.AccountKeyboard.Button" parent="App.AmountKeyboard.Button">
+        <item name = "android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
     </style>
 
     <style name="amountKeyboardAnimation">

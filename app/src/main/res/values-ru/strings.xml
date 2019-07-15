@@ -26,6 +26,7 @@
     <string name="commonGroup">Группа</string>
     <string name="commonName">Название</string>
     <string name="commonAccount">Счет</string>
+    <string name="commonAccounts">Счета</string>
 
     <string name="dialogSelectColorsTitle">Выберите цвета</string>
     <string name="dialogSelectColorsText">Цвет текста</string>
@@ -74,8 +75,8 @@
     <string name="mainPaymentsNoAccounts">У вас еще нет счетов. Добавьте хотя бы один.</string>
 
     <string name="mainStatistics">Статистика</string>
-
-    <string name="mainAccounts">Счета</string>
+s
+    <string name="mainAccounts">@string/commonAccounts</string>
     <string name="mainAccountsTotal">Итого</string>
     <string name="mainAccountsSelectCurrency">Выберите валюту</string>
     <string name="mainAccountsNoData">У вас еще нет счетов</string>

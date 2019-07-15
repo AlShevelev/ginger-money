@@ -1,26 +1,13 @@
 package com.syleiman.gingermoney.ui.common.recycler_view
 
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.adapter.AdapterRawDataAccess
 
-/**
- * Updatable list adapter
- */
-abstract class ListAdapterBase<TListItemEventsProcessor, TItem: ListItem>(
-    private val listItemEventsProcessor: TListItemEventsProcessor
+abstract class StaticListAdapterBase<TListItemEventsProcessor, TItem: ListItem>(
+    private val listItemEventsProcessor: TListItemEventsProcessor,
+    private val items: List<TItem>
 ) : RecyclerView.Adapter<ViewHolderBase<TListItemEventsProcessor, TItem>>(),
     AdapterRawDataAccess<TItem> {
-
-    protected var items: List<TItem> = listOf()
-
-    open fun update(newItems: List<TItem>) {
-        val diffCallback = createDiffAlg(items, newItems)
-        val diffResult = DiffUtil.calculateDiff(diffCallback)
-
-        items = newItems
-        diffResult.dispatchUpdatesTo(this)
-    }
 
     override fun getItemId(position: Int): Long = items[getItemPosition(position)].id
 
@@ -34,6 +21,4 @@ abstract class ListAdapterBase<TListItemEventsProcessor, TItem: ListItem>(
     override fun getItem(position: Int): TItem = items[position]
 
     protected open fun getItemPosition(sourcePosition: Int): Int = sourcePosition
-
-    protected abstract fun createDiffAlg(oldData: List<TItem>, newData: List<TItem>): DiffAlgBase<TItem>
 }

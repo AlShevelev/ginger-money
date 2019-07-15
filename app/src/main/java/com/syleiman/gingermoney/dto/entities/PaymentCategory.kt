@@ -1,4 +1,9 @@
 package com.syleiman.gingermoney.dto.entities
 
-class PaymentCategory {
-}
+import org.threeten.bp.ZonedDateTime
+
+data class PaymentCategory(
+    val id: Long?,
+    val name: String,
+    val lastUsed: ZonedDateTime?
+)

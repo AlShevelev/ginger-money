@@ -8,7 +8,7 @@ data class Payment (
 
     val account: Account,
 
-    val paymentCategoryId: Long,            Add PaymentCategory entity
+    val paymentCategoryId: Long,
 
     val amount: Money,
 

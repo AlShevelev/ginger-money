@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8930fe331b84c3fa6c480171cb54c1d1",
+    "identityHash": "7ccc944d7f27b69eb195ac5206c4c310",
     "entities": [
       {
         "tableName": "account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_id` INTEGER NOT NULL, `group` INTEGER NOT NULL, `name` TEXT NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, PRIMARY KEY(`account_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_id` INTEGER NOT NULL, `group` INTEGER NOT NULL, `name` TEXT NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `lastUsed` BLOB, PRIMARY KEY(`account_id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -37,6 +37,12 @@
             "columnName": "memo",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "lastUsed",
+            "columnName": "lastUsed",
+            "affinity": "BLOB",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -50,7 +56,7 @@
       },
       {
         "tableName": "payment_category",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`payment_category_id` INTEGER NOT NULL, `name` TEXT NOT NULL, PRIMARY KEY(`payment_category_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`payment_category_id` INTEGER NOT NULL, `name` TEXT NOT NULL, `lastUsed` BLOB, PRIMARY KEY(`payment_category_id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -63,6 +69,12 @@
             "columnName": "name",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "lastUsed",
+            "columnName": "lastUsed",
+            "affinity": "BLOB",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -76,7 +88,7 @@
       },
       {
         "tableName": "payment",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`payment_id` INTEGER NOT NULL, `account_id` INTEGER NOT NULL, `payment_category_id` INTEGER NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `memo_image_file_name` TEXT, `create_at` BLOB NOT NULL, `create_at_estimate` INTEGER NOT NULL, PRIMARY KEY(`payment_id`), FOREIGN KEY(`account_id`) REFERENCES `account`(`account_id`) ON UPDATE NO ACTION ON DELETE RESTRICT , FOREIGN KEY(`payment_category_id`) REFERENCES `payment_category`(`payment_category_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`payment_id` INTEGER NOT NULL, `account_id` INTEGER NOT NULL, `payment_category_id` INTEGER NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `create_at` BLOB NOT NULL, `create_at_estimate` INTEGER NOT NULL, PRIMARY KEY(`payment_id`), FOREIGN KEY(`account_id`) REFERENCES `account`(`account_id`) ON UPDATE NO ACTION ON DELETE RESTRICT , FOREIGN KEY(`payment_category_id`) REFERENCES `payment_category`(`payment_category_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
         "fields": [
           {
             "fieldPath": "id",
@@ -105,12 +117,6 @@
           {
             "fieldPath": "memo",
             "columnName": "memo",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "memoImageFileName",
-            "columnName": "memo_image_file_name",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -269,7 +275,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8930fe331b84c3fa6c480171cb54c1d1\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7ccc944d7f27b69eb195ac5206c4c310\")"
     ]
   }
 }

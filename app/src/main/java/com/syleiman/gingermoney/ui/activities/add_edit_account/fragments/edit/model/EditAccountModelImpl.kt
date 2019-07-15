@@ -13,6 +13,7 @@ import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject
 import javax.inject.Named
 
@@ -29,9 +30,14 @@ constructor(
         db
 ),  EditAccountModel {
 
+    private var lastUsed: ZonedDateTime? = null
+
     override suspend fun getAccount(): ModelCallResult<out Account> =
         getValue {
-            db.readAccount(accountDbId)!!
+            db.readAccount(accountDbId)
+                .also {
+                    lastUsed = it?.lastUsed
+                }
         }
 
     override suspend fun canUpdateCurrency(): ModelCallResult<out Boolean> =
@@ -47,7 +53,7 @@ constructor(
         } else {
             withContext(Dispatchers.IO) {
                 try {
-                    db.updateAccount(Account(accountDbId, group!!, name!!, amount, memo))
+                    db.updateAccount(Account(accountDbId, group!!, name!!, amount, memo, lastUsed))
                     null
                 } catch (ex: Exception) {
                     ex.printStackTrace()

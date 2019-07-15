@@ -9,6 +9,7 @@ import com.syleiman.gingermoney.core.storages.db.mapping.map
 import com.syleiman.gingermoney.core.storages.db.mapping.mapToDb
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
+import com.syleiman.gingermoney.dto.entities.PaymentCategory
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
 import javax.inject.Inject
@@ -97,5 +98,10 @@ constructor(
             } else {
                 dbCore.accountGroupSettings.update(record.copy(foregroundColor = foregroundColor, backgroundColor = backgroundColor))
             }
+        }
+
+    override fun readPaymentCategories(): List<PaymentCategory> =
+        db.run { dbCore ->
+            dbCore.paymentCategory.readAll().map { it.map() }
         }
 }

@@ -8,6 +8,7 @@ import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.
 import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
 import com.syleiman.gingermoney.ui.common.formatters.MoneySoftCentsFormatter
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
+import com.syleiman.gingermoney.ui.common.view_commands.MoveBackViewCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboardEditingResult
 import kotlinx.coroutines.launch

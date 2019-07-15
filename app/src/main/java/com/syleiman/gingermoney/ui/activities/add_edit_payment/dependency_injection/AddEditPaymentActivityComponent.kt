@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injec
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.ActivityScope
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.AddEditPaymentActivity
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard.AccountsKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
 import dagger.Subcomponent
 
@@ -17,4 +18,6 @@ interface AddEditPaymentActivityComponent {
     val addPaymentFragment: AddPaymentFragmentComponent.Builder
 
     fun inject(activity: AddEditPaymentActivity)
+
+    fun inject(keyboard: AccountsKeyboard)
 }

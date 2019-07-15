@@ -4,6 +4,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
+import com.syleiman.gingermoney.dto.entities.PaymentCategory
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
 
@@ -39,4 +40,6 @@ interface DbStorageFacade {
      * [accountGroup] null in case of Total group
      */
     fun updateAccountGroupSettings(accountGroup: AccountGroup?, foregroundColor: Color, backgroundColor: Color)
+
+    fun readPaymentCategories(): List<PaymentCategory>
 }

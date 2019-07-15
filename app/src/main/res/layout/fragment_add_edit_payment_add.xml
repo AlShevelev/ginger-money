@@ -106,6 +106,9 @@
 
             style="@style/App.TextField.Text"
 
+            android:onClick="@{() -> viewModel.onAccountClick()}"
+            android:text="@{viewModel.account}"
+
             android:layout_marginEnd="@dimen/textFieldsMarginSide"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"

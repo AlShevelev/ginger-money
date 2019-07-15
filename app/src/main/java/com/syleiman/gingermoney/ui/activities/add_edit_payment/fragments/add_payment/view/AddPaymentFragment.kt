@@ -10,19 +10,26 @@ import com.syleiman.gingermoney.databinding.FragmentAddEditPaymentAddBinding
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.StartSelectingTimeCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.model.AddPaymentModel
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view_commands.StartSelectingDateCommand
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.StartSelectingDateCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view_model.AddPaymentViewModel
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard.AccountListItem
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard.AccountsKeyboard
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.HideAccountsKeyboard
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.ShowAccountsKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
+import com.syleiman.gingermoney.ui.common.view_commands.MoveBackViewCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
 import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
+import kotlinx.android.synthetic.main.fragment_add_edit_payment_add.*
 
 
-class AddPaymentFragment :
-    FragmentBase<FragmentAddEditPaymentAddBinding, AddPaymentModel, AddPaymentViewModel>() {
+class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPaymentModel, AddPaymentViewModel>() {
+
+    private lateinit var accountsKeyboard: AccountsKeyboard
 
     @Inject
     internal lateinit var navigation: NavigationHelper
@@ -38,10 +45,6 @@ class AddPaymentFragment :
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-//        viewModel.accountsListData.observe({this.viewLifecycleOwner.lifecycle}) {
-//            updateAccountsList(it)
-//        }
-
         viewModel.dialogCommands.observe({this.viewLifecycleOwner.lifecycle}) {
             processDialogCommand(it)
         }
@@ -53,6 +56,14 @@ class AddPaymentFragment :
 //        super.onResume()
 //        viewModel.onViewActive()
 //    }
+
+    override fun processViewCommand(command: ViewCommand) {
+        when(command) {
+            is MoveBackViewCommand -> navigation.moveBack(this, true)
+            is ShowAccountsKeyboard -> showAccountsKeyboard(command.accounts)
+            is HideAccountsKeyboard -> accountsKeyboard.hide()
+        }
+    }
 
     private fun processDialogCommand(command: ViewCommand) {
         when(command) {
@@ -91,5 +102,12 @@ class AddPaymentFragment :
             accentColor = resourcesProvider.getColor(R.color.primary)
             show(this@AddPaymentFragment.fragmentManager!!, "Timepickerdialog")
         }
+    }
+
+    private fun showAccountsKeyboard(accounts: List<AccountListItem>) {
+        if(!::accountsKeyboard.isInitialized) {
+            accountsKeyboard = AccountsKeyboard(root, requireContext(), accounts, viewModel)
+        }
+        accountsKeyboard.show()
     }
 }
