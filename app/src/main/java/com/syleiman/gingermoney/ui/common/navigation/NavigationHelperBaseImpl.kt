@@ -48,6 +48,8 @@ abstract class NavigationHelperBaseImpl(@IdRes private val navHostId: Int) : Nav
 
     protected fun getNavigationController(activity: FragmentActivity) = Navigation.findNavController(activity, navHostId)
 
+    protected fun getNavigationController(currentFragment: Fragment) = getNavigationController(currentFragment.requireActivity())
+
     protected fun setHome(
         @IdRes fragmentId: Int,
         @NavigationRes navigationGraphId: Int,
@@ -60,6 +62,4 @@ abstract class NavigationHelperBaseImpl(@IdRes private val navHostId: Int) : Nav
         graph.startDestination = fragmentId
         controller.setGraph(graph, destinationArgs)
     }
-
-    private fun getNavigationController(currentFragment: Fragment) = getNavigationController(currentFragment.requireActivity())
 }

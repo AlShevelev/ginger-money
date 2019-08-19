@@ -11,12 +11,9 @@ import dagger.Provides
 
 @Module
 class LoginActivityModule {
-
     @Provides
     @ActivityScope
-    internal fun provideFingerprintModel(
-        fingerprintAuthManager: FingerprintAuthManager): FingerprintModel =
-
+    internal fun provideFingerprintModel(fingerprintAuthManager: FingerprintAuthManager): FingerprintModel =
         if(fingerprintAuthManager.isAuthenticationPossible && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             FingerprintModelImpl(fingerprintAuthManager)
         } else {

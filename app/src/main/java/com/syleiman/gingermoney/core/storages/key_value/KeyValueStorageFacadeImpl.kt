@@ -2,7 +2,6 @@ package com.syleiman.gingermoney.core.storages.key_value
 
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.storages.key_value.storages.Storage
-import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import org.threeten.bp.DayOfWeek
 import javax.inject.Inject
@@ -13,8 +12,7 @@ import javax.inject.Inject
 class KeyValueStorageFacadeImpl
 @Inject
 constructor(
-    private val keyValueStorage: Storage,
-    private val stringsConverter: StringsConverter
+    private val keyValueStorage: Storage
 ) : KeyValueStorageFacade {
 
     private object Keys {
@@ -36,12 +34,12 @@ constructor(
 
     override fun setAESCryptoKey(key: ByteArray) =
         keyValueStorage.update {
-            it.putString(Keys.CRYPTO_KEY_AES, stringsConverter.toBase64(key))
+            it.putBytes(Keys.CRYPTO_KEY_AES, key)
         }
 
     override fun getAESCryptoKey(): ByteArray? =
         keyValueStorage.read {
-            it.readString(Keys.CRYPTO_KEY_AES)?.let { keyAsString -> stringsConverter.fromBase64(keyAsString) }
+            it.readBytes(Keys.CRYPTO_KEY_AES)
         }
 
     override fun setAppSetupComplete(isSetupComplete: Boolean) =

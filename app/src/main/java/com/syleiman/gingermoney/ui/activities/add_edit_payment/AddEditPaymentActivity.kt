@@ -2,14 +2,19 @@ package com.syleiman.gingermoney.ui.activities.add_edit_payment
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injection.AddEditPaymentActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.AddPaymentHeader
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.HeaderTags
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.list_categories.ListCategoriesHeader
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ACTION
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ADD
+import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
 import kotlinx.android.synthetic.main.activity_add_edit_payment.*
-import kotlinx.android.synthetic.main.activity_add_edit_payment_header.*
+import java.lang.UnsupportedOperationException
 import javax.inject.Inject
 
 class AddEditPaymentActivity : AppCompatActivity() {
@@ -25,7 +30,8 @@ class AddEditPaymentActivity : AppCompatActivity() {
 
         setSupportActionBar(addEditPaymentToolbar)
 
-        var showAddButton = false
+        navigation.setOnDestinationChangedListener(this) { title, tag -> updateHeader(title, tag) }
+
         intent.extras
             ?.let { extras ->
                 when(extras.getString(ACTION)) {
@@ -36,11 +42,6 @@ class AddEditPaymentActivity : AppCompatActivity() {
 //                    }
                 }
             }
-
-
-        AddEditPaymentHeader.create(this, navigation.getTitle(this), addEditPaymentToolbar, showAddButton)
-
-        backButton.setOnClickListener { navigation.moveBack(this) }
     }
 
     override fun onBackPressed() {
@@ -53,6 +54,22 @@ class AddEditPaymentActivity : AppCompatActivity() {
 
         if(isFinishing) {
             App.injections.release<AddEditPaymentActivityComponent>()
+        }
+    }
+
+    private fun updateHeader(title: CharSequence?, tag: String) {
+        // Remove an old header
+        addEditPaymentToolbar.findViewWithTag<ConstraintLayout>(HeaderBase.CURRENT_HEADER_TAG)
+            ?.let {
+                (it as HeaderBase).detachFromFragment()
+                addEditPaymentToolbar.removeView(it)
+            }
+
+        // And add a new one
+        when(tag) {
+            HeaderTags.ADD_PAYMENT -> AddPaymentHeader.create(this, title, addEditPaymentToolbar)
+            HeaderTags.LIST_CATEGORIES -> ListCategoriesHeader.create(this, title, addEditPaymentToolbar)
+            else -> throw UnsupportedOperationException("This tag is not supported")
         }
     }
 }

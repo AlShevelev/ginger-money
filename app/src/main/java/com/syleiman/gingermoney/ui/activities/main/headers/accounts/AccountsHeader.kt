@@ -6,7 +6,7 @@ import androidx.appcompat.widget.Toolbar
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
-import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
+import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
 import kotlinx.android.synthetic.main.fragment_main_accounts_header.view.*
 import javax.inject.Inject
 
@@ -32,7 +32,7 @@ constructor(
 
     init {
         App.injections.get<MainActivityComponent>().inject(this)
-        headerLink.attach(this)
+        headerLink.attachHeader(this)
     }
 
     override fun detachFromFragment() {

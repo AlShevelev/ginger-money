@@ -8,23 +8,24 @@ import com.syleiman.gingermoney.core.global_entities.date_time.withTime
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.StartSelectingTimeCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.model.AddPaymentModel
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard.AccountListItem
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard.AccountsKeyboardEventsProcessor
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.HideAccountsKeyboard
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.StartSelectingDateCommand
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.ShowAccountsKeyboard
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.NamedListItem
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.account.AccountsKeyboardEventsProcessor
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.category.CategoriesKeyboardEventsProcessor
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.view_commands.MoveBackViewCommand
 import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 import org.threeten.bp.ZonedDateTime
 
-class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEventsProcessor {
+class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEventsProcessor, CategoriesKeyboardEventsProcessor {
+
     val createdAt: MutableLiveData<ZonedDateTime> = MutableLiveData()
 
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()     // Loading indicator
 
     val account: MutableLiveData<String> = MutableLiveData()
+    val category: MutableLiveData<String> = MutableLiveData()
 
     init {
         @Suppress("LeakingThis")
@@ -49,21 +50,38 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
         dialogCommands.value = StartSelectingTimeCommand(createdAt.value!!)
     }
 
-    fun onAccountClick() {
-        command.value = ShowAccountsKeyboard(model.accounts.map { AccountListItem(it.id!!, it.name) })
+    override fun onAccountSelect(id: Long) {
+        account.value = model.setSelectedAccount(id).name
+        command.value = HideAccountsKeyboard()
+    }
+
+    override fun onCloseAccountKeyboard() {
+        command.value = HideAccountsKeyboard()
+    }
+
+    fun onAccountFieldClick() {
+        command.value = ShowAccountsKeyboard(model.accounts.map { NamedListItem(it.id!!, it.name) })
     }
 
     fun onTimeSelected(hour: Int, minute: Int) {
         createdAt.value = createdAt.value!!.withTime(hour, minute)
     }
 
-    override fun onAccountItemClick(id: Long) {
-        account.value = model.setSelectedAccount(id).name
-        command.value = HideAccountsKeyboard()
+    fun onCategoryFieldClick() {
+        command.value = ShowCategoriesKeyboard(model.paymentCategories.map { NamedListItem(it.id!!, it.name) })
     }
 
-    override fun onCloseAccountKeyboardClick() {
-        command.value = HideAccountsKeyboard()
+    override fun onCategorySelect(id: Long) {
+        command.value = HideCategoriesKeyboard()
+    }
+
+    override fun onCloseCategoryKeyboard() {
+        command.value = HideCategoriesKeyboard()
+    }
+
+    override fun onEditCategories() {
+        command.value = HideCategoriesKeyboard()
+        command.value = MoveToListOfCategoriesCommand()
     }
 
     private fun init() {

@@ -14,6 +14,12 @@
     <dimen name="strokeNormal">2dp</dimen>
     <!--</editor-fold>-->
 
+    <!--No data stub-->
+    <dimen name="noDataIcon">60dp</dimen>
+    <dimen name="noDataTextMargin">8dp</dimen>
+    <dimen name="noDataIconSmall">40dp</dimen>
+    <!--</editor-fold>-->
+
     <!--<editor-fold desc="Strokes width">-->
     <dimen name="editTextCorners">5dp</dimen>
     <!--</editor-fold>-->
@@ -56,11 +62,6 @@
     <dimen name="actionButtonTopMargin">20dp</dimen>
     <dimen name="actionButtonWidth">146dp</dimen>
     <dimen name="actionButtonHeight">39dp</dimen>
-    <!--</editor-fold>-->
-
-    <!--<editor-fold desc="Main activity">-->
-    <dimen name="noDataIcon">60dp</dimen>
-    <dimen name="noDataTextMargin">8dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Text fields">-->

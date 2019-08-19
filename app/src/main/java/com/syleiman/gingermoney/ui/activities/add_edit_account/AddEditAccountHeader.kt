@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.ui.common.widgets.HeaderBase
+import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
 import kotlinx.android.synthetic.main.activity_add_edit_account_header.view.*
 
 class AddEditAccountHeader

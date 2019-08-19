@@ -14,6 +14,6 @@ interface AddPaymentFragmentComponent {
         fun build(): AddPaymentFragmentComponent
     }
 
-    fun inject(activity: AddPaymentFragment)
-    fun inject(activity: AddPaymentViewModel)
+    fun inject(fragment: AddPaymentFragment)
+    fun inject(viewModel: AddPaymentViewModel)
 }

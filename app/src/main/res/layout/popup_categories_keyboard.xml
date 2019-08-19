@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/header"
+
+        style="@style/App.KeyboardHeader"
+
+        android:text="@string/commonCategories"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/headerButtonSize"
+
+        android:paddingStart="@dimen/textFieldsMarginSide"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="RtlSymmetry"
+        app:layout_constraintEnd_toStartOf="@+id/editButton"
+
+    />
+
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
+        android:id="@+id/editButton"
+
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
+
+        app:imageButton_iconWidth="@dimen/headerButtonIconSize"
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
+
+        android:background="@color/darkGray"
+        app:imageButton_tint="@color/header_button"
+
+        app:imageButton_icon="@drawable/ic_edit"
+
+        app:layout_constraintEnd_toStartOf="@+id/closeButton"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
+        android:id="@+id/closeButton"
+
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
+
+        app:imageButton_iconWidth="@dimen/headerButtonIconSize"
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
+
+        android:background="@color/darkGray"
+        app:imageButton_tint="@color/header_button"
+
+        app:imageButton_icon="@drawable/ic_close"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/itemsList"
+
+        android:visibility="gone"
+    />
+
+    <ImageView
+        android:id="@+id/noDataStubIcon"
+
+        android:layout_width="@dimen/noDataIconSmall"
+        android:layout_height="@dimen/noDataIconSmall"
+
+        android:src="@drawable/ic_edit"
+        app:tint="@color/gray"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintBottom_toTopOf="@+id/noDataStubText"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:ignore="ContentDescription"/>
+
+    <TextView
+        android:id="@+id/noDataStubText"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="@string/addEditPaymentNoCategories"
+        tools:text="@string/addEditPaymentNoCategories"
+
+        style="@style/App.Activity.NoData.Text"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noDataStubIcon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/noDataTextMargin"
+        android:layout_marginStart="@dimen/noDataTextMargin"
+        android:layout_marginEnd="@dimen/noDataTextMargin"
+    />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/noDataStub"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="noDataStubText,noDataStubIcon"
+
+        tools:visibility="visible"
+        android:visibility="gone"
+    />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,12 +10,11 @@ import com.syleiman.gingermoney.databinding.FragmentAddEditPaymentAddBinding
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.StartSelectingTimeCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.model.AddPaymentModel
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.StartSelectingDateCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view_model.AddPaymentViewModel
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard.AccountListItem
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard.AccountsKeyboard
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.HideAccountsKeyboard
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.view_commands.ShowAccountsKeyboard
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.NamedListItem
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.account.AccountsKeyboard
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.category.CategoriesKeyboard
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.view_commands.MoveBackViewCommand
@@ -30,6 +29,7 @@ import kotlinx.android.synthetic.main.fragment_add_edit_payment_add.*
 class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPaymentModel, AddPaymentViewModel>() {
 
     private lateinit var accountsKeyboard: AccountsKeyboard
+    private lateinit var categoriesKeyboard: CategoriesKeyboard
 
     @Inject
     internal lateinit var navigation: NavigationHelper
@@ -39,6 +39,10 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
     override fun provideLayout(): Int = R.layout.fragment_add_edit_payment_add
 
     override fun inject() = App.injections.get<AddPaymentFragmentComponent>().inject(this)
+
+    override fun releaseInjection() {
+        App.injections.release<AddPaymentFragmentComponent>()
+    }
 
     override fun linkViewModel(binding: FragmentAddEditPaymentAddBinding, viewModel: AddPaymentViewModel) {
         binding.viewModel = viewModel
@@ -60,8 +64,11 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
     override fun processViewCommand(command: ViewCommand) {
         when(command) {
             is MoveBackViewCommand -> navigation.moveBack(this, true)
-            is ShowAccountsKeyboard -> showAccountsKeyboard(command.accounts)
+            is ShowAccountsKeyboard -> showAccountsKeyboard(command.items)
+            is ShowCategoriesKeyboard -> showCategoriesKeyboard(command.items)
             is HideAccountsKeyboard -> accountsKeyboard.hide()
+            is HideCategoriesKeyboard -> categoriesKeyboard.hide()
+            is MoveToListOfCategoriesCommand -> navigation.moveToListOfCategories(this)
         }
     }
 
@@ -104,10 +111,17 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
         }
     }
 
-    private fun showAccountsKeyboard(accounts: List<AccountListItem>) {
+    private fun showAccountsKeyboard(accounts: List<NamedListItem>) {
         if(!::accountsKeyboard.isInitialized) {
             accountsKeyboard = AccountsKeyboard(root, requireContext(), accounts, viewModel)
         }
         accountsKeyboard.show()
+    }
+
+    private fun showCategoriesKeyboard(categories: List<NamedListItem>) {
+        if(!::categoriesKeyboard.isInitialized) {
+            categoriesKeyboard = CategoriesKeyboard(root, requireContext(), categories, viewModel)
+        }
+        categoriesKeyboard.show()
     }
 }

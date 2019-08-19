@@ -1,0 +1,6 @@
+package com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.list_categories
+
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.view.ListCategoryFragmentHeaderLink
+import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderLink
+
+interface ListCategoriesHeaderLink: HeaderLink<ListCategoryFragmentHeaderLink, ListCategoriesHeaderFragmentLink>

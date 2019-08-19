@@ -12,13 +12,22 @@
               android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view.AddPaymentFragment"
               android:label=" @string/addEditPaymentAddTitle">
         <action android:id="@+id/action_addPaymentFragment_to_listCategoryFragment"
-                app:destination="@id/listCategoryFragment"/>
+                app:destination="@id/listCategoryFragment"
+                app:enterAnim="@anim/nav_slide_in_right"
+                app:exitAnim="@anim/nav_slide_out_left"
+                app:popEnterAnim="@anim/nav_slide_in_left"
+                app:popExitAnim="@anim/nav_slide_out_right"
+        />
     </fragment>
 
     <fragment android:id="@+id/listCategoryFragment"
               android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.view.ListCategoryFragment"
               android:label="@string/addEditPaymentCategoriesListTitle">
         <action android:id="@+id/action_listCategoryFragment_to_addCategoryFragment"
-                app:destination="@id/addCategoryFragment"/>
+                app:destination="@id/addCategoryFragment"
+                app:enterAnim="@anim/nav_slide_in_right"
+                app:exitAnim="@anim/nav_slide_out_left"
+                app:popEnterAnim="@anim/nav_slide_in_left"
+                app:popExitAnim="@anim/nav_slide_out_right"/>
     </fragment>
 </navigation>

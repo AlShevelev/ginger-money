@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.ui.activities.main.headers.accounts
 
 import android.view.View
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragmentHeader
+import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderLinkBaseImpl
 import javax.inject.Inject
 
 /**
@@ -9,21 +10,18 @@ import javax.inject.Inject
  */
 class AccountsHeaderLinkImpl
 @Inject
-constructor() : AccountsHeaderLink {
-    private var fragment: AccountsFragmentHeader? = null
+constructor() : HeaderLinkBaseImpl<AccountsFragmentHeader, AccountsHeaderFragment>(), AccountsHeaderLink {
 
-    private var header: AccountsHeaderFragment? = null
-
-    override fun attach(fragment: AccountsFragmentHeader) {
-        this.fragment = fragment
+    override fun attachFragment(fragment: AccountsFragmentHeader) {
+        super.attachFragment(fragment)
 
         header?.also {
             it.setAddButtonClickListener(View.OnClickListener { fragment.onAddButtonClick() })
         }
     }
 
-    override fun attach(header: AccountsHeaderFragment) {
-        this.header = header
+    override fun attachHeader(header: AccountsHeaderFragment) {
+        super.attachHeader(header)
 
         fragment?.also { fragment ->
             header.setAddButtonClickListener(View.OnClickListener { fragment.onAddButtonClick() })
@@ -32,7 +30,7 @@ constructor() : AccountsHeaderLink {
     }
 
     override fun detachFragment() {
-        fragment = null
+        super.detachFragment()
 
         header?.also {
             it.setAddButtonClickListener(null)
@@ -44,6 +42,6 @@ constructor() : AccountsHeaderLink {
             it.setAddButtonClickListener(null)
         }
 
-        header = null
+        super.detachHeader()
     }
 }

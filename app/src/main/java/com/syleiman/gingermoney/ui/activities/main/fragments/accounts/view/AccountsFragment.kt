@@ -70,7 +70,7 @@ class AccountsFragment :
 
     override fun onStart() {
         super.onStart()
-        headerLink.attach(this)
+        headerLink.attachFragment(this)
     }
 
     override fun onStop() {

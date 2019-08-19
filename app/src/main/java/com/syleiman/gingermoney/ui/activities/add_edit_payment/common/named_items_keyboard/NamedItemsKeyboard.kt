@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.common.accounts_keyboard
+package com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -6,56 +6,52 @@ import android.content.Context
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
-import android.widget.ImageButton
 import android.widget.PopupWindow
+import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.arch.core.util.Cancellable
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.syleiman.gingermoney.R
-import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injection.AddEditPaymentActivityComponent
 import javax.inject.Inject
 
 /**
- * Popup for input an amount
+ * Universal popup keyboard
  */
-class AccountsKeyboard (
+@Suppress("LeakingThis")
+abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
     private val rootView: View,
     private val context: Context,
-    accounts: List<AccountListItem>,
-    private val keyboardEventsProcessor: AccountsKeyboardEventsProcessor
+    items: List<NamedListItem>,
+    private val keyboardEventsProcessor: T
 ) : PopupWindow(context) {
 
     private var backPressedCallbackCancellation: Cancellable? = null
 
-    private val columns = 3
+    protected val columns = 3
 
     @Inject
     internal lateinit var appResourceProvider: AppResourcesProvider
 
     init{
-        App.injections.get<AddEditPaymentActivityComponent>().inject(this)
+        inject()
 
         @SuppressLint("InflateParams")
         contentView = (context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
-            .inflate(R.layout.popup_accounts_keyboard, null, false)
+            .inflate(provideLayout(), null, false)
 
-        setSize(accounts.size)
+        setSize(items.size)
         setBackgroundDrawable(null)
 
         animationStyle = R.style.amountKeyboardAnimation
 
-        contentView.findViewById<ImageButton>(R.id.closeButton).setOnClickListener {
-            keyboardEventsProcessor.onCloseAccountKeyboardClick()
-        }
+        setHeaderButtonsListeners(keyboardEventsProcessor)
 
         // Init list
         val layoutManager = GridLayoutManager(context, columns)
 
-        val adapter = AccountsListAdapter(keyboardEventsProcessor, accounts)
+        val adapter = createAdapter(items, keyboardEventsProcessor)
         adapter.setHasStableIds(true)
 
         val list = contentView.findViewById<RecyclerView>(R.id.itemsList)
@@ -63,6 +59,8 @@ class AccountsKeyboard (
         list.itemAnimator = null
         list.layoutManager = layoutManager
         list.adapter = adapter
+
+        setVisualState(items.size)
     }
 
     fun show() {
@@ -77,24 +75,26 @@ class AccountsKeyboard (
 
     fun hide() {
         dismiss()
+
+        backPressedCallbackCancellation?.cancel()
+        backPressedCallbackCancellation = null
     }
+
+    protected abstract fun inject()
+
+    @LayoutRes
+    protected abstract fun provideLayout(): Int
 
     /**
      * Manually sets the popup window size
      */
-    private fun setSize(accountsTotal: Int) {
-        width = WindowManager.LayoutParams.MATCH_PARENT
+    protected abstract fun setSize(accountsTotal: Int)
 
-        var rows = (accountsTotal / columns)
-        if(accountsTotal % columns != 0) {
-            rows++
-        }
+    protected abstract fun setHeaderButtonsListeners(keyboardEventsProcessor: T)
 
-        if(rows > 3) {
-            rows = 3
-        }
+    protected abstract fun createAdapter(items: List<NamedListItem>, keyboardEventsProcessor: T): NamedItemsListAdapterBase<T>
 
-        height = (rows * appResourceProvider.getDimension(R.dimen.accountKeyboardItem).toInt()) +
-                appResourceProvider.getDimension(R.dimen.headerButtonSize).toInt()
+    protected open fun setVisualState(accountsTotal: Int) {
+        // do nothing here
     }
 }

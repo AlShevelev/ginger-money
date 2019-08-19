@@ -27,6 +27,8 @@
     <string name="commonName">Название</string>
     <string name="commonAccount">Счет</string>
     <string name="commonAccounts">Счета</string>
+    <string name="commonCategory">Категория</string>
+    <string name="commonCategories">Категории</string>
 
     <string name="dialogSelectColorsTitle">Выберите цвета</string>
     <string name="dialogSelectColorsText">Цвет текста</string>
@@ -75,7 +77,7 @@
     <string name="mainPaymentsNoAccounts">У вас еще нет счетов. Добавьте хотя бы один.</string>
 
     <string name="mainStatistics">Статистика</string>
-s
+
     <string name="mainAccounts">@string/commonAccounts</string>
     <string name="mainAccountsTotal">Итого</string>
     <string name="mainAccountsSelectCurrency">Выберите валюту</string>
@@ -104,4 +106,5 @@ s
     <string name="addEditPaymentCategoriesListTitle">Категории платежей</string>
     <string name="addEditPaymentAddCategoryTitle">Добавить категорию платежа</string>
     <string name="addEditPaymentCreatedAt">Создан в</string>
+    <string name="addEditPaymentNoCategories">У вас еще нет категорий.\nДобавьте хотя бы одну.</string>
 </resources>
