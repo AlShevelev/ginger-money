@@ -38,15 +38,15 @@
     <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
         android:id="@+id/menuButton"
 
-        android:layout_width="@dimen/accountsListItemMenuButtonWidth"
+        android:layout_width="@dimen/listItemButtonWidth"
         android:layout_height="0dp"
 
         android:background="@null"
 
-        app:imageButton_tint = "@color/menu_button"
+        app:imageButton_tint = "@color/list_item_button"
         app:imageButton_icon="@drawable/ic_dots_menu"
         app:imageButton_iconWidth="@dimen/accountsListItemMenuButtonIconWidth"
-        app:imageButton_iconHeight="@dimen/accountsListItemMenuButtonIconHeight"
+        app:imageButton_iconHeight="@dimen/listItemButtonSize"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,8 +5,8 @@ import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.arch.core.util.Cancellable
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.global_entities.money.Currency
@@ -25,7 +25,11 @@ class AmountKeyboard (
     private val canEditCurrency: Boolean
 ) : PopupWindow(context) {
 
-    private var backPressedCallbackCancellation: Cancellable? = null
+    private var backPressedCallback = object: OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            hide()               // Closes the popup
+        }
+    }
 
     private var isOpened = false
 
@@ -68,10 +72,7 @@ class AmountKeyboard (
         showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 
         // Processes Back button action
-        backPressedCallbackCancellation = (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback {
-            hide()               // Closes the popup
-            true
-        }
+        (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback(backPressedCallback)
 
         isOpened = true
     }
@@ -83,8 +84,7 @@ class AmountKeyboard (
 
         dismiss()
 
-        backPressedCallbackCancellation?.cancel()
-        backPressedCallbackCancellation = null
+        backPressedCallback.remove()
 
         onEditingListener?.invoke(AmountKeyboardEditingResult(currentState.toMoney(), currentState.hasCents))
 

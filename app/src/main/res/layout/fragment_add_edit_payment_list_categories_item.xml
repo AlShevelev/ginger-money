@@ -4,8 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bcg_fragment_main_accounts_total_list_item"
-    android:layout_height="@dimen/listItemHeight">
+    android:background="@drawable/bcg_common_list_item"
+    android:clickable="true"
+    android:layout_height="@dimen/listItemHeight"
+    android:focusable="true">
 
     <TextView
         android:id="@+id/name"
@@ -14,7 +16,7 @@
         android:layout_height="wrap_content"
 
         style="@style/App.TextField.Label"
-        android:text="@string/mainAccountsTotal"
+        tools:text = "My category"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -22,22 +24,8 @@
         android:layout_marginStart="@dimen/listItemSizeMargin"
     />
 
-    <TextView
-        android:id="@+id/amount"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        tools:text="1000000"
-        style="@style/App.TextField.Label.End"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/menuButton"
-    />
-
     <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
-        android:id="@+id/menuButton"
+        android:id="@+id/deleteButton"
 
         android:layout_width="@dimen/listItemButtonWidth"
         android:layout_height="0dp"
@@ -45,11 +33,12 @@
         android:background="@null"
 
         app:imageButton_tint = "@color/list_item_button"
-        app:imageButton_icon="@drawable/ic_dots_menu"
-        app:imageButton_iconWidth="@dimen/accountsListItemMenuButtonIconWidth"
+        app:imageButton_icon="@drawable/ic_delete"
+        app:imageButton_iconWidth="@dimen/categoriesListDeleteButtonWidth"
         app:imageButton_iconHeight="@dimen/listItemButtonSize"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bcg_fragment_main_accounts_account_list_item"
+    android:background="@drawable/bcg_common_list_item"
     android:clickable="true"
     android:layout_height="@dimen/listItemHeight"
     android:focusable="true">

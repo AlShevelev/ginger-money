@@ -7,9 +7,9 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.PopupWindow
+import androidx.activity.OnBackPressedCallback
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.arch.core.util.Cancellable
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.syleiman.gingermoney.R
@@ -27,7 +27,11 @@ abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
     private val keyboardEventsProcessor: T
 ) : PopupWindow(context) {
 
-    private var backPressedCallbackCancellation: Cancellable? = null
+    private var backPressedCallback = object: OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            hide()          // Close the popup
+        }
+    }
 
     protected val columns = 3
 
@@ -67,17 +71,13 @@ abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
         showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 
         // Processes Back button action
-        backPressedCallbackCancellation = (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback {
-            hide()               // Closes the popup
-            true
-        }
+        (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback(backPressedCallback)
     }
 
     fun hide() {
         dismiss()
 
-        backPressedCallbackCancellation?.cancel()
-        backPressedCallbackCancellation = null
+        backPressedCallback.remove()
     }
 
     protected abstract fun inject()

@@ -50,5 +50,6 @@ fun AccountGroupSettingsDb.map() = AccountGroupSettings(
 fun PaymentCategoryDb.map() = PaymentCategory(
     this.id,
     this.name,
+    this.createAt.toZoneDateTime(),
     this.lastUsed?.toZoneDateTime()
 )

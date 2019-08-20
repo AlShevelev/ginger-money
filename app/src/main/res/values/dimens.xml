@@ -40,7 +40,10 @@
     <!--<editor-fold desc="List items">-->
     <dimen name="listItemHeight">44dp</dimen>
     <dimen name="listItemSizeMargin">12dp</dimen>
-    <!--</editor-fold>-->
+    <dimen name="listItemButtonWidth">41dp</dimen>
+    <dimen name="listItemButtonSize">20dp</dimen>
+    <dimen name="listItemStrokeOffset">-1dp</dimen>
+        <!--</editor-fold>-->
 
     <!--<editor-fold desc="EditText with an icon">-->
     <dimen name="textEditIconSize">20dp</dimen>
@@ -133,10 +136,7 @@
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Accounts">-->
-    <dimen name="accountsListItemMenuButtonWidth">41dp</dimen>
     <dimen name="accountsListItemMenuButtonIconWidth">5dp</dimen>
-    <dimen name="accountsListItemMenuButtonIconHeight">20dp</dimen>
-    <dimen name="accountsListItemStrokeOffset">-1dp</dimen>
     <!--</editor-fold>-->
 
     <!--<editor-fold desc="Add & Edit accounts">-->
@@ -148,5 +148,6 @@
 
     <!--<editor-fold desc="Add & Edit payments">-->
     <dimen name="addEditPaymentFieldsBarrier">85dp</dimen>
+    <dimen name="categoriesListDeleteButtonWidth">16dp</dimen>
     <!--</editor-fold>-->
 </resources>

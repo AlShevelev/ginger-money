@@ -21,7 +21,7 @@
     </fragment>
 
     <fragment android:id="@+id/listCategoryFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.view.ListCategoryFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.view.ListCategoriesFragment"
               android:label="@string/addEditPaymentCategoriesListTitle">
         <action android:id="@+id/action_listCategoryFragment_to_addCategoryFragment"
                 app:destination="@id/addCategoryFragment"

@@ -14,6 +14,9 @@ data class PaymentCategoryDb (
     @ColumnInfo(name = "name")
     val name: String,
 
+    @ColumnInfo(name = "createAt", typeAffinity = ColumnInfo.BLOB)
+    val createAt: ZonedDateTimeSplit,
+
     @ColumnInfo(name = "lastUsed", typeAffinity = ColumnInfo.BLOB)
     val lastUsed: ZonedDateTimeSplit?
 )

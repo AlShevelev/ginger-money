@@ -9,8 +9,8 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.widget.PopupWindow
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
-import androidx.arch.core.util.Cancellable
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -57,7 +57,15 @@ class EmojiPopupKeyboard (
     override val coroutineContext: CoroutineContext
         get() = scopeJob + Dispatchers.Main
 
-    private var backPressedCallbackCancellation: Cancellable? = null
+    private var backPressedCallback = object: OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if(isInRootMode) {
+                dismiss()               // Closes the popup
+            } else {
+                moveToRootMode()
+            }
+        }
+    }
 
     private val rootIcons = RootIcons()
     private var isInRootMode = true
@@ -145,14 +153,7 @@ class EmojiPopupKeyboard (
             showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 
             // Processes Back button action
-            backPressedCallbackCancellation = (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback {
-                if(isInRootMode) {
-                    dismiss()               // Closes the popup
-                } else {
-                    moveToRootMode()
-                }
-                true
-            }
+            (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback(backPressedCallback)
 
             onOpenListener?.invoke()
         }
@@ -191,8 +192,7 @@ class EmojiPopupKeyboard (
 
         closeComplexIconPopup()
 
-        backPressedCallbackCancellation?.cancel()
-        backPressedCallbackCancellation = null
+        backPressedCallback.remove()
     }
 
     /**
