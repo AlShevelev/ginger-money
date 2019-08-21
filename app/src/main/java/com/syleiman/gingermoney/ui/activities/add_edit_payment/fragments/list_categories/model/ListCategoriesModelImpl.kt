@@ -13,10 +13,10 @@ constructor(
 ) : ModelBaseImpl(),
     ListCategoriesModel {
 
-    override suspend fun getCategoriesLis(): ModelCallResult<out List<CategoryListItem>> =
+    override suspend fun getCategoriesList(): ModelCallResult<out List<CategoryListItem>> =
         getValue {
             db.readPaymentCategories()
-                .sortedBy { it.createAt }
+                .sortedByDescending { it.createAt }
                 .map { CategoryListItem(it.id!!, it.name, true) }
         }
 }

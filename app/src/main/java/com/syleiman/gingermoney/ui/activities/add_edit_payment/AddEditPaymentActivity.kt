@@ -6,6 +6,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injection.AddEditPaymentActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injection.AddEditPaymentActivityModuleBinds
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.AddEditCategoryHeader
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.AddPaymentHeader
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.HeaderTags
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.list_categories.ListCategoriesHeader
@@ -69,6 +71,8 @@ class AddEditPaymentActivity : AppCompatActivity() {
         when(tag) {
             HeaderTags.ADD_PAYMENT -> AddPaymentHeader.create(this, title, addEditPaymentToolbar)
             HeaderTags.LIST_CATEGORIES -> ListCategoriesHeader.create(this, title, addEditPaymentToolbar)
+            HeaderTags.ADD_CATEGORY,
+            HeaderTags.EDIT_CATEGORY -> AddEditCategoryHeader.create(this, title, addEditPaymentToolbar)
             else -> throw UnsupportedOperationException("This tag is not supported")
         }
     }

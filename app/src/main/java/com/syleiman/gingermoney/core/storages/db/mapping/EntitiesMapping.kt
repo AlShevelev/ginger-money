@@ -15,7 +15,7 @@ import com.syleiman.gingermoney.dto.entities.PaymentCategory
 //region ExchangeRate
 fun SourceExchangeRateDb.map(): ExchangeRate = ExchangeRate(this.from, this.to, this.quoteFactor)
 
-fun ExchangeRate.mapToDb(): SourceExchangeRateDb =
+fun ExchangeRate.map(): SourceExchangeRateDb =
     SourceExchangeRateDb(IdUtil.generateLongId(), this.from, this.to, this.quoteFactor)
 //endregion
 
@@ -28,7 +28,7 @@ fun AccountDb.map(): Account = Account(
     this.memo,
     this.lastUsed?.toZoneDateTime())
 
-fun Account.mapToDb(): AccountDb =
+fun Account.map(): AccountDb =
     AccountDb(
         this.id ?: IdUtil.generateLongId(),
         this.accountGroup,
@@ -52,4 +52,11 @@ fun PaymentCategoryDb.map() = PaymentCategory(
     this.name,
     this.createAt.toZoneDateTime(),
     this.lastUsed?.toZoneDateTime()
+)
+
+fun PaymentCategory.map() = PaymentCategoryDb(
+    this.id ?: IdUtil.generateLongId(),
+    this.name,
+    this.createAt.toSplit(),
+    this.lastUsed?.toSplit()
 )

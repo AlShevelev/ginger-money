@@ -11,10 +11,10 @@ import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.model.
 import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.model.MasterPasswordModel
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.LoggedInCommand
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.SwitchCommand
-import com.syleiman.gingermoney.ui.common.displaying_errors.TextError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.TextError
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
-import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
-import com.syleiman.gingermoney.ui.common.view_commands.ShowWarningCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowWarningCommand
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

@@ -1,7 +1,7 @@
 package com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands
 
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.NamedListItem
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import org.threeten.bp.ZonedDateTime
 
 class ShowAccountsKeyboard(
@@ -19,3 +19,8 @@ class HideCategoriesKeyboard: ViewCommand
 class StartSelectingDateCommand(val dateTime: ZonedDateTime): ViewCommand
 
 class MoveToListOfCategoriesCommand(): ViewCommand
+
+class MoveToAddCategoryCommand(): ViewCommand
+
+class MoveToEditCategoryCommand(val categoryDbId: Long): ViewCommand
+

@@ -6,6 +6,7 @@ import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dep
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentModule
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injection.AddEditPaymentActivityComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.dependency_injection.AddCategoryFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.dependency_injection.ListCategoriesFragmentComponent
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
@@ -65,6 +66,7 @@ class DependencyInjectionStorage(private val appContext: Context) {
             AddEditPaymentActivityComponent::class -> get<UIComponent>().addEditPaymentActivity.build()
             AddPaymentFragmentComponent::class -> get<AddEditPaymentActivityComponent>().addPaymentFragment.build()
             ListCategoriesFragmentComponent::class -> get<AddEditPaymentActivityComponent>().listCategoriesFragment.build()
+            AddCategoryFragmentComponent::class -> get<AddEditPaymentActivityComponent>().addCategoryFragment.build()
 
             else -> throw UnsupportedOperationException("This component is not supported: ${type.simpleName}")
         } as T

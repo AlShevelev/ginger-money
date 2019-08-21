@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.main.headers.settings
+package com.syleiman.gingermoney.ui.activities.main.headers
 
 import android.content.Context
 import android.util.AttributeSet
@@ -24,7 +24,9 @@ constructor(
         /**
          * Create header and attach it to a toolbar
          */
-        fun create(context: Context, title: CharSequence?, toolbar: Toolbar) = SettingsHeader(context).setup(title, toolbar)
+        fun create(context: Context, title: CharSequence?, toolbar: Toolbar) = SettingsHeader(
+            context
+        ).setup(title, toolbar)
     }
 
     @Inject

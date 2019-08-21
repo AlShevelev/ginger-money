@@ -25,7 +25,7 @@ import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.SelectColorDialog
 import kotlinx.android.synthetic.main.fragment_main_accounts.*
 import javax.inject.Inject

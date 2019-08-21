@@ -8,7 +8,7 @@ import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupAc
 import com.syleiman.gingermoney.ui.activities.setup.fragments.protection_method.model.ProtectionMethodModel
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
-import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 
 class ProtectionMethodViewModel : ViewModelBase<ProtectionMethodModel>() {

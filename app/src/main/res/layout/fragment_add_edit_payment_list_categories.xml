@@ -23,7 +23,8 @@
             android:visibility="@{viewModel.categoriesListVisibility}"
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+        />
 
         <!--<editor-fold desc="No data stub">-->
         <ImageView
@@ -75,8 +76,7 @@
         <com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:visibility="@{viewModel.loadingVisibility}" >
-        </com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator>
+            android:visibility="@{viewModel.loadingVisibility}" />
         <!--</editor-fold>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>

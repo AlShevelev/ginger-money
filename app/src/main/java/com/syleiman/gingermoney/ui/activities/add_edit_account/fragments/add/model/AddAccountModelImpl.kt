@@ -9,11 +9,7 @@ import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmpty
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.MemoIsTooLong
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.NameIsEmpty
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.NameIsTooLong
-import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
-import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.*
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import kotlinx.coroutines.Dispatchers

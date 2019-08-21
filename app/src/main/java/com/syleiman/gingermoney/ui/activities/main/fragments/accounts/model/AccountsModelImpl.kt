@@ -12,7 +12,7 @@ import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.GroupListItem
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.TotalListItem
-import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import kotlinx.coroutines.Dispatchers

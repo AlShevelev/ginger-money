@@ -13,8 +13,8 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_item
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.category.CategoriesKeyboardEventsProcessor
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
-import com.syleiman.gingermoney.ui.common.view_commands.MoveBackViewCommand
-import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.MoveBackViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
 import kotlinx.coroutines.launch
 import org.threeten.bp.ZonedDateTime
 

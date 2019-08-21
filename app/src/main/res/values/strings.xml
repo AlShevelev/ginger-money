@@ -151,6 +151,9 @@
     <string name="addEditPaymentAddTitle">Add payment</string>
     <string name="addEditPaymentCategoriesListTitle">Payment categories</string>
     <string name="addEditPaymentAddCategoryTitle">Add payment category</string>
+    <string name="addEditPaymentEditCategoryTitle">Edit payment category</string>
     <string name="addEditPaymentCreatedAt">Created at</string>
     <string name="addEditPaymentNoCategories">You have no categories yet.\nAdd at least one.</string>
+    <string name="addEditPaymentCategoryNameIsEmptyError">Name of category can\'t be empty</string>
+    <string name="addEditPaymentCategoryNameIsTooLongError">Name of category is too long</string>
 </resources>

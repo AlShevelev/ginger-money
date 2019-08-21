@@ -3,6 +3,8 @@ package com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_c
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import com.syleiman.gingermoney.application.App
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.MoveToAddCategoryCommand
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.MoveToEditCategoryCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.dependency_injection.ListCategoriesFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.dto.CategoryListItem
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.model.ListCategoriesModel
@@ -25,8 +27,12 @@ class ListCategoriesViewModel: ViewModelBase<ListCategoriesModel>(), ListItemEve
         fillCategoriesList()
     }
 
+    fun onAddCategoryClick() {
+        command.value = MoveToAddCategoryCommand()
+    }
+
     override fun onCategoryClick(categoryDbId: Long) {
-        //command.value = MoveToSomethingCommand()
+        command.value = MoveToEditCategoryCommand(categoryDbId)
     }
 
     override fun onDeleteCategoryClick(categoryDbId: Long) {
@@ -37,7 +43,7 @@ class ListCategoriesViewModel: ViewModelBase<ListCategoriesModel>(), ListItemEve
         loadingVisibility.value = View.VISIBLE
 
         launch {
-            val categories = model.getCategoriesLis()
+            val categories = model.getCategoriesList()
 
             loadingVisibility.value = View.GONE
 

@@ -105,6 +105,7 @@
     <string name="addEditPaymentAddTitle">Добавить платеж</string>
     <string name="addEditPaymentCategoriesListTitle">Категории платежей</string>
     <string name="addEditPaymentAddCategoryTitle">Добавить категорию платежа</string>
+    <string name="addEditPaymentEditCategoryTitle">Редактировать категорию платежа</string>
     <string name="addEditPaymentCreatedAt">Создан в</string>
     <string name="addEditPaymentNoCategories">У вас еще нет категорий.\nДобавьте хотя бы одну.</string>
 </resources>

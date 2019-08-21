@@ -5,5 +5,5 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 
 interface ListCategoriesModel: ModelBase {
-    suspend fun getCategoriesLis(): ModelCallResult<out List<CategoryListItem>>
+    suspend fun getCategoriesList(): ModelCallResult<out List<CategoryListItem>>
 }

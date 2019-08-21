@@ -9,7 +9,8 @@ import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActi
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
-import com.syleiman.gingermoney.ui.activities.main.headers.settings.SettingsHeader
+import com.syleiman.gingermoney.ui.activities.main.headers.PaymentsHeader
+import com.syleiman.gingermoney.ui.activities.main.headers.SettingsHeader
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         // And add a new one
         when(tag) {
-            HeaderTags.PAYMENTS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
+            HeaderTags.PAYMENTS_FRAGMENT -> PaymentsHeader.create(this, title, mainToolbar)
             HeaderTags.STATISTICS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)
             HeaderTags.ACCOUNTS_FRAGMENT -> AccountsHeader.create(this, title, mainToolbar)
             HeaderTags.SETTINGS_FRAGMENT -> SettingsHeader.create(this, title, mainToolbar)

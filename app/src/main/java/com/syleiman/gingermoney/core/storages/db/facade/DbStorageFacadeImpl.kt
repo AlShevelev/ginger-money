@@ -6,7 +6,6 @@ import com.syleiman.gingermoney.core.helpers.id.IdUtil
 import com.syleiman.gingermoney.core.storages.db.core.DbCoreRun
 import com.syleiman.gingermoney.core.storages.db.entities.AccountGroupSettingsDb
 import com.syleiman.gingermoney.core.storages.db.mapping.map
-import com.syleiman.gingermoney.core.storages.db.mapping.mapToDb
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
 import com.syleiman.gingermoney.dto.entities.PaymentCategory
@@ -23,7 +22,7 @@ constructor(
     override fun updateSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>) {
         db.runInTransaction { dbCore ->
             dbCore.sourceExchangeRate.deleteAll()
-            dbCore.sourceExchangeRate.create(sourceExchangeRates.map { it.mapToDb() })
+            dbCore.sourceExchangeRate.create(sourceExchangeRates.map { it.map() })
         }
     }
 
@@ -39,13 +38,13 @@ constructor(
 
     override fun createAccount(account: Account) {
         db.run { dbCore ->
-            dbCore.accounts.create(account.mapToDb())
+            dbCore.accounts.create(account.map())
         }
     }
 
     override fun updateAccount(account: Account) {
         db.run { dbCore ->
-            dbCore.accounts.update(account.mapToDb())
+            dbCore.accounts.update(account.map())
         }
     }
 
@@ -104,4 +103,16 @@ constructor(
         db.run { dbCore ->
             dbCore.paymentCategory.readAll().map { it.map() }
         }
+
+    override fun createPaymentCategory(category: PaymentCategory) {
+        db.runInTransaction { dbCore ->
+            dbCore.paymentCategory.create(category.map())
+        }
+    }
+
+    override fun updatePaymentCategory(category: PaymentCategory) {
+        db.runInTransaction { dbCore ->
+            dbCore.paymentCategory.update(category.map())
+        }
+    }
 }

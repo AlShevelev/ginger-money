@@ -3,8 +3,8 @@ package com.syleiman.gingermoney.ui.common.mvvm
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.syleiman.gingermoney.core.helpers.SingleLiveData
-import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext

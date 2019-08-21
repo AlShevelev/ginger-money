@@ -9,11 +9,11 @@ import com.syleiman.gingermoney.ui.activities.login.fragments.fingerprint.view_m
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.LoggedInCommand
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.SwitchCommand
 import com.syleiman.gingermoney.ui.activities.login.navigation.NavigationHelper
-import com.syleiman.gingermoney.ui.common.displaying_errors.TextError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.TextError
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
-import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
-import com.syleiman.gingermoney.ui.common.view_commands.ShowWarningCommand
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowWarningCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import javax.inject.Inject
 
 /**

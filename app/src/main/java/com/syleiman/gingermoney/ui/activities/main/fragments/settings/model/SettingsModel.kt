@@ -2,7 +2,7 @@ package com.syleiman.gingermoney.ui.activities.main.fragments.settings.model
 
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
-import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import org.threeten.bp.DayOfWeek

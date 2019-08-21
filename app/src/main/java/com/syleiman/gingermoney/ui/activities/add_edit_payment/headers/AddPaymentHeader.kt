@@ -10,7 +10,7 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_inject
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.extension.getParentActivity
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
-import kotlinx.android.synthetic.main.fragment_add_payment_header.view.*
+import kotlinx.android.synthetic.main.header_title_and_back.view.*
 import javax.inject.Inject
 
 class AddPaymentHeader
@@ -19,7 +19,7 @@ constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : HeaderBase(context, attrs, defStyleAttr, R.layout.fragment_add_payment_header) {
+) : HeaderBase(context, attrs, defStyleAttr, R.layout.header_title_and_back) {
 
     @Inject
     lateinit var navigation: NavigationHelper

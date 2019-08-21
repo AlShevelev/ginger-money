@@ -3,10 +3,10 @@ package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.v
 import android.view.View
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.AccountViewModelBase
-import com.syleiman.gingermoney.ui.common.view_commands.MoveBackViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.MoveBackViewCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.model.EditAccountModel
-import com.syleiman.gingermoney.ui.common.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboardEditingResult
 import kotlinx.coroutines.launch
 

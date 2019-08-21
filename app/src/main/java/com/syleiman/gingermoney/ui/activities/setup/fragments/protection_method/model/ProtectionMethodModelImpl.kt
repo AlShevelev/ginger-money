@@ -4,7 +4,7 @@ import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacade
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManager
 import com.syleiman.gingermoney.core.works.WorksManager
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
-import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
 import org.threeten.bp.DayOfWeek
 import javax.inject.Inject

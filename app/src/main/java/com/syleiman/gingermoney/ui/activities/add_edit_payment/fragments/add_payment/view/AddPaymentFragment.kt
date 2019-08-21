@@ -17,8 +17,8 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_item
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
-import com.syleiman.gingermoney.ui.common.view_commands.MoveBackViewCommand
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.MoveBackViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog

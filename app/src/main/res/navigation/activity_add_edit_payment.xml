@@ -5,7 +5,7 @@
             app:startDestination="@id/addPaymentFragment">
 
     <fragment android:id="@+id/addCategoryFragment"
-              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_category.view.AddCategoryFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.view.AddCategoryFragment"
               android:label="@string/addEditPaymentAddCategoryTitle"/>
 
     <fragment android:id="@+id/addPaymentFragment"
@@ -29,5 +29,14 @@
                 app:exitAnim="@anim/nav_slide_out_left"
                 app:popEnterAnim="@anim/nav_slide_in_left"
                 app:popExitAnim="@anim/nav_slide_out_right"/>
+        <action android:id="@+id/action_listCategoryFragment_to_editCategoryFragment"
+                app:destination="@id/editCategoryFragment"
+                app:enterAnim="@anim/nav_slide_in_right"
+                app:exitAnim="@anim/nav_slide_out_left"
+                app:popEnterAnim="@anim/nav_slide_in_left"
+                app:popExitAnim="@anim/nav_slide_out_right"/>
     </fragment>
+    <fragment android:id="@+id/editCategoryFragment"
+              android:name="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.edit.EditCategoryFragment"
+              android:label="@string/addEditPaymentEditCategoryTitle"/>
 </navigation>

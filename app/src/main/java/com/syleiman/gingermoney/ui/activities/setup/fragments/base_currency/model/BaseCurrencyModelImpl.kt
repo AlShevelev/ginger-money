@@ -2,7 +2,7 @@ package com.syleiman.gingermoney.ui.activities.setup.fragments.base_currency.mod
 
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacade
-import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
 import javax.inject.Inject
 

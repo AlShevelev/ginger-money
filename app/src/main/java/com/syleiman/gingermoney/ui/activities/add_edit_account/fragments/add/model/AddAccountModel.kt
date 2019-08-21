@@ -3,7 +3,7 @@ package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.mo
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.Money
 import com.syleiman.gingermoney.dto.enums.AccountGroup
-import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 

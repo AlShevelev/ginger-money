@@ -17,7 +17,7 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_comma
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.view_model.SettingsViewModel
 import com.syleiman.gingermoney.ui.common.widgets.dialogs.SelectCurrencyDialog
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import org.threeten.bp.DayOfWeek
 
 /**

@@ -8,6 +8,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentAddEditPaymentListCategoriesBinding
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.MoveToAddCategoryCommand
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.MoveToEditCategoryCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.dependency_injection.ListCategoriesFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.dto.CategoryListItem
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.model.ListCategoriesModel
@@ -16,6 +18,7 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_ca
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.headers.list_categories.ListCategoriesHeaderLink
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import kotlinx.android.synthetic.main.fragment_add_edit_payment_list_categories.*
 import javax.inject.Inject
 
@@ -25,6 +28,7 @@ class ListCategoriesFragment :
 
     private lateinit var categoriesListAdapter: ListCategoriesAdapter
     private lateinit var categoriesListLayoutManager: LinearLayoutManager
+    private var isListInitialized = false
 
     @Inject
     internal lateinit var navigation: NavigationHelper
@@ -52,6 +56,8 @@ class ListCategoriesFragment :
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        isListInitialized = false
+
         viewModel.categoriesList.observe({this.viewLifecycleOwner.lifecycle}) {
             updateCategoriesList(it)
         }
@@ -64,12 +70,17 @@ class ListCategoriesFragment :
         viewModel.onViewActive()
     }
 
-    override fun onAddButtonClick() {
-        return  // do noting so far
+    override fun onAddButtonClick() = viewModel.onAddCategoryClick()
+
+    override fun processViewCommand(command: ViewCommand) {
+        when(command) {
+            is MoveToAddCategoryCommand -> navigation.moveToAddCategory(this)
+            is MoveToEditCategoryCommand -> navigation.moveToEditCategory(this, command.categoryDbId)
+        }
     }
 
     private fun updateCategoriesList(categories: List<CategoryListItem>) {
-        if(!::categoriesListAdapter.isInitialized) {
+        if(!isListInitialized) {
             categoriesListLayoutManager = LinearLayoutManager(context)
 
             categoriesListAdapter = ListCategoriesAdapter(viewModel)
@@ -79,6 +90,8 @@ class ListCategoriesFragment :
             categoriesList.itemAnimator = null
             categoriesList.layoutManager = categoriesListLayoutManager
             categoriesList.adapter = categoriesListAdapter
+
+            isListInitialized = true
         }
 
         categoriesListAdapter.update(categories)

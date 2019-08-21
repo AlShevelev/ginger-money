@@ -9,7 +9,7 @@ import com.syleiman.gingermoney.ui.activities.setup.fragments.base_currency.view
 import com.syleiman.gingermoney.ui.activities.setup.fragments.view_commands.MoveToNextCommand
 import com.syleiman.gingermoney.ui.activities.setup.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
-import com.syleiman.gingermoney.ui.common.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import javax.inject.Inject
 
 /**

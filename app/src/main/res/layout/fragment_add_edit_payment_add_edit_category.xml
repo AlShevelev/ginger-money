@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.viewModel.AddCategoryViewModel"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bcg_activity_page"
+        android:id="@+id/root"
+        tools:context=".ui.activities.add_edit_payment.fragments.add_edit_category.add.view.AddCategoryFragment">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintGuide_begin="@dimen/addEditPaymentFieldsBarrier"
+            android:id="@+id/guideline"/>
+
+        <TextView
+            android:id="@+id/nameLabel"
+
+            android:text="@string/commonName"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/textFieldsMarginTop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/textFieldsMarginSide"
+
+            style="@style/App.TextField.Label"
+        />
+
+        <com.syleiman.gingermoney.ui.common.widgets.EditTextWithEmoji
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/nameText"
+
+            app:emoji_text="@{viewModel.name}"
+            app:max_length="@{viewModel.nameMaxLen}"
+
+            app:layout_constraintStart_toStartOf="@+id/guideline"
+            app:layout_constraintTop_toTopOf="@+id/nameLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/nameLabel"
+            tools:ignore="Autofill,LabelFor,TextFields"
+            app:layout_constraintStart_toEndOf="@+id/nameLabel"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:layout_marginEnd="@dimen/textFieldsMarginSide"
+        />
+
+        <Button
+            android:layout_width="@dimen/actionButtonWidth"
+            android:layout_height="@dimen/actionButtonHeight"
+
+            android:id="@+id/saveButton"
+
+            android:text="@string/commonSave"
+
+            style="@style/App.ActionButton"
+
+            android:layout_marginTop="@dimen/actionButtonTopMargin"
+
+            android:onClick="@{() -> viewModel.onSaveButtonClick()}"
+
+            app:layout_constraintTop_toBottomOf="@+id/nameLabel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+        />
+
+        <!--<editor-fold desc="Loading stub">-->
+        <com.syleiman.gingermoney.ui.common.widgets.LoadingIndicator
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:visibility="@{viewModel.loadingVisibility}"
+            android:id="@+id/loadingIndicator" />
+        <!--</editor-fold>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

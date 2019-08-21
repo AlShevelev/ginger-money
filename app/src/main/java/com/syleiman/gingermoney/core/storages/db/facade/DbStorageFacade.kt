@@ -42,4 +42,8 @@ interface DbStorageFacade {
     fun updateAccountGroupSettings(accountGroup: AccountGroup?, foregroundColor: Color, backgroundColor: Color)
 
     fun readPaymentCategories(): List<PaymentCategory>
+
+    fun createPaymentCategory(category: PaymentCategory)
+
+    fun updatePaymentCategory(category: PaymentCategory)
 }

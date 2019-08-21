@@ -8,8 +8,8 @@ import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModelImpl
-import com.syleiman.gingermoney.ui.common.displaying_errors.DisplayingError
-import com.syleiman.gingermoney.ui.common.displaying_errors.GeneralError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.GeneralError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
