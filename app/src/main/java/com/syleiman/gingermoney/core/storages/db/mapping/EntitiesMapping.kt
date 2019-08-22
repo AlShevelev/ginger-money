@@ -26,6 +26,7 @@ fun AccountDb.map(): Account = Account(
     this.name,
     this.amount,
     this.memo,
+    this.createAt.toZoneDateTime(),
     this.lastUsed?.toZoneDateTime())
 
 fun Account.map(): AccountDb =
@@ -35,6 +36,7 @@ fun Account.map(): AccountDb =
         this.name,
         this.amount,
         this.memo,
+        this.createAt.toSplit(),
         this.lastUsed?.toSplit())
 //endregion
 

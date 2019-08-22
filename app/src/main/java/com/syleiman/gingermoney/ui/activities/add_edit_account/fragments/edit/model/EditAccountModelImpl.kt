@@ -30,13 +30,13 @@ constructor(
         db
 ),  EditAccountModel {
 
-    private var lastUsed: ZonedDateTime? = null
+    private var account: Account? = null
 
     override suspend fun getAccount(): ModelCallResult<out Account> =
         getValue {
             db.readAccount(accountDbId)
                 .also {
-                    lastUsed = it?.lastUsed
+                    account = it
                 }
         }
 
@@ -53,7 +53,7 @@ constructor(
         } else {
             withContext(Dispatchers.IO) {
                 try {
-                    db.updateAccount(Account(accountDbId, group!!, name!!, amount, memo, lastUsed))
+                    db.updateAccount(Account(accountDbId, group!!, name!!, amount, memo, account!!.createAt, account!!.lastUsed))
                     null
                 } catch (ex: Exception) {
                     ex.printStackTrace()

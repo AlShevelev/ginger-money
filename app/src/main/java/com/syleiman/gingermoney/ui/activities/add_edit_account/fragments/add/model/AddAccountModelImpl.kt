@@ -14,6 +14,7 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject
 
 open class AddAccountModelImpl
@@ -64,7 +65,7 @@ constructor(
         } else {
             withContext(Dispatchers.IO) {
                 try {
-                    db.createAccount(Account(null, group!!, name!!, amount, memo, null))
+                    db.createAccount(Account(null, group!!, name!!, amount, memo, ZonedDateTime.now(), null))
                     null
                 } catch (ex: Exception) {
                     ex.printStackTrace()

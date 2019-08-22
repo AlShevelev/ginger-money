@@ -24,8 +24,10 @@ abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
     private val rootView: View,
     private val context: Context,
     items: List<NamedListItem>,
-    private val keyboardEventsProcessor: T
+    keyboardEventsProcessor: T
 ) : PopupWindow(context) {
+
+    private val adapter: NamedItemsListAdapterBase<T>
 
     private var backPressedCallback = object: OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -55,7 +57,7 @@ abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
         // Init list
         val layoutManager = GridLayoutManager(context, columns)
 
-        val adapter = createAdapter(items, keyboardEventsProcessor)
+        adapter = createAdapter(items, keyboardEventsProcessor)
         adapter.setHasStableIds(true)
 
         val list = contentView.findViewById<RecyclerView>(R.id.itemsList)
@@ -72,6 +74,12 @@ abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
 
         // Processes Back button action
         (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback(backPressedCallback)
+    }
+
+    fun show(items: List<NamedListItem>) {
+        adapter.update(items)
+
+        show()
     }
 
     fun hide() {

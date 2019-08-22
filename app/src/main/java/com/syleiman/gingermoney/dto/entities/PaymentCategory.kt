@@ -8,3 +8,6 @@ data class PaymentCategory(
     val createAt: ZonedDateTime,
     val lastUsed: ZonedDateTime?
 )
+
+val PaymentCategory.sortDate: ZonedDateTime
+    get() = this.lastUsed ?: createAt

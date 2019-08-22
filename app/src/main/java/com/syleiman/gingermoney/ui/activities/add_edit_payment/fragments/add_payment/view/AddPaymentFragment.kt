@@ -56,10 +56,10 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-//    override fun onResume() {
-//        super.onResume()
-//        viewModel.onViewActive()
-//    }
+    override fun onResume() {
+        super.onResume()
+        viewModel.onActive()
+    }
 
     override fun processViewCommand(command: ViewCommand) {
         when(command) {
@@ -114,14 +114,18 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
     private fun showAccountsKeyboard(accounts: List<NamedListItem>) {
         if(!::accountsKeyboard.isInitialized) {
             accountsKeyboard = AccountsKeyboard(root, requireContext(), accounts, viewModel)
+            accountsKeyboard.show()
+        } else {
+            accountsKeyboard.show(accounts)
         }
-        accountsKeyboard.show()
     }
 
     private fun showCategoriesKeyboard(categories: List<NamedListItem>) {
         if(!::categoriesKeyboard.isInitialized) {
             categoriesKeyboard = CategoriesKeyboard(root, requireContext(), categories, viewModel)
+            categoriesKeyboard.show()
+        } else {
+            categoriesKeyboard.show(categories)
         }
-        categoriesKeyboard.show()
     }
 }

@@ -32,6 +32,9 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
         App.injections.get<AddPaymentFragmentComponent>().inject(this)
 
         createdAt.value = model.getCreateAt()
+    }
+
+    fun onActive() {
         init()
     }
 
@@ -68,10 +71,11 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
     }
 
     fun onCategoryFieldClick() {
-        command.value = ShowCategoriesKeyboard(model.paymentCategories.map { NamedListItem(it.id!!, it.name) })
+        command.value = ShowCategoriesKeyboard(model.categories.map { NamedListItem(it.id!!, it.name) })
     }
 
     override fun onCategorySelect(id: Long) {
+        category.value = model.setSelectedCategory(id).name
         command.value = HideCategoriesKeyboard()
     }
 

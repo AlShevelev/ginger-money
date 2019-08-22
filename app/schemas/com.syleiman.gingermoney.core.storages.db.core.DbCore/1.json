@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3827d946e351afa70f124d906488840e",
+    "identityHash": "1db61ffe5230b62156e7dc40246b62d2",
     "entities": [
       {
         "tableName": "account",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_id` INTEGER NOT NULL, `group` INTEGER NOT NULL, `name` TEXT NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `lastUsed` BLOB, PRIMARY KEY(`account_id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`account_id` INTEGER NOT NULL, `group` INTEGER NOT NULL, `name` TEXT NOT NULL, `amount` BLOB NOT NULL, `memo` TEXT, `createAt` BLOB NOT NULL, `lastUsed` BLOB, PRIMARY KEY(`account_id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -37,6 +37,12 @@
             "columnName": "memo",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "createAt",
+            "columnName": "createAt",
+            "affinity": "BLOB",
+            "notNull": true
           },
           {
             "fieldPath": "lastUsed",
@@ -281,7 +287,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"3827d946e351afa70f124d906488840e\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1db61ffe5230b62156e7dc40246b62d2\")"
     ]
   }
 }

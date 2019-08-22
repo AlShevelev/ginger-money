@@ -9,7 +9,7 @@ import org.threeten.bp.ZonedDateTime
 interface AddPaymentModel: ModelBase {
     val accounts: List<Account>
 
-    val paymentCategories: List<PaymentCategory>
+    val categories: List<PaymentCategory>
 
     fun getCreateAt(): ZonedDateTime
 
@@ -19,4 +19,9 @@ interface AddPaymentModel: ModelBase {
      * Memorizes an account with [id] and returns it
      */
     fun setSelectedAccount(id: Long): Account
+
+    /**
+     * Memorizes a category with [id] and returns it
+     */
+    fun setSelectedCategory(id: Long): PaymentCategory
 }

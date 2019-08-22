@@ -95,6 +95,7 @@ class ListCategoriesFragment :
         }
 
         categoriesListAdapter.update(categories)
+        categoriesList.scrollToPosition(0)
     }
 }
 

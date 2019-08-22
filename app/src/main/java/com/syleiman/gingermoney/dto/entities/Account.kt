@@ -15,5 +15,10 @@ data class Account (
 
     val memo: String?,
 
+    val createAt: ZonedDateTime,
+
     val lastUsed: ZonedDateTime?
 )
+
+val Account.sortDate: ZonedDateTime
+    get() = this.lastUsed ?: createAt

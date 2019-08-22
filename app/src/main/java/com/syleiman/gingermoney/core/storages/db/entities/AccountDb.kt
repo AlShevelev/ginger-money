@@ -25,6 +25,9 @@ data class AccountDb (
     @ColumnInfo(name = "memo")
     val memo: String?,
 
+    @ColumnInfo(name = "createAt", typeAffinity = ColumnInfo.BLOB)
+    val createAt: ZonedDateTimeSplit,
+
     @ColumnInfo(name = "lastUsed", typeAffinity = ColumnInfo.BLOB)
     val lastUsed: ZonedDateTimeSplit?
 )

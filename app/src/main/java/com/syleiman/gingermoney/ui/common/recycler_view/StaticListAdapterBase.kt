@@ -5,9 +5,14 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accou
 
 abstract class StaticListAdapterBase<TListItemEventsProcessor, TItem: ListItem>(
     private val listItemEventsProcessor: TListItemEventsProcessor,
-    private val items: List<TItem>
+    private var items: List<TItem>
 ) : RecyclerView.Adapter<ViewHolderBase<TListItemEventsProcessor, TItem>>(),
     AdapterRawDataAccess<TItem> {
+
+    fun update(items: List<TItem>) {
+        this.items = items
+        notifyDataSetChanged()
+    }
 
     override fun getItemId(position: Int): Long = items[getItemPosition(position)].id
 
