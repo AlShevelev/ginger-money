@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.viewModel.AddCategoryViewModel"/>
+            type="com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.view_model.AddEditCategoryViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/bcg_activity_page"
         android:id="@+id/root"
-        tools:context=".ui.activities.add_edit_payment.fragments.add_edit_category.add.view.AddCategoryFragment">
+        tools:context=".ui.activities.add_edit_payment.fragments.add_edit_category.view.AddEditCategoryFragment">
 
         <androidx.constraintlayout.widget.Guideline
             android:orientation="vertical"

@@ -104,6 +104,11 @@ constructor(
             dbCore.paymentCategory.readAll().map { it.map() }
         }
 
+    override fun readPaymentCategory(id: Long): PaymentCategory? =
+        db.run { dbCore ->
+            dbCore.paymentCategory.read(id)?.map()
+        }
+
     override fun createPaymentCategory(category: PaymentCategory) {
         db.runInTransaction { dbCore ->
             dbCore.paymentCategory.create(category.map())

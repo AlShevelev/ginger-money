@@ -43,6 +43,8 @@ interface DbStorageFacade {
 
     fun readPaymentCategories(): List<PaymentCategory>
 
+    fun readPaymentCategory(id: Long): PaymentCategory?
+
     fun createPaymentCategory(category: PaymentCategory)
 
     fun updatePaymentCategory(category: PaymentCategory)

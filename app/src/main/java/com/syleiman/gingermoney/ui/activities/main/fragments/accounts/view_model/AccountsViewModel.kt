@@ -48,7 +48,7 @@ class AccountsViewModel : ViewModelBase<AccountsModel>(), ListItemEventsProcesso
 
     override fun onOnColorMenuItemClick(group: AccountGroup) {
         launch {
-            processCallResult(model.getColors(group)) {
+            model.getColors(group).processCallResult {
                 dialogCommands.value = StartSelectColorsDialogCommand(it, group)
             }
         }
@@ -84,7 +84,7 @@ class AccountsViewModel : ViewModelBase<AccountsModel>(), ListItemEventsProcesso
 
             loadingVisibility.value = View.GONE
 
-            processCallResult(accounts) {
+            accounts.processCallResult {
                 accountsListData.value = it
 
                 stubVisibility.value = if(it.isEmpty()) View.VISIBLE else View.INVISIBLE

@@ -1,36 +1,44 @@
-package com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.view
+package com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.view
 
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentAddEditPaymentAddEditCategoryBinding
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.dependency_injection.AddCategoryFragmentComponent
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.model.AddCategoryModel
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.viewModel.AddCategoryViewModel
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.dependency_injection.AddEditCategoryFragmentComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.model.AddEditCategoryModel
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.view_model.AddEditCategoryViewModel
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmpty
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLong
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.*
+import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs
 import kotlinx.android.synthetic.main.fragment_add_edit_payment_add_edit_category.*
 import javax.inject.Inject
 
-class AddCategoryFragment :
-    FragmentBase<FragmentAddEditPaymentAddEditCategoryBinding, AddCategoryModel, AddCategoryViewModel>() {
+class AddEditCategoryFragment:
+    FragmentBase<FragmentAddEditPaymentAddEditCategoryBinding, AddEditCategoryModel, AddEditCategoryViewModel>() {
 
     @Inject
     internal lateinit var navigation: NavigationHelper
 
-    override fun provideViewModelType(): Class<AddCategoryViewModel> = AddCategoryViewModel::class.java
+    override fun provideViewModelType(): Class<AddEditCategoryViewModel> = AddEditCategoryViewModel::class.java
 
     override fun provideLayout(): Int = R.layout.fragment_add_edit_payment_add_edit_category
 
-    override fun inject() = App.injections.get<AddCategoryFragmentComponent>().inject(this)
+    override fun inject() {
+        var accountDbId = arguments?.getLong(NavigationArgs.DB_ID)
+        if(accountDbId == 0L) {
+            accountDbId = null
+        }
 
-    override fun releaseInjection() {
-        App.injections.release<AddCategoryFragmentComponent>()
+        App.injections.get<AddEditCategoryFragmentComponent>(accountDbId).inject(this)
     }
 
-    override fun linkViewModel(binding: FragmentAddEditPaymentAddEditCategoryBinding, viewModel: AddCategoryViewModel) {
+    override fun releaseInjection() {
+        App.injections.release<AddEditCategoryFragmentComponent>()
+    }
+
+    override fun linkViewModel(binding: FragmentAddEditPaymentAddEditCategoryBinding, viewModel: AddEditCategoryViewModel) {
         binding.viewModel = viewModel
     }
 

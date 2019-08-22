@@ -12,6 +12,9 @@ interface PaymentCategoryDao {
     @Query("select * from payment_category")
     fun readAll(): List<PaymentCategoryDb>
 
+    @Query("select * from payment_category where payment_category_id = :id")
+    fun read(id: Long): PaymentCategoryDb?
+
     @Insert
     fun create(category: PaymentCategoryDb)
 

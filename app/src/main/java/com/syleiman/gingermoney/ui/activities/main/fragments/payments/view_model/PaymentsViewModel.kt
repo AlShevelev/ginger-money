@@ -46,7 +46,7 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
 
             loadingVisibility.value = View.GONE
 
-            processCallResult(payments) {
+            payments.processCallResult {
                 when {
                     !it.hasAccounts -> {
                         stubText.value = appResourcesProvider.getString(R.string.mainPaymentsNoAccounts)

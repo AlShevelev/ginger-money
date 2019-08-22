@@ -47,7 +47,7 @@ class ListCategoriesViewModel: ViewModelBase<ListCategoriesModel>(), ListItemEve
 
             loadingVisibility.value = View.GONE
 
-            processCallResult(categories) {
+            categories.processCallResult {
                 categoriesList.value = it
 
                 stubVisibility.value = if(it.isEmpty()) View.VISIBLE else View.INVISIBLE

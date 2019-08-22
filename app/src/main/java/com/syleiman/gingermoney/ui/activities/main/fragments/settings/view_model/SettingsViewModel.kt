@@ -31,7 +31,7 @@ class SettingsViewModel : ViewModelBase<SettingsModel>() {
 
             buttonsEnabled.value = true
 
-            processCallResult(method) {
+            method.processCallResult {
                 dialogCommands.value = StartSelectAppProtectionMethodCommand(allMethods.indexOf(it), allMethods)
             }
         }
@@ -45,7 +45,7 @@ class SettingsViewModel : ViewModelBase<SettingsModel>() {
 
             buttonsEnabled.value = true
 
-            processCallResult(defaultCurrency) {
+            defaultCurrency.processCallResult {
                 dialogCommands.value = StartSelectCurrencyDialogCommand(it)
             }
         }
@@ -60,7 +60,7 @@ class SettingsViewModel : ViewModelBase<SettingsModel>() {
 
             buttonsEnabled.value = true
 
-            processCallResult(startDayOfWeek) {
+            startDayOfWeek.processCallResult {
                 dialogCommands.value = StartSelectStartDayOfWeekCommand(allDays.indexOf(it), allDays)
             }
         }

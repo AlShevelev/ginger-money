@@ -6,7 +6,8 @@ import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.dep
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.edit.dependency_injection.EditAccountFragmentModule
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_injection.AddEditPaymentActivityComponent
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.add.dependency_injection.AddCategoryFragmentComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.dependency_injection.AddEditCategoryFragmentComponent
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.dependency_injection.AddEditCategoryFragmentModule
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.dependency_injection.ListCategoriesFragmentComponent
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
@@ -14,9 +15,9 @@ import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActi
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.dependency_injection.PaymentsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
-import com.syleiman.gingermoney.ui.dependency_injection.UIComponent
 import com.syleiman.gingermoney.ui.activities.root.dependency_injection.RootActivityComponent
 import com.syleiman.gingermoney.ui.activities.setup.dependency_injection.SetupActivityComponent
+import com.syleiman.gingermoney.ui.dependency_injection.UIComponent
 import kotlin.reflect.KClass
 
 /** Storage for Dagger components on application level  */
@@ -24,12 +25,12 @@ class DependencyInjectionStorage(private val appContext: Context) {
 
     private val components = mutableMapOf<KClass<*>, Any>()
 
-    inline fun <reified T>get(vararg args: Any): T = getComponent(T::class, args)
+    inline fun <reified T>get(vararg args: Any?): T = getComponent(T::class, args)
 
     inline fun <reified T>release() = releaseComponent(T::class)
 
     @Suppress("UNCHECKED_CAST")
-    fun <T>getComponent(type: KClass<*>, args: Array<out Any>): T {
+    fun <T>getComponent(type: KClass<*>, args: Array<out Any?>): T {
         var result = components[type]
         if(result == null) {
             result = provideComponent<T>(type, args)
@@ -41,7 +42,7 @@ class DependencyInjectionStorage(private val appContext: Context) {
     fun releaseComponent(type: KClass<*>) = components.remove(type)
 
     @Suppress("IMPLICIT_CAST_TO_ANY", "UNCHECKED_CAST")
-    private fun <T>provideComponent(type: KClass<*>, args: Array<out Any>): T {
+    private fun <T>provideComponent(type: KClass<*>, args: Array<out Any?>): T {
         return when(type) {
             AppComponent::class -> DaggerAppComponent.builder().appModule(AppModule(appContext)).build()
 
@@ -66,7 +67,10 @@ class DependencyInjectionStorage(private val appContext: Context) {
             AddEditPaymentActivityComponent::class -> get<UIComponent>().addEditPaymentActivity.build()
             AddPaymentFragmentComponent::class -> get<AddEditPaymentActivityComponent>().addPaymentFragment.build()
             ListCategoriesFragmentComponent::class -> get<AddEditPaymentActivityComponent>().listCategoriesFragment.build()
-            AddCategoryFragmentComponent::class -> get<AddEditPaymentActivityComponent>().addCategoryFragment.build()
+            AddEditCategoryFragmentComponent::class -> get<AddEditPaymentActivityComponent>()
+                .addEditCategoryFragment
+                .init(AddEditCategoryFragmentModule(args[0] as Long?))
+                .build()
 
             else -> throw UnsupportedOperationException("This component is not supported: ${type.simpleName}")
         } as T
