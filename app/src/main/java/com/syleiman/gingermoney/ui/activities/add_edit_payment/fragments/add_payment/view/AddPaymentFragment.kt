@@ -15,7 +15,6 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_item
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.account.AccountsKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.category.CategoriesKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.AccountIsEmptyError
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.AmountIsEmptyError
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.CategoryIsEmptyError
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
@@ -31,7 +30,6 @@ import javax.inject.Inject
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
 import kotlinx.android.synthetic.main.fragment_add_edit_payment_add.*
-
 
 class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPaymentModel, AddPaymentViewModel>() {
 
@@ -150,7 +148,6 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
 
     private fun showError(error: DisplayingError) {
         when(error) {
-            is AccountIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyAccountError)
             is CategoryIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyCategoryError)
             is AmountIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyAmountError)
             else -> uiUtils.showError(R.string.commonGeneralError)

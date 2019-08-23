@@ -108,4 +108,6 @@
     <string name="addEditPaymentEditCategoryTitle">Редактировать категорию платежа</string>
     <string name="addEditPaymentCreatedAt">Создан в</string>
     <string name="addEditPaymentNoCategories">У вас еще нет категорий.\nДобавьте хотя бы одну.</string>
-</resources>
+    <string name="addEditPaymentEmptyCategoryError">Категория платежа должна быть выбрана</string>
+    <string name="addEditPaymentEmptyAmountError">Значение платежа не может быть пустым</string>
+\</resources>

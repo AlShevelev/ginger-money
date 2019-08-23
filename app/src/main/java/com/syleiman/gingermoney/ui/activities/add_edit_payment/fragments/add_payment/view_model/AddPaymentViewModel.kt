@@ -42,7 +42,7 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
     }
 
     fun onActive() {
-        reloadDictionaries()
+        reloadCategories()
     }
 
     fun onCreatedAtDateClick() {
@@ -122,11 +122,11 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
         }
     }
 
-    private fun reloadDictionaries() {
+    private fun reloadCategories() {
         loadingVisibility.value = View.VISIBLE
 
         launch {
-            val error = model.loadData()
+            val error = model.loadCategories()
 
             loadingVisibility.value = View.GONE
 
@@ -146,14 +146,25 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
         launch {
             val defaultCurrency = model.getDefaultCurrency()
 
-            loadingVisibility.value = View.GONE
+            if(defaultCurrency.error != null) {
+                loadingVisibility.value = View.GONE
+                command.value = ShowErrorCommand(defaultCurrency.error)
+            } else {
+                defaultCurrency.value?.let {
+                    model.selectedAmount = it.toMoney(0)
+                    onAmountEdit(AmountKeyboardEditingResult(model.selectedAmount!!, true))
+                }
 
-            defaultCurrency.value?.let {
-                model.selectedAmount = it.toMoney(0)
-                onAmountEdit(AmountKeyboardEditingResult(model.selectedAmount!!, true))
+                val loadAccountsError = model.loadAccounts()
+
+                loadingVisibility.value = View.GONE
+
+                if(loadAccountsError != null) {
+                    command.value = ShowErrorCommand(loadAccountsError)
+                } else {
+                    account.value = model.selectedAccount.name
+                }
             }
-
-            defaultCurrency.error?.let { command.value = ShowErrorCommand(it) }
         }
     }
 }

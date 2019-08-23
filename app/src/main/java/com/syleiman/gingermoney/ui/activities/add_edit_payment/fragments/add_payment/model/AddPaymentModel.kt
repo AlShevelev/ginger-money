@@ -14,13 +14,16 @@ interface AddPaymentModel: ModelBase {
 
     val categories: List<PaymentCategory>
 
+    val selectedAccount: Account
     var selectedAmount: Money?
 
     val memoMaxLen: Int
 
     fun getCreateAt(): ZonedDateTime
 
-    suspend fun loadData(): DisplayingError?
+    suspend fun loadCategories(): DisplayingError?
+
+    suspend fun loadAccounts(): DisplayingError?
 
     fun setSelectedAccount(id: Long): Account
 
