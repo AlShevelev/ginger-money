@@ -58,7 +58,7 @@ abstract class AccountViewModelBase<TM: AddAccountModel> : ViewModelBase<TM>() {
     fun onAmountClick() {
         command.value = HideSoftKeyboard()
         command.value = HideEmojiKeyboard()
-        command.value = ShowAmountKeyboard(amountRaw, model.getAllCurrencies(), canUpdateCurrency)
+        command.value = ShowAmountKeyboard(amountRaw, model.getAllCurrencies(), canUpdateCurrency, true)
     }
 
     fun onAmountEdit(result: AmountKeyboardEditingResult) {

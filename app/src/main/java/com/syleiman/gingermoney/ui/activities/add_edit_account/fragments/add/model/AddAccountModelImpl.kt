@@ -8,7 +8,7 @@ import com.syleiman.gingermoney.core.storages.key_value.KeyValueStorageFacade
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.enums.AccountGroup
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmpty
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmptyError
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.*
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
@@ -75,14 +75,14 @@ constructor(
         }
     }
 
-    protected fun validateGroup(group: AccountGroup?): DisplayingError? = if(group != null) null else GroupIsEmpty()
+    protected fun validateGroup(group: AccountGroup?): DisplayingError? = if(group != null) null else GroupIsEmptyError()
 
     protected fun validateName(name: String?): DisplayingError? =
         when {
-            name.isNullOrEmpty() || name.isNullOrBlank() -> NameIsEmpty()
-            name.length > nameMaxLen -> NameIsTooLong()
+            name.isNullOrEmpty() || name.isNullOrBlank() -> NameIsEmptyError()
+            name.length > nameMaxLen -> NameIsTooLongError()
             else -> null
         }
 
-    protected fun validateMemo(memo: String?) = memo?.takeIf { it.length > memoMaxLen }?.let { MemoIsTooLong() }
+    protected fun validateMemo(memo: String?) = memo?.takeIf { it.length > memoMaxLen }?.let { MemoIsTooLongError() }
 }

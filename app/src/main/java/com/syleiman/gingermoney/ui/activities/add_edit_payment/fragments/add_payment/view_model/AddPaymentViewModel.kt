@@ -12,14 +12,17 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_item
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.account.AccountsKeyboardEventsProcessor
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.category.CategoriesKeyboardEventsProcessor
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
+import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
+import com.syleiman.gingermoney.ui.common.formatters.MoneySoftCentsFormatter
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.MoveBackViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowAmountKeyboard
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
+import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboardEditingResult
 import kotlinx.coroutines.launch
 import org.threeten.bp.ZonedDateTime
 
 class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEventsProcessor, CategoriesKeyboardEventsProcessor {
-
     val createdAt: MutableLiveData<ZonedDateTime> = MutableLiveData()
 
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()     // Loading indicator
@@ -27,15 +30,19 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
     val account: MutableLiveData<String> = MutableLiveData()
     val category: MutableLiveData<String> = MutableLiveData()
 
+    val amount: MutableLiveData<String> = MutableLiveData()     // Must be string because it depends on formatting
+
+    val memo: MutableLiveData<String> = MutableLiveData()
+    val memoMaxLen: MutableLiveData<Int> = MutableLiveData()
+
     init {
         @Suppress("LeakingThis")
         App.injections.get<AddPaymentFragmentComponent>().inject(this)
-
-        createdAt.value = model.getCreateAt()
+        initView()
     }
 
     fun onActive() {
-        init()
+        reloadDictionaries()
     }
 
     fun onCreatedAtDateClick() {
@@ -88,7 +95,34 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
         command.value = MoveToListOfCategoriesCommand()
     }
 
-    private fun init() {
+    fun onAmountFieldClick() {
+        command.value = ShowAmountKeyboard(model.selectedAmount!!, model.getAllCurrencies(), true, false)
+    }
+
+    fun onAmountEdit(result: AmountKeyboardEditingResult) {
+        model.selectedAmount = result.value
+
+        val formatter = if(result.hasCents) MoneyHardCentsFormatter() else MoneySoftCentsFormatter()
+        amount.value = formatter.format(result.value)
+    }
+
+    fun onSaveButtonClick() {
+        loadingVisibility.value = View.VISIBLE
+
+        launch {
+            val saveResult = model.save(createdAt.value!!, memo.value)
+
+            loadingVisibility.value = View.GONE
+
+            if(saveResult != null) {
+                command.value = ShowErrorCommand(saveResult)
+            } else {
+                command.value = MoveBackViewCommand()
+            }
+        }
+    }
+
+    private fun reloadDictionaries() {
         loadingVisibility.value = View.VISIBLE
 
         launch {
@@ -100,6 +134,26 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
                 command.value = ShowErrorCommand(error)
                 command.value = MoveBackViewCommand()
             }
+        }
+    }
+
+    private fun initView() {
+        loadingVisibility.value = View.VISIBLE
+
+        createdAt.value = model.getCreateAt()
+        memoMaxLen.value = model.memoMaxLen
+
+        launch {
+            val defaultCurrency = model.getDefaultCurrency()
+
+            loadingVisibility.value = View.GONE
+
+            defaultCurrency.value?.let {
+                model.selectedAmount = it.toMoney(0)
+                onAmountEdit(AmountKeyboardEditingResult(model.selectedAmount!!, true))
+            }
+
+            defaultCurrency.error?.let { command.value = ShowErrorCommand(it) }
         }
     }
 }

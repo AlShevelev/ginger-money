@@ -4,7 +4,7 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentLoginMasterPasswordBinding
 import com.syleiman.gingermoney.ui.activities.login.dependency_injection.LoginActivityComponent
-import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.dto.InvalidPassword
+import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.dto.InvalidPasswordError
 import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.model.MasterPasswordModel
 import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.view_model.MasterPasswordViewModel
 import com.syleiman.gingermoney.ui.activities.login.fragments.view_commands.LoggedInCommand
@@ -46,7 +46,7 @@ class MasterPasswordFragment : FragmentBase<FragmentLoginMasterPasswordBinding, 
 
             is ShowErrorCommand -> {
                 when(command.error) {
-                    is InvalidPassword -> {
+                    is InvalidPasswordError -> {
                         uiUtils.showError(resourcesProvider.getString(R.string.invalidPasswordError))
                     }
 

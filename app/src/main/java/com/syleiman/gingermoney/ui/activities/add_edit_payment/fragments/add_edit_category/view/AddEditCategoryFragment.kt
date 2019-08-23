@@ -8,8 +8,8 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edi
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_edit_category.view_model.AddEditCategoryViewModel
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
-import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmpty
-import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLong
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmptyError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLongError
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.*
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs
 import kotlinx.android.synthetic.main.fragment_add_edit_payment_add_edit_category.*
@@ -47,8 +47,8 @@ class AddEditCategoryFragment:
             is MoveBackViewCommand -> navigation.moveBack(requireActivity())
             is ShowErrorCommand ->  {
                 when(command.error) {
-                    is NameIsEmpty -> uiUtils.showError(R.string.addEditPaymentCategoryNameIsEmptyError)
-                    is NameIsTooLong -> uiUtils.showError(R.string.addEditPaymentCategoryNameIsTooLongError)
+                    is NameIsEmptyError -> uiUtils.showError(R.string.addEditPaymentCategoryNameIsEmptyError)
+                    is NameIsTooLongError -> uiUtils.showError(R.string.addEditPaymentCategoryNameIsTooLongError)
                 }
             }
             is HideSoftKeyboard -> hideSoftKeyboard()

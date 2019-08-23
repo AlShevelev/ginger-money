@@ -22,7 +22,8 @@ class AmountKeyboard (
     private val rootView: View,
     private val context: Context,
     private val currencies: List<Currency>,
-    private val canEditCurrency: Boolean
+    private val canEditCurrency: Boolean,
+    private val canEditSign: Boolean
 ) : PopupWindow(context) {
 
     private var backPressedCallback = object: OnBackPressedCallback(true) {
@@ -67,7 +68,9 @@ class AmountKeyboard (
         onEditingListener?.invoke(AmountKeyboardEditingResult(currentState.toMoney(), currentState.hasCents))
 
         view.setCurrency(getNextCurrency(currentState.currency))
+
         view.setButtonState(AmountKeyboardKeyCode.KEY_CURRENCY, canEditCurrency)
+        view.setButtonState(AmountKeyboardKeyCode.KEY_SIGN, canEditSign)
 
         showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 

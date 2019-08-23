@@ -4,6 +4,7 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
+import com.syleiman.gingermoney.dto.entities.Payment
 import com.syleiman.gingermoney.dto.entities.PaymentCategory
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
@@ -48,4 +49,6 @@ interface DbStorageFacade {
     fun createPaymentCategory(category: PaymentCategory)
 
     fun updatePaymentCategory(category: PaymentCategory)
+
+    fun createPayment(payment: Payment)
 }

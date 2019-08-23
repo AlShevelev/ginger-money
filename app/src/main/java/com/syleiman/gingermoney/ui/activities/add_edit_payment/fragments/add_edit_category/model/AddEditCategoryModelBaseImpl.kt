@@ -5,8 +5,8 @@ import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
 import com.syleiman.gingermoney.ui.common.mvvm.ModelCallResult
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.GeneralError
-import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmpty
-import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLong
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmptyError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLongError
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -47,8 +47,8 @@ abstract class AddEditCategoryModelBaseImpl: ModelBaseImpl(),
 
     private fun checkCategory(category: PaymentCategory): DisplayingError? =
         when {
-            category.name.isBlank() -> NameIsEmpty()
-            category.name.length > maxNameLen -> NameIsTooLong()
+            category.name.isBlank() -> NameIsEmptyError()
+            category.name.length > maxNameLen -> NameIsTooLongError()
             else -> null
         }
 }

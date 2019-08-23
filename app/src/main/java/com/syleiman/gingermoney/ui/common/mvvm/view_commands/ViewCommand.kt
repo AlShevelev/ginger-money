@@ -33,7 +33,8 @@ class HideAmountKeyboard: ViewCommand
 class ShowAmountKeyboard(
     val value: Money,
     val currencies: List<Currency>,
-    val canEditCurrency: Boolean
+    val canEditCurrency: Boolean,
+    val canEditSign: Boolean
 ): ViewCommand
 
 class HideEmojiKeyboard: ViewCommand

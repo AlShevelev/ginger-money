@@ -156,4 +156,8 @@
     <string name="addEditPaymentNoCategories">You have no categories yet.\nAdd at least one.</string>
     <string name="addEditPaymentCategoryNameIsEmptyError">Name of category can\'t be empty</string>
     <string name="addEditPaymentCategoryNameIsTooLongError">Name of category is too long</string>
+
+    <string name="addEditPaymentEmptyAccountError">Account must be selected</string>
+    <string name="addEditPaymentEmptyCategoryError">Payment category must be selected</string>
+    <string name="addEditPaymentEmptyAmountError">Amount value can\'t be empty</string>
 </resources>

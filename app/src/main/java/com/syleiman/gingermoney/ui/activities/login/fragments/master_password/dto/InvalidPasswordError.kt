@@ -5,4 +5,4 @@ import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 /**
  * A password has not been recognized
  */
-class InvalidPassword : DisplayingError
+class InvalidPasswordError : DisplayingError

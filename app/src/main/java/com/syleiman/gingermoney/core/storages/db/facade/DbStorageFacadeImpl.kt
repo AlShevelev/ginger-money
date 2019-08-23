@@ -8,6 +8,7 @@ import com.syleiman.gingermoney.core.storages.db.entities.AccountGroupSettingsDb
 import com.syleiman.gingermoney.core.storages.db.mapping.map
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
+import com.syleiman.gingermoney.dto.entities.Payment
 import com.syleiman.gingermoney.dto.entities.PaymentCategory
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
@@ -118,6 +119,14 @@ constructor(
     override fun updatePaymentCategory(category: PaymentCategory) {
         db.runInTransaction { dbCore ->
             dbCore.paymentCategory.update(category.map())
+        }
+    }
+
+    override fun createPayment(payment: Payment) {
+        db.runInTransaction { dbCore ->
+            dbCore.accounts.update(payment.account.map())
+            dbCore.paymentCategory.update(payment.paymentCategory.map())
+            dbCore.payments.create(payment.map())
         }
     }
 }

@@ -69,7 +69,7 @@ constructor(
                             totalAmount += account.amount.convertTo(totalRate)
                             groupAmount += account.amount.convertTo(groupRate)
 
-                            result.add(AccountListItem(account.id!!, account.id!!, account.name, account.amount))
+                            result.add(AccountListItem(account.id!!, account.id, account.name, account.amount))
                         }
                     result[groupIndex] = (result[groupIndex] as GroupListItem).copy(amount = groupAmount)
                 }

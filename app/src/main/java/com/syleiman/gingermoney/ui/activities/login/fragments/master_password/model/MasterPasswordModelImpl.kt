@@ -6,7 +6,7 @@ import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.core.utils.encryption.Encryptor
 import com.syleiman.gingermoney.core.utils.fingerprint_auth.FingerprintAuthManager
 import com.syleiman.gingermoney.core.utils.strings_convertation.StringsConverter
-import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.dto.InvalidPassword
+import com.syleiman.gingermoney.ui.activities.login.fragments.master_password.dto.InvalidPasswordError
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.GeneralError
 import com.syleiman.gingermoney.ui.common.mvvm.ModelBaseImpl
@@ -35,13 +35,13 @@ constructor(
      */
     override suspend fun login(password: String?): DisplayingError? =
         if (password.isNullOrEmpty()) {
-            InvalidPassword()
+            InvalidPasswordError()
         } else {
             withContext(Dispatchers.IO) {
                 try {
                     val storedPassword = stringsConverter.fromBytes(encryptor.decrypt(keyValueStorage.getMasterPassword())!!)
                     if (password != storedPassword) {
-                        InvalidPassword()
+                        InvalidPasswordError()
                     } else {
                         null
                     }

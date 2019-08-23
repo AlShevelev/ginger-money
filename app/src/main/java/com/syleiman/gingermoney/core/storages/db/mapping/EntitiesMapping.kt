@@ -4,12 +4,10 @@ import com.syleiman.gingermoney.core.global_entities.date_time.toSplit
 import com.syleiman.gingermoney.core.global_entities.date_time.toZoneDateTime
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.core.helpers.id.IdUtil
-import com.syleiman.gingermoney.core.storages.db.entities.AccountDb
-import com.syleiman.gingermoney.core.storages.db.entities.AccountGroupSettingsDb
-import com.syleiman.gingermoney.core.storages.db.entities.PaymentCategoryDb
-import com.syleiman.gingermoney.core.storages.db.entities.SourceExchangeRateDb
+import com.syleiman.gingermoney.core.storages.db.entities.*
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
+import com.syleiman.gingermoney.dto.entities.Payment
 import com.syleiman.gingermoney.dto.entities.PaymentCategory
 
 //region ExchangeRate
@@ -61,4 +59,14 @@ fun PaymentCategory.map() = PaymentCategoryDb(
     this.name,
     this.createAt.toSplit(),
     this.lastUsed?.toSplit()
+)
+
+fun Payment.map() = PaymentDb(
+    this.id ?: IdUtil.generateLongId(),
+    this.account.id!!,
+    this.paymentCategory.id!!,
+    this.amount,
+    this.memo,
+    this.createAt.toSplit(),
+    this.createAtEstimate
 )

@@ -20,14 +20,14 @@ data class TextError(
 /**
  * Memo field is too long
  */
-class MemoIsTooLong: DisplayingError
+class MemoIsTooLongError: DisplayingError
 
 /**
  * Name field is empty
  */
-class NameIsEmpty: DisplayingError
+class NameIsEmptyError: DisplayingError
 
 /**
  * Name field is too long
  */
-class NameIsTooLong: DisplayingError
+class NameIsTooLongError: DisplayingError

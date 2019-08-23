@@ -10,13 +10,13 @@ import androidx.databinding.ViewDataBinding
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModel
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmpty
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmptyError
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.view_commands.*
 import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
-import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.MemoIsTooLong
-import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmpty
-import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLong
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.MemoIsTooLongError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmptyError
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLongError
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.*
 import com.syleiman.gingermoney.ui.common.widgets.EditTextWithEmoji
@@ -82,7 +82,7 @@ abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModel, TVM
 
     private fun showAmountKeyboard(command: ShowAmountKeyboard) {
         if(!::amountKeyboard.isInitialized) {
-            amountKeyboard = AmountKeyboard(root, requireContext(), command.currencies, command.canEditCurrency)
+            amountKeyboard = AmountKeyboard(root, requireContext(), command.currencies, command.canEditCurrency, command.canEditSign)
             amountKeyboard.setOnEditingListener { viewModel.onAmountEdit(it) }
         }
 
@@ -109,10 +109,10 @@ abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModel, TVM
 
     private fun showError(error: DisplayingError) {
         val errorResId = when(error) {
-            is GroupIsEmpty -> R.string.addEditAccountGroupIsEmptyError
-            is MemoIsTooLong -> R.string.addEditAccountMemoIsTooLongError
-            is NameIsEmpty -> R.string.addEditAccountNameIsEmptyError
-            is NameIsTooLong -> R.string.addEditAccountNameIsTooLongError
+            is GroupIsEmptyError -> R.string.addEditAccountGroupIsEmptyError
+            is MemoIsTooLongError -> R.string.addEditAccountMemoIsTooLongError
+            is NameIsEmptyError -> R.string.addEditAccountNameIsEmptyError
+            is NameIsTooLongError -> R.string.addEditAccountNameIsTooLongError
             else -> throw java.lang.UnsupportedOperationException("Command is not supported: ${error::class.simpleName}")
         }
         uiUtils.showError(resourcesProvider.getString(errorResId))

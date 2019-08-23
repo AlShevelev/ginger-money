@@ -15,10 +15,17 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_item
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.account.AccountsKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.category.CategoriesKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.AccountIsEmptyError
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.AmountIsEmptyError
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.CategoryIsEmptyError
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
+import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.MoveBackViewCommand
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowAmountKeyboard
+import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
 import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
@@ -30,6 +37,7 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
 
     private lateinit var accountsKeyboard: AccountsKeyboard
     private lateinit var categoriesKeyboard: CategoriesKeyboard
+    private lateinit var amountKeyboard: AmountKeyboard
 
     @Inject
     internal lateinit var navigation: NavigationHelper
@@ -66,9 +74,11 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
             is MoveBackViewCommand -> navigation.moveBack(this, true)
             is ShowAccountsKeyboard -> showAccountsKeyboard(command.items)
             is ShowCategoriesKeyboard -> showCategoriesKeyboard(command.items)
+            is ShowAmountKeyboard -> showAmountKeyboard(command)
             is HideAccountsKeyboard -> accountsKeyboard.hide()
             is HideCategoriesKeyboard -> categoriesKeyboard.hide()
             is MoveToListOfCategoriesCommand -> navigation.moveToListOfCategories(this)
+            is ShowErrorCommand -> showError(command.error)
         }
     }
 
@@ -126,6 +136,24 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
             categoriesKeyboard.show()
         } else {
             categoriesKeyboard.show(categories)
+        }
+    }
+
+    private fun showAmountKeyboard(command: ShowAmountKeyboard) {
+        if(!::amountKeyboard.isInitialized) {
+            amountKeyboard = AmountKeyboard(root, requireContext(), command.currencies, command.canEditCurrency, command.canEditSign)
+            amountKeyboard.setOnEditingListener { viewModel.onAmountEdit(it) }
+        }
+
+        amountKeyboard.show(command.value)
+    }
+
+    private fun showError(error: DisplayingError) {
+        when(error) {
+            is AccountIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyAccountError)
+            is CategoryIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyCategoryError)
+            is AmountIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyAmountError)
+            else -> uiUtils.showError(R.string.commonGeneralError)
         }
     }
 }
