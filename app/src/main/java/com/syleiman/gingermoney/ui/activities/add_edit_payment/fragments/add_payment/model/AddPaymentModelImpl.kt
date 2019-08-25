@@ -31,8 +31,6 @@ constructor(
 ) : ModelBaseImpl(),
     AddPaymentModel {
 
-    private var selectedCategory: PaymentCategory? = null       // Selected category
-
     override var accounts: List<Account> = listOf()
     private set
 
@@ -40,6 +38,9 @@ constructor(
     private set
 
     override lateinit var selectedAccount: Account                // Selected account
+    private set
+
+    override var selectedCategory: PaymentCategory? = null       // Selected category
     private set
 
     override var selectedAmount: Money? = null                  // Selected amount
@@ -50,6 +51,7 @@ constructor(
         withContext(Dispatchers.IO) {
             try {
                 categories = db.readPaymentCategories().sortedByDescending { it.sortDate }
+                selectedCategory?.let { setSelectedCategory(it.id!!) }
                 null
 
             } catch (ex: Exception) {

@@ -16,12 +16,10 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_inject
 class CategoriesKeyboard(
     rootView: View,
     context: Context,
-    items: List<NamedListItem>,
     keyboardEventsProcessor: CategoriesKeyboardEventsProcessor
 ): NamedItemsKeyboard<CategoriesKeyboardEventsProcessor>(
     rootView,
     context,
-    items,
     keyboardEventsProcessor) {
 
     override fun inject() = App.injections.get<AddEditPaymentActivityComponent>().inject(this)
@@ -70,7 +68,9 @@ class CategoriesKeyboard(
     override fun setVisualState(accountsTotal: Int) {
         if(accountsTotal == 0) {
             contentView.findViewById<Group>(R.id.noDataStub).visibility = View.VISIBLE
+            contentView.findViewById<RecyclerView>(R.id.itemsList).visibility = View.INVISIBLE
         } else {
+            contentView.findViewById<Group>(R.id.noDataStub).visibility = View.INVISIBLE
             contentView.findViewById<RecyclerView>(R.id.itemsList).visibility = View.VISIBLE
         }
     }

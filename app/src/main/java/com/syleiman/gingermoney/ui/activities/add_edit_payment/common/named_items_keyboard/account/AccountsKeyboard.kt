@@ -14,12 +14,10 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_inject
 class AccountsKeyboard(
     rootView: View,
     context: Context,
-    items: List<NamedListItem>,
     keyboardEventsProcessor: AccountsKeyboardEventsProcessor
 ): NamedItemsKeyboard<AccountsKeyboardEventsProcessor>(
     rootView,
     context,
-    items,
     keyboardEventsProcessor) {
 
     override fun inject() = App.injections.get<AddEditPaymentActivityComponent>().inject(this)

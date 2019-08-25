@@ -130,6 +130,8 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
 
             loadingVisibility.value = View.GONE
 
+            model.selectedCategory?.let { category.value = it.name }
+
             if(error != null) {
                 command.value = ShowErrorCommand(error)
                 command.value = MoveBackViewCommand()

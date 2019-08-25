@@ -15,6 +15,7 @@ interface AddPaymentModel: ModelBase {
     val categories: List<PaymentCategory>
 
     val selectedAccount: Account
+    val selectedCategory: PaymentCategory?
     var selectedAmount: Money?
 
     val memoMaxLen: Int

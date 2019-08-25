@@ -121,8 +121,8 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
 
     private fun showAccountsKeyboard(accounts: List<NamedListItem>) {
         if(!::accountsKeyboard.isInitialized) {
-            accountsKeyboard = AccountsKeyboard(root, requireContext(), accounts, viewModel)
-            accountsKeyboard.show()
+            accountsKeyboard = AccountsKeyboard(root, requireContext(), viewModel)
+            accountsKeyboard.show(accounts)
         } else {
             accountsKeyboard.show(accounts)
         }
@@ -130,8 +130,8 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
 
     private fun showCategoriesKeyboard(categories: List<NamedListItem>) {
         if(!::categoriesKeyboard.isInitialized) {
-            categoriesKeyboard = CategoriesKeyboard(root, requireContext(), categories, viewModel)
-            categoriesKeyboard.show()
+            categoriesKeyboard = CategoriesKeyboard(root, requireContext(), viewModel)
+            categoriesKeyboard.show(categories)
         } else {
             categoriesKeyboard.show(categories)
         }

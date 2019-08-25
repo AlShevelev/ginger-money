@@ -23,11 +23,10 @@ import javax.inject.Inject
 abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
     private val rootView: View,
     private val context: Context,
-    items: List<NamedListItem>,
-    keyboardEventsProcessor: T
+    private val keyboardEventsProcessor: T
 ) : PopupWindow(context) {
 
-    private val adapter: NamedItemsListAdapterBase<T>
+    private lateinit var adapter: NamedItemsListAdapterBase<T>
 
     private var backPressedCallback = object: OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -47,12 +46,15 @@ abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
         contentView = (context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE) as LayoutInflater)
             .inflate(provideLayout(), null, false)
 
-        setSize(items.size)
         setBackgroundDrawable(null)
 
         animationStyle = R.style.amountKeyboardAnimation
 
         setHeaderButtonsListeners(keyboardEventsProcessor)
+    }
+
+    fun show(items: List<NamedListItem>) {
+        setSize(items.size)
 
         // Init list
         val layoutManager = GridLayoutManager(context, columns)
@@ -67,19 +69,11 @@ abstract class NamedItemsKeyboard<T: NamedItemsKeyboardEventsProcessor> (
         list.adapter = adapter
 
         setVisualState(items.size)
-    }
 
-    fun show() {
         showAtLocation(rootView, Gravity.BOTTOM, 0, 0)
 
         // Processes Back button action
         (context as? AppCompatActivity)?.onBackPressedDispatcher?.addCallback(backPressedCallback)
-    }
-
-    fun show(items: List<NamedListItem>) {
-        adapter.update(items)
-
-        show()
     }
 
     fun hide() {
