@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/colorPrimary">
+
+    <TextView
+        android:id="@+id/headerTitle"
+
+        style="@style/App.Activity.Header.Title"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/headerMargin"
+
+        android:tag="TITLE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent"
+
+        tools:text="Title" />
+
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
+        android:id="@+id/priorButton"
+
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
+
+        android:background="@null"
+        app:imageButton_icon="@drawable/ic_left_angle"
+
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
+        app:imageButton_iconWidth="@dimen/addEditPaymentHeaderIconWidth"
+        app:imageButton_tint="@color/header_button"
+
+        app:layout_constraintBottom_toBottomOf="@+id/monthAndYear"
+        app:layout_constraintEnd_toStartOf="@+id/monthAndYear"
+        app:layout_constraintTop_toTopOf="@+id/monthAndYear" />
+
+    <TextView
+        android:id="@+id/monthAndYear"
+        style="@style/App.Activity.Header.Text"
+        android:textAlignment="center"
+
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+
+        android:text=""
+        tools:text="Dec 2019"
+
+        app:layout_constraintBottom_toBottomOf="@+id/nextButton"
+        app:layout_constraintEnd_toStartOf="@+id/nextButton"
+        app:layout_constraintTop_toTopOf="@+id/nextButton"
+
+        />
+
+    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
+        android:id="@+id/nextButton"
+
+        android:layout_width="@dimen/headerButtonSize"
+        android:layout_height="@dimen/headerButtonSize"
+
+        android:background="@null"
+        app:imageButton_icon="@drawable/ic_right_angle"
+        app:imageButton_iconHeight="@dimen/headerButtonIconSize"
+        app:imageButton_iconWidth="@dimen/addEditPaymentHeaderIconWidth"
+        app:imageButton_tint="@color/header_button"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

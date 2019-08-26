@@ -9,7 +9,7 @@ import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActi
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.HeaderTags
-import com.syleiman.gingermoney.ui.activities.main.headers.PaymentsHeader
+import com.syleiman.gingermoney.ui.activities.main.headers.payments.PaymentsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.SettingsHeader
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import kotlinx.android.synthetic.main.activity_main.*

@@ -1,9 +1,5 @@
 package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
@@ -11,7 +7,6 @@ import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.databinding.FragmentMainAccountsBinding
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependency_injection.AccountsFragmentComponent
-import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.model.AccountsModel
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.adapter.AccountsListAdapter
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders.GroupViewHolderItemDecoration
@@ -19,14 +14,15 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_comma
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectColorsDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_commands.StartSelectCurrencyDialogCommand
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
-import com.syleiman.gingermoney.ui.common.widgets.dialogs.SelectCurrencyDialog
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeaderLink
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.formatters.MoneyHardCentsFormatter
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
-import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
+import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.SelectCurrencyDialog
 import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.SelectColorDialog
+import com.syleiman.gingermoney.ui.common.widgets.dialogs.selectColor.TextColors
 import kotlinx.android.synthetic.main.fragment_main_accounts.*
 import javax.inject.Inject
 
@@ -56,7 +52,7 @@ class AccountsFragment :
         binding.viewModel = viewModel
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun observeViewModel(viewModel: AccountsViewModel) {
         viewModel.accountsListData.observe({this.viewLifecycleOwner.lifecycle}) {
             updateAccountsList(it)
         }
@@ -64,8 +60,6 @@ class AccountsFragment :
         viewModel.dialogCommands.observe({this.viewLifecycleOwner.lifecycle}) {
             processDialogCommand(it)
         }
-
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onStart() {

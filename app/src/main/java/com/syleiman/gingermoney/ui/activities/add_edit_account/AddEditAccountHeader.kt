@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.widget.Toolbar
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
-import kotlinx.android.synthetic.main.activity_add_edit_account_header.view.*
+import kotlinx.android.synthetic.main.header_activity_add_edit_account.view.*
 
 class AddEditAccountHeader
 @JvmOverloads
@@ -14,7 +14,7 @@ constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : HeaderBase(context, attrs, defStyleAttr, R.layout.activity_add_edit_account_header) {
+) : HeaderBase(context, attrs, defStyleAttr, R.layout.header_activity_add_edit_account) {
 
     companion object {
         /**

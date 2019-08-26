@@ -1,22 +1,20 @@
 package com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentAddEditPaymentAddBinding
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.StartSelectingTimeCommand
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.model.AddPaymentModel
-import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view_model.AddPaymentViewModel
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.NamedListItem
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.account.AccountsKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.named_items_keyboard.category.CategoriesKeyboard
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.common.view_commands.*
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.StartSelectingTimeCommand
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dependency_injection.AddPaymentFragmentComponent
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.AmountIsEmptyError
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.dto.CategoryIsEmptyError
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.model.AddPaymentModel
+import com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.add_payment.view_model.AddPaymentViewModel
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
@@ -25,11 +23,11 @@ import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowAmountKeyboard
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ShowErrorCommand
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.ViewCommand
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
-import org.threeten.bp.ZonedDateTime
-import javax.inject.Inject
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog
 import kotlinx.android.synthetic.main.fragment_add_edit_payment_add.*
+import org.threeten.bp.ZonedDateTime
+import javax.inject.Inject
 
 class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPaymentModel, AddPaymentViewModel>() {
 
@@ -54,14 +52,6 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
         binding.viewModel = viewModel
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewModel.dialogCommands.observe({this.viewLifecycleOwner.lifecycle}) {
-            processDialogCommand(it)
-        }
-
-        return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         memoText.setOnFocusChangeListener { _, hasFocus -> if(hasFocus) viewModel.onMemoFieldClick() }
@@ -81,6 +71,12 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
             is HideKeyboard -> hideKeyboards(command.args)
             is MoveToListOfCategoriesCommand -> navigation.moveToListOfCategories(this)
             is ShowErrorCommand -> showError(command.error)
+        }
+    }
+
+    override fun observeViewModel(viewModel: AddPaymentViewModel) {
+        viewModel.dialogCommands.observe({this.viewLifecycleOwner.lifecycle}) {
+            processDialogCommand(it)
         }
     }
 

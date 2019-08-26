@@ -52,6 +52,8 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBase, TVM: ViewModelBa
             }
         }
 
+        observeViewModel(_viewModel)
+
         binding = DataBindingUtil.inflate(inflater, provideLayout(), container, false)
         binding.lifecycleOwner = this
 
@@ -80,6 +82,8 @@ abstract class FragmentBase<TB: ViewDataBinding, TM: ModelBase, TVM: ViewModelBa
     protected abstract fun inject()
 
     protected open fun releaseInjection() {}
+
+    protected open fun observeViewModel(viewModel: TVM) {}
 
     protected abstract fun linkViewModel(binding: TB, viewModel: TVM)
 

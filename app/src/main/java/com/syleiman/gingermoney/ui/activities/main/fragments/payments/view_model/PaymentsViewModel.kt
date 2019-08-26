@@ -6,6 +6,7 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.dependency_injection.PaymentsFragmentComponent
+import com.syleiman.gingermoney.ui.activities.main.fragments.payments.dto.PaymentsListPeriodInfo
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.model.PaymentsModel
 import com.syleiman.gingermoney.ui.common.mvvm.ViewModelBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
@@ -23,6 +24,8 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
 
     val loadingVisibility: MutableLiveData<Int> = MutableLiveData()
 
+    val periodInfo: MutableLiveData<PaymentsListPeriodInfo> = MutableLiveData()
+
     @Inject
     internal lateinit var appResourcesProvider: AppResourcesProvider
 
@@ -32,10 +35,19 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
         stubVisibility.value = View.VISIBLE
         paymentsListVisibility.value = View.INVISIBLE
         addPaymentButtonVisibility.value = View.INVISIBLE
+        periodInfo.value = model.currentPeriod
     }
 
     fun onViewActive() {
         fillPaymentsList()
+    }
+
+    fun onPriorMonthButtonClick() {
+        periodInfo.value = model.moveToPriorPeriod()
+    }
+
+    fun onNextMonthButtonClick() {
+        periodInfo.value = model.moveToNextPeriod()
     }
 
     private fun fillPaymentsList() {

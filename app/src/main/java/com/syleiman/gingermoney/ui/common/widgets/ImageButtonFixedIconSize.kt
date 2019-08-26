@@ -48,6 +48,10 @@ constructor(
         super.onLayout(changed, left, top, right, bottom)
     }
 
+    fun setEnabledState(isEnabled: Boolean) {
+        this.isEnabled = isEnabled
+    }
+
     private fun retrieveAttributes(attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ImageButtonFixedIconSize)
 

@@ -149,5 +149,6 @@
     <!--<editor-fold desc="Add & Edit payments">-->
     <dimen name="addEditPaymentFieldsBarrier">85dp</dimen>
     <dimen name="categoriesListDeleteButtonWidth">16dp</dimen>
+    <dimen name="addEditPaymentHeaderIconWidth">13dp</dimen>
     <!--</editor-fold>-->
 </resources>

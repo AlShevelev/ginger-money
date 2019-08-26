@@ -1,9 +1,6 @@
 package com.syleiman.gingermoney.ui.activities.add_edit_payment.fragments.list_categories.view
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
@@ -55,14 +52,12 @@ class ListCategoriesFragment :
         binding.viewModel = viewModel
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun observeViewModel(viewModel: ListCategoriesViewModel) {
         isListInitialized = false
 
         viewModel.categoriesList.observe({this.viewLifecycleOwner.lifecycle}) {
             updateCategoriesList(it)
         }
-
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onResume() {

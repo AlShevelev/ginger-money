@@ -9,7 +9,7 @@ import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
-import kotlinx.android.synthetic.main.fragment_main_settings_header.view.*
+import kotlinx.android.synthetic.main.header_fragment_main_settings.view.*
 import javax.inject.Inject
 
 class SettingsHeader
@@ -18,7 +18,7 @@ constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : HeaderBase(context, attrs, defStyleAttr, R.layout.fragment_main_settings_header) {
+) : HeaderBase(context, attrs, defStyleAttr, R.layout.header_fragment_main_settings) {
 
     companion object {
         /**

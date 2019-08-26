@@ -1,9 +1,7 @@
 package com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.EditText
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.ViewDataBinding
@@ -11,13 +9,13 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.add.model.AddAccountModel
 import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.errors.GroupIsEmptyError
-import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.view_commands.*
+import com.syleiman.gingermoney.ui.activities.add_edit_account.fragments.common.dto.view_commands.StartSelectAccountGroupCommand
 import com.syleiman.gingermoney.ui.activities.add_edit_account.navigation.NavigationHelper
+import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.DisplayingError
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.MemoIsTooLongError
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsEmptyError
 import com.syleiman.gingermoney.ui.common.mvvm.displaying_errors.NameIsTooLongError
-import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
 import com.syleiman.gingermoney.ui.common.mvvm.view_commands.*
 import com.syleiman.gingermoney.ui.common.widgets.EditTextWithEmoji
 import com.syleiman.gingermoney.ui.common.widgets.amount_keyboard.AmountKeyboard
@@ -35,12 +33,10 @@ abstract class AccountFragmentBase<TB: ViewDataBinding, TM: AddAccountModel, TVM
     protected abstract val nameText: EditTextWithEmoji
     protected abstract val root: ConstraintLayout
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun observeViewModel(viewModel: TVM) {
         viewModel.dialogCommands.observe({this.lifecycle}) {
             processDialogCommand(it)
         }
-
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

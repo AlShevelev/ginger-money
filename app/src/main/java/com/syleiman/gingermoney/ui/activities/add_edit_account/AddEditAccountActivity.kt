@@ -11,7 +11,7 @@ import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.DB_ID
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.ADD
 import com.syleiman.gingermoney.ui.common.navigation.NavigationArgs.EDIT
 import kotlinx.android.synthetic.main.activity_add_edit_account.*
-import kotlinx.android.synthetic.main.activity_add_edit_account_header.*
+import kotlinx.android.synthetic.main.header_activity_add_edit_account.*
 import javax.inject.Inject
 
 class AddEditAccountActivity : AppCompatActivity() {

@@ -7,6 +7,7 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.payments.dependency
 import com.syleiman.gingermoney.ui.activities.main.fragments.settings.dependency_injection.SettingsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.headers.accounts.AccountsHeader
 import com.syleiman.gingermoney.ui.activities.main.headers.SettingsHeader
+import com.syleiman.gingermoney.ui.activities.main.headers.payments.PaymentsHeader
 import dagger.Subcomponent
 
 @Subcomponent(modules = [MainActivityModuleBinds::class, MainActivityModuleChilds::class])
@@ -29,4 +30,5 @@ interface MainActivityComponent {
     fun inject(header : SettingsHeader)
 
     fun inject(header : AccountsHeader)
+    fun inject(header : PaymentsHeader)
 }

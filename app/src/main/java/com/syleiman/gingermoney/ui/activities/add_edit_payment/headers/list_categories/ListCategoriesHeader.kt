@@ -10,7 +10,7 @@ import com.syleiman.gingermoney.ui.activities.add_edit_payment.dependency_inject
 import com.syleiman.gingermoney.ui.activities.add_edit_payment.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.extension.getParentActivity
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
-import kotlinx.android.synthetic.main.fragment_list_categories_header.view.*
+import kotlinx.android.synthetic.main.header_fragment_list_categories.view.*
 import javax.inject.Inject
 
 class ListCategoriesHeader
@@ -19,7 +19,7 @@ constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : HeaderBase(context, attrs, defStyleAttr, R.layout.fragment_list_categories_header),
+) : HeaderBase(context, attrs, defStyleAttr, R.layout.header_fragment_list_categories),
     ListCategoriesHeaderFragmentLink {
 
     @Inject

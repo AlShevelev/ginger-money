@@ -35,12 +35,10 @@ class SettingsFragment : FragmentBase<FragmentMainSettingsBinding, SettingsModel
         binding.viewModel = viewModel
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun observeViewModel(viewModel: SettingsViewModel) {
         viewModel.dialogCommands.observe({this.viewLifecycleOwner.lifecycle}) {
             processDialogCommand(it)
         }
-
-        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun processDialogCommand(command: ViewCommand) {

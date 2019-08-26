@@ -7,7 +7,7 @@ import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
-import kotlinx.android.synthetic.main.fragment_main_accounts_header.view.*
+import kotlinx.android.synthetic.main.header_fragment_main_accounts.view.*
 import javax.inject.Inject
 
 class AccountsHeader
@@ -16,7 +16,7 @@ constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : HeaderBase(context, attrs, defStyleAttr, R.layout.fragment_main_accounts_header),
+) : HeaderBase(context, attrs, defStyleAttr, R.layout.header_fragment_main_accounts),
     AccountsHeaderFragment {
 
     companion object {
