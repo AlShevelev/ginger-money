@@ -35,6 +35,8 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
     val memo: MutableLiveData<String> = MutableLiveData()
     val memoMaxLen: MutableLiveData<Int> = MutableLiveData()
 
+    private var isInAutoMode = false
+
     init {
         @Suppress("LeakingThis")
         App.injections.get<AddPaymentFragmentComponent>().inject(this)
@@ -42,14 +44,14 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
     }
 
     fun onActive() {
+        isInAutoMode = true
         reloadCategories()
     }
 
     fun onCreatedAtDateClick() {
-        dialogCommands.value =
-            StartSelectingDateCommand(
-                createdAt.value!!
-            )
+        command.value = HideKeyboard(Keyboard.TEXT, Keyboard.AMOUNT, Keyboard.CATEGORY, Keyboard.ACCOUNT)
+        isInAutoMode = false
+        dialogCommands.value = StartSelectingDateCommand(createdAt.value!!)
     }
 
     fun onDateSelected(year: Int, monthOfYear: Int, dayOfMonth: Int) {
@@ -57,19 +59,23 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
     }
 
     fun onCreatedAtTimeClick() {
+        command.value = HideKeyboard(Keyboard.TEXT, Keyboard.AMOUNT, Keyboard.CATEGORY, Keyboard.ACCOUNT)
+        isInAutoMode = false
         dialogCommands.value = StartSelectingTimeCommand(createdAt.value!!)
     }
 
     override fun onAccountSelect(id: Long) {
         account.value = model.setSelectedAccount(id).name
-        command.value = HideAccountsKeyboard()
+        command.value = HideKeyboard(Keyboard.ACCOUNT)
     }
 
     override fun onCloseAccountKeyboard() {
-        command.value = HideAccountsKeyboard()
+        command.value = HideKeyboard(Keyboard.ACCOUNT)
     }
 
     fun onAccountFieldClick() {
+        command.value = HideKeyboard(Keyboard.TEXT, Keyboard.AMOUNT, Keyboard.CATEGORY)
+        isInAutoMode = false
         command.value = ShowAccountsKeyboard(model.accounts.map { NamedListItem(it.id!!, it.name) })
     }
 
@@ -78,24 +84,35 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
     }
 
     fun onCategoryFieldClick() {
+        command.value = HideKeyboard(Keyboard.TEXT, Keyboard.AMOUNT, Keyboard.ACCOUNT)
+        isInAutoMode = false
         command.value = ShowCategoriesKeyboard(model.categories.map { NamedListItem(it.id!!, it.name) })
     }
 
     override fun onCategorySelect(id: Long) {
         category.value = model.setSelectedCategory(id).name
-        command.value = HideCategoriesKeyboard()
+        command.value = HideKeyboard(Keyboard.CATEGORY)
+
+        if(isInAutoMode) {
+            command.value = ShowAmountKeyboard(model.selectedAmount!!, model.getAllCurrencies(), true, false)
+        }
+        isInAutoMode = false
     }
 
     override fun onCloseCategoryKeyboard() {
-        command.value = HideCategoriesKeyboard()
+        command.value = HideKeyboard(Keyboard.CATEGORY)
+        isInAutoMode = false
     }
 
     override fun onEditCategories() {
-        command.value = HideCategoriesKeyboard()
+        command.value = HideKeyboard(Keyboard.CATEGORY)
+        isInAutoMode = false
         command.value = MoveToListOfCategoriesCommand()
     }
 
     fun onAmountFieldClick() {
+        command.value = HideKeyboard(Keyboard.TEXT, Keyboard.CATEGORY, Keyboard.ACCOUNT)
+        isInAutoMode = false
         command.value = ShowAmountKeyboard(model.selectedAmount!!, model.getAllCurrencies(), true, false)
     }
 
@@ -106,7 +123,14 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
         amount.value = formatter.format(result.value)
     }
 
+    fun onMemoFieldClick() {
+        command.value = HideKeyboard(Keyboard.AMOUNT, Keyboard.CATEGORY, Keyboard.ACCOUNT)
+        isInAutoMode = false
+    }
+
     fun onSaveButtonClick() {
+        command.value = HideKeyboard(Keyboard.TEXT, Keyboard.AMOUNT, Keyboard.CATEGORY, Keyboard.ACCOUNT)
+
         loadingVisibility.value = View.VISIBLE
 
         launch {
@@ -131,6 +155,8 @@ class AddPaymentViewModel: ViewModelBase<AddPaymentModel>(), AccountsKeyboardEve
             loadingVisibility.value = View.GONE
 
             model.selectedCategory?.let { category.value = it.name }
+
+            command.value = ShowCategoriesKeyboard(model.categories.map { NamedListItem(it.id!!, it.name) })
 
             if(error != null) {
                 command.value = ShowErrorCommand(error)

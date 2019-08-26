@@ -8,13 +8,9 @@ class ShowAccountsKeyboard(
     val items: List<NamedListItem>
 ) : ViewCommand
 
-class HideAccountsKeyboard: ViewCommand
-
 class ShowCategoriesKeyboard(
     val items: List<NamedListItem>
 ) : ViewCommand
-
-class HideCategoriesKeyboard: ViewCommand
 
 class StartSelectingDateCommand(val dateTime: ZonedDateTime): ViewCommand
 
@@ -24,3 +20,7 @@ class MoveToAddCategoryCommand(): ViewCommand
 
 class MoveToEditCategoryCommand(val categoryDbId: Long): ViewCommand
 
+/**
+ * Hides set of keyboard
+ */
+class HideKeyboard(vararg val args: Keyboard): ViewCommand

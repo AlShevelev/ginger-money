@@ -205,6 +205,7 @@
 
             style="@style/App.TextField.Text"
 
+            android:onClick="@{() -> viewModel.onMemoFieldClick()}"
             android:text="@{viewModel.memo}"
             android:maxLength="@{viewModel.memoMaxLen}"
 

@@ -33,9 +33,9 @@ import kotlinx.android.synthetic.main.fragment_add_edit_payment_add.*
 
 class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPaymentModel, AddPaymentViewModel>() {
 
-    private lateinit var accountsKeyboard: AccountsKeyboard
-    private lateinit var categoriesKeyboard: CategoriesKeyboard
-    private lateinit var amountKeyboard: AmountKeyboard
+    private var accountsKeyboard: AccountsKeyboard? = null
+    private var categoriesKeyboard: CategoriesKeyboard? = null
+    private var amountKeyboard: AmountKeyboard? = null
 
     @Inject
     internal lateinit var navigation: NavigationHelper
@@ -62,6 +62,11 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        memoText.setOnFocusChangeListener { _, hasFocus -> if(hasFocus) viewModel.onMemoFieldClick() }
+    }
+
     override fun onResume() {
         super.onResume()
         viewModel.onActive()
@@ -73,8 +78,7 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
             is ShowAccountsKeyboard -> showAccountsKeyboard(command.items)
             is ShowCategoriesKeyboard -> showCategoriesKeyboard(command.items)
             is ShowAmountKeyboard -> showAmountKeyboard(command)
-            is HideAccountsKeyboard -> accountsKeyboard.hide()
-            is HideCategoriesKeyboard -> categoriesKeyboard.hide()
+            is HideKeyboard -> hideKeyboards(command.args)
             is MoveToListOfCategoriesCommand -> navigation.moveToListOfCategories(this)
             is ShowErrorCommand -> showError(command.error)
         }
@@ -120,30 +124,25 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
     }
 
     private fun showAccountsKeyboard(accounts: List<NamedListItem>) {
-        if(!::accountsKeyboard.isInitialized) {
+        if(accountsKeyboard == null) {
             accountsKeyboard = AccountsKeyboard(root, requireContext(), viewModel)
-            accountsKeyboard.show(accounts)
-        } else {
-            accountsKeyboard.show(accounts)
         }
+        accountsKeyboard?.show(accounts)
     }
 
     private fun showCategoriesKeyboard(categories: List<NamedListItem>) {
-        if(!::categoriesKeyboard.isInitialized) {
+        if(categoriesKeyboard == null) {
             categoriesKeyboard = CategoriesKeyboard(root, requireContext(), viewModel)
-            categoriesKeyboard.show(categories)
-        } else {
-            categoriesKeyboard.show(categories)
         }
+        categoriesKeyboard?.show(categories)
     }
 
     private fun showAmountKeyboard(command: ShowAmountKeyboard) {
-        if(!::amountKeyboard.isInitialized) {
+        if(amountKeyboard == null) {
             amountKeyboard = AmountKeyboard(root, requireContext(), command.currencies, command.canEditCurrency, command.canEditSign)
-            amountKeyboard.setOnEditingListener { viewModel.onAmountEdit(it) }
+            amountKeyboard?.setOnEditingListener { viewModel.onAmountEdit(it) }
         }
-
-        amountKeyboard.show(command.value)
+        amountKeyboard?.show(command.value)
     }
 
     private fun showError(error: DisplayingError) {
@@ -151,6 +150,20 @@ class AddPaymentFragment : FragmentBase<FragmentAddEditPaymentAddBinding, AddPay
             is CategoryIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyCategoryError)
             is AmountIsEmptyError -> uiUtils.showError(R.string.addEditPaymentEmptyAmountError)
             else -> uiUtils.showError(R.string.commonGeneralError)
+        }
+    }
+
+    private fun hideKeyboards(keyboards: Array<out Keyboard>) {
+        keyboards.forEach { keyboard ->
+            when(keyboard) {
+                Keyboard.ACCOUNT -> accountsKeyboard?.hide()
+                Keyboard.CATEGORY -> categoriesKeyboard?.hide()
+                Keyboard.AMOUNT -> amountKeyboard?.hide()
+                Keyboard.TEXT -> {
+                    uiUtils.setSoftKeyboardVisibility(memoText, false)
+                    memoText.clearFocus()
+                }
+            }
         }
     }
 }
