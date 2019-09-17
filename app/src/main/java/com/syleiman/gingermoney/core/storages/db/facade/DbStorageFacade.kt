@@ -8,6 +8,7 @@ import com.syleiman.gingermoney.dto.entities.Payment
 import com.syleiman.gingermoney.dto.entities.PaymentCategory
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
+import org.threeten.bp.ZonedDateTime
 
 interface DbStorageFacade {
     fun updateSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>)
@@ -51,4 +52,11 @@ interface DbStorageFacade {
     fun updatePaymentCategory(category: PaymentCategory)
 
     fun createPayment(payment: Payment)
+
+    /**
+     * Returns list of payments from Db
+     * [from] - start time moment (included)
+     * [to] - end time moment (excluded)
+     */
+    fun readPayments(from: ZonedDateTime, to: ZonedDateTime): List<Payment>
 }

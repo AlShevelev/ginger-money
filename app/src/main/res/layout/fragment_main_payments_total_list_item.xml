@@ -20,36 +20,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="@dimen/listItemSizeMargin"
-    />
+        />
 
     <TextView
         android:id="@+id/amount"
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        tools:text="1000000"
         style="@style/App.TextField.Label.End"
+        android:layout_width="wrap_content"
 
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/menuButton"
-    />
-
-    <com.syleiman.gingermoney.ui.common.widgets.ImageButtonFixedIconSize
-        android:id="@+id/menuButton"
-
-        android:layout_width="@dimen/listItemButtonWidth"
-        android:layout_height="0dp"
-
-        android:background="@null"
-
-        app:imageButton_tint = "@color/list_item_button"
-        app:imageButton_icon="@drawable/ic_dots_menu"
-        app:imageButton_iconWidth="@dimen/accountsListItemMenuButtonIconWidth"
-        app:imageButton_iconHeight="@dimen/listItemButtonSize"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+
+        android:layout_marginEnd="@dimen/listItemSizeMargin"
+
+        tools:text="1000000" />
 </androidx.constraintlayout.widget.ConstraintLayout>

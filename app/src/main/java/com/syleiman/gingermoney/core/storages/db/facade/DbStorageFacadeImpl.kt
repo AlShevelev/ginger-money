@@ -1,5 +1,6 @@
 package com.syleiman.gingermoney.core.storages.db.facade
 
+import com.syleiman.gingermoney.core.global_entities.date_time.getEstimateValue
 import com.syleiman.gingermoney.core.global_entities.money.Currency
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.core.helpers.id.IdUtil
@@ -12,6 +13,7 @@ import com.syleiman.gingermoney.dto.entities.Payment
 import com.syleiman.gingermoney.dto.entities.PaymentCategory
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.Color
+import org.threeten.bp.ZonedDateTime
 import javax.inject.Inject
 
 class DbStorageFacadeImpl
@@ -19,7 +21,6 @@ class DbStorageFacadeImpl
 constructor(
     private val db: DbCoreRun
 ) : DbStorageFacade {
-
     override fun updateSourceExchangeRates(sourceExchangeRates: List<ExchangeRate>) {
         db.runInTransaction { dbCore ->
             dbCore.sourceExchangeRate.deleteAll()
@@ -129,4 +130,14 @@ constructor(
             dbCore.payments.create(payment.map())
         }
     }
+
+    /**
+     * Returns list of payments from Db
+     * [from] - start time moment (included)
+     * [to] - end time moment (excluded)
+     */
+    override fun readPayments(from: ZonedDateTime, to: ZonedDateTime): List<Payment> =
+        db.run { dbCore ->
+            dbCore.payments.read(from.getEstimateValue(), to.getEstimateValue()).map { it.map() }
+        }
 }

@@ -5,6 +5,7 @@ import com.syleiman.gingermoney.core.global_entities.date_time.toZoneDateTime
 import com.syleiman.gingermoney.core.global_entities.money.ExchangeRate
 import com.syleiman.gingermoney.core.helpers.id.IdUtil
 import com.syleiman.gingermoney.core.storages.db.entities.*
+import com.syleiman.gingermoney.core.storages.db.entities_util.PaymentExtDb
 import com.syleiman.gingermoney.dto.entities.Account
 import com.syleiman.gingermoney.dto.entities.AccountGroupSettings
 import com.syleiman.gingermoney.dto.entities.Payment
@@ -69,4 +70,14 @@ fun Payment.map() = PaymentDb(
     this.memo,
     this.createAt.toSplit(),
     this.createAtEstimate
+)
+
+fun PaymentExtDb.map() = Payment(
+    this.payment.id,
+    this.accounts.first().map(),
+    this.paymentCategories.first().map(),
+    this.payment.amount,
+    this.payment.memo,
+    this.payment.createAt.toZoneDateTime(),
+    this.payment.createAtEstimate
 )

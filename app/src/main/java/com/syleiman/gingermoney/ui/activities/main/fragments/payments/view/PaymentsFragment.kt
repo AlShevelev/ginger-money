@@ -2,15 +2,18 @@ package com.syleiman.gingermoney.ui.activities.main.fragments.payments.view
 
 import android.os.Bundle
 import android.view.View
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
 import com.syleiman.gingermoney.databinding.FragmentMainPaymentsBinding
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.dependency_injection.PaymentsFragmentComponent
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.model.PaymentsModel
+import com.syleiman.gingermoney.ui.activities.main.fragments.payments.view.payments_list.adapter.PaymentsListAdapter
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.view_model.PaymentsViewModel
 import com.syleiman.gingermoney.ui.activities.main.headers.payments.PaymentsHeaderLink
 import com.syleiman.gingermoney.ui.activities.main.navigation.NavigationHelper
 import com.syleiman.gingermoney.ui.common.mvvm.FragmentBase
+import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import kotlinx.android.synthetic.main.fragment_main_payments.*
 import javax.inject.Inject
 
@@ -20,6 +23,9 @@ import javax.inject.Inject
 class PaymentsFragment :
     FragmentBase<FragmentMainPaymentsBinding, PaymentsModel, PaymentsViewModel>(),
     PaymentsFragmentHeader {
+
+    private lateinit var paymentsListAdapter: PaymentsListAdapter
+    private lateinit var paymentsListLayoutManager: LinearLayoutManager
 
     @Inject
     internal lateinit var headerLink: PaymentsHeaderLink
@@ -66,5 +72,25 @@ class PaymentsFragment :
         viewModel.periodInfo.observe({this.viewLifecycleOwner.lifecycle}) {
             headerLink.header?.setDateToDisplay(it.dateInPeriod, it.isLastPeriod)
         }
+
+        viewModel.paymentsListData.observe({this.viewLifecycleOwner.lifecycle}) {
+            updatePaymentsList(it)
+        }
+    }
+
+    private fun updatePaymentsList(accounts: List<ListItem>) {
+        if(!::paymentsListAdapter.isInitialized) {
+            paymentsListLayoutManager = LinearLayoutManager(context)
+
+            paymentsListAdapter = PaymentsListAdapter(viewModel)
+            paymentsListAdapter.setHasStableIds(true)
+
+            paymentsList.isSaveEnabled = false
+            paymentsList.itemAnimator = null
+            paymentsList.layoutManager = paymentsListLayoutManager
+            paymentsList.adapter = paymentsListAdapter
+        }
+
+        paymentsListAdapter.update(accounts)
     }
 }

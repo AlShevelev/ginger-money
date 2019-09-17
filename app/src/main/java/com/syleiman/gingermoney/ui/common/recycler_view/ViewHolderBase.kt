@@ -12,5 +12,5 @@ abstract class ViewHolderBase<TListItemEventsProcessor, TItem: ListItem>(itemVie
     /**
      * Used resources of UI elements must be released here (called in ListAdapterBase::onViewRecycled)
      */
-    abstract fun release()
+    open fun release() {}
 }

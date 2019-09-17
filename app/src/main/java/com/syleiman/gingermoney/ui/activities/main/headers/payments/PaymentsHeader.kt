@@ -5,6 +5,9 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.Toolbar
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.application.App
+import com.syleiman.gingermoney.core.global_entities.date_time.DateTimeFormat
+import com.syleiman.gingermoney.core.global_entities.date_time.format
+import com.syleiman.gingermoney.core.utils.app_resources.AppResourcesProvider
 import com.syleiman.gingermoney.ui.activities.main.dependency_injection.MainActivityComponent
 import com.syleiman.gingermoney.ui.common.widgets.headers.HeaderBase
 import kotlinx.android.synthetic.main.header_fragment_main_payments.view.*
@@ -33,6 +36,9 @@ constructor(
     @Inject
     internal lateinit var headerLink: PaymentsHeaderLink
 
+    @Inject
+    internal lateinit var appResourceProvider: AppResourcesProvider
+
     init {
         App.injections.get<MainActivityComponent>().inject(this)
         headerLink.attachHeader(this)
@@ -49,6 +55,6 @@ constructor(
     override fun setDateToDisplay(date: ZonedDateTime, isLastPeriod: Boolean) {
         nextButton.isEnabled = !isLastPeriod
 
-        monthAndYear.text = date.format(DateTimeFormatter.ofPattern("MMM yyyy"))
+        monthAndYear.text = date.format(DateTimeFormat.MONTH_AND_YEAR, appResourceProvider)
     }
 }

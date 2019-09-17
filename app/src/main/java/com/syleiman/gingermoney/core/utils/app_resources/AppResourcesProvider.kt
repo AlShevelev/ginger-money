@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.core.utils.app_resources
 
 import android.graphics.drawable.Drawable
 import androidx.annotation.*
+import com.syleiman.gingermoney.core.global_entities.date_time.DateTimeFormat
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.dto.enums.Color
@@ -53,4 +54,6 @@ interface AppResourcesProvider {
      * Returns string value for an account group
      */
     fun getAccountGroupString(group: AccountGroup): String
+
+    fun getDateTimeFormat(format: DateTimeFormat): String
 }

@@ -2,6 +2,7 @@ package com.syleiman.gingermoney.ui.activities.main.fragments.payments.dependenc
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.FragmentScope
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.view.PaymentsFragment
+import com.syleiman.gingermoney.ui.activities.main.fragments.payments.view.payments_list.view_holders.DayViewHolder
 import com.syleiman.gingermoney.ui.activities.main.fragments.payments.view_model.PaymentsViewModel
 import dagger.Subcomponent
 
@@ -16,4 +17,5 @@ interface PaymentsFragmentComponent {
 
     fun inject(fragment : PaymentsFragment)
     fun inject(viewModel: PaymentsViewModel)
+    fun inject(dayViewHolder: DayViewHolder)
 }

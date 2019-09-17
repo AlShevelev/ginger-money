@@ -5,7 +5,7 @@ import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.Accoun
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.GroupListItem
 import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dto.TotalListItem
-import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders.*
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.view_holders.*
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.ListItemEventsProcessor
 import com.syleiman.gingermoney.ui.common.recycler_view.DiffAlgBase
 import com.syleiman.gingermoney.ui.common.recycler_view.ListAdapterBase

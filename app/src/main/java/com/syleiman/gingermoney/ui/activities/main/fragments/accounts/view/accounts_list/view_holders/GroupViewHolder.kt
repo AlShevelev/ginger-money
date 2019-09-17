@@ -1,4 +1,4 @@
-package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders
+package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.view_holders
 
 import android.view.LayoutInflater
 import android.view.MenuInflater

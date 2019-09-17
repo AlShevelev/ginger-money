@@ -39,6 +39,8 @@
     <string name="commonCategory">Category</string>
     <string name="commonCategories">Categories</string>
 
+    <string name="dateFormatMonthAndYear" translatable="false">MMM yyyy</string>
+
     <string name="dialogSelectColorsTitle">Select colors</string>
     <string name="dialogSelectColorsText">Text color</string>
     <string name="dialogSelectColorsBackground">Background color</string>

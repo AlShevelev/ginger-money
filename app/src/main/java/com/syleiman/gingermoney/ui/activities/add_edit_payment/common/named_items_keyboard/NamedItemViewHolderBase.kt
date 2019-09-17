@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import com.syleiman.gingermoney.R
 import com.syleiman.gingermoney.ui.common.recycler_view.ViewHolderBase
-import kotlinx.android.synthetic.main.view_holder_select_item_list_item.view.*
+import kotlinx.android.synthetic.main.view_holder_named_keyboard_list_item.view.*
 
 abstract class NamedItemViewHolderBase<T: NamedItemsKeyboardEventsProcessor>(
     parentView: ViewGroup
 ) : ViewHolderBase<T, NamedListItem>(
-    LayoutInflater.from(parentView.context).inflate(R.layout.view_holder_select_item_list_item, parentView, false)
+    LayoutInflater.from(parentView.context).inflate(R.layout.view_holder_named_keyboard_list_item, parentView, false)
 ) {
 
     private var eventsProcessor: NamedItemsKeyboardEventsProcessor? = null

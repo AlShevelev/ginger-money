@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import com.syleiman.gingermoney.core.storages.db.entities.PaymentDb
+import com.syleiman.gingermoney.core.storages.db.entities_util.PaymentExtDb
 
 @Dao
 interface PaymentsDao {
@@ -12,4 +13,7 @@ interface PaymentsDao {
 
     @Insert
     fun create(payment: PaymentDb)
+
+    @Query("select * from payment where create_at_estimate >= :from and create_at_estimate < :to")
+    fun read(from: Int, to: Int): List<PaymentExtDb>
 }

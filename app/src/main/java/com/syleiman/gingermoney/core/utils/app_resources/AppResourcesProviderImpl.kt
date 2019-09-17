@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable
 import android.os.Build
 import androidx.annotation.*
 import com.syleiman.gingermoney.R
+import com.syleiman.gingermoney.core.global_entities.date_time.DateTimeFormat
 import com.syleiman.gingermoney.dto.enums.AccountGroup
 import com.syleiman.gingermoney.dto.enums.AppProtectionMethod
 import com.syleiman.gingermoney.dto.enums.Color
@@ -136,5 +137,10 @@ constructor(
             AccountGroup.SHARES -> getString(R.string.paymentShares)
             AccountGroup.BONDS -> getString(R.string.paymentBonds)
             AccountGroup.OTHER -> getString(R.string.paymentOther)
+        }
+
+    override fun getDateTimeFormat(format: DateTimeFormat): String =
+        when(format) {
+            DateTimeFormat.MONTH_AND_YEAR -> getString(R.string.dateFormatMonthAndYear)
         }
 }

@@ -2,7 +2,7 @@ package com.syleiman.gingermoney.ui.activities.main.fragments.accounts.dependenc
 
 import com.syleiman.gingermoney.application.dependency_injection.scopes.FragmentScope
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.AccountsFragment
-import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.viewHolders.GroupViewHolder
+import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view.accounts_list.view_holders.GroupViewHolder
 import com.syleiman.gingermoney.ui.activities.main.fragments.accounts.view_model.AccountsViewModel
 import dagger.Subcomponent
 

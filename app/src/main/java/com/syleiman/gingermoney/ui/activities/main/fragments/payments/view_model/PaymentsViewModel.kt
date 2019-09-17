@@ -13,7 +13,8 @@ import com.syleiman.gingermoney.ui.common.recycler_view.ListItem
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
+class PaymentsViewModel : ViewModelBase<PaymentsModel>(), ListItemEventsProcessor {
+
     val paymentsListVisibility: MutableLiveData<Int> = MutableLiveData()
     val paymentsListData: MutableLiveData<List<ListItem>> = MutableLiveData()
 
@@ -50,6 +51,10 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
         periodInfo.value = model.moveToNextPeriod()
     }
 
+    override fun onPaymentClick(accountDbId: Long) {
+
+    }
+
     private fun fillPaymentsList() {
         loadingVisibility.value = View.VISIBLE
 
@@ -77,7 +82,7 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>() {
                         paymentsListVisibility.value = View.VISIBLE
                         addPaymentButtonVisibility.value = View.VISIBLE
 
-                        // Show payments
+                        paymentsListData.value = it.payments        // Show payments
                     }
                 }
             }
