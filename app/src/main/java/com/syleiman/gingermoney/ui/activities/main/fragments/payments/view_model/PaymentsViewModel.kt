@@ -45,10 +45,12 @@ class PaymentsViewModel : ViewModelBase<PaymentsModel>(), ListItemEventsProcesso
 
     fun onPriorMonthButtonClick() {
         periodInfo.value = model.moveToPriorPeriod()
+        fillPaymentsList()
     }
 
     fun onNextMonthButtonClick() {
         periodInfo.value = model.moveToNextPeriod()
+        fillPaymentsList()
     }
 
     override fun onPaymentClick(accountDbId: Long) {
